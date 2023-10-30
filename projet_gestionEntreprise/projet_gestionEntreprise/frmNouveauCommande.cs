@@ -80,7 +80,7 @@ namespace projet_gestionEntreprise
             {
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
                 cn.Open();
-                string reqq = "insert into commande values(@dateCommande,@idClient)";
+                string reqq = "insert into commande(dateCommande,idClient,) values(@dateCommande,@idClient)";
                 SqlCommand com = new SqlCommand(reqq, cn);
                 com.Parameters.Add(new SqlParameter("@dateCommande", dtp_dateCommande.Value));
                 com.Parameters.Add(new SqlParameter("@idClient", idclient));
@@ -92,6 +92,7 @@ namespace projet_gestionEntreprise
 
                 txt_idCommande.Enabled = true;
                 dtp_dateCommande.Enabled= true; 
+                groupBox1.Enabled = true;   
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

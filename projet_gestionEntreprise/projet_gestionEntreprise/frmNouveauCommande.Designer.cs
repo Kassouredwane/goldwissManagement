@@ -42,6 +42,8 @@
             this.btn_ajouterCommande = new Guna.UI2.WinForms.Guna2Button();
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
             this.btn_valider = new Guna.UI2.WinForms.Guna2Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -67,7 +69,7 @@
             this.txt_idCommande.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_idCommande.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_idCommande.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_idCommande.Location = new System.Drawing.Point(172, 52);
+            this.txt_idCommande.Location = new System.Drawing.Point(163, 51);
             this.txt_idCommande.Name = "txt_idCommande";
             this.txt_idCommande.PasswordChar = '\0';
             this.txt_idCommande.PlaceholderText = "";
@@ -81,7 +83,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(52, 54);
+            this.label2.Location = new System.Drawing.Point(43, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 16);
             this.label2.TabIndex = 33;
@@ -99,7 +101,7 @@
             this.txt_prixAchat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_prixAchat.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_prixAchat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_prixAchat.Location = new System.Drawing.Point(537, 198);
+            this.txt_prixAchat.Location = new System.Drawing.Point(298, 105);
             this.txt_prixAchat.Name = "txt_prixAchat";
             this.txt_prixAchat.PasswordChar = '\0';
             this.txt_prixAchat.PlaceholderText = "";
@@ -112,7 +114,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(385, 200);
+            this.label5.Location = new System.Drawing.Point(201, 107);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 16);
             this.label5.TabIndex = 43;
@@ -130,7 +132,7 @@
             this.txt_qteAchat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_qteAchat.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_qteAchat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_qteAchat.Location = new System.Drawing.Point(172, 199);
+            this.txt_qteAchat.Location = new System.Drawing.Point(524, 41);
             this.txt_qteAchat.Name = "txt_qteAchat";
             this.txt_qteAchat.PasswordChar = '\0';
             this.txt_qteAchat.PlaceholderText = "";
@@ -143,7 +145,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(52, 201);
+            this.label6.Location = new System.Drawing.Point(404, 43);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(115, 16);
             this.label6.TabIndex = 41;
@@ -161,7 +163,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(219, 125);
+            this.label7.Location = new System.Drawing.Point(12, 45);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(143, 16);
             this.label7.TabIndex = 50;
@@ -179,7 +181,7 @@
             this.txt_referenceModele.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_referenceModele.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_referenceModele.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_referenceModele.Location = new System.Drawing.Point(373, 121);
+            this.txt_referenceModele.Location = new System.Drawing.Point(166, 41);
             this.txt_referenceModele.Name = "txt_referenceModele";
             this.txt_referenceModele.PasswordChar = '\0';
             this.txt_referenceModele.PlaceholderText = "";
@@ -218,7 +220,7 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(229, 329);
+            this.btn_annuler.Location = new System.Drawing.Point(229, 296);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
@@ -238,7 +240,7 @@
             this.btn_valider.ForeColor = System.Drawing.Color.White;
             this.btn_valider.Image = ((System.Drawing.Image)(resources.GetObject("btn_valider.Image")));
             this.btn_valider.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_valider.Location = new System.Drawing.Point(388, 329);
+            this.btn_valider.Location = new System.Drawing.Point(388, 296);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_valider.Size = new System.Drawing.Size(142, 29);
@@ -246,21 +248,33 @@
             this.btn_valider.Text = "Ajouter";
             this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txt_referenceModele);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.txt_prixAchat);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txt_qteAchat);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Enabled = false;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(35, 100);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(733, 169);
+            this.groupBox1.TabIndex = 55;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Information de modele";
+            // 
             // frmNouveauCommande
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 397);
+            this.ClientSize = new System.Drawing.Size(810, 374);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_ajouterCommande);
-            this.Controls.Add(this.txt_referenceModele);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.btn_valider);
             this.Controls.Add(this.dtp_dateCommande);
-            this.Controls.Add(this.txt_prixAchat);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txt_qteAchat);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_idCommande);
             this.Controls.Add(this.label2);
@@ -268,6 +282,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nouveau Commande";
             this.Load += new System.EventHandler(this.frmAjouterCommande_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,5 +303,6 @@
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2TextBox txt_referenceModele;
         private Guna.UI2.WinForms.Guna2Button btn_ajouterCommande;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

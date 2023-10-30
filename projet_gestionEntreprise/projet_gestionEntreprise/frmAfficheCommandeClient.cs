@@ -26,16 +26,19 @@ namespace projet_gestionEntreprise
         }
         private void refresh()
         {
+            if(chk_enCourLivraison.Checked)
+            {
                 // fill datagrid view with commandes of clients
+
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
                 cn.Open();
-                string req = "select c.idCommande,dateCommande,sum(qteAchat) as quantite from commande c inner join detailCommande dc on dc.idCommande=c.idCommande where idClient="+IdClient+" group by c.idCommande,dateCommande";
+                string req = "select c.idCommande,dateCommande,sum(qteAchat) as quantite,designation from commande c inner join detailCommande dc on dc.idCommande=c.idCommande inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=" + IdClient + " and c.idStatutLivraison=2 group by c.idCommande,dateCommande,designation";
                 SqlCommand com = new SqlCommand(req, cn);
                 SqlDataReader dr = com.ExecuteReader();
                 dgv_commandeClient.Rows.Clear();
                 while (dr.Read())
                 {
-                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["quantite"]);
+                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["quantite"], dr["designation"]);
                 }
                 // close all commandes and connection and datareader
                 dr.Close();
@@ -44,6 +47,29 @@ namespace projet_gestionEntreprise
 
                 cn.Close();
                 cn = null;
+            }
+            else
+            {
+                // fill datagrid view with commandes of clients
+
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                cn.Open();
+                string req = "select c.idCommande,dateCommande,sum(qteAchat) as quantite,designation from commande c inner join detailCommande dc on dc.idCommande=c.idCommande inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=" + IdClient + " group by c.idCommande,dateCommande,designation";
+                SqlCommand com = new SqlCommand(req, cn);
+                SqlDataReader dr = com.ExecuteReader();
+                dgv_commandeClient.Rows.Clear();
+                while (dr.Read())
+                {
+                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["quantite"], dr["designation"]);
+                }
+                // close all commandes and connection and datareader
+                dr.Close();
+                dr = null;
+                com = null;
+
+                cn.Close();
+                cn = null;
+            }
         }
         private void frmAfficheCommandeClient_Load(object sender, EventArgs e)
         {
@@ -52,9 +78,9 @@ namespace projet_gestionEntreprise
 
         private void btn_ajouter_Click(object sender, EventArgs e)
         {
-            //int idClient = IdClient;
-            //frmAjouterCommande f = new frmAjouterCommande(idClient);
-            //f.ShowDialog();
+            int idCommande = Convert.ToInt32(dgv_commandeClient.CurrentRow.Cells[0].Value); 
+            frmAjouterModeleACommande f = new frmAjouterModeleACommande(idCommande);
+            f.ShowDialog();
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
@@ -72,11 +98,6 @@ namespace projet_gestionEntreprise
             int idCcommande = Convert.ToInt32(dgv_detailCommandeClient.CurrentRow.Cells[0].Value);
             frmModifierCommande f = new frmModifierCommande(idCcommande);
             f.ShowDialog();
-        }
-
-        private void chk_enCourPaiement_CheckedChanged(object sender, EventArgs e)
-        {
-            refresh();
         }
 
         private void btn_nouveauCommande_Click(object sender, EventArgs e)
@@ -107,6 +128,11 @@ namespace projet_gestionEntreprise
 
             cn.Close();
             cn = null;
+        }
+
+        private void chk_enCourLivraison_CheckedChanged(object sender, EventArgs e)
+        {
+            refresh();
         }
     }
 }

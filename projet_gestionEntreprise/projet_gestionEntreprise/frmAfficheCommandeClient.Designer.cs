@@ -39,7 +39,7 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chk_enCourPaiement = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chk_enCourLivraison = new Guna.UI2.WinForms.Guna2CheckBox();
             this.btn_nouveauCommande = new Guna.UI2.WinForms.Guna2Button();
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
             this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
@@ -48,6 +48,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_detailCommandeClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_commandeClient)).BeginInit();
             this.SuspendLayout();
@@ -79,10 +80,10 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_detailCommandeClient.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_detailCommandeClient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgv_detailCommandeClient.Location = new System.Drawing.Point(413, 44);
+            this.dgv_detailCommandeClient.Location = new System.Drawing.Point(552, 44);
             this.dgv_detailCommandeClient.Name = "dgv_detailCommandeClient";
             this.dgv_detailCommandeClient.RowHeadersVisible = false;
-            this.dgv_detailCommandeClient.Size = new System.Drawing.Size(662, 331);
+            this.dgv_detailCommandeClient.Size = new System.Drawing.Size(523, 331);
             this.dgv_detailCommandeClient.TabIndex = 37;
             this.dgv_detailCommandeClient.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv_detailCommandeClient.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -121,24 +122,24 @@
             this.Column6.HeaderText = "Prix Achat";
             this.Column6.Name = "Column6";
             // 
-            // chk_enCourPaiement
+            // chk_enCourLivraison
             // 
-            this.chk_enCourPaiement.AutoSize = true;
-            this.chk_enCourPaiement.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chk_enCourPaiement.CheckedState.BorderRadius = 0;
-            this.chk_enCourPaiement.CheckedState.BorderThickness = 0;
-            this.chk_enCourPaiement.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chk_enCourPaiement.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_enCourPaiement.Location = new System.Drawing.Point(123, 403);
-            this.chk_enCourPaiement.Name = "chk_enCourPaiement";
-            this.chk_enCourPaiement.Size = new System.Drawing.Size(163, 20);
-            this.chk_enCourPaiement.TabIndex = 41;
-            this.chk_enCourPaiement.Text = "En cour de livraison";
-            this.chk_enCourPaiement.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chk_enCourPaiement.UncheckedState.BorderRadius = 0;
-            this.chk_enCourPaiement.UncheckedState.BorderThickness = 0;
-            this.chk_enCourPaiement.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chk_enCourPaiement.CheckedChanged += new System.EventHandler(this.chk_enCourPaiement_CheckedChanged);
+            this.chk_enCourLivraison.AutoSize = true;
+            this.chk_enCourLivraison.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chk_enCourLivraison.CheckedState.BorderRadius = 0;
+            this.chk_enCourLivraison.CheckedState.BorderThickness = 0;
+            this.chk_enCourLivraison.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chk_enCourLivraison.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_enCourLivraison.Location = new System.Drawing.Point(53, 401);
+            this.chk_enCourLivraison.Name = "chk_enCourLivraison";
+            this.chk_enCourLivraison.Size = new System.Drawing.Size(163, 20);
+            this.chk_enCourLivraison.TabIndex = 41;
+            this.chk_enCourLivraison.Text = "En cour de livraison";
+            this.chk_enCourLivraison.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chk_enCourLivraison.UncheckedState.BorderRadius = 0;
+            this.chk_enCourLivraison.UncheckedState.BorderThickness = 0;
+            this.chk_enCourLivraison.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chk_enCourLivraison.CheckedChanged += new System.EventHandler(this.chk_enCourLivraison_CheckedChanged);
             // 
             // btn_nouveauCommande
             // 
@@ -231,7 +232,8 @@
             this.dgv_commandeClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.Column1});
+            this.Column1,
+            this.Column2});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -244,7 +246,7 @@
             this.dgv_commandeClient.Location = new System.Drawing.Point(53, 44);
             this.dgv_commandeClient.Name = "dgv_commandeClient";
             this.dgv_commandeClient.RowHeadersVisible = false;
-            this.dgv_commandeClient.Size = new System.Drawing.Size(354, 331);
+            this.dgv_commandeClient.Size = new System.Drawing.Size(479, 331);
             this.dgv_commandeClient.TabIndex = 43;
             this.dgv_commandeClient.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv_commandeClient.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -284,6 +286,11 @@
             this.Column1.HeaderText = "Quantite Totale";
             this.Column1.Name = "Column1";
             // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Statut Livraison";
+            this.Column2.Name = "Column2";
+            // 
             // frmAfficheCommandeClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,7 +298,7 @@
             this.ClientSize = new System.Drawing.Size(1133, 503);
             this.Controls.Add(this.dgv_commandeClient);
             this.Controls.Add(this.btn_nouveauCommande);
-            this.Controls.Add(this.chk_enCourPaiement);
+            this.Controls.Add(this.chk_enCourLivraison);
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.btn_modifier);
             this.Controls.Add(this.btn_ajouter);
@@ -313,7 +320,7 @@
         private Guna.UI2.WinForms.Guna2Button btn_modifier;
         private Guna.UI2.WinForms.Guna2Button btn_ajouter;
         private Guna.UI2.WinForms.Guna2Button btn_annuler;
-        private Guna.UI2.WinForms.Guna2CheckBox chk_enCourPaiement;
+        private Guna.UI2.WinForms.Guna2CheckBox chk_enCourLivraison;
         private Guna.UI2.WinForms.Guna2Button btn_nouveauCommande;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
@@ -322,5 +329,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

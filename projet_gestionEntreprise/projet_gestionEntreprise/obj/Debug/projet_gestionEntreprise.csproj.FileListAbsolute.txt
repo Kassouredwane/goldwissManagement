@@ -27,3 +27,4 @@ C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntre
 C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmGestionLivraison.resources
 C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmNouveauCommande.resources
 C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmAfficheLivraisonClient.resources
+C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmAjouterModeleACommande.resources
