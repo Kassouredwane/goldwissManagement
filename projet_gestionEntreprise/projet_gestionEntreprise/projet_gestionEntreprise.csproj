@@ -70,17 +70,35 @@
     <Compile Include="frmAfficheCommandeClient.Designer.cs">
       <DependentUpon>frmAfficheCommandeClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAfficheLivraisonClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAfficheLivraisonClient.Designer.cs">
+      <DependentUpon>frmAfficheLivraisonClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAjouterCategorie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjouterCategorie.Designer.cs">
+      <DependentUpon>frmAjouterCategorie.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAjouterClient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAjouterClient.Designer.cs">
       <DependentUpon>frmAjouterClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAjouterCommande.cs">
+    <Compile Include="frmNouveauCommande.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAjouterCommande.Designer.cs">
-      <DependentUpon>frmAjouterCommande.cs</DependentUpon>
+    <Compile Include="frmNouveauCommande.Designer.cs">
+      <DependentUpon>frmNouveauCommande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAjouterModele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjouterModele.Designer.cs">
+      <DependentUpon>frmAjouterModele.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAjouterVille.cs">
       <SubType>Form</SubType>
@@ -106,6 +124,12 @@
     <Compile Include="frmGestionCommandes.Designer.cs">
       <DependentUpon>frmGestionCommandes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGestionLivraison.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionLivraison.Designer.cs">
+      <DependentUpon>frmGestionLivraison.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGestionStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +154,12 @@
     <Compile Include="frmModifierCommande.Designer.cs">
       <DependentUpon>frmModifierCommande.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModifierModele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifierModele.Designer.cs">
+      <DependentUpon>frmModifierModele.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -141,11 +171,20 @@
     <EmbeddedResource Include="frmAfficheCommandeClient.resx">
       <DependentUpon>frmAfficheCommandeClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAfficheLivraisonClient.resx">
+      <DependentUpon>frmAfficheLivraisonClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAjouterCategorie.resx">
+      <DependentUpon>frmAjouterCategorie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAjouterClient.resx">
       <DependentUpon>frmAjouterClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAjouterCommande.resx">
-      <DependentUpon>frmAjouterCommande.cs</DependentUpon>
+    <EmbeddedResource Include="frmNouveauCommande.resx">
+      <DependentUpon>frmNouveauCommande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAjouterModele.resx">
+      <DependentUpon>frmAjouterModele.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAjouterVille.resx">
       <DependentUpon>frmAjouterVille.cs</DependentUpon>
@@ -159,6 +198,9 @@
     <EmbeddedResource Include="frmGestionCommandes.resx">
       <DependentUpon>frmGestionCommandes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionLivraison.resx">
+      <DependentUpon>frmGestionLivraison.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGestionStock.resx">
       <DependentUpon>frmGestionStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmModifierCommande.resx">
       <DependentUpon>frmModifierCommande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifierModele.resx">
+      <DependentUpon>frmModifierModele.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

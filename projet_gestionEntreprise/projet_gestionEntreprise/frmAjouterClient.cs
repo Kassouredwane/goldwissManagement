@@ -86,7 +86,7 @@ namespace projet_gestionEntreprise
         {
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
             cn.Open();
-            string reqq = "insert into client values (@nomClient,@prenomClient,@telephoneClient,@adresseClient,@idVille)";
+            string reqq = "insert into client(nomClient,prenomClient,telephoneClient,adresseClient,idVille) values (@nomClient,@prenomClient,@telephoneClient,@adresseClient,@idVille)";
             SqlCommand com = new SqlCommand(reqq, cn);
             com.Parameters.Add(new SqlParameter("@nomClient", txt_nomClient.Text));
             com.Parameters.Add(new SqlParameter("@prenomClient", txt_prenomClient.Text));

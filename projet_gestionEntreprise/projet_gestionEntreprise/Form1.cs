@@ -101,5 +101,11 @@ namespace projet_gestionEntreprise
             if (e.KeyValue == 13)
                 btn_connecter.PerformClick();
         }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            txt_login.Text = "";
+            txt_password.Text = "";
+        }
     }
 }

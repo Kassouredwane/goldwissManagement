@@ -18,7 +18,12 @@ C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntre
 C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmModifierClient.resources
 C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmAjouterVille.resources
 C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmBienvenue.resources
-C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmAjouterCommande.resources
 C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmModifierCommande.resources
 C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmGestionCommandes.resources
 C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmGestionStock.resources
+C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmAjouterModele.resources
+C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmAjouterCategorie.resources
+C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmModifierModele.resources
+C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmGestionLivraison.resources
+C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmNouveauCommande.resources
+C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmAfficheLivraisonClient.resources

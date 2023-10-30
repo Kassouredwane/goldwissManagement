@@ -43,7 +43,7 @@ namespace projet_gestionEntreprise
 
             SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
             cn2.Open();
-            SqlCommand com2 = new SqlCommand("select dateCommande,numeroBon,idStatutPayement,referenceModele,qteAchat,prixAchat from commande c inner join detailCommande dc on dc.idCommande=c.idCommande where c.idCommande=" + txt_idCommande.Text, cn2);
+            SqlCommand com2 = new SqlCommand("select dateCommande,idStatutPayement,referenceModele,qteAchat,prixAchat from commande c inner join detailCommande dc on dc.idCommande=c.idCommande where c.idCommande=" + txt_idCommande.Text, cn2);
             SqlDataReader dr2 = com2.ExecuteReader();
 
             if (dr2.Read())

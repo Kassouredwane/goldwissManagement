@@ -1,6 +1,6 @@
 ﻿namespace projet_gestionEntreprise
 {
-    partial class frmAjouterCommande
+    partial class frmNouveauCommande
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAjouterCommande));
-            this.txt_numeroBon = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNouveauCommande));
             this.label1 = new System.Windows.Forms.Label();
             this.txt_idCommande = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,44 +37,12 @@
             this.txt_qteAchat = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dtp_dateCommande = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_referenceModele = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btn_ajouterCommande = new Guna.UI2.WinForms.Guna2Button();
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
             this.btn_valider = new Guna.UI2.WinForms.Guna2Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cb_statutPayement = new System.Windows.Forms.ComboBox();
-            this.txt_referenceModele = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // txt_numeroBon
-            // 
-            this.txt_numeroBon.BorderRadius = 2;
-            this.txt_numeroBon.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_numeroBon.DefaultText = "";
-            this.txt_numeroBon.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_numeroBon.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_numeroBon.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_numeroBon.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_numeroBon.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_numeroBon.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_numeroBon.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_numeroBon.Location = new System.Drawing.Point(172, 128);
-            this.txt_numeroBon.Name = "txt_numeroBon";
-            this.txt_numeroBon.PasswordChar = '\0';
-            this.txt_numeroBon.PlaceholderText = "";
-            this.txt_numeroBon.SelectedText = "";
-            this.txt_numeroBon.Size = new System.Drawing.Size(184, 23);
-            this.txt_numeroBon.TabIndex = 38;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(52, 130);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 16);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "Numero BON :";
             // 
             // label1
             // 
@@ -190,6 +156,56 @@
             this.dtp_dateCommande.Size = new System.Drawing.Size(184, 20);
             this.dtp_dateCommande.TabIndex = 47;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(219, 125);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(143, 16);
+            this.label7.TabIndex = 50;
+            this.label7.Text = "Reference Modele :";
+            // 
+            // txt_referenceModele
+            // 
+            this.txt_referenceModele.BorderRadius = 2;
+            this.txt_referenceModele.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_referenceModele.DefaultText = "";
+            this.txt_referenceModele.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_referenceModele.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_referenceModele.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_referenceModele.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_referenceModele.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_referenceModele.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_referenceModele.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_referenceModele.Location = new System.Drawing.Point(373, 121);
+            this.txt_referenceModele.Name = "txt_referenceModele";
+            this.txt_referenceModele.PasswordChar = '\0';
+            this.txt_referenceModele.PlaceholderText = "";
+            this.txt_referenceModele.SelectedText = "";
+            this.txt_referenceModele.Size = new System.Drawing.Size(184, 23);
+            this.txt_referenceModele.TabIndex = 53;
+            // 
+            // btn_ajouterCommande
+            // 
+            this.btn_ajouterCommande.BorderRadius = 2;
+            this.btn_ajouterCommande.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ajouterCommande.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ajouterCommande.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_ajouterCommande.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_ajouterCommande.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_ajouterCommande.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ajouterCommande.ForeColor = System.Drawing.Color.White;
+            this.btn_ajouterCommande.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajouterCommande.Image")));
+            this.btn_ajouterCommande.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_ajouterCommande.Location = new System.Drawing.Point(727, 52);
+            this.btn_ajouterCommande.Name = "btn_ajouterCommande";
+            this.btn_ajouterCommande.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btn_ajouterCommande.Size = new System.Drawing.Size(41, 20);
+            this.btn_ajouterCommande.TabIndex = 54;
+            this.btn_ajouterCommande.Click += new System.EventHandler(this.btn_ajouterCommande_Click);
+            // 
             // btn_annuler
             // 
             this.btn_annuler.BorderRadius = 2;
@@ -202,12 +218,12 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(256, 333);
+            this.btn_annuler.Location = new System.Drawing.Point(229, 329);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
             this.btn_annuler.TabIndex = 49;
-            this.btn_annuler.Text = "Annuler";
+            this.btn_annuler.Text = "Fermer";
             this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
             // 
             // btn_valider
@@ -222,72 +238,21 @@
             this.btn_valider.ForeColor = System.Drawing.Color.White;
             this.btn_valider.Image = ((System.Drawing.Image)(resources.GetObject("btn_valider.Image")));
             this.btn_valider.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_valider.Location = new System.Drawing.Point(415, 333);
+            this.btn_valider.Location = new System.Drawing.Point(388, 329);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_valider.Size = new System.Drawing.Size(142, 29);
             this.btn_valider.TabIndex = 48;
-            this.btn_valider.Text = "Valider";
+            this.btn_valider.Text = "Ajouter";
             this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(383, 132);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(143, 16);
-            this.label7.TabIndex = 50;
-            this.label7.Text = "Reference Modele :";
-            // 
-            // cb_statutPayement
-            // 
-            this.cb_statutPayement.FormattingEnabled = true;
-            this.cb_statutPayement.Location = new System.Drawing.Point(388, 264);
-            this.cb_statutPayement.Name = "cb_statutPayement";
-            this.cb_statutPayement.Size = new System.Drawing.Size(184, 21);
-            this.cb_statutPayement.TabIndex = 51;
-            // 
-            // txt_referenceModele
-            // 
-            this.txt_referenceModele.BorderRadius = 2;
-            this.txt_referenceModele.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_referenceModele.DefaultText = "";
-            this.txt_referenceModele.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_referenceModele.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_referenceModele.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_referenceModele.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_referenceModele.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_referenceModele.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_referenceModele.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_referenceModele.Location = new System.Drawing.Point(537, 128);
-            this.txt_referenceModele.Name = "txt_referenceModele";
-            this.txt_referenceModele.PasswordChar = '\0';
-            this.txt_referenceModele.PlaceholderText = "";
-            this.txt_referenceModele.SelectedText = "";
-            this.txt_referenceModele.Size = new System.Drawing.Size(184, 23);
-            this.txt_referenceModele.TabIndex = 53;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(234, 265);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 16);
-            this.label4.TabIndex = 52;
-            this.label4.Text = "Statut Payement :";
-            // 
-            // frmAjouterCommande
+            // frmNouveauCommande
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 397);
+            this.ClientSize = new System.Drawing.Size(837, 397);
+            this.Controls.Add(this.btn_ajouterCommande);
             this.Controls.Add(this.txt_referenceModele);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.cb_statutPayement);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.btn_valider);
@@ -296,14 +261,12 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_qteAchat);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txt_numeroBon);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_idCommande);
             this.Controls.Add(this.label2);
-            this.Name = "frmAjouterCommande";
+            this.Name = "frmNouveauCommande";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAjouterCommande";
+            this.Text = "Nouveau Commande";
             this.Load += new System.EventHandler(this.frmAjouterCommande_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -311,8 +274,6 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2TextBox txt_numeroBon;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txt_idCommande;
         private System.Windows.Forms.Label label2;
@@ -324,8 +285,7 @@
         private Guna.UI2.WinForms.Guna2Button btn_annuler;
         private Guna.UI2.WinForms.Guna2Button btn_valider;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cb_statutPayement;
         private Guna.UI2.WinForms.Guna2TextBox txt_referenceModele;
-        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2Button btn_ajouterCommande;
     }
 }

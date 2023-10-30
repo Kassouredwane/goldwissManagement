@@ -90,5 +90,11 @@ namespace projet_gestionEntreprise
             frmGestionCommandes f = new frmGestionCommandes();
             AfficherFenetre(f);
         }
+
+        private void btn_gestionStock_Click(object sender, EventArgs e)
+        {
+            frmGestionStock f = new frmGestionStock();
+            AfficherFenetre(f);
+        }
     }
 }

@@ -301,6 +301,7 @@
             this.btn_gestionStock.Text = "Gestion stock";
             this.btn_gestionStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_gestionStock.UseTransparentBackground = true;
+            this.btn_gestionStock.Click += new System.EventHandler(this.btn_gestionStock_Click);
             // 
             // btn_gestionCommandes
             // 
