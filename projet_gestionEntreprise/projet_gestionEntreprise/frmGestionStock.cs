@@ -215,5 +215,10 @@ namespace projet_gestionEntreprise
         {
 
         }
+
+        private void btn_afficherCommandes_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -119,6 +119,7 @@
             // 
             // dgv_modeles
             // 
+            this.dgv_modeles.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgv_modeles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -285,6 +286,7 @@
             this.btn_afficherCommandes.Size = new System.Drawing.Size(193, 29);
             this.btn_afficherCommandes.TabIndex = 28;
             this.btn_afficherCommandes.Text = "Afficher les clients";
+            this.btn_afficherCommandes.Click += new System.EventHandler(this.btn_afficherCommandes_Click);
             // 
             // frmGestionStock
             // 

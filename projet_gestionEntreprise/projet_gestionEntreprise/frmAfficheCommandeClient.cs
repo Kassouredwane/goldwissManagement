@@ -32,13 +32,13 @@ namespace projet_gestionEntreprise
 
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
                 cn.Open();
-                string req = "select c.idCommande,dateCommande,sum(qteAchat) as quantite,designation from commande c inner join detailCommande dc on dc.idCommande=c.idCommande inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=" + IdClient + " and c.idStatutLivraison=2 group by c.idCommande,dateCommande,designation";
+                string req = "select c.idCommande,dateCommande,designation from commande c inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=" + IdClient + " and c.idStatutLivraison=2";
                 SqlCommand com = new SqlCommand(req, cn);
                 SqlDataReader dr = com.ExecuteReader();
                 dgv_commandeClient.Rows.Clear();
                 while (dr.Read())
                 {
-                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["quantite"], dr["designation"]);
+                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["designation"]);
                 }
                 // close all commandes and connection and datareader
                 dr.Close();
@@ -54,13 +54,13 @@ namespace projet_gestionEntreprise
 
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
                 cn.Open();
-                string req = "select c.idCommande,dateCommande,sum(qteAchat) as quantite,designation from commande c inner join detailCommande dc on dc.idCommande=c.idCommande inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=" + IdClient + " group by c.idCommande,dateCommande,designation";
+                string req = "select c.idCommande,dateCommande,designation from commande c inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=" + IdClient;
                 SqlCommand com = new SqlCommand(req, cn);
                 SqlDataReader dr = com.ExecuteReader();
                 dgv_commandeClient.Rows.Clear();
                 while (dr.Read())
                 {
-                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["quantite"], dr["designation"]);
+                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["designation"]);
                 }
                 // close all commandes and connection and datareader
                 dr.Close();
@@ -95,8 +95,9 @@ namespace projet_gestionEntreprise
 
         private void btn_modifier_Click(object sender, EventArgs e)
         {
-            int idCcommande = Convert.ToInt32(dgv_detailCommandeClient.CurrentRow.Cells[0].Value);
-            frmModifierCommande f = new frmModifierCommande(idCcommande);
+            int idCcommande = Convert.ToInt32(dgv_commandeClient.CurrentRow.Cells[0].Value);
+            string refModele = dgv_detailCommandeClient.CurrentRow.Cells[0].Value.ToString();
+            frmModifierDetailCommandeClient f = new frmModifierDetailCommandeClient(idCcommande,refModele);
             f.ShowDialog();
         }
 
@@ -106,14 +107,11 @@ namespace projet_gestionEntreprise
             frmNouveauCommande f = new frmNouveauCommande(idClient);
             f.ShowDialog();
         }
-
         private void dgv_commandeClient_SelectionChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show(dgv_commandeClient.CurrentRow.Cells[0].Value.ToString());
-            //label1.Text = dgv_commandeClient.CurrentRow.Cells[0].Value.ToString();
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
             cn.Open();
-            string req = "select referenceModele,qteAchat,prixAchat from detailCommande where idCommande="+ dgv_commandeClient.CurrentRow.Cells[0].Value;
+            string req = "select referenceModele,qteAchat,prixAchat from detailCommande where idCommande=" + dgv_commandeClient.CurrentRow.Cells[0].Value;
             SqlCommand com = new SqlCommand(req, cn);
             SqlDataReader dr = com.ExecuteReader();
             dgv_detailCommandeClient.Rows.Clear();
@@ -133,6 +131,49 @@ namespace projet_gestionEntreprise
         private void chk_enCourLivraison_CheckedChanged(object sender, EventArgs e)
         {
             refresh();
+        }
+
+        private void btn_supprimer_Click(object sender, EventArgs e)
+        {
+            if (dgv_commandeClient.CurrentRow != null && dgv_detailCommandeClient.CurrentRow != null)
+            {
+                if (MessageBox.Show("Etes-vous vraiment veux supprimer ce modele ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    SqlConnection cn5 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                    cn5.Open();
+
+                    // Check if the cells are not null before accessing their Value property
+                    if (dgv_commandeClient.CurrentRow.Cells[0] != null && dgv_detailCommandeClient.CurrentRow.Cells[0] != null)
+                    {
+                        string idCommande = dgv_commandeClient.CurrentRow.Cells[0].Value.ToString();
+                        string referenceModele = dgv_detailCommandeClient.CurrentRow.Cells[0].Value.ToString();
+
+                        string req5 = "delete from detailCommande where idCommande = @idCommande and referenceModele = @referenceModele";
+                        SqlCommand com5 = new SqlCommand(req5, cn5);
+
+                        // Use parameterized queries to prevent SQL injection
+                        com5.Parameters.AddWithValue("@idCommande", idCommande);
+                        com5.Parameters.AddWithValue("@referenceModele", referenceModele);
+
+                        com5.ExecuteNonQuery();
+                        com5 = null;
+                    }
+                    cn5.Close();
+                    cn5 = null;
+                    refresh();
+                }
+            }
+            //MessageBox.Show("idCommande : " + dgv_commandeClient.CurrentRow.Cells[0].Value + " -  referenceModele : " + dgv_detailCommandeClient.CurrentRow.Cells[0].Value);
+        }
+
+        private void dgv_commandeClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgv_detailCommandeClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

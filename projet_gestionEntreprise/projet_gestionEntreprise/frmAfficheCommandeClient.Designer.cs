@@ -31,30 +31,31 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAfficheCommandeClient));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAfficheCommandeClient));
             this.dgv_detailCommandeClient = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chk_enCourLivraison = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.dgv_commandeClient = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_supprimer = new Guna.UI2.WinForms.Guna2Button();
             this.btn_nouveauCommande = new Guna.UI2.WinForms.Guna2Button();
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
             this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
             this.btn_ajouter = new Guna.UI2.WinForms.Guna2Button();
-            this.dgv_commandeClient = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_detailCommandeClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_commandeClient)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_detailCommandeClient
             // 
+            this.dgv_detailCommandeClient.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgv_detailCommandeClient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -106,6 +107,7 @@
             this.dgv_detailCommandeClient.ThemeStyle.RowsStyle.Height = 22;
             this.dgv_detailCommandeClient.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_detailCommandeClient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgv_detailCommandeClient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_detailCommandeClient_CellContentClick);
             // 
             // Column4
             // 
@@ -130,7 +132,7 @@
             this.chk_enCourLivraison.CheckedState.BorderThickness = 0;
             this.chk_enCourLivraison.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.chk_enCourLivraison.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_enCourLivraison.Location = new System.Drawing.Point(53, 401);
+            this.chk_enCourLivraison.Location = new System.Drawing.Point(53, 404);
             this.chk_enCourLivraison.Name = "chk_enCourLivraison";
             this.chk_enCourLivraison.Size = new System.Drawing.Size(163, 20);
             this.chk_enCourLivraison.TabIndex = 41;
@@ -141,82 +143,9 @@
             this.chk_enCourLivraison.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chk_enCourLivraison.CheckedChanged += new System.EventHandler(this.chk_enCourLivraison_CheckedChanged);
             // 
-            // btn_nouveauCommande
-            // 
-            this.btn_nouveauCommande.BorderRadius = 2;
-            this.btn_nouveauCommande.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_nouveauCommande.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_nouveauCommande.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_nouveauCommande.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_nouveauCommande.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btn_nouveauCommande.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_nouveauCommande.ForeColor = System.Drawing.Color.White;
-            this.btn_nouveauCommande.Image = ((System.Drawing.Image)(resources.GetObject("btn_nouveauCommande.Image")));
-            this.btn_nouveauCommande.Location = new System.Drawing.Point(365, 399);
-            this.btn_nouveauCommande.Name = "btn_nouveauCommande";
-            this.btn_nouveauCommande.Size = new System.Drawing.Size(229, 29);
-            this.btn_nouveauCommande.TabIndex = 42;
-            this.btn_nouveauCommande.Text = "Nouveau commande";
-            this.btn_nouveauCommande.Click += new System.EventHandler(this.btn_nouveauCommande_Click);
-            // 
-            // btn_annuler
-            // 
-            this.btn_annuler.BorderRadius = 2;
-            this.btn_annuler.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_annuler.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_annuler.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_annuler.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_annuler.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btn_annuler.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_annuler.ForeColor = System.Drawing.Color.White;
-            this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
-            this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(657, 399);
-            this.btn_annuler.Name = "btn_annuler";
-            this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btn_annuler.Size = new System.Drawing.Size(142, 29);
-            this.btn_annuler.TabIndex = 40;
-            this.btn_annuler.Text = "Annuler";
-            this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
-            // 
-            // btn_modifier
-            // 
-            this.btn_modifier.BorderRadius = 2;
-            this.btn_modifier.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_modifier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_modifier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_modifier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_modifier.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btn_modifier.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_modifier.ForeColor = System.Drawing.Color.White;
-            this.btn_modifier.Image = ((System.Drawing.Image)(resources.GetObject("btn_modifier.Image")));
-            this.btn_modifier.Location = new System.Drawing.Point(815, 399);
-            this.btn_modifier.Name = "btn_modifier";
-            this.btn_modifier.Size = new System.Drawing.Size(121, 29);
-            this.btn_modifier.TabIndex = 39;
-            this.btn_modifier.Text = "Modifier";
-            this.btn_modifier.Click += new System.EventHandler(this.btn_modifier_Click);
-            // 
-            // btn_ajouter
-            // 
-            this.btn_ajouter.BorderRadius = 2;
-            this.btn_ajouter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ajouter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ajouter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_ajouter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_ajouter.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btn_ajouter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_ajouter.ForeColor = System.Drawing.Color.White;
-            this.btn_ajouter.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajouter.Image")));
-            this.btn_ajouter.Location = new System.Drawing.Point(951, 399);
-            this.btn_ajouter.Name = "btn_ajouter";
-            this.btn_ajouter.Size = new System.Drawing.Size(121, 29);
-            this.btn_ajouter.TabIndex = 38;
-            this.btn_ajouter.Text = "Ajouter";
-            this.btn_ajouter.Click += new System.EventHandler(this.btn_ajouter_Click);
-            // 
             // dgv_commandeClient
             // 
+            this.dgv_commandeClient.AllowUserToAddRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.dgv_commandeClient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -232,7 +161,6 @@
             this.dgv_commandeClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.Column1,
             this.Column2});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
@@ -269,6 +197,7 @@
             this.dgv_commandeClient.ThemeStyle.RowsStyle.Height = 22;
             this.dgv_commandeClient.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_commandeClient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgv_commandeClient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_commandeClient_CellContentClick);
             this.dgv_commandeClient.SelectionChanged += new System.EventHandler(this.dgv_commandeClient_SelectionChanged);
             // 
             // dataGridViewTextBoxColumn1
@@ -281,21 +210,109 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Date Commande";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Quantite Totale";
-            this.Column1.Name = "Column1";
-            // 
             // Column2
             // 
             this.Column2.HeaderText = "Statut Livraison";
             this.Column2.Name = "Column2";
+            // 
+            // btn_supprimer
+            // 
+            this.btn_supprimer.BorderRadius = 2;
+            this.btn_supprimer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_supprimer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_supprimer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_supprimer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_supprimer.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_supprimer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_supprimer.ForeColor = System.Drawing.Color.White;
+            this.btn_supprimer.Image = ((System.Drawing.Image)(resources.GetObject("btn_supprimer.Image")));
+            this.btn_supprimer.Location = new System.Drawing.Point(687, 399);
+            this.btn_supprimer.Name = "btn_supprimer";
+            this.btn_supprimer.Size = new System.Drawing.Size(121, 29);
+            this.btn_supprimer.TabIndex = 44;
+            this.btn_supprimer.Text = "Supprimer";
+            this.btn_supprimer.Click += new System.EventHandler(this.btn_supprimer_Click);
+            // 
+            // btn_nouveauCommande
+            // 
+            this.btn_nouveauCommande.BorderRadius = 2;
+            this.btn_nouveauCommande.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_nouveauCommande.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_nouveauCommande.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_nouveauCommande.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_nouveauCommande.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_nouveauCommande.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_nouveauCommande.ForeColor = System.Drawing.Color.White;
+            this.btn_nouveauCommande.Image = ((System.Drawing.Image)(resources.GetObject("btn_nouveauCommande.Image")));
+            this.btn_nouveauCommande.Location = new System.Drawing.Point(232, 399);
+            this.btn_nouveauCommande.Name = "btn_nouveauCommande";
+            this.btn_nouveauCommande.Size = new System.Drawing.Size(229, 29);
+            this.btn_nouveauCommande.TabIndex = 42;
+            this.btn_nouveauCommande.Text = "Nouveau commande";
+            this.btn_nouveauCommande.Click += new System.EventHandler(this.btn_nouveauCommande_Click);
+            // 
+            // btn_annuler
+            // 
+            this.btn_annuler.BorderRadius = 2;
+            this.btn_annuler.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_annuler.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_annuler.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_annuler.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_annuler.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_annuler.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_annuler.ForeColor = System.Drawing.Color.White;
+            this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
+            this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_annuler.Location = new System.Drawing.Point(554, 399);
+            this.btn_annuler.Name = "btn_annuler";
+            this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btn_annuler.Size = new System.Drawing.Size(121, 29);
+            this.btn_annuler.TabIndex = 40;
+            this.btn_annuler.Text = "Annuler";
+            this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
+            // 
+            // btn_modifier
+            // 
+            this.btn_modifier.BorderRadius = 2;
+            this.btn_modifier.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_modifier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_modifier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_modifier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_modifier.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_modifier.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_modifier.ForeColor = System.Drawing.Color.White;
+            this.btn_modifier.Image = ((System.Drawing.Image)(resources.GetObject("btn_modifier.Image")));
+            this.btn_modifier.Location = new System.Drawing.Point(819, 399);
+            this.btn_modifier.Name = "btn_modifier";
+            this.btn_modifier.Size = new System.Drawing.Size(121, 29);
+            this.btn_modifier.TabIndex = 39;
+            this.btn_modifier.Text = "Modifier";
+            this.btn_modifier.Click += new System.EventHandler(this.btn_modifier_Click);
+            // 
+            // btn_ajouter
+            // 
+            this.btn_ajouter.BorderRadius = 2;
+            this.btn_ajouter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ajouter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ajouter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_ajouter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_ajouter.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_ajouter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_ajouter.ForeColor = System.Drawing.Color.White;
+            this.btn_ajouter.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajouter.Image")));
+            this.btn_ajouter.Location = new System.Drawing.Point(951, 399);
+            this.btn_ajouter.Name = "btn_ajouter";
+            this.btn_ajouter.Size = new System.Drawing.Size(121, 29);
+            this.btn_ajouter.TabIndex = 38;
+            this.btn_ajouter.Text = "Ajouter";
+            this.btn_ajouter.Click += new System.EventHandler(this.btn_ajouter_Click);
             // 
             // frmAfficheCommandeClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1133, 503);
+            this.Controls.Add(this.btn_supprimer);
             this.Controls.Add(this.dgv_commandeClient);
             this.Controls.Add(this.btn_nouveauCommande);
             this.Controls.Add(this.chk_enCourLivraison);
@@ -326,9 +343,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private Guna.UI2.WinForms.Guna2DataGridView dgv_commandeClient;
+        private Guna.UI2.WinForms.Guna2Button btn_supprimer;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }
