@@ -32,13 +32,13 @@ namespace projet_gestionEntreprise
 
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
                 cn.Open();
-                string req = "select c.idCommande,dateCommande,designation from commande c inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=" + IdClient + " and c.idStatutLivraison=2";
+                string req = "select c.idCommande,dateCommande,numeroBonCommande,designation from commande c inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=" + IdClient + " and c.idStatutLivraison=2";
                 SqlCommand com = new SqlCommand(req, cn);
                 SqlDataReader dr = com.ExecuteReader();
                 dgv_commandeClient.Rows.Clear();
                 while (dr.Read())
                 {
-                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["designation"]);
+                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["numeroBonCommande"], dr["designation"]);
                 }
                 // close all commandes and connection and datareader
                 dr.Close();
@@ -54,13 +54,13 @@ namespace projet_gestionEntreprise
 
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
                 cn.Open();
-                string req = "select c.idCommande,dateCommande,designation from commande c inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=" + IdClient;
+                string req = "select c.idCommande,dateCommande,numeroBonCommande,designation from commande c inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=" + IdClient;
                 SqlCommand com = new SqlCommand(req, cn);
                 SqlDataReader dr = com.ExecuteReader();
                 dgv_commandeClient.Rows.Clear();
                 while (dr.Read())
                 {
-                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["designation"]);
+                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["numeroBonCommande"], dr["designation"]);
                 }
                 // close all commandes and connection and datareader
                 dr.Close();
@@ -166,12 +166,7 @@ namespace projet_gestionEntreprise
             //MessageBox.Show("idCommande : " + dgv_commandeClient.CurrentRow.Cells[0].Value + " -  referenceModele : " + dgv_detailCommandeClient.CurrentRow.Cells[0].Value);
         }
 
-        private void dgv_commandeClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgv_detailCommandeClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btn_rechercher_Click(object sender, EventArgs e)
         {
 
         }

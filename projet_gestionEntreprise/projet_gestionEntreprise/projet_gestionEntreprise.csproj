@@ -94,6 +94,12 @@
     <Compile Include="frmAjouterModeleACommande.Designer.cs">
       <DependentUpon>frmAjouterModeleACommande.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmClientCommanderModele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClientCommanderModele.Designer.cs">
+      <DependentUpon>frmClientCommanderModele.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModifierDetailCommandeClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAjouterModeleACommande.resx">
       <DependentUpon>frmAjouterModeleACommande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClientCommanderModele.resx">
+      <DependentUpon>frmClientCommanderModele.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModifierDetailCommandeClient.resx">
       <DependentUpon>frmModifierDetailCommandeClient.cs</DependentUpon>

@@ -43,7 +43,11 @@
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
             this.btn_valider = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_nbBonCommande = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -51,7 +55,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(385, 53);
+            this.label1.Location = new System.Drawing.Point(347, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 16);
             this.label1.TabIndex = 35;
@@ -69,7 +73,7 @@
             this.txt_idCommande.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_idCommande.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_idCommande.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_idCommande.Location = new System.Drawing.Point(163, 51);
+            this.txt_idCommande.Location = new System.Drawing.Point(125, 30);
             this.txt_idCommande.Name = "txt_idCommande";
             this.txt_idCommande.PasswordChar = '\0';
             this.txt_idCommande.PlaceholderText = "";
@@ -83,7 +87,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(43, 53);
+            this.label2.Location = new System.Drawing.Point(5, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 16);
             this.label2.TabIndex = 33;
@@ -153,9 +157,9 @@
             // 
             // dtp_dateCommande
             // 
-            this.dtp_dateCommande.Location = new System.Drawing.Point(537, 52);
+            this.dtp_dateCommande.Location = new System.Drawing.Point(499, 31);
             this.dtp_dateCommande.Name = "dtp_dateCommande";
-            this.dtp_dateCommande.Size = new System.Drawing.Size(184, 20);
+            this.dtp_dateCommande.Size = new System.Drawing.Size(231, 21);
             this.dtp_dateCommande.TabIndex = 47;
             // 
             // label7
@@ -201,7 +205,7 @@
             this.btn_ajouterCommande.ForeColor = System.Drawing.Color.White;
             this.btn_ajouterCommande.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajouterCommande.Image")));
             this.btn_ajouterCommande.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_ajouterCommande.Location = new System.Drawing.Point(727, 52);
+            this.btn_ajouterCommande.Location = new System.Drawing.Point(527, 101);
             this.btn_ajouterCommande.Name = "btn_ajouterCommande";
             this.btn_ajouterCommande.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_ajouterCommande.Size = new System.Drawing.Size(41, 20);
@@ -220,7 +224,7 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(229, 296);
+            this.btn_annuler.Location = new System.Drawing.Point(229, 403);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
@@ -240,7 +244,7 @@
             this.btn_valider.ForeColor = System.Drawing.Color.White;
             this.btn_valider.Image = ((System.Drawing.Image)(resources.GetObject("btn_valider.Image")));
             this.btn_valider.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_valider.Location = new System.Drawing.Point(388, 296);
+            this.btn_valider.Location = new System.Drawing.Point(388, 403);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_valider.Size = new System.Drawing.Size(142, 29);
@@ -258,34 +262,79 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Enabled = false;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(35, 100);
+            this.groupBox1.Location = new System.Drawing.Point(35, 207);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(733, 169);
+            this.groupBox1.Size = new System.Drawing.Size(749, 169);
             this.groupBox1.TabIndex = 55;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information de modele";
+            // 
+            // txt_nbBonCommande
+            // 
+            this.txt_nbBonCommande.BorderRadius = 2;
+            this.txt_nbBonCommande.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_nbBonCommande.DefaultText = "";
+            this.txt_nbBonCommande.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_nbBonCommande.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_nbBonCommande.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_nbBonCommande.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_nbBonCommande.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_nbBonCommande.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_nbBonCommande.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_nbBonCommande.Location = new System.Drawing.Point(332, 100);
+            this.txt_nbBonCommande.Name = "txt_nbBonCommande";
+            this.txt_nbBonCommande.PasswordChar = '\0';
+            this.txt_nbBonCommande.PlaceholderText = "";
+            this.txt_nbBonCommande.SelectedText = "";
+            this.txt_nbBonCommande.Size = new System.Drawing.Size(184, 23);
+            this.txt_nbBonCommande.TabIndex = 55;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(143, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(182, 16);
+            this.label3.TabIndex = 54;
+            this.label3.Text = "Numero Bon Commande :";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txt_nbBonCommande);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.btn_ajouterCommande);
+            this.groupBox2.Controls.Add(this.dtp_dateCommande);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.txt_idCommande);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(38, 21);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(746, 168);
+            this.groupBox2.TabIndex = 56;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Information de Commande";
             // 
             // frmNouveauCommande
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 374);
+            this.ClientSize = new System.Drawing.Size(816, 448);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btn_ajouterCommande);
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.btn_valider);
-            this.Controls.Add(this.dtp_dateCommande);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txt_idCommande);
-            this.Controls.Add(this.label2);
             this.Name = "frmNouveauCommande";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nouveau Commande";
             this.Load += new System.EventHandler(this.frmAjouterCommande_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -304,5 +353,8 @@
         private Guna.UI2.WinForms.Guna2TextBox txt_referenceModele;
         private Guna.UI2.WinForms.Guna2Button btn_ajouterCommande;
         private System.Windows.Forms.GroupBox groupBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txt_nbBonCommande;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

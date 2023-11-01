@@ -218,7 +218,9 @@ namespace projet_gestionEntreprise
 
         private void btn_afficherCommandes_Click(object sender, EventArgs e)
         {
-
+            string refM = dgv_modeles.CurrentRow.Cells[0].Value.ToString();
+            frmClientCommanderModele f = new frmClientCommanderModele(refM);
+            f.ShowDialog();
         }
     }
 }

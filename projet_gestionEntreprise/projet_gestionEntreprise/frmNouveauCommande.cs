@@ -80,10 +80,11 @@ namespace projet_gestionEntreprise
             {
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
                 cn.Open();
-                string reqq = "insert into commande(dateCommande,idClient) values(@dateCommande,@idClient)";
+                string reqq = "insert into commande(dateCommande,idClient,numeroBonCommande) values(@dateCommande,@idClient,@numeroBonCommande)";
                 SqlCommand com = new SqlCommand(reqq, cn);
                 com.Parameters.Add(new SqlParameter("@dateCommande", dtp_dateCommande.Value));
                 com.Parameters.Add(new SqlParameter("@idClient", idclient));
+                com.Parameters.Add(new SqlParameter("@numeroBonCommande", txt_nbBonCommande.Text));
                 com.ExecuteNonQuery();
 
                 com = null;
