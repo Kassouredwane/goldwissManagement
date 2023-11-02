@@ -24,7 +24,7 @@ namespace projet_gestionEntreprise
         {
             this.Close();
         }
-        private void refresh()
+        private void refresh(string filtre)
         {
             if(chk_enCourLivraison.Checked)
             {
@@ -32,13 +32,13 @@ namespace projet_gestionEntreprise
 
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
                 cn.Open();
-                string req = "select c.idCommande,dateCommande,numeroBonCommande,designation from commande c inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=" + IdClient + " and c.idStatutLivraison=2";
+                string req = "select c.idCommande,dateCommande,designation,test from commande c inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=" + IdClient + " and c.idStatutLivraison=2"+filtre;
                 SqlCommand com = new SqlCommand(req, cn);
                 SqlDataReader dr = com.ExecuteReader();
                 dgv_commandeClient.Rows.Clear();
                 while (dr.Read())
                 {
-                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["numeroBonCommande"], dr["designation"]);
+                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["designation"], dr["test"]);
                 }
                 // close all commandes and connection and datareader
                 dr.Close();
@@ -54,13 +54,13 @@ namespace projet_gestionEntreprise
 
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
                 cn.Open();
-                string req = "select c.idCommande,dateCommande,numeroBonCommande,designation from commande c inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=" + IdClient;
+                string req = "select c.idCommande,dateCommande,designation,test from commande c inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=" + IdClient+filtre;
                 SqlCommand com = new SqlCommand(req, cn);
                 SqlDataReader dr = com.ExecuteReader();
                 dgv_commandeClient.Rows.Clear();
                 while (dr.Read())
                 {
-                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["numeroBonCommande"], dr["designation"]);
+                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["designation"], dr["test"]);
                 }
                 // close all commandes and connection and datareader
                 dr.Close();
@@ -73,7 +73,7 @@ namespace projet_gestionEntreprise
         }
         private void frmAfficheCommandeClient_Load(object sender, EventArgs e)
         {
-            refresh();
+            refresh("");
         }
 
         private void btn_ajouter_Click(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace projet_gestionEntreprise
 
         private void frmAfficheCommandeClient_Activated(object sender, EventArgs e)
         {
-            refresh();
+            refresh("");
         }
 
         private void btn_modifier_Click(object sender, EventArgs e)
@@ -130,7 +130,7 @@ namespace projet_gestionEntreprise
 
         private void chk_enCourLivraison_CheckedChanged(object sender, EventArgs e)
         {
-            refresh();
+            refresh("");
         }
 
         private void btn_supprimer_Click(object sender, EventArgs e)
@@ -160,7 +160,7 @@ namespace projet_gestionEntreprise
                     }
                     cn5.Close();
                     cn5 = null;
-                    refresh();
+                    refresh("");
                 }
             }
             //MessageBox.Show("idCommande : " + dgv_commandeClient.CurrentRow.Cells[0].Value + " -  referenceModele : " + dgv_detailCommandeClient.CurrentRow.Cells[0].Value);
@@ -168,7 +168,13 @@ namespace projet_gestionEntreprise
 
         private void btn_rechercher_Click(object sender, EventArgs e)
         {
+            refresh(" and idCommande like'%"+ txt_rechercher.Text + "%'");
+        }
 
+        private void btn_refresh_Click_1(object sender, EventArgs e)
+        {
+            refresh("");
+            txt_rechercher.Text = "";
         }
     }
 }

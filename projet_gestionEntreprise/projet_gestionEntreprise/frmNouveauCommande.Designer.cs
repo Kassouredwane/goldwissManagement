@@ -43,8 +43,6 @@
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
             this.btn_valider = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txt_nbBonCommande = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -105,7 +103,7 @@
             this.txt_prixAchat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_prixAchat.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_prixAchat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_prixAchat.Location = new System.Drawing.Point(298, 105);
+            this.txt_prixAchat.Location = new System.Drawing.Point(319, 105);
             this.txt_prixAchat.Name = "txt_prixAchat";
             this.txt_prixAchat.PasswordChar = '\0';
             this.txt_prixAchat.PlaceholderText = "";
@@ -118,7 +116,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(201, 107);
+            this.label5.Location = new System.Drawing.Point(222, 107);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 16);
             this.label5.TabIndex = 43;
@@ -136,7 +134,7 @@
             this.txt_qteAchat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_qteAchat.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_qteAchat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_qteAchat.Location = new System.Drawing.Point(524, 41);
+            this.txt_qteAchat.Location = new System.Drawing.Point(545, 41);
             this.txt_qteAchat.Name = "txt_qteAchat";
             this.txt_qteAchat.PasswordChar = '\0';
             this.txt_qteAchat.PlaceholderText = "";
@@ -149,7 +147,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(404, 43);
+            this.label6.Location = new System.Drawing.Point(425, 43);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(115, 16);
             this.label6.TabIndex = 41;
@@ -167,7 +165,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(12, 45);
+            this.label7.Location = new System.Drawing.Point(33, 45);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(143, 16);
             this.label7.TabIndex = 50;
@@ -185,7 +183,7 @@
             this.txt_referenceModele.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_referenceModele.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_referenceModele.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_referenceModele.Location = new System.Drawing.Point(166, 41);
+            this.txt_referenceModele.Location = new System.Drawing.Point(187, 41);
             this.txt_referenceModele.Name = "txt_referenceModele";
             this.txt_referenceModele.PasswordChar = '\0';
             this.txt_referenceModele.PlaceholderText = "";
@@ -205,10 +203,10 @@
             this.btn_ajouterCommande.ForeColor = System.Drawing.Color.White;
             this.btn_ajouterCommande.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajouterCommande.Image")));
             this.btn_ajouterCommande.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_ajouterCommande.Location = new System.Drawing.Point(527, 101);
+            this.btn_ajouterCommande.Location = new System.Drawing.Point(736, 30);
             this.btn_ajouterCommande.Name = "btn_ajouterCommande";
             this.btn_ajouterCommande.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btn_ajouterCommande.Size = new System.Drawing.Size(41, 20);
+            this.btn_ajouterCommande.Size = new System.Drawing.Size(41, 23);
             this.btn_ajouterCommande.TabIndex = 54;
             this.btn_ajouterCommande.Click += new System.EventHandler(this.btn_ajouterCommande_Click);
             // 
@@ -224,7 +222,7 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(229, 403);
+            this.btn_annuler.Location = new System.Drawing.Point(277, 336);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
@@ -244,7 +242,7 @@
             this.btn_valider.ForeColor = System.Drawing.Color.White;
             this.btn_valider.Image = ((System.Drawing.Image)(resources.GetObject("btn_valider.Image")));
             this.btn_valider.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_valider.Location = new System.Drawing.Point(388, 403);
+            this.btn_valider.Location = new System.Drawing.Point(436, 336);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_valider.Size = new System.Drawing.Size(142, 29);
@@ -262,48 +260,15 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Enabled = false;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(35, 207);
+            this.groupBox1.Location = new System.Drawing.Point(38, 141);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(749, 169);
+            this.groupBox1.Size = new System.Drawing.Size(789, 169);
             this.groupBox1.TabIndex = 55;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information de modele";
             // 
-            // txt_nbBonCommande
-            // 
-            this.txt_nbBonCommande.BorderRadius = 2;
-            this.txt_nbBonCommande.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_nbBonCommande.DefaultText = "";
-            this.txt_nbBonCommande.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_nbBonCommande.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_nbBonCommande.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_nbBonCommande.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_nbBonCommande.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_nbBonCommande.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_nbBonCommande.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_nbBonCommande.Location = new System.Drawing.Point(332, 100);
-            this.txt_nbBonCommande.Name = "txt_nbBonCommande";
-            this.txt_nbBonCommande.PasswordChar = '\0';
-            this.txt_nbBonCommande.PlaceholderText = "";
-            this.txt_nbBonCommande.SelectedText = "";
-            this.txt_nbBonCommande.Size = new System.Drawing.Size(184, 23);
-            this.txt_nbBonCommande.TabIndex = 55;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(143, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 16);
-            this.label3.TabIndex = 54;
-            this.label3.Text = "Numero Bon Commande :";
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txt_nbBonCommande);
-            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.btn_ajouterCommande);
             this.groupBox2.Controls.Add(this.dtp_dateCommande);
             this.groupBox2.Controls.Add(this.label1);
@@ -312,7 +277,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(38, 21);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(746, 168);
+            this.groupBox2.Size = new System.Drawing.Size(786, 90);
             this.groupBox2.TabIndex = 56;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Information de Commande";
@@ -321,7 +286,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 448);
+            this.ClientSize = new System.Drawing.Size(853, 392);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_annuler);
@@ -353,8 +318,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txt_referenceModele;
         private Guna.UI2.WinForms.Guna2Button btn_ajouterCommande;
         private System.Windows.Forms.GroupBox groupBox1;
-        private Guna.UI2.WinForms.Guna2TextBox txt_nbBonCommande;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
     }
 }
