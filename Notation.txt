@@ -1,17 +1,17 @@
 the max of idClient displayed in the text box when i tryin to add new client
 
-- gestion de livraison
+///- gestion de livraison
 	=> ajouter une colonne nommé livraison avec foreign key references commande
 	- question ? : livraison par commande ou par client avec tous les commandes?
 
--/// ajouter nouveau champ a client nommé reste a payer pour la gestion de credit entre
+- ajouter nouveau champ a client nommé reste a payer pour la gestion de credit entre
   nous et le client
 
 -/// gestion de stock pour gérer la quantité en stock des modeles
 
 -/// supprimer le champ statut payement depuis la table commande
 
-- ajouter un champ a la table commande nommé statut livraison / ou bien nombre de 
+-/// ajouter un champ a la table commande nommé statut livraison / ou bien nombre de 
    piece livré //// autre idéée ce ca peut creer dans la table de livraison
    avec le nombre de redte de quantite non livré de la commande => bon idee
 
@@ -74,3 +74,8 @@ the max of idClient displayed in the text box when i tryin to add new client
 
 - Tester une base de donnée  pour le test de ajouter une comande par la meme 
   idCommande a travers ajouter une detail commande
+
+- bon commande ?
+
+- comment gerer la quanttie en stock d'un produit que peux une fourrniseeur stocker 
+ des produits 

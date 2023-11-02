@@ -90,8 +90,23 @@ alter table commande add constraint dfStatutLivraison default 2 for idStatutLivr
 ALTER TABLE commande DROP CONSTRAINT dfStatutPayement;
 ALTER TABLE commande DROP CONSTRAINT fkCommandeStatutPayement;
 ALTER TABLE commande DROP COLUMN idStatutPayement;
-ALTER TABLE commande DROP COLUMN numeroBon;
+ALTER TABLE commande DROP COLUMN numeroBon; 
+alter table commande add numeroBonCommande bigint;    -- en attente de suppression
+alter table commande add test bit;					  -- en attente de modofication de nom de champ
+alter table commande drop column numeroBonCommande
 
+-- creation of table livraison
+create table livraison(
+	numeroBonLivraison bigint, 
+	dateLivraison date,
+	-- qteLivrer bigint ,
+	idClient bigint constraint fkLivraisonClient foreign key references client(idClient),
+	constraint pkLivraison primary key(numeroBonLivraison)
+) 
+---------------------------------------------------   *****************************   ------------------------------------------
+----- quand  l'utilisateur peux ajouter une livraison aavec l'identifiant numeroBonLivraison doit chercher si cettenumero est deja exite si exite afficher une message de question 
+----- de la suppression de la derniere livraison qui contient ce numero de livraison et ajouter cette livraison supprimer dans une table archive livraison
+---------------------------------------------------   *****************************   ------------------------------------------
 create table detailCommande(
 	idCommande bigint,
 	referenceModele varchar(255),
@@ -100,12 +115,13 @@ create table detailCommande(
 	constraint fkDetailCommandeCommande foreign key(idCommande) references commande(idCommande),
 	constraint fkDetailCommandeModele foreign key(referenceModele) references modele(referenceModele)
 )
-select * from client
+alter table detailCommande add idDetailCommande bigint identity primary key;   
+alter table detailCommande add qteLivre bigint 
 ---------   
 ---------
 create table savonnerie(
-	
-) select * from ville
+
+) 
 -- les table pour la gestion de phasonie et de savonnerie
 create table matla(
 	idMatla bigint identity primary key,
@@ -235,7 +251,8 @@ select c.idCommande,dateCommande,sum(qteAchat) as quantite,designation from comm
 inner join detailCommande dc on dc.idCommande=c.idCommande 
 inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison 
 where idClient=13 group by c.idCommande,dateCommande,designation
-
+------------------------------------------------- button delete detaile commmande from commande ---------------------------------------------
+------------------------------------------------- button delete detaile commmande from commande ---------------------------------------------
 insert into commande(dateCommande,idClient) values('2023-10-31',13)
 insert into detailCommande values(23,'MD 3',100,70)
 
@@ -249,8 +266,20 @@ delete from detailCommande where idCommande=26 and referenceModele='MD 2'
 select c.idCommande,dateCommande,designation from commande c 
 inner join detailCommande dc on dc.idCommande=c.idCommande 
 inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison where idClient=13
-
+--
 delete from detailCommande where idCommande=23 and referenceModele='MD 2' and prixAchat=100
 delete from detailCommande where idCommande=23 and referenceModele='MD 1'
 
 delete from detailCommande where idCommande = 23 and referenceModele = 'MD 4'
+------------------------------------------------- button delete detaile commmande from commande ---------------------------------------------
+------------------------------------------------- button delete detaile commmande from commande ---------------------------------------------
+select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,dateCommande,qteAchat,m.referenceModele,taille,sl.designation as livraison from client c 
+inner join commande cmd on c.idClient=cmd.idClient 
+inner join detailCommande dc on dc.idCommande=cmd.idCommande 
+inner join statutLivraison sl on sl.idStatutLivraison=cmd.idStatutLivraison 
+inner join modele m on m.referenceModele=dc.referenceModele 
+where m.referenceModele='MD 1' and cmd.idStatutLivraison=1
+
+update commande set test=1 where idCommande= 1
+
+select * from commande
