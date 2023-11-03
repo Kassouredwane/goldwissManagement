@@ -99,7 +99,6 @@ alter table commande drop column numeroBonCommande
 create table livraison(
 	numeroBonLivraison bigint, 
 	dateLivraison date,
-	-- qteLivrer bigint ,
 	idClient bigint constraint fkLivraisonClient foreign key references client(idClient),
 	constraint pkLivraison primary key(numeroBonLivraison)
 ) 
@@ -117,6 +116,8 @@ create table detailCommande(
 )
 alter table detailCommande add idDetailCommande bigint identity primary key;   
 alter table detailCommande add qteLivre bigint 
+alter table detailCommande add numeroBonLivraison bigint 
+alter table detailCommande add constraint fkDetailCommandeLivraison foreign key(numeroBonLivraison) references livraison(numeroBonLivraison)
 ---------   
 ---------
 create table savonnerie(
@@ -282,4 +283,17 @@ where m.referenceModele='MD 1' and cmd.idStatutLivraison=1
 
 update commande set test=1 where idCommande= 1
 
-select * from commande
+select * from livraison
+select * from detailCommande
+
+
+select dc.numeroBonLivraison,idCommande,designation,prixAchat,qteLivre from livraison l 
+inner join detailCommande dc on dc.numeroBonLivraison=l.numeroBonLivraison
+inner join modele m on m.referenceModele=dc.referenceModele where idCommande=23
+
+
+-- inserer detaille commande(modele) a une livraison !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+-- // ajouter le numero bon & dateLivraison & idClient a la table de livraison
+insert into livraison(@numeroBonLivraison,dateLivraison,idClient) values(,'',)
+-- // ajouter qteLivrer & numeroBonLivraison & statutLivraison (ajouter ce colone a database)(il modifier a "true" quand le modele ajouter a la livraison ) a la table de detailCommande
+insert into detailCommande(@qteLivrer,@numeroBon,@statutLivraison) values(,,1) where detailCommande.idCommande=dgv.currentrow.cells[0].value and referenceModele=...
