@@ -37,18 +37,19 @@
             this.btn_rechercher = new Guna.UI2.WinForms.Guna2Button();
             this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgv_modeles = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_imageModele = new System.Windows.Forms.TextBox();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
             this.btn_ajouter = new Guna.UI2.WinForms.Guna2Button();
             this.imageModele = new System.Windows.Forms.PictureBox();
             this.btn_afficherCommandes = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_modeles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageModele)).BeginInit();
             this.SuspendLayout();
@@ -176,36 +177,6 @@
             this.dgv_modeles.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgv_modeles.SelectionChanged += new System.EventHandler(this.dgv_modeles_SelectionChanged);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Reference Modele";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Taille";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Designation";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Marque";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Prix";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Quantite";
-            this.Column6.Name = "Column6";
-            // 
             // txt_imageModele
             // 
             this.txt_imageModele.Location = new System.Drawing.Point(605, 25);
@@ -288,11 +259,59 @@
             this.btn_afficherCommandes.Text = "Afficher les clients";
             this.btn_afficherCommandes.Click += new System.EventHandler(this.btn_afficherCommandes_Click);
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderRadius = 2;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.LightSlateGray;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.Location = new System.Drawing.Point(72, 781);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(193, 29);
+            this.guna2Button1.TabIndex = 29;
+            this.guna2Button1.Text = "Afficher la lsite rouge";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Quantite";
+            this.Column6.Name = "Column6";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Prix";
+            this.Column5.Name = "Column5";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Marque";
+            this.Column4.Name = "Column4";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Designation";
+            this.Column3.Name = "Column3";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Taille";
+            this.Column2.Name = "Column2";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Reference Modele";
+            this.Column1.Name = "Column1";
+            // 
             // frmGestionStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1199, 836);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.btn_afficherCommandes);
             this.Controls.Add(this.btn_refresh);
             this.Controls.Add(this.btn_modifier);
@@ -323,17 +342,18 @@
         private Guna.UI2.WinForms.Guna2Button btn_rechercher;
         private Guna.UI2.WinForms.Guna2TextBox txt_rechercher;
         private Guna.UI2.WinForms.Guna2DataGridView dgv_modeles;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.TextBox txt_imageModele;
         private System.Windows.Forms.PictureBox imageModele;
         private Guna.UI2.WinForms.Guna2Button btn_modifier;
         private Guna.UI2.WinForms.Guna2Button btn_ajouter;
         private System.Windows.Forms.Button btn_refresh;
         private Guna.UI2.WinForms.Guna2Button btn_afficherCommandes;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

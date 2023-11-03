@@ -24,7 +24,12 @@ namespace projet_gestionEntreprise
         {
             this.Close();
         }
-        private void refresh(string filtre)
+        private void activate(bool v)
+        {
+            panel1.Enabled = !v;
+            panel2.Enabled = v;
+        }
+            private void refresh(string filtre)
         {
             if(chk_enCourLivraison.Checked)
             {
@@ -74,6 +79,7 @@ namespace projet_gestionEntreprise
         private void frmAfficheCommandeClient_Load(object sender, EventArgs e)
         {
             refresh("");
+            activate(false);
         }
 
         private void btn_ajouter_Click(object sender, EventArgs e)
@@ -83,14 +89,9 @@ namespace projet_gestionEntreprise
             f.ShowDialog();
         }
 
-        private void btn_refresh_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmAfficheCommandeClient_Activated(object sender, EventArgs e)
         {
-            refresh("");
+            //refresh("");
         }
 
         private void btn_modifier_Click(object sender, EventArgs e)
@@ -176,5 +177,16 @@ namespace projet_gestionEntreprise
             refresh("");
             txt_rechercher.Text = "";
         }
+
+        private void btn_ajouterALivraison_Click(object sender, EventArgs e)
+        {
+            activate(true);
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            activate(false);
+        }
+
     }
 }
