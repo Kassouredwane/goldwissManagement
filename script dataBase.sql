@@ -94,7 +94,14 @@ ALTER TABLE commande DROP COLUMN numeroBon;
 alter table commande add numeroBonCommande bigint;    -- en attente de suppression
 alter table commande add test bit;					  -- en attente de modofication de nom de champ
 alter table commande drop column numeroBonCommande
-
+alter table commande drop column test
+alter table commande drop constraint dfStatutLivraison
+alter table commande drop constraint fkcommandeStatutLivraison
+alter table commande drop column idStatutLivraison 
+select * from commande
+drop table statutLivraison
+alter table commande add statutLivraison bit;	
+alter table commande add constraint dfStatutLivraison default 0 for statutLivraison
 -- creation of table livraison
 create table livraison(
 	numeroBonLivraison bigint, 
@@ -118,11 +125,13 @@ alter table detailCommande add idDetailCommande bigint identity primary key;
 alter table detailCommande add qteLivre bigint 
 alter table detailCommande add numeroBonLivraison bigint 
 alter table detailCommande add constraint fkDetailCommandeLivraison foreign key(numeroBonLivraison) references livraison(numeroBonLivraison)
+alter table detailCommande add statutLivraison bit
+alter table detailCommande add constraint dfDetailCommandeQteLivraison default 0 for qteLivre
 ---------   
 ---------
-create table savonnerie(
+select * from detailCommande where statutLivraison='true'
+select * from commande where idCommande=5
 
-) 
 -- les table pour la gestion de phasonie et de savonnerie
 create table matla(
 	idMatla bigint identity primary key,
@@ -284,16 +293,27 @@ where m.referenceModele='MD 1' and cmd.idStatutLivraison=1
 update commande set test=1 where idCommande= 1
 
 select * from livraison
+select * from commande
 select * from detailCommande
 
+select * from commande where idCommande=19
+UPDATE Commande SET test = 0 WHERE idCommande = 19
 
-select dc.numeroBonLivraison,idCommande,designation,prixAchat,qteLivre from livraison l 
-inner join detailCommande dc on dc.numeroBonLivraison=l.numeroBonLivraison
-inner join modele m on m.referenceModele=dc.referenceModele where idCommande=23
+select dc.numeroBonLivraison,idCommande,m.referenceModele,designation,prixAchat,qteLivre,prixAchat*qteLivre as totale from livraison l 
+inner join detailCommande dc on dc.numeroBonLivraison=l.numeroBonLivraison 
+inner join modele m on m.referenceModele=dc.referenceModele where idCommande=30
 
+select * from detailCommande where idCommande=31
 
 -- inserer detaille commande(modele) a une livraison !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 -- // ajouter le numero bon & dateLivraison & idClient a la table de livraison
 insert into livraison(@numeroBonLivraison,dateLivraison,idClient) values(,'',)
 -- // ajouter qteLivrer & numeroBonLivraison & statutLivraison (ajouter ce colone a database)(il modifier a "true" quand le modele ajouter a la livraison ) a la table de detailCommande
 insert into detailCommande(@qteLivrer,@numeroBon,@statutLivraison) values(,,1) where detailCommande.idCommande=dgv.currentrow.cells[0].value and referenceModele=...
+
+
+update detailCommande set referenceModele='MD 1' where idCommande=1 and referenceModele='MD 2'
+
+select * from commande where idCommande=31
+
+UPDATE detailCommande SET statutLivraison = 1 WHERE idCommande = 31 and referenceModele='MD 1'
