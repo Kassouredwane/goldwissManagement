@@ -264,7 +264,7 @@
   <data name="btn_ajouterALivraison.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAB7xJREFUeF7dm2tMFFcUx2mbJn2k/dImbdKkaZo2/dC0H+oX0w8lwq7AzPLa2VFe
+        DwAACw8BkvkDpQAAB7xJREFUeF7dm2tMFFcUx2mbJn2k/dImbdKkaZo2/dC0H+oX0w8lwq7AzPLa2VFe
         LpW3grQ+Kr4xVUvroz5QI9r6AvGBDVJNsIooviBatUiM1hQfRamPqmDRIgi39zJnZ2aZO7O7w94B+kv+
         IWHvnjnnP3d3z9w7E1JYWPisjRPH2XihYHAlTrBzzs9GiuKLIVYSzrvcNt6FhorCeaEdG1Jic4hvQ4ps
         kc4+PZnBVDjneoSNyIQ02UE+AnZOSNmwqQwNltb9sAUt+m45Ss2cpDWCF+ZCqmxBQ4De3l505lwjysyd
@@ -486,7 +486,13 @@
   <metadata name="Column9.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="Column10.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column12.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column11.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -495,7 +501,7 @@
   <data name="btn_nouveauLivraison.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAACxxJREFUaEPtmGlQltcVx51pnUkTJxoX9n0xAsoumGamM520ZtJO20/JZJp20jZt
+        DwAACw8BkvkDpQAACxxJREFUaEPtmGlQltcVx51pnUkTJxoX9n0xAsoumGamM520ZtJO20/JZJp20jZt
         kzRGY0RUjIosguAWd8CFXdEoiiIBRFbZ90UFXnYUSFQEjRqX/vs/93lfRJp+AJpv3JnfnHOfe++553/v
         fe7zwrSpMlWmylSZKj9aMY6sfclpZ0Hawn1lQ25RVXCPJjHVmiWufOYaVYlFByqwaH8FFu4rh8veMrjs
         KYPz3lL6Gs67S+C8h+wu1vzdpXDaUwwn1hVf8jlx2n0ZC74swoKdhXh1R8GQ47bctHmbcmfo0xl/cYzM

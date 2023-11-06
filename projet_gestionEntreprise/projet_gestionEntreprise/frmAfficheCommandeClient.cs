@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using System.Windows.Input;
+using System.Net.Sockets;
 
 namespace projet_gestionEntreprise
 {
@@ -79,7 +80,7 @@ namespace projet_gestionEntreprise
                 cn = null;
             }
         }
-        private void updateStatutOfLivraison()
+        private void updateStatutLivraisonOfLivraison()
         {
             bool anyUnchecked = false;
 
@@ -93,27 +94,42 @@ namespace projet_gestionEntreprise
                     break; // Exit the loop as soon as an unchecked checkbox is found
                 }
             }
-            ////   this continue work lundi   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //if (!anyUnchecked)
-            //{
-            //    // All checkboxes are checked; update the database
-            //    using (SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456"))
-            //    {
-            //        connection.Open();
-            //        string updateQuery = "UPDATE Commande SET StatutLivraison = 1 WHERE YourCondition";
+            if (!anyUnchecked)
+            {
+                if (dgv_commandeClient.CurrentRow != null)
+                {
+                    int idCommande = Convert.ToInt32(dgv_commandeClient.CurrentRow.Cells[0].Value);
 
+                    using (SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456"))
+                    {
+                        cn.Open();
+                        using (SqlCommand com = new SqlCommand("UPDATE Commande SET statutLivraison = 1 WHERE idCommande = @idCommande", cn))
+                        {
+                            com.Parameters.AddWithValue("@idCommande", idCommande);
+                            com.ExecuteNonQuery();
+                        }
+                    }
+                    dgv_commandeClient.CurrentRow.Cells[2].Value = true;
+                }
+            }
+            else
+            {
+                if (dgv_commandeClient.CurrentRow != null)
+                {
+                    int idCommande = Convert.ToInt32(dgv_commandeClient.CurrentRow.Cells[0].Value);
 
-            //        using (SqlCommand command = new SqlCommand(updateQuery, connection))
-            //        {
-            //            // Add parameters or specify a condition as needed
-            //            command.ExecuteNonQuery();
-            //        }
-            //    }
-            //}
-            //else
-            //{
-
-            //}
+                    using (SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456"))
+                    {
+                        cn.Open();
+                        using (SqlCommand com = new SqlCommand("UPDATE Commande SET statutLivraison = 0 WHERE idCommande = @idCommande", cn))
+                        {
+                            com.Parameters.AddWithValue("@idCommande", idCommande);
+                            com.ExecuteNonQuery();
+                        }
+                    }
+                    dgv_commandeClient.CurrentRow.Cells[2].Value = false;
+                }
+            }
 
         }
         private void frmAfficheCommandeClient_Load(object sender, EventArgs e)
@@ -122,6 +138,7 @@ namespace projet_gestionEntreprise
             activate(false);
             activateButton(false);
             //updateStatutOfLivraison();
+            //updateStatutLivraisonOfLivraison(); 
         }
 
         private void btn_ajouter_Click(object sender, EventArgs e)
@@ -150,6 +167,7 @@ namespace projet_gestionEntreprise
             frmNouveauCommande f = new frmNouveauCommande(idClient);
             f.ShowDialog();
         }
+        int dgvCommandeClientIndexSelected;
         private void dgv_commandeClient_SelectionChanged(object sender, EventArgs e)
         {
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
@@ -169,6 +187,26 @@ namespace projet_gestionEntreprise
 
             cn.Close();
             cn = null;
+
+            // Fill datagrid view of livraison of commande
+            SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            cn2.Open();
+            string req2 = "select dc.numeroBonLivraison,dateLivraison,idCommande,m.referenceModele,designation,prixAchat,qteLivre,prixAchat*qteLivre as totale from livraison l inner join detailCommande dc on dc.numeroBonLivraison=l.numeroBonLivraison inner join modele m on m.referenceModele=dc.referenceModele where idCommande=" + dgv_commandeClient.CurrentRow.Cells[0].Value;
+            SqlCommand com2 = new SqlCommand(req2, cn2);
+            SqlDataReader dr2 = com2.ExecuteReader();
+            dgv_livraison.Rows.Clear();
+            while (dr2.Read())
+            {
+                dgv_livraison.Rows.Add(dr2["numeroBonLivraison"], dr2["designation"], dr2["dateLivraison"], dr2["prixAchat"], dr2["qteLivre"], dr2["totale"]);
+            }
+            // close all commandes and connection and datareader
+            dr2.Close();
+            dr2 = null;
+            com2 = null;
+
+            cn2.Close();
+            cn2 = null;
+            label2.Text= dgvCommandeClientIndexSelected.ToString(); 
         }
 
         private void chk_enCourLivraison_CheckedChanged(object sender, EventArgs e)
@@ -218,11 +256,16 @@ namespace projet_gestionEntreprise
         {
             refresh("");
             txt_rechercher.Text = "";
+            if (dgvCommandeClientIndexSelected >= 0 && dgvCommandeClientIndexSelected < dgv_commandeClient.Rows.Count)
+            {
+                dgv_commandeClient.Rows[dgvCommandeClientIndexSelected].Selected = true;
+            }
         }
 
         private void btn_ajouterALivraison_Click(object sender, EventArgs e)
         {
             activate(true);
+            txt_qteLivraison.Focus();
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -236,6 +279,8 @@ namespace projet_gestionEntreprise
             txt_qteLivraison.Enabled = false;
             txt_numeroBonLivraison.Text = "";
             dtp_dateLivraison.Value = DateTime.Today;
+            btn_vaider.Enabled = false;
+            guna2Button2.Enabled = false;   
         }
         private void fillDgvLivraisonOfCommandeSelect()
         {
@@ -243,8 +288,24 @@ namespace projet_gestionEntreprise
         }
         private void btn_ajouterLivraison_Click(object sender, EventArgs e)
         {
+            // checker si le numero de sbon est deja existe si supprimer le premier et ajouter dans l'archive at remplace lenouveau dans la table livraison
+            //////////////
+            //////////////
             activate(false);
             // ajouter nouveau livraison avec numero bon et la date a la table livraison dans sql server
+            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            cn.Open();
+            string reqq = "insert into livraison values(@numeroBonLivraison,@dateLivraison,@idClient)";
+            SqlCommand com = new SqlCommand(reqq, cn);
+            com.Parameters.Add(new SqlParameter("@numeroBonLivraison", txt_numeroBonLivraison.Text));
+            com.Parameters.Add(new SqlParameter("@dateLivraison", dtp_dateLivraison.Value));
+            com.Parameters.Add(new SqlParameter("@idClient", IdClient));
+            com.ExecuteNonQuery();
+
+            com = null;
+            cn.Close();
+            cn = null;
+            MessageBox.Show("la livraison a été ajouter avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btn_vaider_Click(object sender, EventArgs e)
@@ -252,6 +313,9 @@ namespace projet_gestionEntreprise
             // ajouter qteLivrer & numeroBonLivraison & statutLivraison (ajouter ce colone a database)(il modifier a "true" quand le modele ajouter
             // ==> a la livraison ) a la table de detailCommande
 
+            // checker la quantiter entrer de livraison est inférieure que la quantte en stock
+
+            // update la quantite en stock de modele valider a la livraison par qte-qteLivre
         }
 
         private void dgv_commandeClient_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -269,22 +333,18 @@ namespace projet_gestionEntreprise
                     int commandeID = Convert.ToInt32(dgv_commandeClient.Rows[e.RowIndex].Cells[0].Value);
 
                     // Update the database
-
-                    //string updateQuery = "UPDATE Commande SET test = @UpdatedValue WHERE idCommande = @CommandeID";
-
-                    //using (SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456"))
-                    //{
-                    //    using (SqlCommand command = new SqlCommand(updateQuery, connection))
-                    //    {
-                    //        command.Parameters.AddWithValue("@UpdatedValue", updatedValue);
-                    //        command.Parameters.AddWithValue("@CommandeID", commandeID);
-
-                    //        connection.Open();
-                    //        command.ExecuteNonQuery();
-                    //    }
-                    //    connection.Close();
-                    //}
-
+                    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                    cn.Open();
+                    SqlCommand com = new SqlCommand("UPDATE Commande SET statutLivraison = @UpdatedValue WHERE idCommande = @idCommande", cn);
+                    com.Parameters.AddWithValue("@UpdatedValue", updatedValue);
+                    com.Parameters.AddWithValue("@idCommande", commandeID);
+                    SqlDataReader dr = com.ExecuteReader();
+                    dr.Close();
+                    dr = null;
+                    com.ExecuteNonQuery();
+                    com = null;
+                    cn.Close();
+                    cn = null;
                 }
             }
         }
@@ -299,42 +359,42 @@ namespace projet_gestionEntreprise
         }
         private void dgv_detailCommandeClient_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-
-            //if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            //{
-            //    // Check if the column corresponds to the checkbox column
-            //    DataGridViewColumn column = dgv_detailCommandeClient.Columns[e.ColumnIndex];
-            //    if (column is DataGridViewCheckBoxColumn)
-            //    {
-            //        // Get the updated value from the DataGridView (true/false)
-            //        bool updatedValue = (bool)dgv_detailCommandeClient.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-
-            //        // Get the ID of the Commande from the DataGridView
-            //        int commandeID = Convert.ToInt32(dgv_detailCommandeClient.Rows[e.RowIndex].Cells["ID_Commande"].Value);
-
-            //        // Update the database
-            //        SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
-            //        cn.Open();
-            //        SqlCommand com = new SqlCommand("UPDATE Commande SET test = @UpdatedValue WHERE idCommande = @CommandeID", cn);
-            //        com.Parameters.AddWithValue("@UpdatedValue", updatedValue);
-            //        com.Parameters.AddWithValue("@CommandeID", commandeID);
-            //        SqlDataReader dr = com.ExecuteReader();
-            //        dr.Close();
-            //        dr = null;
-            //        com.ExecuteNonQuery();
-            //        com = null;
-            //        cn.Close();
-            //        cn = null;
-            //    }
-            //}
             activateButton(true);
-            updateStatutOfLivraison();
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Check if the column corresponds to the checkbox column
+                DataGridViewColumn column = dgv_detailCommandeClient.Columns[e.ColumnIndex];
+                if (column is DataGridViewCheckBoxColumn)
+                {
+                    // Get the updated value from the DataGridView (true/false)
+                    bool updatedValue = (bool)dgv_detailCommandeClient.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
 
+                    // Get the ID of the Commande from the DataGridView
+                    string referenceModele = dgv_detailCommandeClient.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                    // Update the database
+                    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                    cn.Open();
+                    SqlCommand com = new SqlCommand("UPDATE detailCommande SET statutLivraison = @UpdatedValue WHERE idCommande = @idCommande and referenceModele=@referenceModele", cn);
+                    com.Parameters.AddWithValue("@UpdatedValue", updatedValue);
+                    com.Parameters.AddWithValue("@idCommande", dgv_commandeClient.CurrentRow.Cells[0].Value);
+                    com.Parameters.AddWithValue("@referenceModele", referenceModele);
+                    SqlDataReader dr = com.ExecuteReader();
+                    dr.Close();
+                    dr = null;
+                    com.ExecuteNonQuery();
+                    com = null;
+                    cn.Close();
+                    cn = null;
+                }
+            }
+            updateStatutLivraisonOfLivraison();
         }
 
         private void btn_enregistrer_Click(object sender, EventArgs e)
         {
             activateButton(false);
         }
+        
     }
 }
