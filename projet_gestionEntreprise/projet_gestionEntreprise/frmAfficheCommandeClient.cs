@@ -136,7 +136,6 @@ namespace projet_gestionEntreprise
         {
             refresh("");
             activate(false);
-            activateButton(false);
             //updateStatutOfLivraison();
             //updateStatutLivraisonOfLivraison(); 
         }
@@ -150,7 +149,7 @@ namespace projet_gestionEntreprise
 
         private void frmAfficheCommandeClient_Activated(object sender, EventArgs e)
         {
-            //refresh("");
+            refresh("");
         }
 
         private void btn_modifier_Click(object sender, EventArgs e)
@@ -206,7 +205,6 @@ namespace projet_gestionEntreprise
 
             cn2.Close();
             cn2 = null;
-            label2.Text= dgvCommandeClientIndexSelected.ToString(); 
         }
 
         private void chk_enCourLivraison_CheckedChanged(object sender, EventArgs e)
@@ -249,7 +247,7 @@ namespace projet_gestionEntreprise
 
         private void btn_rechercher_Click(object sender, EventArgs e)
         {
-            refresh(" and idCommande like'%" + txt_rechercher.Text + "%'");
+            refresh(" and idCommande like'%" + txt_rechercher.Text + "%' or dateCommande='"+ txt_rechercher.Text + "'");
         }
 
         private void btn_refresh_Click_1(object sender, EventArgs e)
@@ -265,7 +263,10 @@ namespace projet_gestionEntreprise
         private void btn_ajouterALivraison_Click(object sender, EventArgs e)
         {
             activate(true);
+            txt_qteLivraison.Enabled = true;
             txt_qteLivraison.Focus();
+            dtp_dateLivraison.Enabled = false;
+            btn_ajouterALivraison.Enabled = false;
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -279,8 +280,7 @@ namespace projet_gestionEntreprise
             txt_qteLivraison.Enabled = false;
             txt_numeroBonLivraison.Text = "";
             dtp_dateLivraison.Value = DateTime.Today;
-            btn_vaider.Enabled = false;
-            guna2Button2.Enabled = false;   
+            btn_vaider.Enabled = false; 
         }
         private void fillDgvLivraisonOfCommandeSelect()
         {
@@ -310,12 +310,49 @@ namespace projet_gestionEntreprise
 
         private void btn_vaider_Click(object sender, EventArgs e)
         {
-            // ajouter qteLivrer & numeroBonLivraison & statutLivraison (ajouter ce colone a database)(il modifier a "true" quand le modele ajouter
-            // ==> a la livraison ) a la table de detailCommande
+            try
+            {
+                // checker la quantiter entrer de livraison est inférieure que la quantte en stock
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                cn.Open();
+                SqlCommand com = new SqlCommand("select qteStock from modele m where referenceModele='" + dgv_detailCommandeClient.CurrentRow.Cells[0].Value + "'", cn);
+                int qte = Convert.ToInt32(com.ExecuteScalar());
+                if (qte > Convert.ToInt32(txt_qteLivraison.Text))
+                {
+                    // ajouter qteLivrer & numeroBonLivraison & statutLivraison (ajouter ce colone a database)(il modifier a "true" quand le modele ajouter
+                    // ==> a la livraison ) a la table de detailCommande
+                    SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                    cn2.Open();
+                    string reqq2 = "update detailCommande set qteLivre=@qteLivre,numeroBonLivraison=@numeroBonLivraison,statutLivraison=1 where detailCommande.idCommande=" + dgv_commandeClient.CurrentRow.Cells[0].Value + " and referenceModele='" + dgv_detailCommandeClient.CurrentRow.Cells[0].Value + "'";
+                    SqlCommand com2 = new SqlCommand(reqq2, cn2);
+                    com2.Parameters.Add(new SqlParameter("@qteLivre", txt_qteLivraison.Text));
+                    com2.Parameters.Add(new SqlParameter("@numeroBonLivraison", txt_numeroBonLivraison.Text));
+                    com2.ExecuteNonQuery();
 
-            // checker la quantiter entrer de livraison est inférieure que la quantte en stock
+                    com2 = null;
+                    cn2.Close();
+                    cn2 = null;
+                    // update la quantite en stock de modele valider a la livraison par qte-qteLivre
+                    SqlConnection cn3 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                    cn3.Open();
+                    string reqq3 = "update modele set qteStock=(qteStock-" + Convert.ToInt32(txt_qteLivraison.Text) + ") where referenceModele=@referenceModele";
+                    SqlCommand com3 = new SqlCommand(reqq3, cn3);
+                    com3.Parameters.Add(new SqlParameter("@referenceModele", dgv_detailCommandeClient.CurrentRow.Cells[0].Value));
+                    com3.ExecuteNonQuery();
 
-            // update la quantite en stock de modele valider a la livraison par qte-qteLivre
+                    com3 = null;
+                    cn3.Close();
+                    cn3 = null;
+                    MessageBox.Show("la livraison a été ajouter avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgv_detailCommandeClient.CurrentRow.Cells[4].Value = true;
+                    updateStatutLivraisonOfLivraison();
+                }
+                else MessageBox.Show("la quantite qui vous avez saisi est inférieure a la quantite en stock - Quantite en stock : " + qte, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                com = null;
+                cn.Close();
+                cn = null;
+            }
+            catch (Exception error) { MessageBox.Show("numero de bon livraison n'existe pas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information); }
         }
 
         private void dgv_commandeClient_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -348,18 +385,8 @@ namespace projet_gestionEntreprise
                 }
             }
         }
-        private void activateButton(bool v)
-        {
-            btn_enregistrer.Enabled = v;
-            btn_ajouterALivraison.Enabled = !v;
-            btn_nouveauCommande.Enabled = !v;
-            btn_modifier.Enabled = !v;
-            btn_ajouter.Enabled = !v;
-            btn_supprimer.Enabled = !v;
-        }
         private void dgv_detailCommandeClient_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            activateButton(true);
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 // Check if the column corresponds to the checkbox column
@@ -390,11 +417,5 @@ namespace projet_gestionEntreprise
             }
             updateStatutLivraisonOfLivraison();
         }
-
-        private void btn_enregistrer_Click(object sender, EventArgs e)
-        {
-            activateButton(false);
-        }
-        
     }
 }

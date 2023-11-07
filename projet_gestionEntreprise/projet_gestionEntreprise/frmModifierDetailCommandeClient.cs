@@ -60,8 +60,19 @@ namespace projet_gestionEntreprise
             cn.Close();
             cn = null;
             MessageBox.Show("le detaille de ce modele a été modifier avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // UPDATE STATUT LIVRAISON OF COMMANDE OF THIS DETAIL COMMANDE WILLL BE ADDED IN TO FALSE !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            cn2.Open();
+            SqlCommand com2 = new SqlCommand("UPDATE Commande SET statutLivraison = 0 WHERE idCommande = @idCommande", cn2);
+            com2.Parameters.Add(new SqlParameter("@qteAchat", txt_qteAchat.Text));
+            com2.Parameters.Add(new SqlParameter("@prixAchat", txt_prixAchat.Text));
+            com2.Parameters.Add(new SqlParameter("@referenceModele", txt_nouveauReferenceModele.Text));
+            com2.ExecuteNonQuery();
+            com2 = null;
+            cn2.Close();
+            cn2 = null;
+            //fermer le formulaire
             this.Close();
-            // UPDATE STATUT LIVRAISON OF COMMANDE OF THIS DETAIL COMMANDE WILLL BE ADDED IN !!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
     }
 }

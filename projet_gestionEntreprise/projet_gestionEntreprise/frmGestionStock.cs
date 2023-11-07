@@ -17,7 +17,26 @@ namespace projet_gestionEntreprise
         {
             InitializeComponent();
         }
+        private void colorOfCellsQteStock()
+        {
+            foreach (DataGridViewRow row in dgv_modeles.Rows)
+            {
+                DataGridViewTextBoxCell cell = row.Cells[5] as DataGridViewTextBoxCell;
 
+                if (cell != null && Convert.ToInt32(cell.Value)<30)
+                {
+                    cell.Style.BackColor= Color.Red;
+                }
+                else if(cell != null && Convert.ToInt32(cell.Value) > 30 && Convert.ToInt32(cell.Value) < 100)
+                {
+                    cell.Style.BackColor = Color.OrangeRed;
+                }
+                else
+                {
+                    cell.Style.BackColor = Color.Green;
+                }
+            }
+        }
         private void frmGestionStock_Load(object sender, EventArgs e)
         {
             cb_categorie.Items.Clear();
@@ -44,6 +63,8 @@ namespace projet_gestionEntreprise
             //choose image modele
             if (txt_imageModele.Text == "") imageModele.Load("image modeles/aucune image.jpg");
             else imageModele.Load("image modeles/" + txt_imageModele.Text);
+            // color of cells of "quantite en stock"
+            colorOfCellsQteStock();
         }
         private void fillGridModele()
         {
@@ -78,7 +99,7 @@ namespace projet_gestionEntreprise
                     dgv_modeles.Rows.Clear();
                     while (dr.Read())
                     {
-                        dgv_modeles.Rows.Add(dr["referenceModele"], dr["taille"], dr["designation"], dr["referenceModele"], dr["marqueModele"], dr["prixModele"], dr["qteStock"]);
+                        dgv_modeles.Rows.Add(dr["referenceModele"], dr["taille"], dr["designation"], dr["marqueModele"], dr["prixModele"], dr["qteStock"]);
                     }
                     dr.Close();
                     dr = null;
@@ -94,6 +115,7 @@ namespace projet_gestionEntreprise
         private void cb_categorie_SelectedIndexChanged(object sender, EventArgs e)
         {
             fillGridModele();
+            colorOfCellsQteStock();
         }
 
         private void dgv_modeles_SelectionChanged(object sender, EventArgs e)
@@ -209,6 +231,7 @@ namespace projet_gestionEntreprise
             if (txt_imageModele.Text == "") imageModele.Load("image modeles/aucune image.jpg");
             else imageModele.Load("image modeles/" + txt_imageModele.Text);
             txt_rechercher.Text = "";
+            colorOfCellsQteStock();
         }
 
         private void btn_supprimer_Click(object sender, EventArgs e)

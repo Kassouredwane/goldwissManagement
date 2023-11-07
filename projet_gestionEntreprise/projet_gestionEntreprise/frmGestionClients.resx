@@ -293,10 +293,10 @@
         f4cf52O0hFZlZNkONdy0tbyH8ewAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btn_afficherSituation.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_afficherLivraison.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAEqVJREFUeF7tnQdUFOcWxwEBS+wdkV01dqMBVDTWaEyIJdaAKAJqjBGNMcbeqMYa
+        DgAACw4BQL7hQQAAEqVJREFUeF7tnQdUFOcWxwEBS+wdkV01dqMBVDTWaEyIJdaAKAJqjBGNMcbeqMYa
         FRU7KB1FQTGyNCnGWGKLaKLGWGJBEI2U9/LeS17CffeOzrqzexdYioF35n/O78wsO/vNd/93vzIzO4OR
         LFmyZMmSJUuWLFmyZMmSJUuWLFmyZP2dMkFaIN2RQchwxAH5GJmFTNfAFaH3xiJDkLcQG6QN0gyph8gy
         ULbIHCQCuYn8jkB5YmJS7Q/Tama/mZtWf2ZuViMHl9k1zWvfqWVe+zZyq07NBhmv1ahzsXaN+mfr1mp4
@@ -377,6 +377,19 @@
         iAM5HQYokEovJUL/fUDsl7V5gFDQrZDKqgYI3SdDAz79l4gLyFmEHn9IxxlV8v+Q0KXgrgg9S57+5RGd
         dqYj1zKdz5ElS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbIqTEZG/wPRoQN2AS26MAAAAABJ
         RU5ErkJggg==
+</value>
+  </data>
+  <data name="guna2Button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAGfSURBVEhL7Za5SgRBEIbHQHNPMPFBRDNzQfRZTL1AH0R8
+        B1fQQMVAPALBJzD3AjXw+L9leyiKmp1eZxQDP/hgt6unavucLf4aU3JLXsnnnpdyUxL7EVbko/yskNiy
+        bBWKfsiooJU+rRVnCqORzso514YPclJ6piVLdNT9lgFr6pNjIoptSAtFbyWxFxpyuJY+MSaiGBsuYYti
+        duGqDZWIYjyTqPrhkSey5DuFWecEo4/6RB7LEjZE1CkRxexUszlvZIplTzWXg02aTESxdWmxxbMLVx0n
+        jtK8a8N7OSE95DmV+91vmXAp5F4gS7JVKM6miQoiI229aIIbicvhQj715DNrGk3vP7/CnszZkMl3uSsb
+        Q6KoQD95ppYheS7P5DgNDpuQ07AoF5y0+ZNSy7BMnXkR+OI22Ztck6tO2ojZvrXYwkhxe6RsbBBLuOai
+        DpH2tRbFcywhWdQh8lAmoniOtfip5lU4JhM2Noi12MK+KNhkg1gLx4n151/jKA2OKGmOjXmVUeJ+3snG
+        HMgoeT+3ZWNmZEf6CyKSke4URTHyBXypgoAlxmQXAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>
