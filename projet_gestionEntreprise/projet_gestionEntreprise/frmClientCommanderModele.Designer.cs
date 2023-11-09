@@ -35,17 +35,15 @@
             this.dgv_clients = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btn_rechercher = new Guna.UI2.WinForms.Guna2Button();
             this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
-            this.chk_enCourLivraison = new Guna.UI2.WinForms.Guna2CheckBox();
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_refresh = new Guna.UI2.WinForms.Guna2Button();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lst_clients = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,12 +63,12 @@
             this.dgv_clients.ColumnHeadersHeight = 20;
             this.dgv_clients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgv_clients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
             this.Column2,
+            this.Column6,
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column6,
+            this.Column1,
             this.Column7});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -81,10 +79,10 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_clients.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_clients.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgv_clients.Location = new System.Drawing.Point(315, 126);
+            this.dgv_clients.Location = new System.Drawing.Point(51, 72);
             this.dgv_clients.Name = "dgv_clients";
             this.dgv_clients.RowHeadersVisible = false;
-            this.dgv_clients.Size = new System.Drawing.Size(834, 563);
+            this.dgv_clients.Size = new System.Drawing.Size(834, 331);
             this.dgv_clients.TabIndex = 16;
             this.dgv_clients.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv_clients.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -119,10 +117,10 @@
             this.btn_rechercher.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_rechercher.ForeColor = System.Drawing.Color.White;
             this.btn_rechercher.Image = ((System.Drawing.Image)(resources.GetObject("btn_rechercher.Image")));
-            this.btn_rechercher.Location = new System.Drawing.Point(236, 44);
+            this.btn_rechercher.Location = new System.Drawing.Point(336, 38);
             this.btn_rechercher.Name = "btn_rechercher";
             this.btn_rechercher.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btn_rechercher.Size = new System.Drawing.Size(57, 25);
+            this.btn_rechercher.Size = new System.Drawing.Size(57, 28);
             this.btn_rechercher.TabIndex = 19;
             this.btn_rechercher.Click += new System.EventHandler(this.btn_rechercher_Click);
             // 
@@ -138,32 +136,13 @@
             this.txt_rechercher.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_rechercher.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_rechercher.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_rechercher.Location = new System.Drawing.Point(45, 44);
+            this.txt_rechercher.Location = new System.Drawing.Point(51, 38);
             this.txt_rechercher.Name = "txt_rechercher";
             this.txt_rechercher.PasswordChar = '\0';
             this.txt_rechercher.PlaceholderText = "Rechercher Sur un client...";
             this.txt_rechercher.SelectedText = "";
-            this.txt_rechercher.Size = new System.Drawing.Size(185, 25);
+            this.txt_rechercher.Size = new System.Drawing.Size(279, 28);
             this.txt_rechercher.TabIndex = 18;
-            // 
-            // chk_enCourLivraison
-            // 
-            this.chk_enCourLivraison.AutoSize = true;
-            this.chk_enCourLivraison.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chk_enCourLivraison.CheckedState.BorderRadius = 0;
-            this.chk_enCourLivraison.CheckedState.BorderThickness = 0;
-            this.chk_enCourLivraison.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chk_enCourLivraison.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_enCourLivraison.Location = new System.Drawing.Point(38, 705);
-            this.chk_enCourLivraison.Name = "chk_enCourLivraison";
-            this.chk_enCourLivraison.Size = new System.Drawing.Size(163, 20);
-            this.chk_enCourLivraison.TabIndex = 43;
-            this.chk_enCourLivraison.Text = "En cour de livraison";
-            this.chk_enCourLivraison.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chk_enCourLivraison.UncheckedState.BorderRadius = 0;
-            this.chk_enCourLivraison.UncheckedState.BorderThickness = 0;
-            this.chk_enCourLivraison.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chk_enCourLivraison.CheckedChanged += new System.EventHandler(this.chk_enCourLivraison_CheckedChanged);
             // 
             // btn_annuler
             // 
@@ -177,7 +156,7 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(1028, 701);
+            this.btn_annuler.Location = new System.Drawing.Point(764, 409);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(121, 29);
@@ -185,15 +164,34 @@
             this.btn_annuler.Text = "Fermer";
             this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
             // 
-            // Column1
+            // btn_refresh
             // 
-            this.Column1.HeaderText = "id Client";
-            this.Column1.Name = "Column1";
+            this.btn_refresh.BorderRadius = 2;
+            this.btn_refresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_refresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_refresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_refresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_refresh.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_refresh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh.ForeColor = System.Drawing.Color.White;
+            this.btn_refresh.Image = ((System.Drawing.Image)(resources.GetObject("btn_refresh.Image")));
+            this.btn_refresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_refresh.Location = new System.Drawing.Point(399, 38);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btn_refresh.Size = new System.Drawing.Size(39, 28);
+            this.btn_refresh.TabIndex = 61;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Nom Complet";
+            this.Column2.HeaderText = "Id client";
             this.Column2.Name = "Column2";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Nom Complet";
+            this.Column6.Name = "Column6";
             // 
             // Column3
             // 
@@ -210,10 +208,10 @@
             this.Column5.HeaderText = "Quantite";
             this.Column5.Name = "Column5";
             // 
-            // Column6
+            // Column1
             // 
-            this.Column6.HeaderText = "Taille";
-            this.Column6.Name = "Column6";
+            this.Column1.HeaderText = "Prix Achat";
+            this.Column1.Name = "Column1";
             // 
             // Column7
             // 
@@ -222,33 +220,12 @@
             this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(35, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(229, 16);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "La liste des clients  commander:";
-            // 
-            // lst_clients
-            // 
-            this.lst_clients.FormattingEnabled = true;
-            this.lst_clients.Location = new System.Drawing.Point(38, 126);
-            this.lst_clients.Name = "lst_clients";
-            this.lst_clients.Size = new System.Drawing.Size(255, 563);
-            this.lst_clients.TabIndex = 45;
-            // 
             // frmClientCommanderModele
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 766);
-            this.Controls.Add(this.lst_clients);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.chk_enCourLivraison);
+            this.ClientSize = new System.Drawing.Size(946, 462);
+            this.Controls.Add(this.btn_refresh);
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.btn_rechercher);
             this.Controls.Add(this.txt_rechercher);
@@ -259,7 +236,6 @@
             this.Load += new System.EventHandler(this.frmClientCommanderModele_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clients)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -268,16 +244,14 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgv_clients;
         private Guna.UI2.WinForms.Guna2Button btn_rechercher;
         private Guna.UI2.WinForms.Guna2TextBox txt_rechercher;
-        private Guna.UI2.WinForms.Guna2CheckBox chk_enCourLivraison;
         private Guna.UI2.WinForms.Guna2Button btn_annuler;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private Guna.UI2.WinForms.Guna2Button btn_refresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column7;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox lst_clients;
     }
 }

@@ -266,7 +266,7 @@ namespace projet_gestionEntreprise
             txt_qteLivraison.Enabled = true;
             txt_qteLivraison.Focus();
             dtp_dateLivraison.Enabled = false;
-            btn_ajouterALivraison.Enabled = false;
+            //btn_ajouterALivraison.Enabled = false;
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)

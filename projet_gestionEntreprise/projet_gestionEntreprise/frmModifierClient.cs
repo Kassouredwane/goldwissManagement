@@ -31,6 +31,8 @@ namespace projet_gestionEntreprise
         {
             frmAjouterVille f = new frmAjouterVille();
             f.ShowDialog();
+
+
         }
 
         private void frmModifierClient_Load(object sender, EventArgs e)

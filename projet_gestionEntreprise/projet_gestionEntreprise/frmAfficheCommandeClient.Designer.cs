@@ -78,6 +78,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_nouveauLivraison = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_detailCommandeClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_commandeClient)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
@@ -312,7 +314,7 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(953, 879);
+            this.btn_annuler.Location = new System.Drawing.Point(940, 867);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(121, 29);
@@ -630,7 +632,7 @@
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_livraison.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_livraison.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgv_livraison.Location = new System.Drawing.Point(552, 572);
+            this.dgv_livraison.Location = new System.Drawing.Point(37, 560);
             this.dgv_livraison.Name = "dgv_livraison";
             this.dgv_livraison.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgv_livraison.RowHeadersVisible = false;
@@ -728,20 +730,41 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.guna2GroupBox1);
-            this.panel2.Location = new System.Drawing.Point(38, 544);
+            this.panel2.Location = new System.Drawing.Point(567, 532);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(507, 329);
             this.panel2.TabIndex = 79;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(36, 532);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(189, 16);
+            this.label2.TabIndex = 80;
+            this.label2.Text = "Numero de Bon Livraison: ";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(228, 530);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(154, 21);
+            this.comboBox1.TabIndex = 81;
             // 
             // frmAfficheCommandeClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1109, 932);
-            this.Controls.Add(this.dgv_livraison);
+            this.ClientSize = new System.Drawing.Size(1109, 920);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_annuler);
+            this.Controls.Add(this.dgv_livraison);
             this.Name = "frmAfficheCommandeClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAfficheCommandeClient";
@@ -756,6 +779,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -800,5 +824,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

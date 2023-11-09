@@ -19,7 +19,30 @@ namespace projet_gestionEntreprise
         {
             InitializeComponent();
         }
+        private void colorOfCellsQteStock()
+        {
+            foreach (DataGridViewRow row in dgv_clients.Rows)
+            {
+                DataGridViewTextBoxCell cell = row.Cells[6] as DataGridViewTextBoxCell;
 
+                if (cell != null && Convert.ToInt32(cell.Value) > 0 && Convert.ToInt32(cell.Value)<=5000)
+                {
+                    cell.Style.BackColor = Color.Orange;
+                }
+                else if (cell != null && Convert.ToInt32(cell.Value) > 2500 && Convert.ToInt32(cell.Value)<=20000)
+                {
+                    cell.Style.BackColor = Color.OrangeRed;
+                }
+                else if (cell != null && Convert.ToInt32(cell.Value) == 0)
+                {
+                    cell.Style.BackColor = Color.Green;
+                }
+                else
+                {
+                    cell.Style.BackColor = Color.Red;
+                }
+            }
+        }
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -45,6 +68,7 @@ namespace projet_gestionEntreprise
 
             cn1.Close();
             cn1 = null;
+            colorOfCellsQteStock();
         }
         private void frmGestionClients_Load(object sender, EventArgs e)
         {
@@ -82,13 +106,13 @@ namespace projet_gestionEntreprise
                 {
                     SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
                     cn.Open();
-                    string req = "select idClient,nomClient,prenomClient,telephoneClient,adresseClient,nomVille from client c inner join ville v on v.idVille=c.idVille " + filtre + " order by " + orderBy;
+                    string req = "select idClient,nomClient,prenomClient,telephoneClient,adresseClient,restePayer,nomVille from client c inner join ville v on v.idVille=c.idVille " + filtre + " order by " + orderBy;
                     SqlCommand com = new SqlCommand(req, cn);
                     SqlDataReader dr = com.ExecuteReader();
                     dgv_clients.Rows.Clear();
                     while (dr.Read())
                     {
-                        dgv_clients.Rows.Add(dr["idClient"], dr["nomClient"], dr["prenomClient"], dr["telephoneClient"], dr["adresseClient"], dr["nomVille"]);
+                        dgv_clients.Rows.Add(dr["idClient"], dr["nomClient"], dr["prenomClient"], dr["telephoneClient"], dr["adresseClient"], dr["nomVille"], dr["restePayer"]);
                     }
                     dr.Close();
                     dr = null;
@@ -101,13 +125,13 @@ namespace projet_gestionEntreprise
                 {
                     SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
                     cn.Open();
-                    string req = "select idClient,nomClient,prenomClient,telephoneClient,adresseClient,nomVille from client c inner join ville v on v.idVille=c.idVille where c.idVille = (select idVille from ville  where nomVille='"+cb_villeClient.Text+"')  " + filtre + " order by " + orderBy;
+                    string req = "select idClient,nomClient,prenomClient,telephoneClient,adresseClient,restePayer,nomVille from client c inner join ville v on v.idVille=c.idVille where c.idVille = (select idVille from ville  where nomVille='" + cb_villeClient.Text+"')  " + filtre + " order by " + orderBy;
                     SqlCommand com = new SqlCommand(req, cn);
                     SqlDataReader dr = com.ExecuteReader();
                     dgv_clients.Rows.Clear();
                     while (dr.Read())
                     {
-                        dgv_clients.Rows.Add(dr["idClient"], dr["nomClient"], dr["prenomClient"], dr["telephoneClient"], dr["adresseClient"], dr["nomVille"]);
+                        dgv_clients.Rows.Add(dr["idClient"], dr["nomClient"], dr["prenomClient"], dr["telephoneClient"], dr["adresseClient"], dr["nomVille"], dr["restePayer"]);
                     }
                     dr.Close();
                     dr = null;
@@ -118,7 +142,8 @@ namespace projet_gestionEntreprise
                 }
             }
             catch (Exception error) { MessageBox.Show(error.Message.ToString()); }
-            
+            colorOfCellsQteStock();
+
         }
         private void rechercheClient()
         {
