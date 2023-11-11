@@ -62,6 +62,16 @@ alter table client add idVille bigint constraint fkClientVille foreign key refer
 alter table client drop column villeClient
 alter table client add restePayer bigint 
 
+create table transactions(
+	idTransaction bigint identity primary key,
+	idClient bigint,
+	montant bigint,
+	dateTransaction date,
+	TypeTransaction varchar(55),
+	[description] varchar(255),
+	constraint fkTransactionsClient foreign key (idClient) references client(idClient)
+)
+
 create table statutPayement(
 	idStatutPayement bigint identity primary key,
 	designation varchar(55)
@@ -131,6 +141,27 @@ alter table detailCommande add constraint dfDetailCommandeQteLivraison default 0
 ---------
 select * from detailCommande where statutLivraison='true'
 select * from commande where idCommande=5
+
+create table archiveLivraison(
+	idarchiveLivraison bigint identity primary key,
+	numeroBonLivraison bigint, 
+	dateLivraison date,
+	idClient bigint
+)
+
+create table archiveDetailLivraison(
+	idArchiveDetailLivraison bigint identity primary key,
+	idarchiveLivraison bigint,
+	idDetailCommande bigint,
+	idCommande bigint,
+	referenceModele varchar(55),
+	qteAchat bigint,
+	prixAchat bigint,
+	qteLivre bigint,
+	numeroBonLivraison bigint,
+	statutLivraison bit ,
+	constraint fkArchiveDetailLivraisonArchiveLivraison foreign key (idarchiveLivraison) references archiveLivraison(idarchiveLivraison)
+)
 
 -- les table pour la gestion de phasonie et de savonnerie
 create table matla(
@@ -257,9 +288,8 @@ select * from commande c inner join detailCommande dc on dc.idCommande=c.idComma
 select c.idCommande,dateCommande,sum(qteAchat) as quantite from commande c inner join detailCommande dc on dc.idCommande=c.idCommande 
 where idClient=13 and c.idCommande=23 group by c.idCommande,dateCommande
 
-select c.idCommande,dateCommande,sum(qteAchat) as quantite,designation from commande c 
+select c.idCommande,dateCommande,sum(qteAchat) as quantite  from commande c 
 inner join detailCommande dc on dc.idCommande=c.idCommande 
-inner join statutLivraison sl on sl.idStatutLivraison=c.idStatutLivraison 
 where idClient=13 group by c.idCommande,dateCommande,designation
 ------------------------------------------------- button delete detaile commmande from commande ---------------------------------------------
 ------------------------------------------------- button delete detaile commmande from commande ---------------------------------------------
@@ -353,6 +383,11 @@ inner join detailCommande dc on dc.idCommande=cmd.idCommande
 inner join modele m on m.referenceModele=dc.referenceModele 
 where c.idClient=" + lst_clients.SelectedValue + " and m.referenceModele='" + refMd + "'
 
+select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,dateCommande,cmd.statutLivraison from client c 
+inner join commande cmd on cmd.idClient=c.idClient
+inner join detailCommande dc on dc.idCommande=cmd.idCommande where 
+order by dateCommande
+
 
 select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,m.referenceModele,dateCommande,qteAchat,prixAchat,taille,cmd.statutLivraison from client c inner join 
 commande cmd on cmd.idClient=c.idClient 
@@ -361,3 +396,32 @@ inner join modele m on m.referenceModele=dc.referenceModele
 where m.referenceModele='MD 1' and cmd.statutLivraison=0
 
 select dc.referenceModele,designation,qteAchat,prixAchat,qteLivre,statutLivraison from detailCommande dc inner join modele m on m.referenceModele=dc.referenceModele where idCommande=30
+
+
+select l.numeroBonLivraison,dateLivraison,c.idClient,nomClient+' '+prenomClient as 'nom complet',m.referenceModele,designation,qteLivre from livraison l inner join detailCommande dc on dc.numeroBonLivraison=l.numeroBonLivraison inner join modele m on m.referenceModele=dc.referenceModele inner join client c on c.idClient=l.idClient
+
+select l.numeroBonLivraison,dateLivraison,c.idClient,nomClient+' '+prenomClient as nomComplet,idCommande,m.referenceModele,designation,qteLivre from livraison l 
+inner join detailCommande dc on dc.numeroBonLivraison=l.numeroBonLivraison 
+inner join modele m on m.referenceModele=dc.referenceModele 
+inner join client c on c.idClient=l.idClient 
+where m.referenceModele='MD 1' and (l.numeroBonLivraison='test' or nomClient like '%test%' or prenomClient like '%test%')
+order by dateLivraison
+
+select c.idCommande,dateCommande,referenceModele,qteAchat,prixAchat from commande c inner join detailCommande dc on dc.idCommande=c.idCommande where ...
+
+select l.numeroBonLivraison,dateLivraison,idClient,dc.idCommande,m.referenceModele,designation,qteLivre,prixAchat from livraison l inner join detailCommande dc on dc.numeroBonLivraison=l.numeroBonLivraison inner join modele m on m.referenceModele=dc.referenceModele where idClient=13
+
+select count(*) from commande c where idClient=" + IdClient + " group by idClient
+
+select count(*) from livraison where idClient=13 group by idClient
+
+select sum(prixAchat*qteAchat) from detailCommande dc inner join commande c on c.idCommande=dc.idCommande where idClient=" + IdClient + " group by idClient
+
+select sum(prixAchat*qteLivre) from detailCommande dc inner join livraison l on l.numeroBonLivraison=dc.numeroBonLivraison group by idClient
+
+select sum(qteLivre) from detailCommande dc inner join livraison l on dc.numeroBonLivraison=l.numeroBonLivraison where idClient=13 group by idClient
+
+
+select idTransaction,c.idClient,montant,dateTransaction,TypeTransaction,[description],nomClient+' '+prenomClient as nomComplet from transactions t inner join client c on c.idClient=t.idClient
+
+insert into transactions values (,,'','','')
