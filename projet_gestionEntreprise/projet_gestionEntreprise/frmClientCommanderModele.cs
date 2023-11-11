@@ -175,7 +175,7 @@ namespace projet_gestionEntreprise
             //}
         }
 
-        private void btn_refresh_Click(object sender, EventArgs e)
+        private void btn_refresh_Click_1(object sender, EventArgs e)
         {
             refresh("");
             txt_rechercher.Text = "";

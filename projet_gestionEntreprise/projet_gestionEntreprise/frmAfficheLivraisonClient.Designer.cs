@@ -28,17 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAfficheLivraisonClient));
-            this.chk_enCourPaiement = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.dgv_commandeClient = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv_livraisonClient = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbl_qteTotale = new System.Windows.Forms.Label();
@@ -50,13 +44,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbl_nbCommandes = new System.Windows.Forms.Label();
+            this.lbl_nbLivraison = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_nouveauCommande = new Guna.UI2.WinForms.Guna2Button();
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_ajouter = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_commandeClient)).BeginInit();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_rechercher = new Guna.UI2.WinForms.Guna2Button();
+            this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btn_refresh = new Guna.UI2.WinForms.Guna2Button();
+            this.cb_recherche = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_livraisonClient)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
@@ -65,105 +67,63 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // chk_enCourPaiement
+            // dgv_livraisonClient
             // 
-            this.chk_enCourPaiement.AutoSize = true;
-            this.chk_enCourPaiement.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chk_enCourPaiement.CheckedState.BorderRadius = 0;
-            this.chk_enCourPaiement.CheckedState.BorderThickness = 0;
-            this.chk_enCourPaiement.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chk_enCourPaiement.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_enCourPaiement.Location = new System.Drawing.Point(91, 653);
-            this.chk_enCourPaiement.Name = "chk_enCourPaiement";
-            this.chk_enCourPaiement.Size = new System.Drawing.Size(163, 20);
-            this.chk_enCourPaiement.TabIndex = 50;
-            this.chk_enCourPaiement.Text = "En cour de livraison";
-            this.chk_enCourPaiement.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chk_enCourPaiement.UncheckedState.BorderRadius = 0;
-            this.chk_enCourPaiement.UncheckedState.BorderThickness = 0;
-            this.chk_enCourPaiement.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            // 
-            // dgv_commandeClient
-            // 
-            this.dgv_commandeClient.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgv_commandeClient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSlateGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_commandeClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_commandeClient.ColumnHeadersHeight = 15;
-            this.dgv_commandeClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgv_commandeClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_livraisonClient.AllowUserToAddRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dgv_livraisonClient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightSlateGray;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_livraisonClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgv_livraisonClient.ColumnHeadersHeight = 20;
+            this.dgv_livraisonClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgv_livraisonClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
+            this.Column3,
             this.Column4,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_commandeClient.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_commandeClient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgv_commandeClient.Location = new System.Drawing.Point(91, 122);
-            this.dgv_commandeClient.Name = "dgv_commandeClient";
-            this.dgv_commandeClient.RowHeadersVisible = false;
-            this.dgv_commandeClient.Size = new System.Drawing.Size(948, 511);
-            this.dgv_commandeClient.TabIndex = 46;
-            this.dgv_commandeClient.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgv_commandeClient.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgv_commandeClient.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgv_commandeClient.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgv_commandeClient.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgv_commandeClient.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgv_commandeClient.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgv_commandeClient.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgv_commandeClient.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgv_commandeClient.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_commandeClient.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgv_commandeClient.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgv_commandeClient.ThemeStyle.HeaderStyle.Height = 15;
-            this.dgv_commandeClient.ThemeStyle.ReadOnly = false;
-            this.dgv_commandeClient.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgv_commandeClient.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgv_commandeClient.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_commandeClient.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgv_commandeClient.ThemeStyle.RowsStyle.Height = 22;
-            this.dgv_commandeClient.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgv_commandeClient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID Commande";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Date Commande";
-            this.Column2.Name = "Column2";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Reference modele";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Quantite Achat";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Prix Achat";
-            this.Column6.Name = "Column6";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_livraisonClient.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgv_livraisonClient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgv_livraisonClient.Location = new System.Drawing.Point(42, 174);
+            this.dgv_livraisonClient.Name = "dgv_livraisonClient";
+            this.dgv_livraisonClient.RowHeadersVisible = false;
+            this.dgv_livraisonClient.Size = new System.Drawing.Size(948, 579);
+            this.dgv_livraisonClient.TabIndex = 46;
+            this.dgv_livraisonClient.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgv_livraisonClient.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgv_livraisonClient.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgv_livraisonClient.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgv_livraisonClient.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgv_livraisonClient.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgv_livraisonClient.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgv_livraisonClient.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgv_livraisonClient.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgv_livraisonClient.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_livraisonClient.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgv_livraisonClient.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgv_livraisonClient.ThemeStyle.HeaderStyle.Height = 20;
+            this.dgv_livraisonClient.ThemeStyle.ReadOnly = false;
+            this.dgv_livraisonClient.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgv_livraisonClient.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgv_livraisonClient.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_livraisonClient.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgv_livraisonClient.ThemeStyle.RowsStyle.Height = 22;
+            this.dgv_livraisonClient.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgv_livraisonClient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // panel3
             // 
@@ -171,7 +131,7 @@
             this.panel3.Controls.Add(this.pictureBox3);
             this.panel3.Controls.Add(this.lbl_qteTotale);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(790, 29);
+            this.panel3.Location = new System.Drawing.Point(741, 29);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(249, 58);
             this.panel3.TabIndex = 44;
@@ -216,7 +176,7 @@
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.lbl_totalePrix);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(448, 29);
+            this.panel1.Location = new System.Drawing.Point(399, 29);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(249, 58);
             this.panel1.TabIndex = 45;
@@ -261,17 +221,17 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(63, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 16);
+            this.label3.Size = new System.Drawing.Size(153, 16);
             this.label3.TabIndex = 30;
-            this.label3.Text = "Totale de commandes;";
+            this.label3.Text = "Totale de livraisons :";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSlateGray;
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.lbl_nbCommandes);
+            this.panel2.Controls.Add(this.lbl_nbLivraison);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(91, 29);
+            this.panel2.Location = new System.Drawing.Point(42, 29);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(249, 58);
             this.panel2.TabIndex = 43;
@@ -287,16 +247,16 @@
             this.pictureBox1.TabIndex = 34;
             this.pictureBox1.TabStop = false;
             // 
-            // lbl_nbCommandes
+            // lbl_nbLivraison
             // 
-            this.lbl_nbCommandes.AutoSize = true;
-            this.lbl_nbCommandes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_nbCommandes.ForeColor = System.Drawing.Color.White;
-            this.lbl_nbCommandes.Location = new System.Drawing.Point(127, 32);
-            this.lbl_nbCommandes.Name = "lbl_nbCommandes";
-            this.lbl_nbCommandes.Size = new System.Drawing.Size(23, 16);
-            this.lbl_nbCommandes.TabIndex = 31;
-            this.lbl_nbCommandes.Text = "17";
+            this.lbl_nbLivraison.AutoSize = true;
+            this.lbl_nbLivraison.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_nbLivraison.ForeColor = System.Drawing.Color.White;
+            this.lbl_nbLivraison.Location = new System.Drawing.Point(127, 32);
+            this.lbl_nbLivraison.Name = "lbl_nbLivraison";
+            this.lbl_nbLivraison.Size = new System.Drawing.Size(23, 16);
+            this.lbl_nbLivraison.TabIndex = 31;
+            this.lbl_nbLivraison.Text = "17";
             // 
             // label1
             // 
@@ -305,26 +265,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(59, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 16);
+            this.label1.Size = new System.Drawing.Size(171, 16);
             this.label1.TabIndex = 30;
-            this.label1.Text = "Nombre des commandes ;";
-            // 
-            // btn_nouveauCommande
-            // 
-            this.btn_nouveauCommande.BorderRadius = 2;
-            this.btn_nouveauCommande.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_nouveauCommande.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_nouveauCommande.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_nouveauCommande.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_nouveauCommande.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btn_nouveauCommande.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_nouveauCommande.ForeColor = System.Drawing.Color.White;
-            this.btn_nouveauCommande.Image = ((System.Drawing.Image)(resources.GetObject("btn_nouveauCommande.Image")));
-            this.btn_nouveauCommande.Location = new System.Drawing.Point(291, 649);
-            this.btn_nouveauCommande.Name = "btn_nouveauCommande";
-            this.btn_nouveauCommande.Size = new System.Drawing.Size(229, 29);
-            this.btn_nouveauCommande.TabIndex = 51;
-            this.btn_nouveauCommande.Text = "Nouveau commande";
+            this.label1.Text = "Nombre des livraisons :";
             // 
             // btn_annuler
             // 
@@ -338,64 +281,147 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(625, 649);
+            this.btn_annuler.Location = new System.Drawing.Point(850, 759);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btn_annuler.Size = new System.Drawing.Size(142, 29);
-            this.btn_annuler.TabIndex = 49;
-            this.btn_annuler.Text = "Annuler";
+            this.btn_annuler.Size = new System.Drawing.Size(140, 29);
+            this.btn_annuler.TabIndex = 59;
+            this.btn_annuler.Text = "Fermer";
+            this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
             // 
-            // btn_modifier
+            // Column1
             // 
-            this.btn_modifier.BorderRadius = 2;
-            this.btn_modifier.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_modifier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_modifier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_modifier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_modifier.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btn_modifier.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_modifier.ForeColor = System.Drawing.Color.White;
-            this.btn_modifier.Image = ((System.Drawing.Image)(resources.GetObject("btn_modifier.Image")));
-            this.btn_modifier.Location = new System.Drawing.Point(783, 649);
-            this.btn_modifier.Name = "btn_modifier";
-            this.btn_modifier.Size = new System.Drawing.Size(121, 29);
-            this.btn_modifier.TabIndex = 48;
-            this.btn_modifier.Text = "Modifier";
+            this.Column1.HeaderText = "N° Bon ";
+            this.Column1.Name = "Column1";
             // 
-            // btn_ajouter
+            // Column2
             // 
-            this.btn_ajouter.BorderRadius = 2;
-            this.btn_ajouter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ajouter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ajouter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_ajouter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_ajouter.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btn_ajouter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_ajouter.ForeColor = System.Drawing.Color.White;
-            this.btn_ajouter.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajouter.Image")));
-            this.btn_ajouter.Location = new System.Drawing.Point(919, 649);
-            this.btn_ajouter.Name = "btn_ajouter";
-            this.btn_ajouter.Size = new System.Drawing.Size(121, 29);
-            this.btn_ajouter.TabIndex = 47;
-            this.btn_ajouter.Text = "Ajouter";
+            this.Column2.HeaderText = "Date Livraison";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "ID Commande";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Reference Modele";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Designation";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Quantité Livré";
+            this.Column6.Name = "Column6";
+            // 
+            // btn_rechercher
+            // 
+            this.btn_rechercher.BorderRadius = 2;
+            this.btn_rechercher.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_rechercher.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_rechercher.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_rechercher.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_rechercher.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_rechercher.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_rechercher.ForeColor = System.Drawing.Color.White;
+            this.btn_rechercher.Image = ((System.Drawing.Image)(resources.GetObject("btn_rechercher.Image")));
+            this.btn_rechercher.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_rechercher.Location = new System.Drawing.Point(870, 128);
+            this.btn_rechercher.Name = "btn_rechercher";
+            this.btn_rechercher.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btn_rechercher.Size = new System.Drawing.Size(118, 29);
+            this.btn_rechercher.TabIndex = 65;
+            this.btn_rechercher.Text = "Rechercher";
+            this.btn_rechercher.Click += new System.EventHandler(this.btn_rechercher_Click);
+            // 
+            // txt_rechercher
+            // 
+            this.txt_rechercher.BorderRadius = 5;
+            this.txt_rechercher.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_rechercher.DefaultText = "";
+            this.txt_rechercher.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_rechercher.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_rechercher.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_rechercher.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_rechercher.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_rechercher.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_rechercher.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_rechercher.Location = new System.Drawing.Point(613, 128);
+            this.txt_rechercher.Name = "txt_rechercher";
+            this.txt_rechercher.PasswordChar = '\0';
+            this.txt_rechercher.PlaceholderText = "Rechercher Sur un client...";
+            this.txt_rechercher.SelectedText = "";
+            this.txt_rechercher.Size = new System.Drawing.Size(251, 29);
+            this.txt_rechercher.TabIndex = 64;
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.BorderRadius = 2;
+            this.btn_refresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_refresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_refresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_refresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_refresh.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_refresh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh.ForeColor = System.Drawing.Color.White;
+            this.btn_refresh.Image = ((System.Drawing.Image)(resources.GetObject("btn_refresh.Image")));
+            this.btn_refresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_refresh.Location = new System.Drawing.Point(374, 128);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btn_refresh.Size = new System.Drawing.Size(39, 25);
+            this.btn_refresh.TabIndex = 69;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // cb_recherche
+            // 
+            this.cb_recherche.FormattingEnabled = true;
+            this.cb_recherche.Items.AddRange(new object[] {
+            "N° Bon Livraison",
+            "Date Livraison",
+            "Reference Modele",
+            "ID Commande"});
+            this.cb_recherche.Location = new System.Drawing.Point(181, 131);
+            this.cb_recherche.Name = "cb_recherche";
+            this.cb_recherche.Size = new System.Drawing.Size(187, 21);
+            this.cb_recherche.TabIndex = 68;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(43, 132);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 16);
+            this.label2.TabIndex = 67;
+            this.label2.Text = "Rechercher Par :";
             // 
             // frmAfficheLivraisonClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1115, 700);
-            this.Controls.Add(this.btn_nouveauCommande);
-            this.Controls.Add(this.chk_enCourPaiement);
+            this.ClientSize = new System.Drawing.Size(1029, 824);
+            this.Controls.Add(this.btn_refresh);
+            this.Controls.Add(this.cb_recherche);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btn_rechercher);
+            this.Controls.Add(this.txt_rechercher);
             this.Controls.Add(this.btn_annuler);
-            this.Controls.Add(this.btn_modifier);
-            this.Controls.Add(this.btn_ajouter);
-            this.Controls.Add(this.dgv_commandeClient);
+            this.Controls.Add(this.dgv_livraisonClient);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "frmAfficheLivraisonClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAfficheLivraisonClient";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_commandeClient)).EndInit();
+            this.Load += new System.EventHandler(this.frmAfficheLivraisonClient_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_livraisonClient)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -411,18 +437,7 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2Button btn_nouveauCommande;
-        private Guna.UI2.WinForms.Guna2CheckBox chk_enCourPaiement;
-        private Guna.UI2.WinForms.Guna2Button btn_annuler;
-        private Guna.UI2.WinForms.Guna2Button btn_modifier;
-        private Guna.UI2.WinForms.Guna2Button btn_ajouter;
-        private Guna.UI2.WinForms.Guna2DataGridView dgv_commandeClient;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private Guna.UI2.WinForms.Guna2DataGridView dgv_livraisonClient;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lbl_qteTotale;
@@ -434,7 +449,19 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lbl_nbCommandes;
+        private System.Windows.Forms.Label lbl_nbLivraison;
         private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2Button btn_annuler;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private Guna.UI2.WinForms.Guna2Button btn_rechercher;
+        private Guna.UI2.WinForms.Guna2TextBox txt_rechercher;
+        private Guna.UI2.WinForms.Guna2Button btn_refresh;
+        private System.Windows.Forms.ComboBox cb_recherche;
+        private System.Windows.Forms.Label label2;
     }
 }

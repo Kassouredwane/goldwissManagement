@@ -19,7 +19,7 @@ namespace projet_gestionEntreprise
         {
             InitializeComponent();
         }
-        private void colorOfCellsQteStock()
+        private void colorOfCellsRestePayer()
         {
             foreach (DataGridViewRow row in dgv_clients.Rows)
             {
@@ -28,18 +28,27 @@ namespace projet_gestionEntreprise
                 if (cell != null && Convert.ToInt32(cell.Value) > 0 && Convert.ToInt32(cell.Value)<=5000)
                 {
                     cell.Style.BackColor = Color.Orange;
+                    cell.Style.ForeColor = Color.Black;
                 }
                 else if (cell != null && Convert.ToInt32(cell.Value) > 2500 && Convert.ToInt32(cell.Value)<=20000)
                 {
                     cell.Style.BackColor = Color.OrangeRed;
+                    cell.Style.ForeColor = Color.Black;
                 }
                 else if (cell != null && Convert.ToInt32(cell.Value) == 0)
                 {
                     cell.Style.BackColor = Color.Green;
+                    cell.Style.ForeColor = Color.Black;
+                }
+                else if (cell != null && Convert.ToInt32(cell.Value) < 0)
+                {
+                    cell.Style.BackColor = Color.Yellow;
+                    cell.Style.ForeColor = Color.Black;
                 }
                 else
                 {
                     cell.Style.BackColor = Color.Red;
+                    cell.Style.ForeColor = Color.Black;
                 }
             }
         }
@@ -68,7 +77,7 @@ namespace projet_gestionEntreprise
 
             cn1.Close();
             cn1 = null;
-            colorOfCellsQteStock();
+            colorOfCellsRestePayer();
         }
         private void frmGestionClients_Load(object sender, EventArgs e)
         {
@@ -142,7 +151,7 @@ namespace projet_gestionEntreprise
                 }
             }
             catch (Exception error) { MessageBox.Show(error.Message.ToString()); }
-            colorOfCellsQteStock();
+            colorOfCellsRestePayer();
 
         }
         private void rechercheClient()
@@ -218,13 +227,20 @@ namespace projet_gestionEntreprise
 
         private void btn_rechercher_Click(object sender, EventArgs e)
         {
-            if(cb_classement.SelectedIndex == 0 && txt_rechercher.Text=="")
+            try
             {
-                filtreClassement("");
+                if(cb_classement.SelectedIndex == 0 && txt_rechercher.Text=="")
+                {
+                    filtreClassement("");
+                }
+                else
+                {
+                    rechercheClient();
+                }
             }
-            else
+            catch(Exception ex)
             {
-                rechercheClient();
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -274,6 +290,13 @@ namespace projet_gestionEntreprise
                 cn = null;
                 filtreClassement("");
             }
+        }
+
+        private void btn_afficherLivraison_Click(object sender, EventArgs e)
+        {
+            int idClient = Convert.ToInt32(dgv_clients.CurrentRow.Cells[0].Value);
+            frmAfficheLivraisonClient f = new frmAfficheLivraisonClient(idClient);
+            f.ShowDialog();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,73 @@ namespace projet_gestionEntreprise
         public frmGestionLivraison()
         {
             InitializeComponent();
+        }
+        private void refresh(string filtre)
+        {
+            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            cn.Open();
+            string req = "select l.numeroBonLivraison,dateLivraison,c.idClient,nomClient+' '+prenomClient as nomComplet,idCommande,m.referenceModele,designation,qteLivre from livraison l inner join detailCommande dc on dc.numeroBonLivraison=l.numeroBonLivraison inner join modele m on m.referenceModele=dc.referenceModele inner join client c on c.idClient=l.idClient "+filtre+" order by dateLivraison";
+            SqlCommand com = new SqlCommand(req, cn);
+            SqlDataReader dr = com.ExecuteReader();
+            dgv_livraison.Rows.Clear();
+            while (dr.Read())
+            {
+                dgv_livraison.Rows.Add(dr["numeroBonLivraison"], dr["dateLivraison"], dr["idClient"], dr["nomComplet"], dr["idCommande"], dr["referenceModele"], dr["designation"], dr["qteLivre"]);
+            }
+            dr.Close();
+            dr = null;
+            com = null;
+
+            cn.Close();
+            cn = null;
+        }
+        private void frmGestionLivraison_Load(object sender, EventArgs e)
+        {
+            refresh("");
+            cb_recherche.SelectedIndex = 0;
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            refresh("");
+            txt_rechercher.Text = "";
+        }
+        //N° Bon Livraison
+        //Date Livraison
+        //Nom de Client
+        //Reference Modele
+        private void btn_rechercher_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                switch (cb_recherche.SelectedIndex)
+                {
+                    case 0:
+                        refresh(" where l.numeroBonLivraison=" + txt_rechercher.Text);
+                        break;
+                    case 1:
+                        refresh(" where dateLivraison like'%" + txt_rechercher.Text+"%'");
+                        break;
+                    case 2:
+                        refresh(" where nomClient like '%"+ txt_rechercher.Text + "%' or prenomClient like '%"+txt_rechercher.Text+"%'");
+                        break;
+                    case 3:
+                        refresh(" where m.referenceModele='" + txt_rechercher.Text+"'");
+                        break;
+                    case 4:
+                        refresh(" where idCommande=" + txt_rechercher.Text);
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("doit etre rechercher par l'element séléctionner", "Inforamtion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_supprimerLivraison_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_gestionTransactions = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_gestionLivraison = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_deconnecter = new Guna.UI2.WinForms.Guna2Button();
             this.btn_parametres = new Guna.UI2.WinForms.Guna2Button();
@@ -59,6 +61,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.panel1.Controls.Add(this.btn_gestionTransactions);
+            this.panel1.Controls.Add(this.btn_gestionLivraison);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.dropDownContainer);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -71,12 +75,58 @@
             this.panel1.Size = new System.Drawing.Size(255, 878);
             this.panel1.TabIndex = 0;
             // 
+            // btn_gestionTransactions
+            // 
+            this.btn_gestionTransactions.Animated = true;
+            this.btn_gestionTransactions.BackColor = System.Drawing.Color.Transparent;
+            this.btn_gestionTransactions.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_gestionTransactions.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_gestionTransactions.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_gestionTransactions.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_gestionTransactions.FillColor = System.Drawing.Color.Transparent;
+            this.btn_gestionTransactions.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_gestionTransactions.ForeColor = System.Drawing.Color.White;
+            this.btn_gestionTransactions.Image = ((System.Drawing.Image)(resources.GetObject("btn_gestionTransactions.Image")));
+            this.btn_gestionTransactions.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_gestionTransactions.Location = new System.Drawing.Point(6, 451);
+            this.btn_gestionTransactions.Name = "btn_gestionTransactions";
+            this.btn_gestionTransactions.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btn_gestionTransactions.Size = new System.Drawing.Size(240, 35);
+            this.btn_gestionTransactions.TabIndex = 13;
+            this.btn_gestionTransactions.Text = "Gestion de transactions";
+            this.btn_gestionTransactions.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_gestionTransactions.UseTransparentBackground = true;
+            this.btn_gestionTransactions.Click += new System.EventHandler(this.btn_gestionTransactions_Click);
+            // 
+            // btn_gestionLivraison
+            // 
+            this.btn_gestionLivraison.Animated = true;
+            this.btn_gestionLivraison.BackColor = System.Drawing.Color.Transparent;
+            this.btn_gestionLivraison.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_gestionLivraison.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_gestionLivraison.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_gestionLivraison.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_gestionLivraison.FillColor = System.Drawing.Color.Transparent;
+            this.btn_gestionLivraison.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_gestionLivraison.ForeColor = System.Drawing.Color.White;
+            this.btn_gestionLivraison.Image = ((System.Drawing.Image)(resources.GetObject("btn_gestionLivraison.Image")));
+            this.btn_gestionLivraison.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_gestionLivraison.Location = new System.Drawing.Point(6, 347);
+            this.btn_gestionLivraison.Name = "btn_gestionLivraison";
+            this.btn_gestionLivraison.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btn_gestionLivraison.Size = new System.Drawing.Size(240, 35);
+            this.btn_gestionLivraison.TabIndex = 12;
+            this.btn_gestionLivraison.Text = "Gestion livraison";
+            this.btn_gestionLivraison.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_gestionLivraison.UseTransparentBackground = true;
+            this.btn_gestionLivraison.Click += new System.EventHandler(this.btn_gestionLivraison_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btn_deconnecter);
             this.panel2.Controls.Add(this.btn_parametres);
             this.panel2.Controls.Add(this.btn_statistiques);
-            this.panel2.Location = new System.Drawing.Point(4, 449);
+            this.panel2.Location = new System.Drawing.Point(2, 542);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 174);
             this.panel2.TabIndex = 11;
@@ -154,7 +204,7 @@
             this.dropDownContainer.Controls.Add(this.btn_transfereLavageToPhasonie);
             this.dropDownContainer.Controls.Add(this.btn_transferePhasonieToLavage);
             this.dropDownContainer.Controls.Add(this.panel3);
-            this.dropDownContainer.Location = new System.Drawing.Point(6, 407);
+            this.dropDownContainer.Location = new System.Drawing.Point(6, 503);
             this.dropDownContainer.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.dropDownContainer.MaximumSize = new System.Drawing.Size(240, 155);
             this.dropDownContainer.MinimumSize = new System.Drawing.Size(240, 35);
@@ -293,7 +343,7 @@
             this.btn_gestionStock.ForeColor = System.Drawing.Color.White;
             this.btn_gestionStock.Image = ((System.Drawing.Image)(resources.GetObject("btn_gestionStock.Image")));
             this.btn_gestionStock.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_gestionStock.Location = new System.Drawing.Point(6, 351);
+            this.btn_gestionStock.Location = new System.Drawing.Point(6, 398);
             this.btn_gestionStock.Name = "btn_gestionStock";
             this.btn_gestionStock.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.btn_gestionStock.Size = new System.Drawing.Size(240, 35);
@@ -344,7 +394,7 @@
             this.btn_gestionClients.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.btn_gestionClients.Size = new System.Drawing.Size(240, 35);
             this.btn_gestionClients.TabIndex = 1;
-            this.btn_gestionClients.Text = "Gestion Clients";
+            this.btn_gestionClients.Text = "Accueil";
             this.btn_gestionClients.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_gestionClients.UseTransparentBackground = true;
             this.btn_gestionClients.Click += new System.EventHandler(this.btn_gestionClients_Click);
@@ -404,5 +454,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel4;
+        private Guna.UI2.WinForms.Guna2Button btn_gestionTransactions;
+        private Guna.UI2.WinForms.Guna2Button btn_gestionLivraison;
     }
 }

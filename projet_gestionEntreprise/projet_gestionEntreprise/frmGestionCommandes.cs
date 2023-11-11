@@ -29,7 +29,7 @@ namespace projet_gestionEntreprise
                 dgv_commandeClient.Rows.Clear();
                 while (dr.Read())
                 {
-                    dgv_commandeClient.Rows.Add(dr["idClient"], dr["nomComplet"], dr["idCommande"], dr["dateCommande"], dr["statutLivraison"]);
+                    dgv_commandeClient.Rows.Add(dr["idClient"], dr["nomComplet"], dr["idCommande"],dr["dateCommande"], dr["statutLivraison"]);
                 }
                 dr.Close();
                 dr = null;
@@ -107,17 +107,15 @@ namespace projet_gestionEntreprise
                     break;
                 case 1:
                     if (chk_enCourLivraison.Checked == false) refresh(" where nomClient like'%"+ txt_rechercher.Text + "%' or prenomClient like'%"+txt_rechercher.Text+"%'");
-                    else refresh(" and c.idClient=" + txt_rechercher.Text);
+                    else refresh(" and nomClient like'%" + txt_rechercher.Text + "%' or prenomClient like'%" + txt_rechercher.Text + "%'");
                     break;
                 case 2:
                     if (chk_enCourLivraison.Checked == false) refresh(" where cmd.idCommande=" + txt_rechercher.Text);
-                    else refresh(" and c.idClient=" + txt_rechercher.Text);
+                    else refresh(" and cmd.idCommande=" + txt_rechercher.Text);
                     break;
                 case 3:
-                    //if (chk_enCourLivraison.Checked == false) refresh(" where cmd.dateCommande=" + txt_rechercher.Text);
-                    //else refresh(" and c.idClient=" + txt_rechercher.Text);
-                    if (chk_enCourLivraison.Checked == false) refresh(" where idCommande in (select ...)");
-                    //else refresh(" and c.idClient=" + txt_rechercher.Text);
+                    if (chk_enCourLivraison.Checked == false) refresh(" where cmd.dateCommande like '%" + txt_rechercher.Text+"%'");
+                    else refresh(" and cmd.dateCommande like '%" + txt_rechercher.Text+"%'");
                     break;
             }
         }
@@ -138,13 +136,14 @@ namespace projet_gestionEntreprise
                 // delete the "commande" from table of commmande
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
                 cn.Open();
-                string req = "delete from detailCommande where idCommande=" + dgv_commandeClient.CurrentRow.Cells[2].Value;
+                string req = "delete from commande where idCommande=" + dgv_commandeClient.CurrentRow.Cells[2].Value;
                 SqlCommand com = new SqlCommand(req, cn);
                 com.ExecuteNonQuery();
                 com = null;
                 cn.Close();
                 cn = null;
-                MessageBox.Show("La commande a été supprimer avec succé","Information",MessageBoxButtons.OK, MessageBoxIcon.Question);  
+                MessageBox.Show("La commande a été supprimer avec succé","Information",MessageBoxButtons.OK, MessageBoxIcon.Question);
+                refresh("");
             }
         }
     }

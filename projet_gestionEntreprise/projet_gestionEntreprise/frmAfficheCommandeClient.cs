@@ -288,24 +288,46 @@ namespace projet_gestionEntreprise
         }
         private void btn_ajouterLivraison_Click(object sender, EventArgs e)
         {
-            // checker si le numero de sbon est deja existe si supprimer le premier et ajouter dans l'archive at remplace lenouveau dans la table livraison
-            //////////////
-            //////////////
             activate(false);
-            // ajouter nouveau livraison avec numero bon et la date a la table livraison dans sql server
-            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
-            cn.Open();
-            string reqq = "insert into livraison values(@numeroBonLivraison,@dateLivraison,@idClient)";
-            SqlCommand com = new SqlCommand(reqq, cn);
-            com.Parameters.Add(new SqlParameter("@numeroBonLivraison", txt_numeroBonLivraison.Text));
-            com.Parameters.Add(new SqlParameter("@dateLivraison", dtp_dateLivraison.Value));
-            com.Parameters.Add(new SqlParameter("@idClient", IdClient));
-            com.ExecuteNonQuery();
+            bool existe = false;
+            // checker si le numero de sbon est deja existe si supprimer le premier et ajouter dans l'archive at remplace lenouveau dans la table livraison
+            SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            cn2.Open();
+            string req2 = "select numeroBonLivraison from livraison where numeroBonLivraison="+txt_numeroBonLivraison.Text;
+            SqlCommand com2 = new SqlCommand(req2, cn2);
+            SqlDataReader dr2 = com2.ExecuteReader();
+            if (dr2.Read())
+            {
+                existe = true;
+            }
+            if (existe == true)
+            {
+                if (MessageBox.Show("ce numero est deja existe ! tu veux supprimer le dernier livraison ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    // ajouter nouveau livraison avec numero bon et la date a la table livraison dans sql server
+                    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                    cn.Open();
+                    string reqq = "insert into livraison values(@numeroBonLivraison,@dateLivraison,@idClient)";
+                    SqlCommand com = new SqlCommand(reqq, cn);
+                    com.Parameters.Add(new SqlParameter("@numeroBonLivraison", txt_numeroBonLivraison.Text));
+                    com.Parameters.Add(new SqlParameter("@dateLivraison", dtp_dateLivraison.Value));
+                    com.Parameters.Add(new SqlParameter("@idClient", IdClient));
+                    com.ExecuteNonQuery();
 
-            com = null;
-            cn.Close();
-            cn = null;
-            MessageBox.Show("la livraison a été ajouter avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    com = null;
+                    cn.Close();
+                    cn = null;
+                    MessageBox.Show("la livraison a été ajouter avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            // close all commandes and connection and datareader
+            dr2.Close();
+            dr2 = null;
+            com2 = null;
+
+            cn2.Close();
+            cn2 = null;
+            //////////////
         }
 
         private void btn_vaider_Click(object sender, EventArgs e)

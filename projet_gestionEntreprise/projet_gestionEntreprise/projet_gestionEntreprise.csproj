@@ -94,17 +94,41 @@
     <Compile Include="frmAjouterModeleACommande.Designer.cs">
       <DependentUpon>frmAjouterModeleACommande.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAjouterTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjouterTransaction.Designer.cs">
+      <DependentUpon>frmAjouterTransaction.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmClientCommanderModele.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmClientCommanderModele.Designer.cs">
       <DependentUpon>frmClientCommanderModele.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGestionTransactions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionTransactions.Designer.cs">
+      <DependentUpon>frmGestionTransactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLivraisonModele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLivraisonModele.Designer.cs">
+      <DependentUpon>frmLivraisonModele.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModifierDetailCommandeClient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmModifierDetailCommandeClient.Designer.cs">
       <DependentUpon>frmModifierDetailCommandeClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifierTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifierTransaction.Designer.cs">
+      <DependentUpon>frmModifierTransaction.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNouveauCommande.cs">
       <SubType>Form</SubType>
@@ -195,11 +219,23 @@
     <EmbeddedResource Include="frmAjouterModeleACommande.resx">
       <DependentUpon>frmAjouterModeleACommande.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAjouterTransaction.resx">
+      <DependentUpon>frmAjouterTransaction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmClientCommanderModele.resx">
       <DependentUpon>frmClientCommanderModele.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionTransactions.resx">
+      <DependentUpon>frmGestionTransactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLivraisonModele.resx">
+      <DependentUpon>frmLivraisonModele.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModifierDetailCommandeClient.resx">
       <DependentUpon>frmModifierDetailCommandeClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifierTransaction.resx">
+      <DependentUpon>frmModifierTransaction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNouveauCommande.resx">
       <DependentUpon>frmNouveauCommande.cs</DependentUpon>

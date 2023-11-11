@@ -49,7 +49,7 @@ namespace projet_gestionEntreprise
             else
             {
                 btn_gestionTransfere.Image = Resources.icons8_flèche_développer_64;
-                panel2.Top = 449;
+                panel2.Top = 542;
                 dropDownContainer.Height -= 10;
                 if (dropDownContainer.Size == dropDownContainer.MinimumSize)
                 {
@@ -94,6 +94,18 @@ namespace projet_gestionEntreprise
         private void btn_gestionStock_Click(object sender, EventArgs e)
         {
             frmGestionStock f = new frmGestionStock();
+            AfficherFenetre(f);
+        }
+
+        private void btn_gestionLivraison_Click(object sender, EventArgs e)
+        {
+            frmGestionLivraison f = new frmGestionLivraison();
+            AfficherFenetre(f);
+        }
+
+        private void btn_gestionTransactions_Click(object sender, EventArgs e)
+        {
+            frmGestionTransactions f = new frmGestionTransactions();
             AfficherFenetre(f);
         }
     }

@@ -58,7 +58,7 @@ namespace projet_gestionEntreprise
 
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
             cn.Open();
-            SqlCommand com = new SqlCommand("select idClient,nomClient,prenomClient,telephoneClient,adresseClient,c.idVille as idVille,nomVille from client c inner join ville v on v.idVille=c.idVille where idClient=" + txt_idClient.Text, cn);
+            SqlCommand com = new SqlCommand("select idClient,nomClient,prenomClient,telephoneClient,adresseClient,c.idVille as idVille,nomVille,restePayer from client c inner join ville v on v.idVille=c.idVille where idClient=" + txt_idClient.Text, cn);
             SqlDataReader dr = com.ExecuteReader();
 
             if (dr.Read())
@@ -67,6 +67,7 @@ namespace projet_gestionEntreprise
                 txt_prenomClient.Text = dr["prenomClient"].ToString();
                 txt_telephoneClient.Text = dr["telephoneClient"].ToString();
                 txt_adresseClient.Text = dr["adresseClient"].ToString();
+                txt_restePayer.Text = dr["restePayer"].ToString();
                 //int cityID = dr.GetInt32(dr.GetOrdinal("idVille"));
                 //cb_villeClient.SelectedValue = cityID;
 
@@ -103,7 +104,7 @@ namespace projet_gestionEntreprise
 
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
             cn.Open();
-            SqlCommand com = new SqlCommand("select idClient,nomClient,prenomClient,telephoneClient,adresseClient,c.idVille as idVille,nomVille from client c inner join ville v on v.idVille=c.idVille where idClient=" + txt_idClient.Text, cn);
+            SqlCommand com = new SqlCommand("select idClient,nomClient,prenomClient,telephoneClient,adresseClient,c.idVille as idVille,nomVille,restePayer from client c inner join ville v on v.idVille=c.idVille where idClient=" + txt_idClient.Text, cn);
             SqlDataReader dr = com.ExecuteReader();
 
             if (dr.Read())
@@ -112,6 +113,7 @@ namespace projet_gestionEntreprise
                 txt_prenomClient.Text = dr["prenomClient"].ToString();
                 txt_telephoneClient.Text = dr["telephoneClient"].ToString();
                 txt_adresseClient.Text = dr["adresseClient"].ToString();
+                txt_restePayer.Text = dr["restePayer"].ToString();
                 //int cityID = dr.GetInt32(dr.GetOrdinal("idVille"));
                 //cb_villeClient.SelectedValue = cityID;
 
@@ -130,7 +132,7 @@ namespace projet_gestionEntreprise
         {
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
             cn.Open();
-            string reqq = "update client set nomClient='"+txt_nomClient.Text+"',prenomClient='"+txt_prenomClient.Text+"',telephoneClient='"+txt_telephoneClient.Text+"',adresseClient='"+txt_adresseClient.Text+"',idVille="+cb_villeClient.SelectedValue+" where idClient="+txt_idClient.Text ;
+            string reqq = "update client set nomClient='"+txt_nomClient.Text+"',prenomClient='"+txt_prenomClient.Text+"',telephoneClient='"+txt_telephoneClient.Text+"',adresseClient='"+txt_adresseClient.Text+"',idVille="+cb_villeClient.SelectedValue+" ,restePayer="+Convert.ToInt32(txt_restePayer.Text)+" where idClient="+txt_idClient.Text ;
             //string reqq = "update client set nomClient='@nomClient',prenomClient='@prenomClient', telephoneClient='@telephoneClient',adresseClient='@adresseClient',idVille=@idVille where idClient="+txt_idClient.Text ;
             SqlCommand com = new SqlCommand(reqq, cn);
             //com.Parameters.Add(new SqlParameter("@nomClient", txt_nomClient.Text));

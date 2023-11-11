@@ -245,5 +245,12 @@ namespace projet_gestionEntreprise
             frmClientCommanderModele f = new frmClientCommanderModele(refM);
             f.ShowDialog();
         }
+
+        private void btn_afficherLivraison_Click(object sender, EventArgs e)
+        {
+            string refM = dgv_modeles.CurrentRow.Cells[0].Value.ToString();
+            frmLivraisonModele f = new frmLivraisonModele(refM);
+            f.ShowDialog();
+        }
     }
 }

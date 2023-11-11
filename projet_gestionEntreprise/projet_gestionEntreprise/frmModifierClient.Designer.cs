@@ -44,6 +44,8 @@
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
             this.btn_valider = new Guna.UI2.WinForms.Guna2Button();
             this.cb_villeClient = new System.Windows.Forms.ComboBox();
+            this.txt_restePayer = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label6
@@ -236,7 +238,7 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(224, 293);
+            this.btn_annuler.Location = new System.Drawing.Point(224, 335);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
@@ -256,7 +258,7 @@
             this.btn_valider.ForeColor = System.Drawing.Color.White;
             this.btn_valider.Image = ((System.Drawing.Image)(resources.GetObject("btn_valider.Image")));
             this.btn_valider.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_valider.Location = new System.Drawing.Point(383, 293);
+            this.btn_valider.Location = new System.Drawing.Point(383, 335);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_valider.Size = new System.Drawing.Size(142, 29);
@@ -272,11 +274,44 @@
             this.cb_villeClient.Size = new System.Drawing.Size(184, 21);
             this.cb_villeClient.TabIndex = 40;
             // 
+            // txt_restePayer
+            // 
+            this.txt_restePayer.BorderRadius = 2;
+            this.txt_restePayer.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_restePayer.DefaultText = "";
+            this.txt_restePayer.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_restePayer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_restePayer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_restePayer.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_restePayer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_restePayer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_restePayer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_restePayer.Location = new System.Drawing.Point(341, 281);
+            this.txt_restePayer.Name = "txt_restePayer";
+            this.txt_restePayer.PasswordChar = '\0';
+            this.txt_restePayer.PlaceholderText = "";
+            this.txt_restePayer.SelectedText = "";
+            this.txt_restePayer.Size = new System.Drawing.Size(184, 23);
+            this.txt_restePayer.TabIndex = 42;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(221, 284);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(115, 16);
+            this.label7.TabIndex = 41;
+            this.label7.Text = "Reste A Payer :";
+            // 
             // frmModifierClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 377);
+            this.ClientSize = new System.Drawing.Size(745, 386);
+            this.Controls.Add(this.txt_restePayer);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.cb_villeClient);
             this.Controls.Add(this.btn_ajouterVille);
             this.Controls.Add(this.btn_annuler);
@@ -319,5 +354,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_ajouterVille;
         private System.Windows.Forms.ComboBox cb_villeClient;
+        private Guna.UI2.WinForms.Guna2TextBox txt_restePayer;
+        private System.Windows.Forms.Label label7;
     }
 }
