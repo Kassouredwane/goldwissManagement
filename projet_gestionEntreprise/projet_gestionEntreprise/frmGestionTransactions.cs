@@ -47,8 +47,8 @@ namespace projet_gestionEntreprise
         //Date Transaction
         private void btn_rechercher_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 switch (cb_recherche.SelectedIndex)
                 {
                     case 0:
@@ -64,11 +64,11 @@ namespace projet_gestionEntreprise
                         refresh(" where dateLivraison like'%" + txt_rechercher.Text + "%'");
                         break;
                 }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("doit etre rechercher par l'élément séléctionner", "Inforamtion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("doit etre rechercher par l'élément séléctionner", "Inforamtion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
@@ -85,8 +85,42 @@ namespace projet_gestionEntreprise
 
         private void btn_modifier_Click(object sender, EventArgs e)
         {
-            frmModifierTransaction f = new frmModifierTransaction();
+            frmModifierTransaction f = new frmModifierTransaction(Convert.ToInt32(dgv_transactions.CurrentRow.Cells[0].Value));
             f.ShowDialog();
+        }
+
+        private void btn_supprimer_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Etes-vous vraiment veux supprimer cette transaction ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                cn.Open();
+                string req = "delete from transactions where idTransaction=" + dgv_transactions.CurrentRow.Cells[0].Value;
+                SqlCommand com = new SqlCommand(req, cn);
+                com.ExecuteNonQuery();
+                com = null;
+                cn.Close();
+                cn = null;
+                MessageBox.Show("la transaction a été supprimer avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                refresh("");
+            }
+        }
+
+        private void btn_supprimerTous_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Etes-vous vraiment veux supprimer tous les transaction ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                cn.Open();
+                string req = "delete from transactions" ;
+                SqlCommand com = new SqlCommand(req, cn);
+                com.ExecuteNonQuery();
+                com = null;
+                cn.Close();
+                cn = null;
+                MessageBox.Show("tous les transaction a été supprimer avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                refresh("");
+            }
         }
     }
 }

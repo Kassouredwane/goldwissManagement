@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAfficheLivraisonClient));
             this.dgv_livraisonClient = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -38,7 +38,6 @@
             this.lbl_qteTotale = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbl_totalePrix = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,17 +46,18 @@
             this.lbl_nbLivraison = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_rechercher = new Guna.UI2.WinForms.Guna2Button();
+            this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btn_refresh = new Guna.UI2.WinForms.Guna2Button();
+            this.cb_recherche = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_rechercher = new Guna.UI2.WinForms.Guna2Button();
-            this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btn_refresh = new Guna.UI2.WinForms.Guna2Button();
-            this.cb_recherche = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_livraisonClient)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -70,33 +70,34 @@
             // dgv_livraisonClient
             // 
             this.dgv_livraisonClient.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dgv_livraisonClient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightSlateGray;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_livraisonClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgv_livraisonClient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSlateGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_livraisonClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_livraisonClient.ColumnHeadersHeight = 20;
             this.dgv_livraisonClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgv_livraisonClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column7,
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_livraisonClient.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_livraisonClient.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_livraisonClient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_livraisonClient.Location = new System.Drawing.Point(42, 174);
             this.dgv_livraisonClient.Name = "dgv_livraisonClient";
@@ -149,14 +150,14 @@
             // 
             // lbl_qteTotale
             // 
-            this.lbl_qteTotale.AutoSize = true;
             this.lbl_qteTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_qteTotale.ForeColor = System.Drawing.Color.White;
-            this.lbl_qteTotale.Location = new System.Drawing.Point(140, 32);
+            this.lbl_qteTotale.Location = new System.Drawing.Point(109, 32);
             this.lbl_qteTotale.Name = "lbl_qteTotale";
-            this.lbl_qteTotale.Size = new System.Drawing.Size(31, 16);
+            this.lbl_qteTotale.Size = new System.Drawing.Size(80, 16);
             this.lbl_qteTotale.TabIndex = 31;
             this.lbl_qteTotale.Text = "897";
+            this.lbl_qteTotale.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
@@ -172,25 +173,13 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.lbl_totalePrix);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(399, 29);
+            this.panel1.Location = new System.Drawing.Point(363, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(249, 58);
+            this.panel1.Size = new System.Drawing.Size(285, 58);
             this.panel1.TabIndex = 45;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(156, 32);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 16);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "DH";
             // 
             // pictureBox2
             // 
@@ -205,21 +194,21 @@
             // 
             // lbl_totalePrix
             // 
-            this.lbl_totalePrix.AutoSize = true;
             this.lbl_totalePrix.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_totalePrix.ForeColor = System.Drawing.Color.White;
-            this.lbl_totalePrix.Location = new System.Drawing.Point(97, 32);
+            this.lbl_totalePrix.Location = new System.Drawing.Point(77, 32);
             this.lbl_totalePrix.Name = "lbl_totalePrix";
-            this.lbl_totalePrix.Size = new System.Drawing.Size(63, 16);
+            this.lbl_totalePrix.Size = new System.Drawing.Size(185, 16);
             this.lbl_totalePrix.TabIndex = 31;
             this.lbl_totalePrix.Text = "1080520";
+            this.lbl_totalePrix.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(63, 9);
+            this.label3.Location = new System.Drawing.Point(87, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(153, 16);
             this.label3.TabIndex = 30;
@@ -249,14 +238,14 @@
             // 
             // lbl_nbLivraison
             // 
-            this.lbl_nbLivraison.AutoSize = true;
             this.lbl_nbLivraison.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_nbLivraison.ForeColor = System.Drawing.Color.White;
-            this.lbl_nbLivraison.Location = new System.Drawing.Point(127, 32);
+            this.lbl_nbLivraison.Location = new System.Drawing.Point(100, 32);
             this.lbl_nbLivraison.Name = "lbl_nbLivraison";
-            this.lbl_nbLivraison.Size = new System.Drawing.Size(23, 16);
+            this.lbl_nbLivraison.Size = new System.Drawing.Size(76, 16);
             this.lbl_nbLivraison.TabIndex = 31;
             this.lbl_nbLivraison.Text = "17";
+            this.lbl_nbLivraison.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -288,36 +277,6 @@
             this.btn_annuler.TabIndex = 59;
             this.btn_annuler.Text = "Fermer";
             this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "N° Bon ";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Date Livraison";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "ID Commande";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Reference Modele";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Designation";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Quantité Livré";
-            this.Column6.Name = "Column6";
             // 
             // btn_rechercher
             // 
@@ -402,6 +361,41 @@
             this.label2.TabIndex = 67;
             this.label2.Text = "Rechercher Par :";
             // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Id Livraison";
+            this.Column7.Name = "Column7";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "N° Bon ";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Date Livraison";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "ID Commande";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Reference Modele";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Designation";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Quantité Livré";
+            this.Column6.Name = "Column6";
+            // 
             // frmAfficheLivraisonClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,7 +437,6 @@
         private System.Windows.Forms.Label lbl_qteTotale;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lbl_totalePrix;
         private System.Windows.Forms.Label label3;
@@ -452,16 +445,17 @@
         private System.Windows.Forms.Label lbl_nbLivraison;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btn_annuler;
+        private Guna.UI2.WinForms.Guna2Button btn_rechercher;
+        private Guna.UI2.WinForms.Guna2TextBox txt_rechercher;
+        private Guna.UI2.WinForms.Guna2Button btn_refresh;
+        private System.Windows.Forms.ComboBox cb_recherche;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private Guna.UI2.WinForms.Guna2Button btn_rechercher;
-        private Guna.UI2.WinForms.Guna2TextBox txt_rechercher;
-        private Guna.UI2.WinForms.Guna2Button btn_refresh;
-        private System.Windows.Forms.ComboBox cb_recherche;
-        private System.Windows.Forms.Label label2;
     }
 }

@@ -28,13 +28,13 @@ namespace projet_gestionEntreprise
         {
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
             cn.Open();
-            string req = "select l.numeroBonLivraison,dateLivraison,c.idClient,nomClient+' '+prenomClient as nomComplet,idCommande,m.referenceModele,designation,qteLivre from livraison l inner join detailCommande dc on dc.numeroBonLivraison=l.numeroBonLivraison inner join modele m on m.referenceModele=dc.referenceModele inner join client c on c.idClient=l.idClient where m.referenceModele='"+refMd+"' " + filtre + " order by dateLivraison";
+            string req = "select l.idLivraison,l.numeroBonLivraison,dateLivraison,c.idClient,nomClient+' '+prenomClient as nomComplet,idCommande,m.referenceModele,designation,qteLivre from livraison l inner join detailCommande dc on dc.idLivraison=l.idLivraison inner join modele m on m.referenceModele=dc.referenceModele inner join client c on c.idClient=l.idClient where m.referenceModele='" + refMd+"' " + filtre + " order by dateLivraison";
             SqlCommand com = new SqlCommand(req, cn);
             SqlDataReader dr = com.ExecuteReader();
             dgv_livraisonClient.Rows.Clear();
             while (dr.Read())
             {
-                dgv_livraisonClient.Rows.Add(dr["numeroBonLivraison"], dr["dateLivraison"], dr["idClient"], dr["nomComplet"], dr["idCommande"], dr["qteLivre"]);
+                dgv_livraisonClient.Rows.Add(dr["idLivraison"], dr["numeroBonLivraison"], dr["dateLivraison"], dr["idClient"], dr["nomComplet"], dr["idCommande"], dr["qteLivre"]);
             }
             dr.Close();
             dr = null;
@@ -56,9 +56,12 @@ namespace projet_gestionEntreprise
                 switch (cb_recherche.SelectedIndex)
                 {
                     case 0:
-                        refresh(" and l.numeroBonLivraison=" + txt_rechercher.Text);
+                        refresh(" and l.idLivraison=" + txt_rechercher.Text);
                         break;
                     case 1:
+                        refresh(" and l.numeroBonLivraison=" + txt_rechercher.Text);
+                        break;
+                    case 2:
                         refresh(" and (nomClient like '%" + txt_rechercher.Text + "%' or prenomClient like '%" + txt_rechercher.Text + "%')");
                         break;
                 }

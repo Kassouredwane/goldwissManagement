@@ -11,11 +11,18 @@ using System.Windows.Forms;
 
 namespace projet_gestionEntreprise
 {
-    public partial class frmAjouterTransaction : Form
+    public partial class frmAjouterTransactionAClient : Form
     {
-        public frmAjouterTransaction()
+        int idC;
+        public frmAjouterTransactionAClient(int id)
         {
             InitializeComponent();
+            this.idC = id;
+        }
+
+        private void btn_annuler_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void btn_valider_Click(object sender, EventArgs e)
@@ -33,18 +40,13 @@ namespace projet_gestionEntreprise
             com = null;
             cn.Close();
             cn = null;
-            MessageBox.Show("la transaction a été ajouter avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("la transaction a été ajouter avec succée a ce client", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 
-        private void btn_annuler_Click(object sender, EventArgs e)
+        private void frmAjouterTransactionAClient_Load(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void frmAjouterTransaction_Load(object sender, EventArgs e)
-        {
-            cb_modePaiement.SelectedIndex = 0;
+            txt_idClient.Text=idC.ToString();
         }
     }
 }

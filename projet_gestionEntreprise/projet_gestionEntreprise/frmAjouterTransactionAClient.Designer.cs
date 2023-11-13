@@ -1,6 +1,6 @@
 ﻿namespace projet_gestionEntreprise
 {
-    partial class frmModifierTransaction
+    partial class frmAjouterTransactionAClient
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModifierTransaction));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAjouterTransactionAClient));
             this.cb_modePaiement = new System.Windows.Forms.ComboBox();
             this.dtp_dateTransaction = new System.Windows.Forms.DateTimePicker();
             this.txt_description = new Guna.UI2.WinForms.Guna2TextBox();
@@ -39,8 +39,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_montant = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_idTransaction = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
             this.btn_valider = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
@@ -53,17 +51,17 @@
             "Chèque",
             "Virement bancaire",
             "transfert"});
-            this.cb_modePaiement.Location = new System.Drawing.Point(204, 268);
+            this.cb_modePaiement.Location = new System.Drawing.Point(197, 209);
             this.cb_modePaiement.Name = "cb_modePaiement";
             this.cb_modePaiement.Size = new System.Drawing.Size(184, 21);
-            this.cb_modePaiement.TabIndex = 65;
+            this.cb_modePaiement.TabIndex = 63;
             // 
             // dtp_dateTransaction
             // 
-            this.dtp_dateTransaction.Location = new System.Drawing.Point(204, 154);
+            this.dtp_dateTransaction.Location = new System.Drawing.Point(197, 97);
             this.dtp_dateTransaction.Name = "dtp_dateTransaction";
             this.dtp_dateTransaction.Size = new System.Drawing.Size(184, 20);
-            this.dtp_dateTransaction.TabIndex = 64;
+            this.dtp_dateTransaction.TabIndex = 62;
             // 
             // txt_description
             // 
@@ -77,23 +75,23 @@
             this.txt_description.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_description.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_description.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_description.Location = new System.Drawing.Point(204, 327);
+            this.txt_description.Location = new System.Drawing.Point(197, 268);
             this.txt_description.Name = "txt_description";
             this.txt_description.PasswordChar = '\0';
             this.txt_description.PlaceholderText = "";
             this.txt_description.SelectedText = "";
             this.txt_description.Size = new System.Drawing.Size(184, 23);
-            this.txt_description.TabIndex = 61;
+            this.txt_description.TabIndex = 59;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(41, 331);
+            this.label1.Location = new System.Drawing.Point(37, 273);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 16);
-            this.label1.TabIndex = 60;
+            this.label1.TabIndex = 58;
             this.label1.Text = "Description :";
             // 
             // label4
@@ -101,10 +99,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(41, 156);
+            this.label4.Location = new System.Drawing.Point(37, 99);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 16);
-            this.label4.TabIndex = 59;
+            this.label4.TabIndex = 57;
             this.label4.Text = "Date Transaction :";
             // 
             // txt_idClient
@@ -119,23 +117,24 @@
             this.txt_idClient.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_idClient.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_idClient.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_idClient.Location = new System.Drawing.Point(204, 98);
+            this.txt_idClient.Location = new System.Drawing.Point(197, 40);
             this.txt_idClient.Name = "txt_idClient";
             this.txt_idClient.PasswordChar = '\0';
             this.txt_idClient.PlaceholderText = "";
+            this.txt_idClient.ReadOnly = true;
             this.txt_idClient.SelectedText = "";
             this.txt_idClient.Size = new System.Drawing.Size(184, 23);
-            this.txt_idClient.TabIndex = 58;
+            this.txt_idClient.TabIndex = 56;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(41, 101);
+            this.label6.Location = new System.Drawing.Point(37, 42);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 16);
-            this.label6.TabIndex = 57;
+            this.label6.TabIndex = 55;
             this.label6.Text = "ID Client  :";
             // 
             // label5
@@ -143,10 +142,10 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(41, 268);
+            this.label5.Location = new System.Drawing.Point(37, 209);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(144, 16);
-            this.label5.TabIndex = 56;
+            this.label5.TabIndex = 54;
             this.label5.Text = "Mode de paiement :";
             // 
             // txt_montant
@@ -161,56 +160,24 @@
             this.txt_montant.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_montant.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_montant.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_montant.Location = new System.Drawing.Point(204, 208);
+            this.txt_montant.Location = new System.Drawing.Point(197, 150);
             this.txt_montant.Name = "txt_montant";
             this.txt_montant.PasswordChar = '\0';
             this.txt_montant.PlaceholderText = "";
             this.txt_montant.SelectedText = "";
             this.txt_montant.Size = new System.Drawing.Size(184, 23);
-            this.txt_montant.TabIndex = 55;
+            this.txt_montant.TabIndex = 53;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(41, 210);
+            this.label3.Location = new System.Drawing.Point(37, 152);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 16);
-            this.label3.TabIndex = 54;
+            this.label3.TabIndex = 52;
             this.label3.Text = "Montant :";
-            // 
-            // txt_idTransaction
-            // 
-            this.txt_idTransaction.BorderRadius = 2;
-            this.txt_idTransaction.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_idTransaction.DefaultText = "";
-            this.txt_idTransaction.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_idTransaction.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_idTransaction.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_idTransaction.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_idTransaction.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_idTransaction.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_idTransaction.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_idTransaction.Location = new System.Drawing.Point(204, 42);
-            this.txt_idTransaction.Name = "txt_idTransaction";
-            this.txt_idTransaction.PasswordChar = '\0';
-            this.txt_idTransaction.PlaceholderText = "";
-            this.txt_idTransaction.ReadOnly = true;
-            this.txt_idTransaction.SelectedText = "";
-            this.txt_idTransaction.Size = new System.Drawing.Size(184, 23);
-            this.txt_idTransaction.TabIndex = 53;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(41, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 16);
-            this.label2.TabIndex = 52;
-            this.label2.Text = "ID Transaction :";
             // 
             // btn_annuler
             // 
@@ -224,11 +191,11 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(74, 383);
+            this.btn_annuler.Location = new System.Drawing.Point(63, 331);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
-            this.btn_annuler.TabIndex = 63;
+            this.btn_annuler.TabIndex = 61;
             this.btn_annuler.Text = "Annuler";
             this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
             // 
@@ -244,19 +211,19 @@
             this.btn_valider.ForeColor = System.Drawing.Color.White;
             this.btn_valider.Image = ((System.Drawing.Image)(resources.GetObject("btn_valider.Image")));
             this.btn_valider.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_valider.Location = new System.Drawing.Point(222, 383);
+            this.btn_valider.Location = new System.Drawing.Point(211, 331);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_valider.Size = new System.Drawing.Size(142, 29);
-            this.btn_valider.TabIndex = 62;
+            this.btn_valider.TabIndex = 60;
             this.btn_valider.Text = "Valider";
             this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
-            // frmModifierTransaction
+            // frmAjouterTransactionAClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 447);
+            this.ClientSize = new System.Drawing.Size(418, 401);
             this.Controls.Add(this.cb_modePaiement);
             this.Controls.Add(this.dtp_dateTransaction);
             this.Controls.Add(this.btn_annuler);
@@ -269,12 +236,10 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_montant);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txt_idTransaction);
-            this.Controls.Add(this.label2);
-            this.Name = "frmModifierTransaction";
+            this.Name = "frmAjouterTransactionAClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmModifierTransaction";
-            this.Load += new System.EventHandler(this.frmModifierTransaction_Load);
+            this.Text = "frmAjouterTransactionAClient";
+            this.Load += new System.EventHandler(this.frmAjouterTransactionAClient_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,7 +259,5 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2TextBox txt_montant;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2TextBox txt_idTransaction;
-        private System.Windows.Forms.Label label2;
     }
 }

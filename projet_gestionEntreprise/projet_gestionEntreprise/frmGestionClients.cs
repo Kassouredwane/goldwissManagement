@@ -298,5 +298,12 @@ namespace projet_gestionEntreprise
             frmAfficheLivraisonClient f = new frmAfficheLivraisonClient(idClient);
             f.ShowDialog();
         }
+
+        private void btn_ajouterTransaction_Click(object sender, EventArgs e)
+        {
+            int idClient = Convert.ToInt32(dgv_clients.CurrentRow.Cells[0].Value);
+            frmAjouterTransactionAClient f = new frmAjouterTransactionAClient(idClient);
+            f.ShowDialog();
+        }
     }
 }

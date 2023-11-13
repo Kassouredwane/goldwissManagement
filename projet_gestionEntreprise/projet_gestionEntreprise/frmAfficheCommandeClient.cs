@@ -190,13 +190,13 @@ namespace projet_gestionEntreprise
             // Fill datagrid view of livraison of commande
             SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
             cn2.Open();
-            string req2 = "select dc.numeroBonLivraison,dateLivraison,idCommande,m.referenceModele,designation,prixAchat,qteLivre,prixAchat*qteLivre as totale from livraison l inner join detailCommande dc on dc.numeroBonLivraison=l.numeroBonLivraison inner join modele m on m.referenceModele=dc.referenceModele where idCommande=" + dgv_commandeClient.CurrentRow.Cells[0].Value;
+            string req2 = "select dc.idLivraison, l.numeroBonLivraison,dateLivraison,idCommande,m.referenceModele,designation,prixAchat,qteLivre,prixAchat*qteLivre as totale from livraison l inner join detailCommande dc on dc.idLivraison=l.idLivraison inner join modele m on m.referenceModele=dc.referenceModele where idCommande=" + dgv_commandeClient.CurrentRow.Cells[0].Value;
             SqlCommand com2 = new SqlCommand(req2, cn2);
             SqlDataReader dr2 = com2.ExecuteReader();
             dgv_livraison.Rows.Clear();
             while (dr2.Read())
             {
-                dgv_livraison.Rows.Add(dr2["numeroBonLivraison"], dr2["designation"], dr2["dateLivraison"], dr2["prixAchat"], dr2["qteLivre"], dr2["totale"]);
+                dgv_livraison.Rows.Add(dr2["idLivraison"], dr2["numeroBonLivraison"], dr2["designation"], dr2["dateLivraison"], dr2["prixAchat"], dr2["qteLivre"], dr2["totale"]);
             }
             // close all commandes and connection and datareader
             dr2.Close();
@@ -264,8 +264,12 @@ namespace projet_gestionEntreprise
         {
             activate(true);
             txt_qteLivraison.Enabled = true;
+            txt_numeroBonLivraison.ReadOnly = true;
             txt_qteLivraison.Focus();
             dtp_dateLivraison.Enabled = false;
+            btn_ajouterLivraison.Enabled=false;
+            btn_vaider.Enabled = true;
+            txt_qteLivraison.Text = "";
             //btn_ajouterALivraison.Enabled = false;
         }
 
@@ -280,60 +284,42 @@ namespace projet_gestionEntreprise
             txt_qteLivraison.Enabled = false;
             txt_numeroBonLivraison.Text = "";
             dtp_dateLivraison.Value = DateTime.Today;
-            btn_vaider.Enabled = false; 
-        }
-        private void fillDgvLivraisonOfCommandeSelect()
-        {
+            btn_vaider.Enabled = false;
+            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            cn.Open();
+            SqlCommand com = new SqlCommand("select max(idLivraison)+1 from livraison", cn);
+            int nb = Convert.ToInt32(com.ExecuteScalar());
 
+            txt_idLivraison.Text = nb.ToString();
+            com = null;
+            cn.Close();
+            cn = null;
         }
         private void btn_ajouterLivraison_Click(object sender, EventArgs e)
         {
             activate(false);
             bool existe = false;
-            // checker si le numero de sbon est deja existe si supprimer le premier et ajouter dans l'archive at remplace lenouveau dans la table livraison
-            SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
-            cn2.Open();
-            string req2 = "select numeroBonLivraison from livraison where numeroBonLivraison="+txt_numeroBonLivraison.Text;
-            SqlCommand com2 = new SqlCommand(req2, cn2);
-            SqlDataReader dr2 = com2.ExecuteReader();
-            if (dr2.Read())
-            {
-                existe = true;
-            }
-            if (existe == true)
-            {
-                if (MessageBox.Show("ce numero est deja existe ! tu veux supprimer le dernier livraison ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    // ajouter nouveau livraison avec numero bon et la date a la table livraison dans sql server
-                    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
-                    cn.Open();
-                    string reqq = "insert into livraison values(@numeroBonLivraison,@dateLivraison,@idClient)";
-                    SqlCommand com = new SqlCommand(reqq, cn);
-                    com.Parameters.Add(new SqlParameter("@numeroBonLivraison", txt_numeroBonLivraison.Text));
-                    com.Parameters.Add(new SqlParameter("@dateLivraison", dtp_dateLivraison.Value));
-                    com.Parameters.Add(new SqlParameter("@idClient", IdClient));
-                    com.ExecuteNonQuery();
+            // ajouter nouveau livraison avec numero bon et la date a la table livraison dans sql server
+            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            cn.Open();
+            string reqq = "insert into livraison values(@numeroBonLivraison,@dateLivraison,@idClient)";
+            SqlCommand com = new SqlCommand(reqq, cn);
+            com.Parameters.Add(new SqlParameter("@numeroBonLivraison", txt_numeroBonLivraison.Text));
+            com.Parameters.Add(new SqlParameter("@dateLivraison", dtp_dateLivraison.Value));
+            com.Parameters.Add(new SqlParameter("@idClient", IdClient));
+            com.ExecuteNonQuery();
 
-                    com = null;
-                    cn.Close();
-                    cn = null;
-                    MessageBox.Show("la livraison a été ajouter avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            // close all commandes and connection and datareader
-            dr2.Close();
-            dr2 = null;
-            com2 = null;
-
-            cn2.Close();
-            cn2 = null;
-            //////////////
+            com = null;
+            cn.Close();
+            cn = null;
+            MessageBox.Show("la livraison a été ajouter avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
         }
 
         private void btn_vaider_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 // checker la quantiter entrer de livraison est inférieure que la quantte en stock
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
                 cn.Open();
@@ -345,10 +331,10 @@ namespace projet_gestionEntreprise
                     // ==> a la livraison ) a la table de detailCommande
                     SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
                     cn2.Open();
-                    string reqq2 = "update detailCommande set qteLivre=@qteLivre,numeroBonLivraison=@numeroBonLivraison,statutLivraison=1 where detailCommande.idCommande=" + dgv_commandeClient.CurrentRow.Cells[0].Value + " and referenceModele='" + dgv_detailCommandeClient.CurrentRow.Cells[0].Value + "'";
+                    string reqq2 = "update detailCommande set qteLivre=@qteLivre,idLivraison=@idLivraison,statutLivraison=1 where detailCommande.idCommande=" + dgv_commandeClient.CurrentRow.Cells[0].Value + " and referenceModele='" + dgv_detailCommandeClient.CurrentRow.Cells[0].Value + "'";
                     SqlCommand com2 = new SqlCommand(reqq2, cn2);
                     com2.Parameters.Add(new SqlParameter("@qteLivre", txt_qteLivraison.Text));
-                    com2.Parameters.Add(new SqlParameter("@numeroBonLivraison", txt_numeroBonLivraison.Text));
+                    com2.Parameters.Add(new SqlParameter("@idLivraison", txt_idLivraison.Text));
                     com2.ExecuteNonQuery();
 
                     com2 = null;
@@ -373,8 +359,8 @@ namespace projet_gestionEntreprise
                 com = null;
                 cn.Close();
                 cn = null;
-            }
-            catch (Exception error) { MessageBox.Show("numero de bon livraison n'existe pas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+            //}
+            //catch (Exception error) { MessageBox.Show(error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information); }
         }
 
         private void dgv_commandeClient_CellValueChanged(object sender, DataGridViewCellEventArgs e)

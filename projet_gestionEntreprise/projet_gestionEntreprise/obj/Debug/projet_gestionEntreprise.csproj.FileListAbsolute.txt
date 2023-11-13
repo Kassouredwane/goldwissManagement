@@ -33,3 +33,4 @@ C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntre
 C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmGestionTransactions.resources
 C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmAjouterTransaction.resources
 C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmModifierTransaction.resources
+C:\Users\user\Desktop\redwane kassou\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmAjouterTransactionAClient.resources

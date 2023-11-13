@@ -117,12 +117,16 @@ namespace projet_gestionEntreprise
                     if (chk_enCourLivraison.Checked == false) refresh(" where cmd.dateCommande like '%" + txt_rechercher.Text+"%'");
                     else refresh(" and cmd.dateCommande like '%" + txt_rechercher.Text+"%'");
                     break;
+                case 4:
+                    if (chk_enCourLivraison.Checked == false) refresh(" where cmd.idCommande in (select idCommande from detailCommande where referenceModele='"+txt_rechercher.Text+"')");
+                    else refresh(" and cmd.idCommande in (select idCommande from detailCommande where referenceModele='" + txt_rechercher.Text + "')");
+                    break;
             }
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Etes-vous vraiment veux supprimer ce client ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Etes-vous vraiment veux supprimer ce commande ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 // delete the "commande" from table detailCommande because she has a foreign key of IdCommande
                 SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
@@ -143,6 +147,33 @@ namespace projet_gestionEntreprise
                 cn.Close();
                 cn = null;
                 MessageBox.Show("La commande a été supprimer avec succé","Information",MessageBoxButtons.OK, MessageBoxIcon.Question);
+                refresh("");
+            }
+        }
+
+        private void btn_supprimerTousCommandes_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Etes-vous vraiment veux supprimer tous les commandes ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                // delete the "commande" from table detailCommande because she has a foreign key of IdCommande
+                SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                cn1.Open();
+                string req1 = "delete from detailCommande";
+                SqlCommand com1 = new SqlCommand(req1, cn1);
+                com1.ExecuteNonQuery();
+                com1 = null;
+                cn1.Close();
+                cn1 = null;
+                // delete the "commande" from table of commmande
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                cn.Open();
+                string req = "delete from commande";
+                SqlCommand com = new SqlCommand(req, cn);
+                com.ExecuteNonQuery();
+                com = null;
+                cn.Close();
+                cn = null;
+                MessageBox.Show("Tous les commandes a été supprimer avec succé", "Information", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 refresh("");
             }
         }

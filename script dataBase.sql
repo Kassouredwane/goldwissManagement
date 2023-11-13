@@ -425,3 +425,4 @@ select sum(qteLivre) from detailCommande dc inner join livraison l on dc.numeroB
 select idTransaction,c.idClient,montant,dateTransaction,TypeTransaction,[description],nomClient+' '+prenomClient as nomComplet from transactions t inner join client c on c.idClient=t.idClient
 
 insert into transactions values (,,'','','')
+fdfsd

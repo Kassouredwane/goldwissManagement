@@ -100,6 +100,12 @@
     <Compile Include="frmAjouterTransaction.Designer.cs">
       <DependentUpon>frmAjouterTransaction.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAjouterTransactionAClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjouterTransactionAClient.Designer.cs">
+      <DependentUpon>frmAjouterTransactionAClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmClientCommanderModele.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAjouterTransaction.resx">
       <DependentUpon>frmAjouterTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAjouterTransactionAClient.resx">
+      <DependentUpon>frmAjouterTransactionAClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmClientCommanderModele.resx">
       <DependentUpon>frmClientCommanderModele.cs</DependentUpon>

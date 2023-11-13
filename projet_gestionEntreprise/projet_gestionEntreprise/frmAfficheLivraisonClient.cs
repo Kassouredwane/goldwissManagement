@@ -25,30 +25,30 @@ namespace projet_gestionEntreprise
             // fill datagrid view with commandes of clients
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
             cn.Open();
-            string req = "select l.numeroBonLivraison,dateLivraison,dc.idCommande,m.referenceModele,designation,qteLivre from livraison l inner join detailCommande dc on dc.numeroBonLivraison=l.numeroBonLivraison inner join modele m on m.referenceModele=dc.referenceModele where idClient=" + id + filtre ;
+            string req = "select distinct l.idLivraison,l.numeroBonLivraison,dateLivraison,dc.idCommande,m.referenceModele,designation,qteLivre from livraison l inner join detailCommande dc on dc.idLivraison=l.idLivraison inner join modele m on m.referenceModele=dc.referenceModele where idClient=" + id + filtre ;
             SqlCommand com = new SqlCommand(req, cn);
             SqlDataReader dr = com.ExecuteReader();
             dgv_livraisonClient.Rows.Clear();
             while (dr.Read())
             {
-                dgv_livraisonClient.Rows.Add(dr["numeroBonLivraison"], dr["dateLivraison"], dr["idCommande"], dr["referenceModele"], dr["designation"], dr["qteLivre"]);
+                dgv_livraisonClient.Rows.Add(dr["idLivraison"], dr["numeroBonLivraison"], dr["dateLivraison"], dr["idCommande"], dr["referenceModele"], dr["designation"], dr["qteLivre"]);
             }
             // affect number of commandes in the label
             SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
             cn2.Open();
-            SqlCommand com2 = new SqlCommand("select count(*) from livraison l inner join detailCommande dc on dc.numeroBonLivraison=l.numeroBonLivraison where idClient=" + id + filtre +" group by idClient", cn2);
+            SqlCommand com2 = new SqlCommand("select count(*) from livraison where idClient=" + id + filtre +" group by idClient", cn2);
             int nbLivraison = Convert.ToInt32(com2.ExecuteScalar());
             lbl_nbLivraison.Text = nbLivraison.ToString();
             // affect totale prix commandes in the label
             SqlConnection cn3 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
             cn3.Open();
-            SqlCommand com3 = new SqlCommand("select sum(prixAchat*qteLivre) from detailCommande dc inner join livraison l on l.numeroBonLivraison=dc.numeroBonLivraison where idClient=" + id + filtre +" group by idClient", cn3);
+            SqlCommand com3 = new SqlCommand("select sum(prixAchat*qteLivre) from detailCommande dc inner join livraison l on l.idLivraison=dc.idLivraison where idClient=" + id + filtre +" group by idClient", cn3);
             int totalPrix = Convert.ToInt32(com3.ExecuteScalar());
-            lbl_totalePrix.Text = totalPrix.ToString();
+            lbl_totalePrix.Text = totalPrix.ToString()+" DH";
             // affect quantite totale des commandes acheter in the label
             SqlConnection cn4 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
             cn4.Open();
-            SqlCommand com4 = new SqlCommand("select sum(qteLivre) from detailCommande dc inner join livraison l on dc.numeroBonLivraison=l.numeroBonLivraison where idClient=" + id + filtre +" group by idClient", cn4);
+            SqlCommand com4 = new SqlCommand("select sum(qteLivre) from detailCommande dc inner join livraison l on dc.idLivraison=l.idLivraison where idClient=" + id + filtre +" group by idClient", cn4);
             int qteTotale = Convert.ToInt32(com4.ExecuteScalar());
             lbl_qteTotale.Text = qteTotale.ToString();
             // close all commandes and connection and datareader
@@ -107,6 +107,9 @@ namespace projet_gestionEntreprise
                         break;
                     case 3:
                         refresh(" and idCommande=" + txt_rechercher.Text);
+                        break;
+                    case 4:
+                        refresh(" and l.idLivraison=" + txt_rechercher.Text);
                         break;
                 }
             }

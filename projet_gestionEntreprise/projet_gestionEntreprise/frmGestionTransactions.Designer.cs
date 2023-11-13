@@ -44,7 +44,7 @@
             this.cb_recherche = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_supprimerTous = new Guna.UI2.WinForms.Guna2Button();
             this.btn_supprimer = new Guna.UI2.WinForms.Guna2Button();
             this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
             this.btn_ajouter = new Guna.UI2.WinForms.Guna2Button();
@@ -207,22 +207,23 @@
             this.txt_rechercher.Size = new System.Drawing.Size(249, 29);
             this.txt_rechercher.TabIndex = 67;
             // 
-            // guna2Button1
+            // btn_supprimerTous
             // 
-            this.guna2Button1.BorderRadius = 2;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.LightSlateGray;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.Location = new System.Drawing.Point(542, 806);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(224, 29);
-            this.guna2Button1.TabIndex = 75;
-            this.guna2Button1.Text = "Supprimer tous les transactions";
+            this.btn_supprimerTous.BorderRadius = 2;
+            this.btn_supprimerTous.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_supprimerTous.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_supprimerTous.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_supprimerTous.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_supprimerTous.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_supprimerTous.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_supprimerTous.ForeColor = System.Drawing.Color.White;
+            this.btn_supprimerTous.Image = ((System.Drawing.Image)(resources.GetObject("btn_supprimerTous.Image")));
+            this.btn_supprimerTous.Location = new System.Drawing.Point(542, 806);
+            this.btn_supprimerTous.Name = "btn_supprimerTous";
+            this.btn_supprimerTous.Size = new System.Drawing.Size(224, 29);
+            this.btn_supprimerTous.TabIndex = 75;
+            this.btn_supprimerTous.Text = "Supprimer tous les transactions";
+            this.btn_supprimerTous.Click += new System.EventHandler(this.btn_supprimerTous_Click);
             // 
             // btn_supprimer
             // 
@@ -240,6 +241,7 @@
             this.btn_supprimer.Size = new System.Drawing.Size(121, 29);
             this.btn_supprimer.TabIndex = 74;
             this.btn_supprimer.Text = "Supprimer";
+            this.btn_supprimer.Click += new System.EventHandler(this.btn_supprimer_Click);
             // 
             // btn_modifier
             // 
@@ -321,7 +323,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1234, 847);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.btn_supprimerTous);
             this.Controls.Add(this.btn_supprimer);
             this.Controls.Add(this.btn_modifier);
             this.Controls.Add(this.btn_ajouter);
@@ -359,6 +361,6 @@
         private Guna.UI2.WinForms.Guna2Button btn_supprimer;
         private Guna.UI2.WinForms.Guna2Button btn_modifier;
         private Guna.UI2.WinForms.Guna2Button btn_ajouter;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btn_supprimerTous;
     }
 }
