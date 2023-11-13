@@ -118,7 +118,14 @@ create table livraison(
 	dateLivraison date,
 	idClient bigint constraint fkLivraisonClient foreign key references client(idClient),
 	constraint pkLivraison primary key(numeroBonLivraison)
-) 
+)  
+alter table detailCommande drop constraint fkdetailCommandeLivraison
+alter table livraison drop constraint pkLivraison 
+alter table livraison add idLivraison bigint identity;
+alter table livraison add constraint pkLivraison primary key(idLivraison)
+alter table detailCommande drop column  numeroBonLivraison
+alter table detailCommande add idLivraison bigint 
+alter table detailCommande add constraint fkDetailCommandeLivraison foreign key(idLivraison) references livraison(idLivraison) 
 ---------------------------------------------------   *****************************   ------------------------------------------
 ----- quand  l'utilisateur peux ajouter une livraison aavec l'identifiant numeroBonLivraison doit chercher si cettenumero est deja exite si exite afficher une message de question 
 ----- de la suppression de la derniere livraison qui contient ce numero de livraison et ajouter cette livraison supprimer dans une table archive livraison
@@ -137,6 +144,7 @@ alter table detailCommande add numeroBonLivraison bigint
 alter table detailCommande add constraint fkDetailCommandeLivraison foreign key(numeroBonLivraison) references livraison(numeroBonLivraison)
 alter table detailCommande add statutLivraison bit
 alter table detailCommande add constraint dfDetailCommandeQteLivraison default 0 for qteLivre
+alter table detailCommande add constraint dfDetailCommandeStatutLivraison default 0 for statutLivraison
 ---------   
 ---------
 select * from detailCommande where statutLivraison='true'
@@ -397,7 +405,6 @@ where m.referenceModele='MD 1' and cmd.statutLivraison=0
 
 select dc.referenceModele,designation,qteAchat,prixAchat,qteLivre,statutLivraison from detailCommande dc inner join modele m on m.referenceModele=dc.referenceModele where idCommande=30
 
-
 select l.numeroBonLivraison,dateLivraison,c.idClient,nomClient+' '+prenomClient as 'nom complet',m.referenceModele,designation,qteLivre from livraison l inner join detailCommande dc on dc.numeroBonLivraison=l.numeroBonLivraison inner join modele m on m.referenceModele=dc.referenceModele inner join client c on c.idClient=l.idClient
 
 select l.numeroBonLivraison,dateLivraison,c.idClient,nomClient+' '+prenomClient as nomComplet,idCommande,m.referenceModele,designation,qteLivre from livraison l 
@@ -425,4 +432,34 @@ select sum(qteLivre) from detailCommande dc inner join livraison l on dc.numeroB
 select idTransaction,c.idClient,montant,dateTransaction,TypeTransaction,[description],nomClient+' '+prenomClient as nomComplet from transactions t inner join client c on c.idClient=t.idClient
 
 insert into transactions values (,,'','','')
+<<<<<<< HEAD
 fdfsd
+=======
+
+select dc.idLivraison, l.numeroBonLivraison,dateLivraison,idCommande,m.referenceModele,designation,prixAchat,qteLivre,prixAchat*qteLivre as totale from livraison l 
+inner join detailCommande dc on dc.idLivraison=l.idLivraison
+inner join modele m on m.referenceModele=dc.referenceModele
+where idCommande=33
+
+select distinct l.idLivraison,numeroBonLivraison,dateLivraison,c.idClient,nomClient+' '+prenomClient as nomComplet from livraison l 
+inner join client c on c.idClient=l.idClient 
+order by dateLivraison
+
+select idCommande,idLivraison,m.referenceModele,designation,qteAchat,prixAchat,qteLivre from detailCommande dc 
+inner join modele m on m.referenceModele=dc.referenceModele 
+
+
+select distinct l.idLivraison,numeroBonLivraison,dateLivraison,c.idClient,nomClient+' '+prenomClient as nomComplet from livraison l 
+inner join detailCommande dc on dc.idLivraison=l.idLivraison
+inner join client c on c.idClient=l.idClient 
+where l.idLivraison in (select idLivraison from detailCommande where referenceModele='MD 3')
+order by dateLivraison
+
+select distinct l.idLivraison,l.numeroBonLivraison,dateLivraison,dc.idCommande,m.referenceModele,designation,qteLivre from livraison l 
+inner join detailCommande dc on dc.idLivraison=l.idLivraison 
+inner join modele m on m.referenceModele=dc.referenceModele 
+where idClient=1
+
+
+--hello world
+>>>>>>> eafa4891ef15160d89a5a52ac73cb0f1e1fa1d56
