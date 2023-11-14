@@ -47,7 +47,7 @@ namespace projet_gestionEntreprise
                 dgv_commandeClient.Rows.Clear();
                 while (dr.Read())
                 {
-                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["statutLivraison"]);
+                    dgv_commandeClient.Rows.Add(dr["idCommande"], Convert.ToDateTime(dr["dateCommande"].ToString()).ToShortDateString(), dr["statutLivraison"]);
                 }
                 // close all commandes and connection and datareader
                 dr.Close();
@@ -69,7 +69,7 @@ namespace projet_gestionEntreprise
                 dgv_commandeClient.Rows.Clear();
                 while (dr.Read())
                 {
-                    dgv_commandeClient.Rows.Add(dr["idCommande"], dr["dateCommande"], dr["statutLivraison"]);
+                    dgv_commandeClient.Rows.Add(dr["idCommande"], Convert.ToDateTime(dr["dateCommande"].ToString()).ToShortDateString(), dr["statutLivraison"]);
                 }
                 // close all commandes and connection and datareader
                 dr.Close();
@@ -196,7 +196,7 @@ namespace projet_gestionEntreprise
             dgv_livraison.Rows.Clear();
             while (dr2.Read())
             {
-                dgv_livraison.Rows.Add(dr2["idLivraison"], dr2["numeroBonLivraison"], dr2["designation"], dr2["dateLivraison"], dr2["prixAchat"], dr2["qteLivre"], dr2["totale"]);
+                dgv_livraison.Rows.Add(dr2["idLivraison"], dr2["numeroBonLivraison"], dr2["designation"], Convert.ToDateTime(dr2["dateLivraison"].ToString()).ToShortDateString(), dr2["prixAchat"], dr2["qteLivre"], dr2["totale"]);
             }
             // close all commandes and connection and datareader
             dr2.Close();

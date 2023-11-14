@@ -29,7 +29,7 @@ namespace projet_gestionEntreprise
                 dgv_commandeClient.Rows.Clear();
                 while (dr.Read())
                 {
-                    dgv_commandeClient.Rows.Add(dr["idClient"], dr["nomComplet"], dr["idCommande"],dr["dateCommande"], dr["statutLivraison"]);
+                    dgv_commandeClient.Rows.Add(dr["idClient"], dr["nomComplet"], dr["idCommande"], Convert.ToDateTime(dr["dateCommande"].ToString()).ToShortDateString(), dr["statutLivraison"]);
                 }
                 dr.Close();
                 dr = null;
@@ -48,7 +48,7 @@ namespace projet_gestionEntreprise
                 dgv_commandeClient.Rows.Clear();
                 while (dr.Read())
                 {
-                    dgv_commandeClient.Rows.Add(dr["idClient"], dr["nomComplet"], dr["idCommande"], dr["dateCommande"], dr["statutLivraison"]);
+                    dgv_commandeClient.Rows.Add(dr["idClient"], dr["nomComplet"], dr["idCommande"], Convert.ToDateTime(dr["dateCommande"].ToString()).ToShortDateString(), dr["statutLivraison"]);
                 }
                 dr.Close();
                 dr = null;

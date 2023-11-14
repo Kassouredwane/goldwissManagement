@@ -34,7 +34,7 @@ namespace projet_gestionEntreprise
             dgv_livraisonClient.Rows.Clear();
             while (dr.Read())
             {
-                dgv_livraisonClient.Rows.Add(dr["idLivraison"], dr["numeroBonLivraison"], dr["dateLivraison"], dr["idClient"], dr["nomComplet"], dr["idCommande"], dr["qteLivre"]);
+                dgv_livraisonClient.Rows.Add(dr["idLivraison"], dr["numeroBonLivraison"], Convert.ToDateTime(dr["dateLivraison"].ToString()).ToShortDateString(), dr["idClient"], dr["nomComplet"], dr["idCommande"], dr["qteLivre"]);
             }
             dr.Close();
             dr = null;

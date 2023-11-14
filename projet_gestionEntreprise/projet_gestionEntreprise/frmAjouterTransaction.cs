@@ -35,6 +35,17 @@ namespace projet_gestionEntreprise
             cn = null;
             MessageBox.Show("la transaction a été ajouter avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
+
+            // update reste a payer de la client qui fait la transaction
+            SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            cn2.Open();
+            string reqq2 = "update client set restePayer=restePayer-@montant where idClient="+txt_idClient.Text;
+            SqlCommand com2 = new SqlCommand(reqq2, cn2);
+            com2.Parameters.Add(new SqlParameter("@montant", txt_montant.Text));
+            com2.ExecuteNonQuery();
+            com2 = null;
+            cn2.Close();
+            cn2 = null;
         }
 
         private void btn_annuler_Click(object sender, EventArgs e)
@@ -44,6 +55,7 @@ namespace projet_gestionEntreprise
 
         private void frmAjouterTransaction_Load(object sender, EventArgs e)
         {
+            txt_idClient.Focus();
             cb_modePaiement.SelectedIndex = 0;
         }
     }

@@ -30,7 +30,7 @@ namespace projet_gestionEntreprise
             dgv_clients.Rows.Clear();
             while (dr.Read())
             {
-                dgv_clients.Rows.Add(dr["idClient"], dr["nomComplet"], dr["idCommande"], dr["dateCommande"], dr["qteAchat"], dr["prixAchat"], dr["statutLivraison"]);
+                dgv_clients.Rows.Add(dr["idClient"], dr["nomComplet"], dr["idCommande"], Convert.ToDateTime(dr["dateCommande"].ToString()).ToShortDateString(), dr["qteAchat"], dr["prixAchat"], dr["statutLivraison"]);
             }
             dr.Close();
             dr = null;

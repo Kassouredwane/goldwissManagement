@@ -39,9 +39,20 @@ namespace projet_gestionEntreprise
 
         private void btn_valider_Click(object sender, EventArgs e)
         {
+            // update reste a payer de la client qui fait la transaction
+            SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            cn2.Open();
+            string reqq2 = "UPDATE client SET restePayer = restePayer + (SELECT montant FROM transactions WHERE idTransaction = "+idTr+") - "+txt_montant.Text+" WHERE idClient = "+txt_idClient.Text+"";
+            SqlCommand com2 = new SqlCommand(reqq2, cn2);
+            com2.Parameters.Add(new SqlParameter("@montant", txt_montant.Text));
+            com2.ExecuteNonQuery();
+            com2 = null;
+            cn2.Close();
+            cn2 = null;
+            //update montant dof transaction table
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
             cn.Open();
-            string reqq = "update transactions set idClient=@idClient,montant=@montant,dateTransaction=@dateTransaction,typeTransaction=@typeTransaction,description=@description where idTransaction="+idTr;
+            string reqq = "update transactions set montant=@montant,dateTransaction=@dateTransaction,typeTransaction=@typeTransaction,description=@description where idTransaction="+idTr;
             SqlCommand com = new SqlCommand(reqq, cn);
             com.Parameters.Add(new SqlParameter("@idClient", txt_idClient.Text));
             com.Parameters.Add(new SqlParameter("@montant", txt_montant.Text));

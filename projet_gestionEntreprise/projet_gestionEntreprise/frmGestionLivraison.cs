@@ -21,13 +21,13 @@ namespace projet_gestionEntreprise
         {
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
             cn.Open();
-            string req = "select l.idLivraison,numeroBonLivraison,dateLivraison,c.idClient,nomClient+' '+prenomClient as nomComplet from livraison l inner join client c on c.idClient=l.idClient " + filtre + " order by dateLivraison";
+            string req = "select l.idLivraison,numeroBonLivraison,dateLivraison,c.idClient,nomClient+' '+prenomClient as nomComplet,SUM(qteLivre) as totleQte,sum(prixAchat*qteLivre) as totalePrix from livraison l inner join client c on c.idClient=l.idClient inner join detailCommande dc on dc.idLivraison=l.idLivraison" + filtre + " group by l.idLivraison,l.numeroBonLivraison,dateLivraison,c.idClient,nomClient,prenomClient order by dateLivraison";
             SqlCommand com = new SqlCommand(req, cn);
             SqlDataReader dr = com.ExecuteReader();
             dgv_livraison.Rows.Clear();
             while (dr.Read())
             {
-                dgv_livraison.Rows.Add(dr["idLivraison"], dr["numeroBonLivraison"], dr["dateLivraison"], dr["idClient"], dr["nomComplet"]);
+                dgv_livraison.Rows.Add(dr["idLivraison"], dr["numeroBonLivraison"], Convert.ToDateTime(dr["dateLivraison"].ToString()).ToShortDateString(), dr["idClient"], dr["nomComplet"], dr["totleQte"], dr["totalePrix"]);
             }
             dr.Close();
             dr = null;
