@@ -36,6 +36,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_livraisonClient = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbl_qteTotale = new System.Windows.Forms.Label();
@@ -55,16 +61,12 @@
             this.cb_recherche = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgv_detailLivraison = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_imprimerLivraison = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_imprimerLivraison = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_livraisonClient)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -94,6 +96,7 @@
             this.Column7,
             this.Column1,
             this.Column2,
+            this.Column5,
             this.Column3,
             this.Column4});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -132,6 +135,36 @@
             this.dgv_livraisonClient.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_livraisonClient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgv_livraisonClient.SelectionChanged += new System.EventHandler(this.dgv_livraisonClient_SelectionChanged);
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Id Livraison";
+            this.Column7.Name = "Column7";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "N° Bon ";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Date Livraison";
+            this.Column2.Name = "Column2";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Id Commande";
+            this.Column5.Name = "Column5";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Quantité totale";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Totale Prix";
+            this.Column4.Name = "Column4";
             // 
             // panel3
             // 
@@ -173,7 +206,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(92, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 16);
+            this.label5.Size = new System.Drawing.Size(116, 16);
             this.label5.TabIndex = 30;
             this.label5.Text = "Quantite totale ;";
             // 
@@ -217,7 +250,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(87, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 16);
+            this.label3.Size = new System.Drawing.Size(154, 16);
             this.label3.TabIndex = 30;
             this.label3.Text = "Totale de livraisons :";
             // 
@@ -261,7 +294,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(59, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 16);
+            this.label1.Size = new System.Drawing.Size(172, 16);
             this.label1.TabIndex = 30;
             this.label1.Text = "Nombre des livraisons :";
             // 
@@ -365,7 +398,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(43, 132);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 16);
+            this.label2.Size = new System.Drawing.Size(124, 16);
             this.label2.TabIndex = 67;
             this.label2.Text = "Rechercher Par :";
             // 
@@ -385,9 +418,10 @@
             this.dgv_detailLivraison.ColumnHeadersHeight = 20;
             this.dgv_detailLivraison.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgv_detailLivraison.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
+            this.Column6,
+            this.Column8,
             this.dataGridViewTextBoxColumn7});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
@@ -425,51 +459,6 @@
             this.dgv_detailLivraison.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_detailLivraison.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "ID Commande";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Reference Modele";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Designation";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Quantité Livré";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Id Livraison";
-            this.Column7.Name = "Column7";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "N° Bon ";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Date Livraison";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Quantité totale";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Totale Prix";
-            this.Column4.Name = "Column4";
-            // 
             // btn_imprimerLivraison
             // 
             this.btn_imprimerLivraison.BorderRadius = 2;
@@ -486,6 +475,36 @@
             this.btn_imprimerLivraison.Size = new System.Drawing.Size(182, 29);
             this.btn_imprimerLivraison.TabIndex = 71;
             this.btn_imprimerLivraison.Text = "Imprimer la Livraison";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.FillWeight = 71.76093F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Reference Modele";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.FillWeight = 204.6882F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Designation";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // Column6
+            // 
+            this.Column6.FillWeight = 76.14214F;
+            this.Column6.HeaderText = "Quantite Commander";
+            this.Column6.Name = "Column6";
+            // 
+            // Column8
+            // 
+            this.Column8.FillWeight = 71.77959F;
+            this.Column8.HeaderText = "P.U";
+            this.Column8.Name = "Column8";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.FillWeight = 75.62919F;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Quantité Livré";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // frmAfficheLivraisonClient
             // 
@@ -545,15 +564,17 @@
         private System.Windows.Forms.ComboBox cb_recherche;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2DataGridView dgv_detailLivraison;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private Guna.UI2.WinForms.Guna2Button btn_imprimerLivraison;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private Guna.UI2.WinForms.Guna2Button btn_imprimerLivraison;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }

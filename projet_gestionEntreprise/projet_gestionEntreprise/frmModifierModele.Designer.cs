@@ -48,9 +48,9 @@
             this.imageModele = new System.Windows.Forms.PictureBox();
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
             this.btn_valider = new Guna.UI2.WinForms.Guna2Button();
-            this.txt_qteStock = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ProductImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imageModele)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductImage)).BeginInit();
             this.SuspendLayout();
             // 
             // ofdImage
@@ -69,12 +69,12 @@
             this.txt_imageModele.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_imageModele.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_imageModele.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_imageModele.Location = new System.Drawing.Point(12, 482);
+            this.txt_imageModele.Location = new System.Drawing.Point(38, 454);
             this.txt_imageModele.Name = "txt_imageModele";
             this.txt_imageModele.PasswordChar = '\0';
             this.txt_imageModele.PlaceholderText = "";
             this.txt_imageModele.SelectedText = "";
-            this.txt_imageModele.Size = new System.Drawing.Size(184, 23);
+            this.txt_imageModele.Size = new System.Drawing.Size(140, 18);
             this.txt_imageModele.TabIndex = 63;
             this.txt_imageModele.Visible = false;
             // 
@@ -83,17 +83,17 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(362, 267);
+            this.label7.Location = new System.Drawing.Point(362, 208);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(98, 16);
+            this.label7.Size = new System.Drawing.Size(99, 16);
             this.label7.TabIndex = 62;
             this.label7.Text = "Designation :";
             // 
             // txt_designation
             // 
-            this.txt_designation.Location = new System.Drawing.Point(365, 286);
+            this.txt_designation.Location = new System.Drawing.Point(470, 205);
             this.txt_designation.Name = "txt_designation";
-            this.txt_designation.Size = new System.Drawing.Size(280, 190);
+            this.txt_designation.Size = new System.Drawing.Size(215, 37);
             this.txt_designation.TabIndex = 61;
             this.txt_designation.Text = "";
             // 
@@ -123,7 +123,7 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(363, 51);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 16);
+            this.label6.Size = new System.Drawing.Size(84, 16);
             this.label6.TabIndex = 54;
             this.label6.Text = "Categorie :";
             // 
@@ -154,7 +154,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(23, 208);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 16);
+            this.label5.Size = new System.Drawing.Size(42, 16);
             this.label5.TabIndex = 52;
             this.label5.Text = "Prix :";
             // 
@@ -175,7 +175,7 @@
             this.txt_marque.PasswordChar = '\0';
             this.txt_marque.PlaceholderText = "";
             this.txt_marque.SelectedText = "";
-            this.txt_marque.Size = new System.Drawing.Size(184, 23);
+            this.txt_marque.Size = new System.Drawing.Size(215, 23);
             this.txt_marque.TabIndex = 51;
             // 
             // label4
@@ -185,7 +185,7 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(362, 123);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 16);
+            this.label4.Size = new System.Drawing.Size(68, 16);
             this.label4.TabIndex = 50;
             this.label4.Text = "Marque :";
             // 
@@ -216,7 +216,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(23, 124);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 16);
+            this.label3.Size = new System.Drawing.Size(56, 16);
             this.label3.TabIndex = 48;
             this.label3.Text = "Taille :";
             // 
@@ -247,7 +247,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(23, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 16);
+            this.label2.Size = new System.Drawing.Size(92, 16);
             this.label2.TabIndex = 46;
             this.label2.Text = "Reference  :";
             // 
@@ -263,7 +263,7 @@
             this.btn_choisirImage.ForeColor = System.Drawing.Color.White;
             this.btn_choisirImage.Image = ((System.Drawing.Image)(resources.GetObject("btn_choisirImage.Image")));
             this.btn_choisirImage.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_choisirImage.Location = new System.Drawing.Point(120, 447);
+            this.btn_choisirImage.Location = new System.Drawing.Point(132, 422);
             this.btn_choisirImage.Name = "btn_choisirImage";
             this.btn_choisirImage.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_choisirImage.Size = new System.Drawing.Size(184, 29);
@@ -274,7 +274,7 @@
             // imageModele
             // 
             this.imageModele.Image = ((System.Drawing.Image)(resources.GetObject("imageModele.Image")));
-            this.imageModele.Location = new System.Drawing.Point(120, 286);
+            this.imageModele.Location = new System.Drawing.Point(132, 261);
             this.imageModele.Name = "imageModele";
             this.imageModele.Size = new System.Drawing.Size(184, 155);
             this.imageModele.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -293,7 +293,7 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(206, 509);
+            this.btn_annuler.Location = new System.Drawing.Point(384, 422);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
@@ -313,7 +313,7 @@
             this.btn_valider.ForeColor = System.Drawing.Color.White;
             this.btn_valider.Image = ((System.Drawing.Image)(resources.GetObject("btn_valider.Image")));
             this.btn_valider.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_valider.Location = new System.Drawing.Point(365, 509);
+            this.btn_valider.Location = new System.Drawing.Point(543, 422);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_valider.Size = new System.Drawing.Size(142, 29);
@@ -321,44 +321,22 @@
             this.btn_valider.Text = "Valider";
             this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
-            // txt_qteStock
+            // ProductImage
             // 
-            this.txt_qteStock.BorderRadius = 2;
-            this.txt_qteStock.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_qteStock.DefaultText = "";
-            this.txt_qteStock.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_qteStock.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_qteStock.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_qteStock.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_qteStock.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_qteStock.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_qteStock.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_qteStock.Location = new System.Drawing.Point(470, 205);
-            this.txt_qteStock.Name = "txt_qteStock";
-            this.txt_qteStock.PasswordChar = '\0';
-            this.txt_qteStock.PlaceholderText = "";
-            this.txt_qteStock.SelectedText = "";
-            this.txt_qteStock.Size = new System.Drawing.Size(184, 23);
-            this.txt_qteStock.TabIndex = 65;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(362, 207);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 16);
-            this.label1.TabIndex = 64;
-            this.label1.Text = "Quantite :";
+            this.ProductImage.Image = ((System.Drawing.Image)(resources.GetObject("ProductImage.Image")));
+            this.ProductImage.Location = new System.Drawing.Point(132, 261);
+            this.ProductImage.Name = "ProductImage";
+            this.ProductImage.Size = new System.Drawing.Size(184, 155);
+            this.ProductImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ProductImage.TabIndex = 66;
+            this.ProductImage.TabStop = false;
             // 
             // frmModifierModele
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 573);
-            this.Controls.Add(this.txt_qteStock);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(709, 478);
+            this.Controls.Add(this.ProductImage);
             this.Controls.Add(this.txt_imageModele);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txt_designation);
@@ -382,6 +360,7 @@
             this.Text = "frmModifierModele";
             this.Load += new System.EventHandler(this.frmModifierModele_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imageModele)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,7 +387,6 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox txt_reference;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2TextBox txt_qteStock;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox ProductImage;
     }
 }

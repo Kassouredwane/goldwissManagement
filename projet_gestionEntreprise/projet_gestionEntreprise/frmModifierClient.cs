@@ -18,7 +18,6 @@ namespace projet_gestionEntreprise
         public frmModifierClient(int idClient)
         {
             InitializeComponent();
-            txt_idClient.Text = idClient.ToString();
             IdClient=idClient;
         }
 
@@ -37,7 +36,8 @@ namespace projet_gestionEntreprise
 
         private void frmModifierClient_Load(object sender, EventArgs e)
         {
-            SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            txt_idClient.Text = IdClient.ToString();
+            SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn1.Open();
             string req = "select * from ville";
             SqlCommand com1 = new SqlCommand(req, cn1);
@@ -56,7 +56,7 @@ namespace projet_gestionEntreprise
 
             //cb_villeClient.SelectedIndex = 10;
 
-            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
             SqlCommand com = new SqlCommand("select idClient,nomClient,prenomClient,telephoneClient,adresseClient,c.idVille as idVille,nomVille,restePayer from client c inner join ville v on v.idVille=c.idVille where idClient=" + txt_idClient.Text, cn);
             SqlDataReader dr = com.ExecuteReader();
@@ -84,7 +84,7 @@ namespace projet_gestionEntreprise
 
         private void frmModifierClient_Activated(object sender, EventArgs e)
         {
-            SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn1.Open();
             string req = "select * from ville";
             SqlCommand com1 = new SqlCommand(req, cn1);
@@ -102,7 +102,7 @@ namespace projet_gestionEntreprise
             cn1 = null;
 
 
-            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
             SqlCommand com = new SqlCommand("select idClient,nomClient,prenomClient,telephoneClient,adresseClient,c.idVille as idVille,nomVille,restePayer from client c inner join ville v on v.idVille=c.idVille where idClient=" + txt_idClient.Text, cn);
             SqlDataReader dr = com.ExecuteReader();
@@ -130,9 +130,10 @@ namespace projet_gestionEntreprise
 
         private void btn_valider_Click(object sender, EventArgs e)
         {
-            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
-            string reqq = "update client set nomClient='"+txt_nomClient.Text+"',prenomClient='"+txt_prenomClient.Text+"',telephoneClient='"+txt_telephoneClient.Text+"',adresseClient='"+txt_adresseClient.Text+"',idVille="+cb_villeClient.SelectedValue+" ,restePayer="+Convert.ToInt32(txt_restePayer.Text)+" where idClient="+txt_idClient.Text ;
+            string reqq = "update client set nomClient='" + txt_nomClient.Text + "',prenomClient='" + txt_prenomClient.Text + "',telephoneClient='" + txt_telephoneClient.Text + "',adresseClient='" + txt_adresseClient.Text + "',idVille=" + cb_villeClient.SelectedValue + " ,restePayer=" + Convert.ToInt32(txt_restePayer.Text) + " where idClient=" + txt_idClient.Text;
+            //string reqq = "update client set nomClient='"+txt_nomClient.Text+"',prenomClient='"+txt_prenomClient.Text+"',telephoneClient='"+txt_telephoneClient.Text+"',adresseClient='"+txt_adresseClient.Text+"',idVille="+cb_villeClient.SelectedValue+" where idClient="+txt_idClient.Text ;
             //string reqq = "update client set nomClient='@nomClient',prenomClient='@prenomClient', telephoneClient='@telephoneClient',adresseClient='@adresseClient',idVille=@idVille where idClient="+txt_idClient.Text ;
             SqlCommand com = new SqlCommand(reqq, cn);
             //com.Parameters.Add(new SqlParameter("@nomClient", txt_nomClient.Text));

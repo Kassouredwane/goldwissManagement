@@ -32,28 +32,44 @@ namespace projet_gestionEntreprise
 
         private void btn_valider_Click(object sender, EventArgs e)
         {
-            try
+            if (txt_referenceModele.Text != "" && txt_qteAchat.Text != "" && txt_prixAchat.Text != "")
             {
-                SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
-                cn1.Open();
-                string req = "insert into detailCommande(idCommande,referenceModele,qteAchat,prixAchat) values (@idCommande,@referenceModele,@qteAchat,@prixAchat)";
-                SqlCommand com1 = new SqlCommand(req, cn1);
-                com1.Parameters.Add(new SqlParameter("@idCommande", txt_idCommande.Text));
-                com1.Parameters.Add(new SqlParameter("@referenceModele", txt_referenceModele.Text));
-                com1.Parameters.Add(new SqlParameter("@qteAchat", txt_qteAchat.Text));
-                com1.Parameters.Add(new SqlParameter("@prixAchat", txt_prixAchat.Text));
-                com1.ExecuteNonQuery();
+                try
+                {
+                    SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+                    cn1.Open();
+                    string req = "insert into detailCommande(idCommande,referenceModele,qteAchat,prixAchat) values (@idCommande,@referenceModele,@qteAchat,@prixAchat)";
+                    SqlCommand com1 = new SqlCommand(req, cn1);
+                    com1.Parameters.Add(new SqlParameter("@idCommande", txt_idCommande.Text));
+                    com1.Parameters.Add(new SqlParameter("@referenceModele", txt_referenceModele.Text));
+                    com1.Parameters.Add(new SqlParameter("@qteAchat", txt_qteAchat.Text));
+                    com1.Parameters.Add(new SqlParameter("@prixAchat", txt_prixAchat.Text));
+                    com1.ExecuteNonQuery();
 
-                com1 = null;
-                cn1.Close();
-                cn1 = null;
-                MessageBox.Show("le modele a été ajouter a la commande de ce client avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txt_referenceModele.Text = "";
-                txt_qteAchat.Text = "";
-                txt_prixAchat.Text = "";
-                txt_referenceModele.Focus();
+                    com1 = null;
+                    cn1.Close();
+                    cn1 = null;
+                    MessageBox.Show("le modele a été ajouter a la commande de ce client avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txt_referenceModele.Text = "";
+                    txt_qteAchat.Text = "";
+                    txt_prixAchat.Text = "";
+                    txt_referenceModele.Focus();
+                    // UPDATE STATUT LIVRAISON OF COMMANDE OF THIS DETAIL COMMANDE WILLL BE ADDED IN TO FALSE !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+                    cn2.Open();
+                    SqlCommand com2 = new SqlCommand("UPDATE Commande SET statutLivraison = 0 WHERE idCommande = @idCommande", cn2);
+                    com2.Parameters.Add(new SqlParameter("@idCommande", idCmd));
+                    com2.ExecuteNonQuery();
+                    com2 = null;
+                    cn2.Close();
+                    cn2 = null;
+                }
+                catch (Exception error) { MessageBox.Show(error.Message); }
             }
-            catch (Exception error) { MessageBox.Show(error.Message); }
+            else
+            {
+                MessageBox.Show("un champ est vide", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

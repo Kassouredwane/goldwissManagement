@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace projet_gestionEntreprise
 {
@@ -23,17 +25,34 @@ namespace projet_gestionEntreprise
             {
                 DataGridViewTextBoxCell cell = row.Cells[5] as DataGridViewTextBoxCell;
 
-                if (cell != null && Convert.ToInt32(cell.Value)<30)
+                if (cell != null && cell.Value != null && cell.Value != DBNull.Value)
                 {
-                    cell.Style.BackColor= Color.Red;
-                }
-                else if(cell != null && Convert.ToInt32(cell.Value) > 30 && Convert.ToInt32(cell.Value) < 100)
-                {
-                    cell.Style.BackColor = Color.OrangeRed;
+                    int cellValue;
+                    if (int.TryParse(cell.Value.ToString(), out cellValue))
+                    {
+                        if (cellValue < 30)
+                        {
+                            cell.Style.BackColor = Color.Red;
+                        }
+                        else if (cellValue >= 30 && cellValue < 100)
+                        {
+                            cell.Style.BackColor = Color.OrangeRed;
+                        }
+                        else
+                        {
+                            cell.Style.BackColor = Color.Green;
+                        }
+                    }
+                    else
+                    {
+                        // Handle the case where the value cannot be converted to an integer
+                        // You can set a default color or handle it as per your requirement.
+                    }
                 }
                 else
                 {
-                    cell.Style.BackColor = Color.Green;
+                    cell.Value = 0;
+                    cell.Style.BackColor = Color.Red;
                 }
             }
         }
@@ -42,7 +61,7 @@ namespace projet_gestionEntreprise
             cb_categorie.Items.Clear();
             cb_categorie.Items.Add("Tous les categories");
 
-            SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn1.Open();
             string req = "select * from categorie";
             SqlCommand com = new SqlCommand(req, cn1);
@@ -59,28 +78,63 @@ namespace projet_gestionEntreprise
             cn1.Close();
             cn1 = null;
             cb_categorie.SelectedIndex=0;
-            fillGridModele();
+            fillGridModele("");
             //choose image modele
-            if (txt_imageModele.Text == "") imageModele.Load("image modeles/aucune image.jpg");
-            else imageModele.Load("image modeles/" + txt_imageModele.Text);
+            if (txt_imageModele.Text == "") imageModele.Load("imageModeles/aucune image.jpg");
+            else imageModele.Load("imageModeles/" + txt_imageModele.Text);
             // color of cells of "quantite en stock"
             colorOfCellsQteStock();
+
+            if (dgv_modeles.Rows.Count > 0)
+            {
+                string connectionString = @"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "select * from modele where referenceModele=@referenceModele";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@referenceModele", dgv_modeles.CurrentRow.Cells[0].Value);
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            if (!Convert.IsDBNull(reader["ProductImage"]))
+                            {
+                                byte[] imageData = (byte[])reader["ProductImage"];
+                                DisplayProductImage(imageData);
+                            }
+                            else
+                            {
+                                // If the ProductImage column is NULL or empty, display a default image or handle it as needed
+                                imageModele.Image = Properties.Resources.aucune_image; // Replace with your default image
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Product not found!");
+                        }
+                    }
+                }
+            }
         }
-        private void fillGridModele()
+        private void fillGridModele(string filtre)
         {
-            //try
-            //{
+            try
+            {
                 if (cb_categorie.Text == "Tous les categories")
                 {
-                    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                     cn.Open();
-                    string req = "select * from modele m inner join categorie c on c.idCategorie=m.idCategorie ";
+                    //string req = "SELECT m.referenceModele, taille, designation, marqueModele, prixModele, SUM(mt.qteStock) AS qteStock FROM modele m left JOIN matla mt ON mt.referenceModele = m.referenceModele " + filtre + " group by m.referenceModele,taille,designation,marqueModele,prixModele";
+                    string req = "SELECT m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,COALESCE(SUM(mt.qteStock), 0) AS QuantiteEnStock,COALESCE(( SELECT SUM(dl.qteLivre) FROM detailLivraison dl JOIN matla mt_dl ON mt_dl.idMatla = dl.idMatla WHERE mt_dl.referenceModele = m.referenceModele), 0) AS QuantiteLivree, COALESCE(SUM(mt.nbPieceSorter), 0) - COALESCE(( SELECT SUM(dl.qteLivre) FROM detailLivraison dl JOIN matla mt_dl ON mt_dl.idMatla = dl.idMatla  WHERE mt_dl.referenceModele = m.referenceModele ), 0) AS QuantiteRestante FROM modele m LEFT JOIN matla mt ON m.referenceModele = mt.referenceModele "+filtre+ " GROUP BY m.referenceModele, m.taille, m.designation, m.marqueModele, m.prixModele,dateEntree order by dateEntree desc;";
                     SqlCommand com = new SqlCommand(req, cn);
                     SqlDataReader dr = com.ExecuteReader();
                     dgv_modeles.Rows.Clear();
                     while (dr.Read())
                     {
-                        dgv_modeles.Rows.Add(dr["referenceModele"], dr["taille"], dr["designation"], dr["marqueModele"], dr["prixModele"], dr["qteStock"]);
+                        dgv_modeles.Rows.Add(dr["referenceModele"], dr["taille"], dr["designation"], dr["marqueModele"], dr["prixModele"], dr["QuantiteRestante"], dr["QuantiteEnStock"]);
                     }
                     dr.Close();
                     dr = null;
@@ -88,18 +142,21 @@ namespace projet_gestionEntreprise
 
                     cn.Close();
                     cn = null;
+
                 }
                 else
                 {
-                    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                     cn.Open();
-                    string req = "select * from modele m inner join categorie c on c.idCategorie=m.idCategorie where nomCategorie='"+cb_categorie.Text+"'";
+                    //string req = "SELECT m.referenceModele, taille, designation, marqueModele, prixModele, SUM(mt.qteStock) AS qteStock FROM modele m left JOIN matla mt ON mt.referenceModele = m.referenceModele  where c.nomCategorie='" + cb_categorie.Text + "' " + filtre + " group by m.referenceModele,taille,designation,marqueModele,prixModele";
+                    //string req = "SELECT m.referenceModele, taille, designation, marqueModele, prixModele, SUM(mt.qteStock) AS qteStock FROM modele m left JOIN matla mt ON mt.referenceModele = m.referenceModele  where c.nomCategorie='" + cb_categorie.Text + "' " + filtre + " group by m.referenceModele,taille,designation,marqueModele,prixModele";
+                    string req = "SELECT m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,COALESCE(SUM(mt.qteStock), 0) AS QuantiteEnStock,COALESCE(( SELECT SUM(dl.qteLivre) FROM detailLivraison dl JOIN matla mt_dl ON mt_dl.idMatla = dl.idMatla WHERE mt_dl.referenceModele = m.referenceModele), 0) AS QuantiteLivree, COALESCE(SUM(mt.nbPieceSorter), 0) - COALESCE(( SELECT SUM(dl.qteLivre) FROM detailLivraison dl JOIN matla mt_dl ON mt_dl.idMatla = dl.idMatla  WHERE mt_dl.referenceModele = m.referenceModele ), 0) AS QuantiteRestante FROM modele m LEFT JOIN matla mt ON m.referenceModele = mt.referenceModele inner join categorie c on c.idCategorie=m.idCategorie where c.nomCategorie='" + cb_categorie.Text + "' " + filtre + " GROUP BY m.referenceModele, m.taille, m.designation, m.marqueModele, m.prixModele,dateEntree order by dateEntree desc;";
                     SqlCommand com = new SqlCommand(req, cn);
                     SqlDataReader dr = com.ExecuteReader();
                     dgv_modeles.Rows.Clear();
                     while (dr.Read())
                     {
-                        dgv_modeles.Rows.Add(dr["referenceModele"], dr["taille"], dr["designation"], dr["marqueModele"], dr["prixModele"], dr["qteStock"]);
+                        dgv_modeles.Rows.Add(dr["referenceModele"], dr["taille"], dr["designation"], dr["marqueModele"], dr["prixModele"], dr["QuantiteRestante"], dr["QuantiteEnStock"]);
                     }
                     dr.Close();
                     dr = null;
@@ -108,81 +165,101 @@ namespace projet_gestionEntreprise
                     cn.Close();
                     cn = null;
                 }
-            //}
-            //catch (Exception error) { MessageBox.Show(error.Message.ToString()); }
+                colorOfCellsQteStock();
+                
+            }
+            catch (Exception error) { MessageBox.Show(error.Message.ToString()); }
         }
 
         private void cb_categorie_SelectedIndexChanged(object sender, EventArgs e)
         {
-            fillGridModele();
+            fillGridModele("");
             colorOfCellsQteStock();
         }
-
+        private void DisplayProductImage(byte[] imageData)
+        {
+            if (imageData != null && imageData.Length > 0)
+            {
+                using (MemoryStream ms = new MemoryStream(imageData))
+                {
+                    imageModele.Image = Image.FromStream(ms);
+                }
+            }
+            else
+            {
+                // Set a default image or display a placeholder image
+                imageModele.Image = Properties.Resources.aucune_image; // Replace with your default image
+            }
+        }
         private void dgv_modeles_SelectionChanged(object sender, EventArgs e)
         {
-            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
-            cn.Open();
-            string req = "select * from modele where referenceModele='" + dgv_modeles.CurrentRow.Cells[0].Value + "'";
-            SqlCommand com = new SqlCommand(req, cn);
-            SqlDataReader dr = com.ExecuteReader();
-            if(dr.Read())
+            //// FIRST METHODE
+            //SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+            //cn.Open();
+            //string req = "select * from modele where referenceModele='" + dgv_modeles.CurrentRow.Cells[0].Value + "'";
+            //SqlCommand com = new SqlCommand(req, cn);
+            //SqlDataReader dr = com.ExecuteReader();
+            //if (dr.Read())
+            //{
+            //    txt_imageModele.Text = dr["imageModele"].ToString();
+            //}
+            //dr.Close();
+            //dr = null;
+            //com = null;
+            //cn.Close();
+            //cn = null;
+
+            // SECOND METHODE 
+            string connectionString = @"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456";
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                txt_imageModele.Text = dr["imageModele"].ToString();
+                connection.Open();
+                string query = "select * from modele where referenceModele=@referenceModele";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@referenceModele", dgv_modeles.CurrentRow.Cells[0].Value);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        if (!Convert.IsDBNull(reader["ProductImage"]))
+                        {
+                            byte[] imageData = (byte[])reader["ProductImage"];
+                            DisplayProductImage(imageData);
+                        }
+                        else
+                        {
+                            // If the ProductImage column is NULL or empty, display a default image or handle it as needed
+                            imageModele.Image = Properties.Resources.aucune_image; // Replace with your default image
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Product not found!");
+                    }
+                }
             }
-            dr.Close();
-            dr = null;
-            com = null;
-            cn.Close();
-            cn = null;
+
         }
 
         private void txt_imageModele_TextChanged(object sender, EventArgs e)
         {
             if (txt_imageModele.Text == "")
-                imageModele.Load("image modeles/aucune image.jpg");
+                imageModele.Load("imageModeles/aucune image.jpg");
             else
-                imageModele.Load("image modeles/" + txt_imageModele.Text);
+                imageModele.Load("imageModeles/" + txt_imageModele.Text);
         }
 
         private void btn_rechercher_Click(object sender, EventArgs e)
         {
             if(cb_categorie.SelectedIndex == 0)
             {
-                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
-                cn.Open();
-                string req = "select * from modele m inner join categorie c on c.idCategorie=m.idCategorie where referenceModele like '%"+txt_rechercher.Text+"%' or designation like '%"+txt_rechercher.Text+"%'";
-                SqlCommand com = new SqlCommand(req, cn);
-                SqlDataReader dr = com.ExecuteReader();
-                dgv_modeles.Rows.Clear();
-                while (dr.Read())
-                {
-                    dgv_modeles.Rows.Add(dr["referenceModele"], dr["taille"], dr["designation"], dr["referenceModele"], dr["marqueModele"], dr["prixModele"], dr["qteStock"]);
-                }
-                dr.Close();
-                dr = null;
-                com = null;
-
-                cn.Close();
-                cn = null;
+                fillGridModele(" where m.referenceModele='" + txt_rechercher.Text + "' or m.designation like'%"+txt_rechercher.Text+"%'");
             }
             else
             {
-                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
-                cn.Open();
-                string req = "select * from modele m inner join categorie c on c.idCategorie=m.idCategorie where nomCategorie='"+cb_categorie.Text+"' and (referenceModele like '%" + txt_rechercher.Text + "%' or designation like '%" + txt_rechercher.Text + "%')";
-                SqlCommand com = new SqlCommand(req, cn);
-                SqlDataReader dr = com.ExecuteReader();
-                dgv_modeles.Rows.Clear();
-                while (dr.Read())
-                {
-                    dgv_modeles.Rows.Add(dr["referenceModele"], dr["taille"], dr["designation"], dr["referenceModele"], dr["marqueModele"], dr["prixModele"], dr["qteStock"]);
-                }
-                dr.Close();
-                dr = null;
-                com = null;
-
-                cn.Close();
-                cn = null;
+                fillGridModele(" and m.referenceModele='" + txt_rechercher.Text + "' or m.designation like '%"+txt_rechercher.Text+"%'");
             }
         }
 
@@ -209,7 +286,7 @@ namespace projet_gestionEntreprise
             cb_categorie.Items.Clear();
             cb_categorie.Items.Add("Tous les categories");
 
-            SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn1.Open();
             string req = "select * from categorie";
             SqlCommand com = new SqlCommand(req, cn1);
@@ -226,12 +303,46 @@ namespace projet_gestionEntreprise
             cn1.Close();
             cn1 = null;
             cb_categorie.SelectedIndex = 0;
-            fillGridModele();
+            fillGridModele("");
             //choose image modele
-            if (txt_imageModele.Text == "") imageModele.Load("image modeles/aucune image.jpg");
-            else imageModele.Load("image modeles/" + txt_imageModele.Text);
+            if (txt_imageModele.Text == "") imageModele.Load("imageModeles/aucune image.jpg");
+            else imageModele.Load("imageModeles/" + txt_imageModele.Text);
             txt_rechercher.Text = "";
             colorOfCellsQteStock();
+
+            if (dgv_modeles.Rows.Count > 0)
+            {
+                string connectionString = @"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "select * from modele where referenceModele=@referenceModele";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@referenceModele", dgv_modeles.CurrentRow.Cells[0].Value);
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            if (!Convert.IsDBNull(reader["ProductImage"]))
+                            {
+                                byte[] imageData = (byte[])reader["ProductImage"];
+                                DisplayProductImage(imageData);
+                            }
+                            else
+                            {
+                                // If the ProductImage column is NULL or empty, display a default image or handle it as needed
+                                imageModele.Image = Properties.Resources.aucune_image; // Replace with your default image
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Product not found!");
+                        }
+                    }
+                }
+            }
         }
 
         private void btn_supprimer_Click(object sender, EventArgs e)
@@ -250,6 +361,74 @@ namespace projet_gestionEntreprise
         {
             string refM = dgv_modeles.CurrentRow.Cells[0].Value.ToString();
             frmLivraisonModele f = new frmLivraisonModele(refM);
+            f.ShowDialog();
+        }
+        private void imprimer(ReportClass cr, string chemain = "", string filtre = "")
+        {
+            cr.SetDatabaseLogon("sa", "123456");
+            if (chemain != "")
+                cr.SetParameterValue("chemain", chemain);
+
+            frmImpression f = new frmImpression(cr, filtre);
+            f.ShowDialog();
+        }
+        //private void btn_imprimerLivraison_Click(object sender, EventArgs e)
+        //{
+        //    //string ch = Application.StartupPath + @"\imageModeles\";
+        //    //lstLivraisonModele cr = new lstLivraisonModele();
+        //    //cr.Refresh();
+        //    //cr.SetDatabaseLogon("sa", "123456");
+
+        //    //cr.SetParameterValue("chemain", ch);
+        //    //   
+        //    ////string filtre = "{modele.referenceModele}='" + dgv_modeles.CurrentRow.Cells[0].Value + "'";
+        //    ////imprimer(new lstLivraisonModele(), Application.StartupPath + @"\imageModeles\", filtre);
+        //    //frmImpression f = new frmImpression(cr, filtre);
+        //    //f.ShowDialog();
+        //    //label1.Text = Application.StartupPath;
+        //    string ch = Application.StartupPath + @"\imageModeles\";
+
+        //    lstLivraisonModele cr = new lstLivraisonModele();
+        //    cr.Refresh();
+        //    cr.SetDatabaseLogon("sa", "123456");
+
+        //    cr.SetParameterValue("chemain", ch);
+        //    //   
+        //    string filtre = "{modele.referenceModele}='" + dgv_modeles.CurrentRow.Cells[0].Value + "'";
+        //    frmImpression f = new frmImpression(cr, filtre);
+        //    f.ShowDialog();
+        //}
+
+        private void chk_enAttentePieces_CheckedChanged(object sender, EventArgs e)
+        {
+            fillGridModele("");
+        }
+
+        private void btn_listeMatla_Click(object sender, EventArgs e)
+        {
+            string refM = dgv_modeles.CurrentRow.Cells[0].Value.ToString();
+            frmListeMatlaModele f = new frmListeMatlaModele(refM);
+            f.ShowDialog();
+        }
+
+        private void imageModele_Click(object sender, EventArgs e)
+        {
+            string refM = dgv_modeles.CurrentRow.Cells[0].Value.ToString();
+            frmDisplayImageModele f = new frmDisplayImageModele(refM);
+            f.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //string filtre = "{modele.referenceModele}=" + dgv_modeles.CurrentRow.Cells[0].Value;
+            //imprimer(new etiquette(),"",filtre);
+
+            etq cr = new etq();
+            cr.Refresh();
+            cr.SetDatabaseLogon("sa", "123456");
+            //   
+            string filtre = "{modele.referenceModele}='" + dgv_modeles.CurrentRow.Cells[0].Value+"'";
+            frmImpression f = new frmImpression(cr, filtre);
             f.ShowDialog();
         }
     }

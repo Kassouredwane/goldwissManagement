@@ -33,14 +33,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Guna.UI2, Version=2.0.4.5, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.5\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +60,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bonCommande.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bonCommande.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="bonLivraison.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bonLivraison.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BonLivraisonClient.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BonLivraisonClient.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="bonTest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bonTest.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="commande.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>commande.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="commandeReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>commandeReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConnectionManager.cs" />
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReportsViewer.cs" />
+    <Compile Include="etiquette.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>etiquette.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="etq.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>etq.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,11 +152,35 @@
     <Compile Include="frmAjouterClient.Designer.cs">
       <DependentUpon>frmAjouterClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAjouterDetailleur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjouterDetailleur.Designer.cs">
+      <DependentUpon>frmAjouterDetailleur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAjouterLavageATravertransferelvgToPs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjouterLavageATravertransferelvgToPs.Designer.cs">
+      <DependentUpon>frmAjouterLavageATravertransferelvgToPs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAjouterMatla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjouterMatla.Designer.cs">
+      <DependentUpon>frmAjouterMatla.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAjouterModeleACommande.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAjouterModeleACommande.Designer.cs">
       <DependentUpon>frmAjouterModeleACommande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAjouterPhasonie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjouterPhasonie.Designer.cs">
+      <DependentUpon>frmAjouterPhasonie.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAjouterTransaction.cs">
       <SubType>Form</SubType>
@@ -106,17 +194,71 @@
     <Compile Include="frmAjouterTransactionAClient.Designer.cs">
       <DependentUpon>frmAjouterTransactionAClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAjouterTransfereLavageToPhasonie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjouterTransfereLavageToPhasonie.Designer.cs">
+      <DependentUpon>frmAjouterTransfereLavageToPhasonie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAjouterTransferePhasonieToLavage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjouterTransferePhasonieToLavage.Designer.cs">
+      <DependentUpon>frmAjouterTransferePhasonieToLavage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAjouterTransferePhasonieToStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjouterTransferePhasonieToStock.Designer.cs">
+      <DependentUpon>frmAjouterTransferePhasonieToStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmClientCommanderModele.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmClientCommanderModele.Designer.cs">
       <DependentUpon>frmClientCommanderModele.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDisplayImageModele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDisplayImageModele.Designer.cs">
+      <DependentUpon>frmDisplayImageModele.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionMatla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionMatla.Designer.cs">
+      <DependentUpon>frmGestionMatla.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGestionTransactions.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmGestionTransactions.Designer.cs">
       <DependentUpon>frmGestionTransactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmImpression.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImpression.Designer.cs">
+      <DependentUpon>frmImpression.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmImrimerBonLivraison.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImrimerBonLivraison.Designer.cs">
+      <DependentUpon>frmImrimerBonLivraison.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListeMatlaModele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListeMatlaModele.Designer.cs">
+      <DependentUpon>frmListeMatlaModele.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLivraisonMatla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLivraisonMatla.Designer.cs">
+      <DependentUpon>frmLivraisonMatla.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLivraisonModele.cs">
       <SubType>Form</SubType>
@@ -130,11 +272,35 @@
     <Compile Include="frmModifierDetailCommandeClient.Designer.cs">
       <DependentUpon>frmModifierDetailCommandeClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModifierMatla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifierMatla.Designer.cs">
+      <DependentUpon>frmModifierMatla.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModifierTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmModifierTransaction.Designer.cs">
       <DependentUpon>frmModifierTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifierTransfereLavageToPhsonie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifierTransfereLavageToPhsonie.Designer.cs">
+      <DependentUpon>frmModifierTransfereLavageToPhsonie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifierTransferePhasonieToLavage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifierTransferePhasonieToLavage.Designer.cs">
+      <DependentUpon>frmModifierTransferePhasonieToLavage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifierTransferePhasonieToStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifierTransferePhasonieToStock.Designer.cs">
+      <DependentUpon>frmModifierTransferePhasonieToStock.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNouveauCommande.cs">
       <SubType>Form</SubType>
@@ -202,8 +368,98 @@
     <Compile Include="frmModifierModele.Designer.cs">
       <DependentUpon>frmModifierModele.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTestImpression.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestImpression.Designer.cs">
+      <DependentUpon>frmTestImpression.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTransactionsClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTransactionsClient.Designer.cs">
+      <DependentUpon>frmTransactionsClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTransfereLavageToPhasonie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTransfereLavageToPhasonie.Designer.cs">
+      <DependentUpon>frmTransfereLavageToPhasonie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTransferePhasonieStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTransferePhasonieStock.Designer.cs">
+      <DependentUpon>frmTransferePhasonieStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTransferePhasonieToLavage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTransferePhasonieToLavage.Designer.cs">
+      <DependentUpon>frmTransferePhasonieToLavage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lstLivraisonModele.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>lstLivraisonModele.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MatlaLivraisonReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MatlaLivraisonReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="transactionClient.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>transactionClient.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="bonCommande.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>bonCommande.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bonLivraison.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>bonLivraison.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BonLivraisonClient.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BonLivraisonClient.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bonTest.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>bonTest.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="commande.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>commande.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="commandeReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>commandeReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="etiquette.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>etiquette.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="etq.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>etq.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,8 +478,20 @@
     <EmbeddedResource Include="frmAjouterClient.resx">
       <DependentUpon>frmAjouterClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAjouterDetailleur.resx">
+      <DependentUpon>frmAjouterDetailleur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAjouterLavageATravertransferelvgToPs.resx">
+      <DependentUpon>frmAjouterLavageATravertransferelvgToPs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAjouterMatla.resx">
+      <DependentUpon>frmAjouterMatla.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAjouterModeleACommande.resx">
       <DependentUpon>frmAjouterModeleACommande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAjouterPhasonie.resx">
+      <DependentUpon>frmAjouterPhasonie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAjouterTransaction.resx">
       <DependentUpon>frmAjouterTransaction.cs</DependentUpon>
@@ -231,11 +499,38 @@
     <EmbeddedResource Include="frmAjouterTransactionAClient.resx">
       <DependentUpon>frmAjouterTransactionAClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAjouterTransfereLavageToPhasonie.resx">
+      <DependentUpon>frmAjouterTransfereLavageToPhasonie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAjouterTransferePhasonieToLavage.resx">
+      <DependentUpon>frmAjouterTransferePhasonieToLavage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAjouterTransferePhasonieToStock.resx">
+      <DependentUpon>frmAjouterTransferePhasonieToStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmClientCommanderModele.resx">
       <DependentUpon>frmClientCommanderModele.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDisplayImageModele.resx">
+      <DependentUpon>frmDisplayImageModele.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionMatla.resx">
+      <DependentUpon>frmGestionMatla.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGestionTransactions.resx">
       <DependentUpon>frmGestionTransactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImpression.resx">
+      <DependentUpon>frmImpression.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImrimerBonLivraison.resx">
+      <DependentUpon>frmImrimerBonLivraison.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListeMatlaModele.resx">
+      <DependentUpon>frmListeMatlaModele.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLivraisonMatla.resx">
+      <DependentUpon>frmLivraisonMatla.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLivraisonModele.resx">
       <DependentUpon>frmLivraisonModele.cs</DependentUpon>
@@ -243,8 +538,20 @@
     <EmbeddedResource Include="frmModifierDetailCommandeClient.resx">
       <DependentUpon>frmModifierDetailCommandeClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmModifierMatla.resx">
+      <DependentUpon>frmModifierMatla.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModifierTransaction.resx">
       <DependentUpon>frmModifierTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifierTransfereLavageToPhsonie.resx">
+      <DependentUpon>frmModifierTransfereLavageToPhsonie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifierTransferePhasonieToLavage.resx">
+      <DependentUpon>frmModifierTransferePhasonieToLavage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifierTransferePhasonieToStock.resx">
+      <DependentUpon>frmModifierTransferePhasonieToStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNouveauCommande.resx">
       <DependentUpon>frmNouveauCommande.cs</DependentUpon>
@@ -279,6 +586,29 @@
     <EmbeddedResource Include="frmModifierModele.resx">
       <DependentUpon>frmModifierModele.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTestImpression.resx">
+      <DependentUpon>frmTestImpression.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTransactionsClient.resx">
+      <DependentUpon>frmTransactionsClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTransfereLavageToPhasonie.resx">
+      <DependentUpon>frmTransfereLavageToPhasonie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTransferePhasonieStock.resx">
+      <DependentUpon>frmTransferePhasonieStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTransferePhasonieToLavage.resx">
+      <DependentUpon>frmTransferePhasonieToLavage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lstLivraisonModele.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>lstLivraisonModele.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatlaLivraisonReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MatlaLivraisonReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -289,6 +619,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="test.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>test.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="transactionClient.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>transactionClient.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -308,6 +646,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-flèche-développer-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\imageModeles\aucune image.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

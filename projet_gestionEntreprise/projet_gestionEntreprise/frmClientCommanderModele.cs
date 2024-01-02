@@ -22,7 +22,7 @@ namespace projet_gestionEntreprise
         }
         private void refresh(string filtre)
         {
-            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
             string req = "select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,dateCommande,qteAchat,prixAchat,cmd.statutLivraison from client c inner join commande cmd on cmd.idClient=c.idClient inner join detailCommande dc on dc.idCommande=cmd.idCommande inner join modele m on m.referenceModele=dc.referenceModele where m.referenceModele='" + refMd + "' and cmd.statutLivraison=0 " + filtre;
             SqlCommand com = new SqlCommand(req, cn);
@@ -40,7 +40,7 @@ namespace projet_gestionEntreprise
             cn = null;
             //if(chk_enCourLivraison.Checked==false)
             //{
-            //SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            //SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             //cn2.Open();
             //string req2 = "select distinct c.idClient,nomClient+' '+prenomClient as nomComplet from client c inner join commande cmd on cmd.idClient=c.idClient inner join detailCommande dc on dc.idCommande=cmd.idCommande inner join modele m on m.referenceModele=dc.referenceModele where m.referenceModele='"+refMd+"' "+filtre;
             //SqlCommand com2 = new SqlCommand(req2, cn2);
@@ -57,7 +57,7 @@ namespace projet_gestionEntreprise
             //cn2.Close();
             //cn2 = null;
             // fill datagrid view
-            //SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            //SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             //cn.Open();
             //string req = "select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,dateCommande,qteAchat,taille,cmd.statutLivraison from client c inner join commande cmd on cmd.idClient=c.idClient inner join detailCommande dc on dc.idCommande=cmd.idCommande inner join modele m on m.referenceModele=dc.referenceModele where c.idClient="+lst_clients.SelectedValue+" and m.referenceModele='"+refMd+"'";
             //SqlCommand com = new SqlCommand(req, cn);
@@ -76,7 +76,7 @@ namespace projet_gestionEntreprise
             //}
             //else
             //{
-            //SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            //SqlConnection cn2 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             //cn2.Open();
             //string req2 = "select distinct c.idClient,nomClient+' '+prenomClient as nomComplet from client c inner join commande cmd on cmd.idClient=c.idClient inner join detailCommande dc on dc.idCommande=cmd.idCommande inner join modele m on m.referenceModele=dc.referenceModele where m.referenceModele='" + refMd + "' and cmd.statutLivraison=0 "+filtre;
             //SqlCommand com2 = new SqlCommand(req2, cn2);
@@ -93,7 +93,7 @@ namespace projet_gestionEntreprise
             //cn2.Close();
             //cn2 = null;
             // fill data grid view
-            //SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            //SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             //cn.Open();
             //string req = "select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,dateCommande,qteAchat,taille,cmd.statutLivraison from client c inner join commande cmd on cmd.idClient=c.idClient inner join detailCommande dc on dc.idCommande=cmd.idCommande inner join modele m on m.referenceModele=dc.referenceModele where m.referenceModele='" + refMd + "' and cmd.statutLivraison=0";
             //SqlCommand com = new SqlCommand(req, cn);
@@ -136,7 +136,7 @@ namespace projet_gestionEntreprise
             //if (chk_enCourLivraison.Checked == false)
             //{
             //    // fill datagrid view
-            //    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            //    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             //    cn.Open();
             //    string req = "select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,m.referenceModele,dateCommande,qteAchat,prixAchat,taille,cmd.statutLivraison from client c inner join commande cmd on cmd.idClient=c.idClient inner join detailCommande dc on dc.idCommande=cmd.idCommande inner join modele m on m.referenceModele=dc.referenceModele where c.idClient=" + lst_clients.SelectedValue + " and m.referenceModele='" + refMd + "'";
             //    SqlCommand com = new SqlCommand(req, cn);
@@ -156,7 +156,7 @@ namespace projet_gestionEntreprise
             //else
             //{
             //    // fill data grid view
-            //    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            //    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             //    cn.Open();
             //    string req = "select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,m.referenceModele,dateCommande,qteAchat,prixAchat,taille,cmd.statutLivraison from client c inner join commande cmd on cmd.idClient=c.idClient inner join detailCommande dc on dc.idCommande=cmd.idCommande inner join modele m on m.referenceModele=dc.referenceModele where c.idClient=" + lst_clients.SelectedValue +" and m.referenceModele='" + refMd + "' and cmd.statutLivraison=0";
             //    SqlCommand com = new SqlCommand(req, cn);

@@ -53,6 +53,7 @@
             this.txt_nomCategorie.SelectedText = "";
             this.txt_nomCategorie.Size = new System.Drawing.Size(184, 23);
             this.txt_nomCategorie.TabIndex = 37;
+            this.txt_nomCategorie.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_nomCategorie_KeyUp);
             // 
             // label4
             // 
@@ -61,7 +62,7 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(55, 37);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 16);
+            this.label4.Size = new System.Drawing.Size(120, 16);
             this.label4.TabIndex = 36;
             this.label4.Text = "Nom Categorie :";
             // 
@@ -96,6 +97,7 @@
             this.Name = "frmAjouterCategorie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAjouterCategorie";
+            this.Load += new System.EventHandler(this.frmAjouterCategorie_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

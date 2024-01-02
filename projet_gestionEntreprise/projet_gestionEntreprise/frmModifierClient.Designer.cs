@@ -55,7 +55,7 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(381, 216);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 16);
+            this.label6.Size = new System.Drawing.Size(90, 16);
             this.label6.TabIndex = 35;
             this.label6.Text = "Ville Client :";
             // 
@@ -86,7 +86,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(41, 218);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 16);
+            this.label5.Size = new System.Drawing.Size(117, 16);
             this.label5.TabIndex = 33;
             this.label5.Text = "Adresse Client :";
             // 
@@ -117,7 +117,7 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(380, 133);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 16);
+            this.label4.Size = new System.Drawing.Size(134, 16);
             this.label4.TabIndex = 31;
             this.label4.Text = "Telephone Client :";
             // 
@@ -148,7 +148,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(41, 134);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 16);
+            this.label3.Size = new System.Drawing.Size(112, 16);
             this.label3.TabIndex = 29;
             this.label3.Text = "Prenom Client :";
             // 
@@ -179,7 +179,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(380, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 16);
+            this.label1.Size = new System.Drawing.Size(91, 16);
             this.label1.TabIndex = 27;
             this.label1.Text = "Nom Client :";
             // 
@@ -211,7 +211,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(41, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 16);
+            this.label2.Size = new System.Drawing.Size(74, 16);
             this.label2.TabIndex = 25;
             this.label2.Text = "ID Client :";
             // 
@@ -238,7 +238,7 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(224, 335);
+            this.btn_annuler.Location = new System.Drawing.Point(224, 337);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
@@ -258,7 +258,7 @@
             this.btn_valider.ForeColor = System.Drawing.Color.White;
             this.btn_valider.Image = ((System.Drawing.Image)(resources.GetObject("btn_valider.Image")));
             this.btn_valider.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_valider.Location = new System.Drawing.Point(383, 335);
+            this.btn_valider.Location = new System.Drawing.Point(383, 337);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_valider.Size = new System.Drawing.Size(142, 29);
@@ -286,30 +286,30 @@
             this.txt_restePayer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_restePayer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_restePayer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_restePayer.Location = new System.Drawing.Point(341, 281);
+            this.txt_restePayer.Location = new System.Drawing.Point(341, 279);
             this.txt_restePayer.Name = "txt_restePayer";
             this.txt_restePayer.PasswordChar = '\0';
             this.txt_restePayer.PlaceholderText = "";
             this.txt_restePayer.SelectedText = "";
             this.txt_restePayer.Size = new System.Drawing.Size(184, 23);
-            this.txt_restePayer.TabIndex = 42;
+            this.txt_restePayer.TabIndex = 44;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(221, 284);
+            this.label7.Location = new System.Drawing.Point(221, 282);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 16);
-            this.label7.TabIndex = 41;
+            this.label7.Size = new System.Drawing.Size(116, 16);
+            this.label7.TabIndex = 43;
             this.label7.Text = "Reste A Payer :";
             // 
             // frmModifierClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 386);
+            this.ClientSize = new System.Drawing.Size(746, 387);
             this.Controls.Add(this.txt_restePayer);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cb_villeClient);

@@ -100,7 +100,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.ForeColor = System.Drawing.Color.DarkSeaGreen;
             this.label1.Location = new System.Drawing.Point(62, 180);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(218, 24);
@@ -151,7 +151,7 @@
             this.label6.ForeColor = System.Drawing.Color.Navy;
             this.label6.Location = new System.Drawing.Point(382, 163);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 16);
+            this.label6.Size = new System.Drawing.Size(54, 16);
             this.label6.TabIndex = 5;
             this.label6.Text = "Login :";
             // 
@@ -183,7 +183,7 @@
             this.label7.ForeColor = System.Drawing.Color.Navy;
             this.label7.Location = new System.Drawing.Point(382, 217);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 16);
+            this.label7.Size = new System.Drawing.Size(110, 16);
             this.label7.TabIndex = 7;
             this.label7.Text = "Mot de passe :";
             // 
@@ -218,7 +218,7 @@
             this.btn_connecter.FillColor = System.Drawing.Color.DarkSeaGreen;
             this.btn_connecter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_connecter.ForeColor = System.Drawing.Color.White;
-            this.btn_connecter.Location = new System.Drawing.Point(438, 276);
+            this.btn_connecter.Location = new System.Drawing.Point(579, 276);
             this.btn_connecter.Name = "btn_connecter";
             this.btn_connecter.Size = new System.Drawing.Size(116, 31);
             this.btn_connecter.TabIndex = 9;
@@ -236,7 +236,7 @@
             this.guna2Button2.FillColor = System.Drawing.Color.DarkSeaGreen;
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(584, 276);
+            this.guna2Button2.Location = new System.Drawing.Point(457, 276);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(116, 31);
             this.guna2Button2.TabIndex = 10;
@@ -254,9 +254,9 @@
             this.btnOublier.ForeColor = System.Drawing.Color.ForestGreen;
             this.btnOublier.Location = new System.Drawing.Point(493, 357);
             this.btnOublier.Name = "btnOublier";
-            this.btnOublier.Size = new System.Drawing.Size(165, 25);
+            this.btnOublier.Size = new System.Drawing.Size(185, 25);
             this.btnOublier.TabIndex = 12;
-            this.btnOublier.Text = "Oublié le mot de passe";
+            this.btnOublier.Text = "J\'oublier le mot de passe !";
             this.btnOublier.Click += new System.EventHandler(this.btnOublier_Click);
             // 
             // Form1

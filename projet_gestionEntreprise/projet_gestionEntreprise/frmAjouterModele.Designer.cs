@@ -48,7 +48,9 @@
             this.btn_valider = new Guna.UI2.WinForms.Guna2Button();
             this.txt_imageModele = new Guna.UI2.WinForms.Guna2TextBox();
             this.ofdImage = new System.Windows.Forms.OpenFileDialog();
+            this.ProductImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imageModele)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductImage)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_ajouterCategorie
@@ -77,7 +79,7 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(366, 61);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 16);
+            this.label6.Size = new System.Drawing.Size(84, 16);
             this.label6.TabIndex = 36;
             this.label6.Text = "Categorie :";
             // 
@@ -108,7 +110,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(26, 218);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 16);
+            this.label5.Size = new System.Drawing.Size(42, 16);
             this.label5.TabIndex = 34;
             this.label5.Text = "Prix :";
             // 
@@ -129,7 +131,7 @@
             this.txt_marque.PasswordChar = '\0';
             this.txt_marque.PlaceholderText = "";
             this.txt_marque.SelectedText = "";
-            this.txt_marque.Size = new System.Drawing.Size(184, 23);
+            this.txt_marque.Size = new System.Drawing.Size(215, 23);
             this.txt_marque.TabIndex = 33;
             // 
             // label4
@@ -139,7 +141,7 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(365, 133);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 16);
+            this.label4.Size = new System.Drawing.Size(68, 16);
             this.label4.TabIndex = 32;
             this.label4.Text = "Marque :";
             // 
@@ -170,7 +172,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(26, 134);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 16);
+            this.label3.Size = new System.Drawing.Size(56, 16);
             this.label3.TabIndex = 30;
             this.label3.Text = "Taille :";
             // 
@@ -201,15 +203,15 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(26, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 16);
+            this.label2.Size = new System.Drawing.Size(92, 16);
             this.label2.TabIndex = 26;
             this.label2.Text = "Reference  :";
             // 
             // txt_designation
             // 
-            this.txt_designation.Location = new System.Drawing.Point(377, 270);
+            this.txt_designation.Location = new System.Drawing.Point(473, 215);
             this.txt_designation.Name = "txt_designation";
-            this.txt_designation.Size = new System.Drawing.Size(280, 190);
+            this.txt_designation.Size = new System.Drawing.Size(209, 40);
             this.txt_designation.TabIndex = 43;
             this.txt_designation.Text = "";
             // 
@@ -218,9 +220,9 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(374, 217);
+            this.label7.Location = new System.Drawing.Point(365, 216);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(98, 16);
+            this.label7.Size = new System.Drawing.Size(99, 16);
             this.label7.TabIndex = 44;
             this.label7.Text = "Designation :";
             // 
@@ -236,7 +238,7 @@
             this.btn_choisirImage.ForeColor = System.Drawing.Color.White;
             this.btn_choisirImage.Image = ((System.Drawing.Image)(resources.GetObject("btn_choisirImage.Image")));
             this.btn_choisirImage.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_choisirImage.Location = new System.Drawing.Point(132, 431);
+            this.btn_choisirImage.Location = new System.Drawing.Point(133, 427);
             this.btn_choisirImage.Name = "btn_choisirImage";
             this.btn_choisirImage.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_choisirImage.Size = new System.Drawing.Size(184, 29);
@@ -247,7 +249,7 @@
             // imageModele
             // 
             this.imageModele.Image = ((System.Drawing.Image)(resources.GetObject("imageModele.Image")));
-            this.imageModele.Location = new System.Drawing.Point(132, 270);
+            this.imageModele.Location = new System.Drawing.Point(133, 266);
             this.imageModele.Name = "imageModele";
             this.imageModele.Size = new System.Drawing.Size(184, 155);
             this.imageModele.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -266,7 +268,7 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(218, 516);
+            this.btn_annuler.Location = new System.Drawing.Point(381, 427);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
@@ -286,7 +288,7 @@
             this.btn_valider.ForeColor = System.Drawing.Color.White;
             this.btn_valider.Image = ((System.Drawing.Image)(resources.GetObject("btn_valider.Image")));
             this.btn_valider.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_valider.Location = new System.Drawing.Point(377, 516);
+            this.btn_valider.Location = new System.Drawing.Point(540, 427);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_valider.Size = new System.Drawing.Size(142, 29);
@@ -306,12 +308,12 @@
             this.txt_imageModele.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_imageModele.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_imageModele.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_imageModele.Location = new System.Drawing.Point(48, 476);
+            this.txt_imageModele.Location = new System.Drawing.Point(43, 462);
             this.txt_imageModele.Name = "txt_imageModele";
             this.txt_imageModele.PasswordChar = '\0';
             this.txt_imageModele.PlaceholderText = "";
             this.txt_imageModele.SelectedText = "";
-            this.txt_imageModele.Size = new System.Drawing.Size(184, 23);
+            this.txt_imageModele.Size = new System.Drawing.Size(177, 23);
             this.txt_imageModele.TabIndex = 45;
             this.txt_imageModele.Visible = false;
             // 
@@ -319,11 +321,22 @@
             // 
             this.ofdImage.FileName = "openFileDialog1";
             // 
+            // ProductImage
+            // 
+            this.ProductImage.Image = ((System.Drawing.Image)(resources.GetObject("ProductImage.Image")));
+            this.ProductImage.Location = new System.Drawing.Point(133, 266);
+            this.ProductImage.Name = "ProductImage";
+            this.ProductImage.Size = new System.Drawing.Size(184, 155);
+            this.ProductImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ProductImage.TabIndex = 46;
+            this.ProductImage.TabStop = false;
+            // 
             // frmAjouterModele
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 581);
+            this.ClientSize = new System.Drawing.Size(709, 482);
+            this.Controls.Add(this.ProductImage);
             this.Controls.Add(this.txt_imageModele);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txt_designation);
@@ -348,6 +361,7 @@
             this.Activated += new System.EventHandler(this.frmAjouterModele_Activated);
             this.Load += new System.EventHandler(this.frmAjouterModele_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imageModele)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,5 +388,6 @@
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2TextBox txt_imageModele;
         private System.Windows.Forms.OpenFileDialog ofdImage;
+        private System.Windows.Forms.PictureBox ProductImage;
     }
 }

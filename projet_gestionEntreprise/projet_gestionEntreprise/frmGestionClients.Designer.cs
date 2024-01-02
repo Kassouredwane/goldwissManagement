@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionClients));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.cb_villeClient = new System.Windows.Forms.ComboBox();
             this.cb_classement = new System.Windows.Forms.ComboBox();
@@ -40,6 +40,16 @@
             this.cb_recherche = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgv_clients = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btn_transactionClient = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_ajouterTransaction = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_afficherLivraison = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_refresh = new System.Windows.Forms.Button();
+            this.btn_afficherCommandes = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_supprimer = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_ajouter = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_rechercher = new Guna.UI2.WinForms.Guna2Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,15 +57,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btn_afficherCommandes = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_supprimer = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_ajouter = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_rechercher = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_refresh = new System.Windows.Forms.Button();
-            this.btn_afficherLivraison = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_ajouterTransaction = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,16 +65,16 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(572, 47);
+            this.label6.Location = new System.Drawing.Point(610, 24);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 16);
+            this.label6.Size = new System.Drawing.Size(110, 16);
             this.label6.TabIndex = 6;
             this.label6.Text = "Ville de client :";
             // 
             // cb_villeClient
             // 
             this.cb_villeClient.FormattingEnabled = true;
-            this.cb_villeClient.Location = new System.Drawing.Point(688, 46);
+            this.cb_villeClient.Location = new System.Drawing.Point(726, 23);
             this.cb_villeClient.Name = "cb_villeClient";
             this.cb_villeClient.Size = new System.Drawing.Size(171, 21);
             this.cb_villeClient.TabIndex = 7;
@@ -87,7 +88,7 @@
             "Par Code Client(desc)",
             "Par Order Alphabétique(asc)",
             "Par Order Alphabétique(desc)"});
-            this.cb_classement.Location = new System.Drawing.Point(1010, 46);
+            this.cb_classement.Location = new System.Drawing.Point(1045, 23);
             this.cb_classement.Name = "cb_classement";
             this.cb_classement.Size = new System.Drawing.Size(171, 21);
             this.cb_classement.TabIndex = 9;
@@ -98,9 +99,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(907, 47);
+            this.label1.Location = new System.Drawing.Point(945, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 16);
+            this.label1.Size = new System.Drawing.Size(89, 16);
             this.label1.TabIndex = 8;
             this.label1.Text = "classé par :";
             // 
@@ -112,7 +113,7 @@
             "Nom Client",
             "Prénom Client",
             "Telephone Client"});
-            this.cb_recherche.Location = new System.Drawing.Point(215, 46);
+            this.cb_recherche.Location = new System.Drawing.Point(173, 23);
             this.cb_recherche.Name = "cb_recherche";
             this.cb_recherche.Size = new System.Drawing.Size(171, 21);
             this.cb_recherche.TabIndex = 11;
@@ -122,25 +123,25 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(77, 47);
+            this.label2.Location = new System.Drawing.Point(35, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 16);
+            this.label2.Size = new System.Drawing.Size(124, 16);
             this.label2.TabIndex = 10;
             this.label2.Text = "Rechercher Par :";
             // 
             // dgv_clients
             // 
             this.dgv_clients.AllowUserToAddRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dgv_clients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightSlateGray;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_clients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgv_clients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSlateGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_clients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_clients.ColumnHeadersHeight = 20;
             this.dgv_clients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgv_clients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -151,19 +152,19 @@
             this.Column5,
             this.Column6,
             this.Column7});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_clients.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_clients.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_clients.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgv_clients.Location = new System.Drawing.Point(76, 171);
+            this.dgv_clients.Location = new System.Drawing.Point(30, 117);
             this.dgv_clients.Name = "dgv_clients";
             this.dgv_clients.RowHeadersVisible = false;
-            this.dgv_clients.Size = new System.Drawing.Size(1105, 599);
+            this.dgv_clients.Size = new System.Drawing.Size(1186, 702);
             this.dgv_clients.TabIndex = 15;
             this.dgv_clients.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv_clients.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -186,6 +187,183 @@
             this.dgv_clients.ThemeStyle.RowsStyle.Height = 22;
             this.dgv_clients.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_clients.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // txt_rechercher
+            // 
+            this.txt_rechercher.BorderRadius = 5;
+            this.txt_rechercher.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_rechercher.DefaultText = "";
+            this.txt_rechercher.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_rechercher.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_rechercher.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_rechercher.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_rechercher.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_rechercher.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_rechercher.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_rechercher.Location = new System.Drawing.Point(31, 72);
+            this.txt_rechercher.Name = "txt_rechercher";
+            this.txt_rechercher.PasswordChar = '\0';
+            this.txt_rechercher.PlaceholderText = "Rechercher Sur un client...";
+            this.txt_rechercher.SelectedText = "";
+            this.txt_rechercher.Size = new System.Drawing.Size(313, 29);
+            this.txt_rechercher.TabIndex = 16;
+            this.txt_rechercher.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_rechercher_KeyUp);
+            // 
+            // btn_transactionClient
+            // 
+            this.btn_transactionClient.BorderRadius = 2;
+            this.btn_transactionClient.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_transactionClient.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_transactionClient.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_transactionClient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_transactionClient.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_transactionClient.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_transactionClient.ForeColor = System.Drawing.Color.White;
+            this.btn_transactionClient.Image = ((System.Drawing.Image)(resources.GetObject("btn_transactionClient.Image")));
+            this.btn_transactionClient.Location = new System.Drawing.Point(426, 825);
+            this.btn_transactionClient.Name = "btn_transactionClient";
+            this.btn_transactionClient.Size = new System.Drawing.Size(193, 29);
+            this.btn_transactionClient.TabIndex = 25;
+            this.btn_transactionClient.Text = "Afficher les transactions";
+            this.btn_transactionClient.Click += new System.EventHandler(this.btn_transactionClient_Click);
+            // 
+            // btn_ajouterTransaction
+            // 
+            this.btn_ajouterTransaction.BorderRadius = 2;
+            this.btn_ajouterTransaction.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ajouterTransaction.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ajouterTransaction.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_ajouterTransaction.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_ajouterTransaction.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_ajouterTransaction.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ajouterTransaction.ForeColor = System.Drawing.Color.White;
+            this.btn_ajouterTransaction.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajouterTransaction.Image")));
+            this.btn_ajouterTransaction.Location = new System.Drawing.Point(625, 825);
+            this.btn_ajouterTransaction.Name = "btn_ajouterTransaction";
+            this.btn_ajouterTransaction.Size = new System.Drawing.Size(193, 29);
+            this.btn_ajouterTransaction.TabIndex = 24;
+            this.btn_ajouterTransaction.Text = "Ajouter une transaction";
+            this.btn_ajouterTransaction.Click += new System.EventHandler(this.btn_ajouterTransaction_Click);
+            // 
+            // btn_afficherLivraison
+            // 
+            this.btn_afficherLivraison.BorderRadius = 2;
+            this.btn_afficherLivraison.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_afficherLivraison.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_afficherLivraison.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_afficherLivraison.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_afficherLivraison.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_afficherLivraison.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_afficherLivraison.ForeColor = System.Drawing.Color.White;
+            this.btn_afficherLivraison.Image = ((System.Drawing.Image)(resources.GetObject("btn_afficherLivraison.Image")));
+            this.btn_afficherLivraison.Location = new System.Drawing.Point(824, 825);
+            this.btn_afficherLivraison.Name = "btn_afficherLivraison";
+            this.btn_afficherLivraison.Size = new System.Drawing.Size(193, 29);
+            this.btn_afficherLivraison.TabIndex = 23;
+            this.btn_afficherLivraison.Text = "Afficher les livraison";
+            this.btn_afficherLivraison.Click += new System.EventHandler(this.btn_afficherLivraison_Click);
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Image = ((System.Drawing.Image)(resources.GetObject("btn_refresh.Image")));
+            this.btn_refresh.Location = new System.Drawing.Point(900, 20);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(38, 29);
+            this.btn_refresh.TabIndex = 22;
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // btn_afficherCommandes
+            // 
+            this.btn_afficherCommandes.BorderRadius = 2;
+            this.btn_afficherCommandes.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_afficherCommandes.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_afficherCommandes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_afficherCommandes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_afficherCommandes.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_afficherCommandes.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_afficherCommandes.ForeColor = System.Drawing.Color.White;
+            this.btn_afficherCommandes.Image = ((System.Drawing.Image)(resources.GetObject("btn_afficherCommandes.Image")));
+            this.btn_afficherCommandes.Location = new System.Drawing.Point(1023, 825);
+            this.btn_afficherCommandes.Name = "btn_afficherCommandes";
+            this.btn_afficherCommandes.Size = new System.Drawing.Size(193, 29);
+            this.btn_afficherCommandes.TabIndex = 21;
+            this.btn_afficherCommandes.Text = "Afficher les commandes";
+            this.btn_afficherCommandes.Click += new System.EventHandler(this.btn_afficherCommandes_Click);
+            // 
+            // btn_supprimer
+            // 
+            this.btn_supprimer.BorderRadius = 2;
+            this.btn_supprimer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_supprimer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_supprimer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_supprimer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_supprimer.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_supprimer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_supprimer.ForeColor = System.Drawing.Color.White;
+            this.btn_supprimer.Image = ((System.Drawing.Image)(resources.GetObject("btn_supprimer.Image")));
+            this.btn_supprimer.Location = new System.Drawing.Point(816, 72);
+            this.btn_supprimer.Name = "btn_supprimer";
+            this.btn_supprimer.Size = new System.Drawing.Size(121, 29);
+            this.btn_supprimer.TabIndex = 20;
+            this.btn_supprimer.Text = "Supprimer";
+            this.btn_supprimer.Click += new System.EventHandler(this.btn_supprimer_Click);
+            // 
+            // btn_modifier
+            // 
+            this.btn_modifier.BorderRadius = 2;
+            this.btn_modifier.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_modifier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_modifier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_modifier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_modifier.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_modifier.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_modifier.ForeColor = System.Drawing.Color.White;
+            this.btn_modifier.Image = ((System.Drawing.Image)(resources.GetObject("btn_modifier.Image")));
+            this.btn_modifier.Location = new System.Drawing.Point(959, 72);
+            this.btn_modifier.Name = "btn_modifier";
+            this.btn_modifier.Size = new System.Drawing.Size(121, 29);
+            this.btn_modifier.TabIndex = 19;
+            this.btn_modifier.Text = "Modifier";
+            this.btn_modifier.Click += new System.EventHandler(this.btn_modifier_Click);
+            // 
+            // btn_ajouter
+            // 
+            this.btn_ajouter.BorderRadius = 2;
+            this.btn_ajouter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ajouter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ajouter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_ajouter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_ajouter.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_ajouter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_ajouter.ForeColor = System.Drawing.Color.White;
+            this.btn_ajouter.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajouter.Image")));
+            this.btn_ajouter.Location = new System.Drawing.Point(1095, 72);
+            this.btn_ajouter.Name = "btn_ajouter";
+            this.btn_ajouter.Size = new System.Drawing.Size(121, 29);
+            this.btn_ajouter.TabIndex = 18;
+            this.btn_ajouter.Text = "Ajouter";
+            this.btn_ajouter.Click += new System.EventHandler(this.btn_ajouter_Click);
+            // 
+            // btn_rechercher
+            // 
+            this.btn_rechercher.BorderRadius = 2;
+            this.btn_rechercher.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_rechercher.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_rechercher.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_rechercher.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_rechercher.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_rechercher.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_rechercher.ForeColor = System.Drawing.Color.White;
+            this.btn_rechercher.Image = ((System.Drawing.Image)(resources.GetObject("btn_rechercher.Image")));
+            this.btn_rechercher.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_rechercher.Location = new System.Drawing.Point(361, 72);
+            this.btn_rechercher.Name = "btn_rechercher";
+            this.btn_rechercher.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btn_rechercher.Size = new System.Drawing.Size(123, 29);
+            this.btn_rechercher.TabIndex = 17;
+            this.btn_rechercher.Text = "Rechercher";
+            this.btn_rechercher.Click += new System.EventHandler(this.btn_rechercher_Click);
             // 
             // Column1
             // 
@@ -219,176 +397,18 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column7.HeaderText = "Reste A Payer";
             this.Column7.Name = "Column7";
-            // 
-            // txt_rechercher
-            // 
-            this.txt_rechercher.BorderRadius = 5;
-            this.txt_rechercher.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_rechercher.DefaultText = "";
-            this.txt_rechercher.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_rechercher.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_rechercher.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_rechercher.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_rechercher.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_rechercher.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_rechercher.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_rechercher.Location = new System.Drawing.Point(73, 119);
-            this.txt_rechercher.Name = "txt_rechercher";
-            this.txt_rechercher.PasswordChar = '\0';
-            this.txt_rechercher.PlaceholderText = "Rechercher Sur un client...";
-            this.txt_rechercher.SelectedText = "";
-            this.txt_rechercher.Size = new System.Drawing.Size(313, 29);
-            this.txt_rechercher.TabIndex = 16;
-            this.txt_rechercher.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_rechercher_KeyUp);
-            // 
-            // btn_afficherCommandes
-            // 
-            this.btn_afficherCommandes.BorderRadius = 2;
-            this.btn_afficherCommandes.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_afficherCommandes.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_afficherCommandes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_afficherCommandes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_afficherCommandes.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btn_afficherCommandes.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_afficherCommandes.ForeColor = System.Drawing.Color.White;
-            this.btn_afficherCommandes.Image = ((System.Drawing.Image)(resources.GetObject("btn_afficherCommandes.Image")));
-            this.btn_afficherCommandes.Location = new System.Drawing.Point(988, 791);
-            this.btn_afficherCommandes.Name = "btn_afficherCommandes";
-            this.btn_afficherCommandes.Size = new System.Drawing.Size(193, 29);
-            this.btn_afficherCommandes.TabIndex = 21;
-            this.btn_afficherCommandes.Text = "Afficher les commandes";
-            this.btn_afficherCommandes.Click += new System.EventHandler(this.btn_afficherCommandes_Click);
-            // 
-            // btn_supprimer
-            // 
-            this.btn_supprimer.BorderRadius = 2;
-            this.btn_supprimer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_supprimer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_supprimer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_supprimer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_supprimer.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btn_supprimer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_supprimer.ForeColor = System.Drawing.Color.White;
-            this.btn_supprimer.Image = ((System.Drawing.Image)(resources.GetObject("btn_supprimer.Image")));
-            this.btn_supprimer.Location = new System.Drawing.Point(778, 119);
-            this.btn_supprimer.Name = "btn_supprimer";
-            this.btn_supprimer.Size = new System.Drawing.Size(121, 29);
-            this.btn_supprimer.TabIndex = 20;
-            this.btn_supprimer.Text = "Supprimer";
-            this.btn_supprimer.Click += new System.EventHandler(this.btn_supprimer_Click);
-            // 
-            // btn_modifier
-            // 
-            this.btn_modifier.BorderRadius = 2;
-            this.btn_modifier.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_modifier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_modifier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_modifier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_modifier.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btn_modifier.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_modifier.ForeColor = System.Drawing.Color.White;
-            this.btn_modifier.Image = ((System.Drawing.Image)(resources.GetObject("btn_modifier.Image")));
-            this.btn_modifier.Location = new System.Drawing.Point(921, 119);
-            this.btn_modifier.Name = "btn_modifier";
-            this.btn_modifier.Size = new System.Drawing.Size(121, 29);
-            this.btn_modifier.TabIndex = 19;
-            this.btn_modifier.Text = "Modifier";
-            this.btn_modifier.Click += new System.EventHandler(this.btn_modifier_Click);
-            // 
-            // btn_ajouter
-            // 
-            this.btn_ajouter.BorderRadius = 2;
-            this.btn_ajouter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ajouter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ajouter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_ajouter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_ajouter.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btn_ajouter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_ajouter.ForeColor = System.Drawing.Color.White;
-            this.btn_ajouter.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajouter.Image")));
-            this.btn_ajouter.Location = new System.Drawing.Point(1057, 119);
-            this.btn_ajouter.Name = "btn_ajouter";
-            this.btn_ajouter.Size = new System.Drawing.Size(121, 29);
-            this.btn_ajouter.TabIndex = 18;
-            this.btn_ajouter.Text = "Ajouter";
-            this.btn_ajouter.Click += new System.EventHandler(this.btn_ajouter_Click);
-            // 
-            // btn_rechercher
-            // 
-            this.btn_rechercher.BorderRadius = 2;
-            this.btn_rechercher.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_rechercher.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_rechercher.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_rechercher.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_rechercher.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btn_rechercher.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_rechercher.ForeColor = System.Drawing.Color.White;
-            this.btn_rechercher.Image = ((System.Drawing.Image)(resources.GetObject("btn_rechercher.Image")));
-            this.btn_rechercher.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_rechercher.Location = new System.Drawing.Point(403, 119);
-            this.btn_rechercher.Name = "btn_rechercher";
-            this.btn_rechercher.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btn_rechercher.Size = new System.Drawing.Size(142, 29);
-            this.btn_rechercher.TabIndex = 17;
-            this.btn_rechercher.Text = "Rechercher";
-            this.btn_rechercher.Click += new System.EventHandler(this.btn_rechercher_Click);
-            // 
-            // btn_refresh
-            // 
-            this.btn_refresh.Image = ((System.Drawing.Image)(resources.GetObject("btn_refresh.Image")));
-            this.btn_refresh.Location = new System.Drawing.Point(862, 43);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(38, 29);
-            this.btn_refresh.TabIndex = 22;
-            this.btn_refresh.UseVisualStyleBackColor = true;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
-            // 
-            // btn_afficherLivraison
-            // 
-            this.btn_afficherLivraison.BorderRadius = 2;
-            this.btn_afficherLivraison.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_afficherLivraison.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_afficherLivraison.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_afficherLivraison.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_afficherLivraison.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btn_afficherLivraison.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_afficherLivraison.ForeColor = System.Drawing.Color.White;
-            this.btn_afficherLivraison.Image = ((System.Drawing.Image)(resources.GetObject("btn_afficherLivraison.Image")));
-            this.btn_afficherLivraison.Location = new System.Drawing.Point(789, 791);
-            this.btn_afficherLivraison.Name = "btn_afficherLivraison";
-            this.btn_afficherLivraison.Size = new System.Drawing.Size(193, 29);
-            this.btn_afficherLivraison.TabIndex = 23;
-            this.btn_afficherLivraison.Text = "Afficher les livraison";
-            this.btn_afficherLivraison.Click += new System.EventHandler(this.btn_afficherLivraison_Click);
-            // 
-            // btn_ajouterTransaction
-            // 
-            this.btn_ajouterTransaction.BorderRadius = 2;
-            this.btn_ajouterTransaction.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ajouterTransaction.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ajouterTransaction.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_ajouterTransaction.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_ajouterTransaction.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btn_ajouterTransaction.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ajouterTransaction.ForeColor = System.Drawing.Color.White;
-            this.btn_ajouterTransaction.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajouterTransaction.Image")));
-            this.btn_ajouterTransaction.Location = new System.Drawing.Point(590, 791);
-            this.btn_ajouterTransaction.Name = "btn_ajouterTransaction";
-            this.btn_ajouterTransaction.Size = new System.Drawing.Size(193, 29);
-            this.btn_ajouterTransaction.TabIndex = 24;
-            this.btn_ajouterTransaction.Text = "Ajouter une transaction";
-            this.btn_ajouterTransaction.Click += new System.EventHandler(this.btn_ajouterTransaction_Click);
             // 
             // frmGestionClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1302, 875);
+            this.Controls.Add(this.btn_transactionClient);
             this.Controls.Add(this.btn_ajouterTransaction);
             this.Controls.Add(this.btn_afficherLivraison);
             this.Controls.Add(this.btn_refresh);
@@ -408,7 +428,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmGestionClients";
             this.Text = "frmGestionClients";
-            this.Activated += new System.EventHandler(this.frmGestionClients_Activated);
             this.Load += new System.EventHandler(this.frmGestionClients_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clients)).EndInit();
             this.ResumeLayout(false);
@@ -434,6 +453,7 @@
         private System.Windows.Forms.Button btn_refresh;
         private Guna.UI2.WinForms.Guna2Button btn_afficherLivraison;
         private Guna.UI2.WinForms.Guna2Button btn_ajouterTransaction;
+        private Guna.UI2.WinForms.Guna2Button btn_transactionClient;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

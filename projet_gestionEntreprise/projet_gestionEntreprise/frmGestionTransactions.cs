@@ -19,27 +19,52 @@ namespace projet_gestionEntreprise
         }
         private void refresh(string filtre)
         {
-            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
-            cn.Open();
-            string req = "select idTransaction,c.idClient,montant,dateTransaction,TypeTransaction,[description],nomClient+' '+prenomClient as nomComplet from transactions t inner join client c on c.idClient=t.idClient "+filtre;
-            SqlCommand com = new SqlCommand(req, cn);
-            SqlDataReader dr = com.ExecuteReader();
-            dgv_transactions.Rows.Clear();
-            while (dr.Read())
+            if (rb_tousTransactions.Checked == true)
             {
-                dgv_transactions.Rows.Add(dr["idTransaction"], dr["idClient"], dr["nomComplet"], dr["montant"],Convert.ToDateTime(dr["dateTransaction"].ToString()).ToShortDateString(), dr["description"], dr["TypeTransaction"]);
-            }
-            dr.Close();
-            dr = null;
-            com = null;
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+                cn.Open();
+                string req = "select idTransaction,c.idClient,montant,dateTransaction,TypeTransaction,[description],nomClient+' '+prenomClient as nomComplet from transactions t inner join client c on c.idClient=t.idClient "+filtre+ " order by idTransaction desc";
+                SqlCommand com = new SqlCommand(req, cn);
+                SqlDataReader dr = com.ExecuteReader();
+                dgv_transactions.Rows.Clear();
+                while (dr.Read())
+                {
+                    dgv_transactions.Rows.Add(dr["idTransaction"], dr["idClient"], dr["nomComplet"], dr["montant"],Convert.ToDateTime(dr["dateTransaction"].ToString()).ToShortDateString(), dr["description"], dr["TypeTransaction"]);
+                }
+                dr.Close();
+                dr = null;
+                com = null;
 
-            cn.Close();
-            cn = null;
+                cn.Close();
+                cn = null;
+            }
+            else if (rb_filtreParDate.Checked == true)
+            {
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+                cn.Open();
+                string req = "select idTransaction,c.idClient,montant,dateTransaction,TypeTransaction,[description],nomClient+' '+prenomClient as nomComplet from transactions t inner join client c on c.idClient=t.idClient where dateTransaction between @dateDebut and @dateFin" + filtre + " order by idTransaction desc";
+                SqlCommand com = new SqlCommand(req, cn);
+                com.Parameters.AddWithValue("@dateDebut", dtp_dateDebut.Value);
+                com.Parameters.AddWithValue("@dateFin", dtp_dateFinale.Value);
+                SqlDataReader dr = com.ExecuteReader();
+                dgv_transactions.Rows.Clear();
+                while (dr.Read())
+                {
+                    dgv_transactions.Rows.Add(dr["idTransaction"], dr["idClient"], dr["nomComplet"], dr["montant"], Convert.ToDateTime(dr["dateTransaction"].ToString()).ToShortDateString(), dr["description"], dr["TypeTransaction"]);
+                }
+                dr.Close();
+                dr = null;
+                com = null;
+
+                cn.Close();
+                cn = null;
+            }
         }
         private void frmGestionTransactions_Load(object sender, EventArgs e)
         {
             refresh("");
-            cb_recherche.SelectedIndex = 0; 
+            cb_recherche.SelectedIndex = 0;
+            rb_tousTransactions.Checked = true;
         }
         //Id Transaction
         //Id Client
@@ -52,16 +77,20 @@ namespace projet_gestionEntreprise
                 switch (cb_recherche.SelectedIndex)
                 {
                     case 0:
-                        refresh(" where idTransaction=" + txt_rechercher.Text);
+                        if(rb_tousTransactions.Checked==true) refresh(" where idTransaction=" + txt_rechercher.Text);
+                        else if(rb_filtreParDate.Checked==true) refresh(" and idTransaction=" + txt_rechercher.Text);
                         break;
                     case 1:
-                        refresh(" where c.idClient=" + txt_rechercher.Text);
+                        if (rb_tousTransactions.Checked == true) refresh(" where c.idClient=" + txt_rechercher.Text);
+                        else if (rb_filtreParDate.Checked == true) refresh(" and c.idClient=" + txt_rechercher.Text);
                         break;
                     case 2:
-                        refresh(" where nomClient like '%" + txt_rechercher.Text + "%' or prenomClient like '%" + txt_rechercher.Text + "%'");
+                        if(rb_tousTransactions.Checked==true) refresh(" where nomClient like '%" + txt_rechercher.Text + "%' or prenomClient like '%" + txt_rechercher.Text + "%'");
+                        else if (rb_filtreParDate.Checked == true) refresh(" and nomClient like '%" + txt_rechercher.Text + "%' or prenomClient like '%" + txt_rechercher.Text + "%'");
                         break;
                     case 3:
-                        refresh(" where dateLivraison like'%" + txt_rechercher.Text + "%'");
+                        if(rb_tousTransactions.Checked==true) refresh(" where dateLivraison like'%" + txt_rechercher.Text + "%'");
+                        else if (rb_filtreParDate.Checked == true) refresh(" and dateLivraison like'%" + txt_rechercher.Text + "%'");
                         break;
                 }
             }
@@ -93,7 +122,7 @@ namespace projet_gestionEntreprise
         {
             if (MessageBox.Show("Etes-vous vraiment veux supprimer cette transaction ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                 cn.Open();
                 string req = "delete from transactions where idTransaction=" + dgv_transactions.CurrentRow.Cells[0].Value;
                 SqlCommand com = new SqlCommand(req, cn);
@@ -110,7 +139,7 @@ namespace projet_gestionEntreprise
         {
             if (MessageBox.Show("Etes-vous vraiment veux supprimer tous les transaction ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                 cn.Open();
                 string req = "delete from transactions" ;
                 SqlCommand com = new SqlCommand(req, cn);
@@ -121,6 +150,26 @@ namespace projet_gestionEntreprise
                 MessageBox.Show("tous les transaction a été supprimer avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 refresh("");
             }
+        }
+
+        private void rb_tousTransactions_CheckedChanged(object sender, EventArgs e)
+        {
+            refresh("");
+        }
+
+        private void rb_filtreParDate_CheckedChanged(object sender, EventArgs e)
+        {
+            refresh("");
+        }
+
+        private void dtp_dateDebut_ValueChanged(object sender, EventArgs e)
+        {
+            refresh("");
+        }
+
+        private void dtp_dateFinale_ValueChanged(object sender, EventArgs e)
+        {
+            refresh("");
         }
     }
 }

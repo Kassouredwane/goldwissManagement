@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_gestionMatla = new Guna.UI2.WinForms.Guna2Button();
             this.btn_gestionTransactions = new Guna.UI2.WinForms.Guna2Button();
             this.btn_gestionLivraison = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -61,6 +62,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.panel1.Controls.Add(this.btn_gestionMatla);
             this.panel1.Controls.Add(this.btn_gestionTransactions);
             this.panel1.Controls.Add(this.btn_gestionLivraison);
             this.panel1.Controls.Add(this.panel2);
@@ -74,6 +76,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(255, 878);
             this.panel1.TabIndex = 0;
+            // 
+            // btn_gestionMatla
+            // 
+            this.btn_gestionMatla.Animated = true;
+            this.btn_gestionMatla.BackColor = System.Drawing.Color.Transparent;
+            this.btn_gestionMatla.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_gestionMatla.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_gestionMatla.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_gestionMatla.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_gestionMatla.FillColor = System.Drawing.Color.Transparent;
+            this.btn_gestionMatla.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_gestionMatla.ForeColor = System.Drawing.Color.White;
+            this.btn_gestionMatla.Image = ((System.Drawing.Image)(resources.GetObject("btn_gestionMatla.Image")));
+            this.btn_gestionMatla.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_gestionMatla.Location = new System.Drawing.Point(6, 502);
+            this.btn_gestionMatla.Name = "btn_gestionMatla";
+            this.btn_gestionMatla.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btn_gestionMatla.Size = new System.Drawing.Size(240, 35);
+            this.btn_gestionMatla.TabIndex = 14;
+            this.btn_gestionMatla.Text = "Gestion de Matla";
+            this.btn_gestionMatla.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_gestionMatla.UseTransparentBackground = true;
+            this.btn_gestionMatla.Click += new System.EventHandler(this.btn_gestionMatla_Click);
             // 
             // btn_gestionTransactions
             // 
@@ -126,7 +151,7 @@
             this.panel2.Controls.Add(this.btn_deconnecter);
             this.panel2.Controls.Add(this.btn_parametres);
             this.panel2.Controls.Add(this.btn_statistiques);
-            this.panel2.Location = new System.Drawing.Point(2, 542);
+            this.panel2.Location = new System.Drawing.Point(2, 589);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 174);
             this.panel2.TabIndex = 11;
@@ -204,7 +229,7 @@
             this.dropDownContainer.Controls.Add(this.btn_transfereLavageToPhasonie);
             this.dropDownContainer.Controls.Add(this.btn_transferePhasonieToLavage);
             this.dropDownContainer.Controls.Add(this.panel3);
-            this.dropDownContainer.Location = new System.Drawing.Point(6, 503);
+            this.dropDownContainer.Location = new System.Drawing.Point(6, 550);
             this.dropDownContainer.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.dropDownContainer.MaximumSize = new System.Drawing.Size(240, 155);
             this.dropDownContainer.MinimumSize = new System.Drawing.Size(240, 35);
@@ -233,6 +258,7 @@
             this.btn_phasonieToStock.Text = "Du phasonie a stock";
             this.btn_phasonieToStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_phasonieToStock.UseTransparentBackground = true;
+            this.btn_phasonieToStock.Click += new System.EventHandler(this.btn_phasonieToStock_Click);
             // 
             // btn_transfereLavageToPhasonie
             // 
@@ -255,6 +281,7 @@
             this.btn_transfereLavageToPhasonie.Text = "Du lavage a phasonie";
             this.btn_transfereLavageToPhasonie.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_transfereLavageToPhasonie.UseTransparentBackground = true;
+            this.btn_transfereLavageToPhasonie.Click += new System.EventHandler(this.btn_transfereLavageToPhasonie_Click);
             // 
             // btn_transferePhasonieToLavage
             // 
@@ -277,6 +304,7 @@
             this.btn_transferePhasonieToLavage.Text = "Du phasonie a lavage";
             this.btn_transferePhasonieToLavage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_transferePhasonieToLavage.UseTransparentBackground = true;
+            this.btn_transferePhasonieToLavage.Click += new System.EventHandler(this.btn_transferePhasonieToLavage_Click);
             // 
             // panel3
             // 
@@ -456,5 +484,6 @@
         private System.Windows.Forms.Panel panel4;
         private Guna.UI2.WinForms.Guna2Button btn_gestionTransactions;
         private Guna.UI2.WinForms.Guna2Button btn_gestionLivraison;
+        private Guna.UI2.WinForms.Guna2Button btn_gestionMatla;
     }
 }

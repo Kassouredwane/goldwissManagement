@@ -22,10 +22,19 @@ namespace projet_gestionEntreprise
 {
     public partial class Form1 : Form
     {
+        
+        private ConnectionManager connectionManager;
         public Form1()
         {
             InitializeComponent();
+            connectionManager = new ConnectionManager();
         }
+
+        //private string getConnectionString()
+        //{
+        //    string connectionString = connectionManager.ConnectionString;
+        //    return connectionString;
+        //}
         static public string hash(string chaine)
         {
             byte[] textAsByte = Encoding.Default.GetBytes(chaine);
@@ -59,7 +68,7 @@ namespace projet_gestionEntreprise
 
         private void btn_connecter_Click(object sender, EventArgs e)
         {
-            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
 
             SqlCommand com = new SqlCommand("select * from utilisateur where login='" + hash(txt_login.Text) + "'", cn);
@@ -104,8 +113,8 @@ namespace projet_gestionEntreprise
 
         private void Form1_Activated(object sender, EventArgs e)
         {
-            txt_login.Text = "";
-            txt_password.Text = "";
+            //txt_login.Text = "";
+            //txt_password.Text = "";
         }
     }
 }

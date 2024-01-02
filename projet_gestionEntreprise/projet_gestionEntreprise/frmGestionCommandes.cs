@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Windows.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,9 +23,9 @@ namespace projet_gestionEntreprise
         {
             if(chk_enCourLivraison.Checked==false) 
             {
-                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                 cn.Open();
-                string req = "select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,dateCommande,cmd.statutLivraison from client c inner join commande cmd on cmd.idClient=c.idClient " + filtre+" order by dateCommande";
+                string req = "select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,dateCommande,cmd.statutLivraison from client c inner join commande cmd on cmd.idClient=c.idClient " + filtre+" order by cmd.idCommande desc";
                 SqlCommand com = new SqlCommand(req, cn);
                 SqlDataReader dr = com.ExecuteReader();
                 dgv_commandeClient.Rows.Clear();
@@ -40,9 +42,9 @@ namespace projet_gestionEntreprise
             }
             else
             {
-                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                 cn.Open();
-                string req = "select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,dateCommande,cmd.statutLivraison from client c inner join commande cmd on cmd.idClient=c.idClient where cmd.statutLivraison=0 " + filtre+" order by dateCommande";
+                string req = "select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,dateCommande,cmd.statutLivraison from client c inner join commande cmd on cmd.idClient=c.idClient where cmd.statutLivraison=0 " + filtre+ " order by cmd.idCommande desc";
                 SqlCommand com = new SqlCommand(req, cn);
                 SqlDataReader dr = com.ExecuteReader();
                 dgv_commandeClient.Rows.Clear();
@@ -71,15 +73,15 @@ namespace projet_gestionEntreprise
 
         private void dgv_commandeClient_SelectionChanged(object sender, EventArgs e)
         {
-            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
-            string req = "select dc.referenceModele,designation,qteAchat,prixAchat,qteLivre,statutLivraison from detailCommande dc inner join modele m on m.referenceModele=dc.referenceModele where idCommande=" + dgv_commandeClient.CurrentRow.Cells[2].Value;
+            string req = "select dc.referenceModele,designation,qteAchat,prixAchat,statutLivraison from detailCommande dc inner join modele m on m.referenceModele=dc.referenceModele where idCommande=" + dgv_commandeClient.CurrentRow.Cells[2].Value;
             SqlCommand com = new SqlCommand(req, cn);
             SqlDataReader dr = com.ExecuteReader();
             dgv_detailCommandeClient.Rows.Clear();
             while (dr.Read())
             {
-                dgv_detailCommandeClient.Rows.Add(dr["referenceModele"], dr["designation"], dr["qteAchat"], dr["prixAchat"], dr["qteLivre"], dr["statutLivraison"]);
+                dgv_detailCommandeClient.Rows.Add(dr["referenceModele"], dr["designation"], dr["qteAchat"], dr["prixAchat"], dr["statutLivraison"]);
             }
             dr.Close();
             dr = null;
@@ -129,16 +131,26 @@ namespace projet_gestionEntreprise
             if (MessageBox.Show("Etes-vous vraiment veux supprimer ce commande ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 // delete the "commande" from table detailCommande because she has a foreign key of IdCommande
-                SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                 cn1.Open();
                 string req1 = "delete from detailCommande where idCommande=" + dgv_commandeClient.CurrentRow.Cells[2].Value;
                 SqlCommand com1 = new SqlCommand(req1, cn1);
+
                 com1.ExecuteNonQuery();
                 com1 = null;
                 cn1.Close();
                 cn1 = null;
+                //// delete the "commande" from table livraison because she has a foreign key of IdCommande
+                //SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+                //cn1.Open();
+                //string req1 = "delete from detailCommande where idCommande=" + dgv_commandeClient.CurrentRow.Cells[2].Value;
+                //SqlCommand com1 = new SqlCommand(req1, cn1);
+                //com1.ExecuteNonQuery();
+                //com1 = null;
+                //cn1.Close();
+                //cn1 = null;
                 // delete the "commande" from table of commmande
-                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                 cn.Open();
                 string req = "delete from commande where idCommande=" + dgv_commandeClient.CurrentRow.Cells[2].Value;
                 SqlCommand com = new SqlCommand(req, cn);
@@ -153,29 +165,162 @@ namespace projet_gestionEntreprise
 
         private void btn_supprimerTousCommandes_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Etes-vous vraiment veux supprimer tous les commandes ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            //if (MessageBox.Show("Etes-vous vraiment veux supprimer tous les commandes ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            //{
+            //    // delete the "commande" from table detailCommande because she has a foreign key of IdCommande
+            //    SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+            //    cn1.Open();
+            //    string req1 = "delete from detailCommande";
+            //    SqlCommand com1 = new SqlCommand(req1, cn1);
+            //    com1.ExecuteNonQuery();
+            //    com1 = null;
+            //    cn1.Close();
+            //    cn1 = null;
+            //    // delete the "commande" from table of commmande
+            //    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+            //    cn.Open();
+            //    string req = "delete from commande";
+            //    SqlCommand com = new SqlCommand(req, cn);
+            //    com.ExecuteNonQuery();
+            //    com = null;
+            //    cn.Close();
+            //    cn = null;
+            //    MessageBox.Show("Tous les commandes a été supprimer avec succé", "Information", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            //    refresh("");
+            //}
+
+            try
             {
-                // delete the "commande" from table detailCommande because she has a foreign key of IdCommande
-                SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
-                cn1.Open();
-                string req1 = "delete from detailCommande";
-                SqlCommand com1 = new SqlCommand(req1, cn1);
-                com1.ExecuteNonQuery();
-                com1 = null;
-                cn1.Close();
-                cn1 = null;
-                // delete the "commande" from table of commmande
-                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
-                cn.Open();
-                string req = "delete from commande";
-                SqlCommand com = new SqlCommand(req, cn);
-                com.ExecuteNonQuery();
-                com = null;
-                cn.Close();
-                cn = null;
-                MessageBox.Show("Tous les commandes a été supprimer avec succé", "Information", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                refresh("");
+                if (MessageBox.Show("Etes-vous vraiment veux supprimer tous les Matla dans la grid ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    foreach (DataGridViewRow row in dgv_commandeClient.Rows)
+                    {
+                        int idCmd = Convert.ToInt32(row.Cells[2].Value);
+
+                        if (idCmd != null)
+                        {
+                            //delete the "commande" from table detailCommande because she has a foreign key of IdCommande
+                            SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+                            cn1.Open();
+                            string req1 = "delete from detailCommande where idCommande="+idCmd;
+                            SqlCommand com1 = new SqlCommand(req1, cn1);
+                            com1.ExecuteNonQuery();
+                            com1 = null;
+                            cn1.Close();
+                            cn1 = null;
+                            // delete the "commande" from table of commmande
+                            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+                            cn.Open();
+                            string req = "delete from commande where idCommande="+idCmd;
+                            SqlCommand com = new SqlCommand(req, cn);
+                            com.ExecuteNonQuery();
+                            com = null;
+                            cn.Close();
+                            cn = null;
+                        }
+                    }
+                }
             }
+            catch (Exception error) { MessageBox.Show(error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+        private void imprimer(ReportClass cr, string chemain = "", string filtre = "")
+        {
+            cr.SetDatabaseLogon("sa", "123456");
+            //if (chemain != "")
+            //    cr.SetParameterValue("chemain", chemain);
+            frmImpression f = new frmImpression(cr, filtre);
+            f.ShowDialog();
+        }
+        private void btn_imprimerCommande_Click(object sender, EventArgs e)
+        {
+            bonCommande cr = new bonCommande();
+            //cr.Refresh();
+            cr.SetDatabaseLogon("sa", "123456");
+
+            string filtre = "{commande.idCommande}=" + dgv_commandeClient.CurrentRow.Cells[2].Value;
+            frmImpression f = new frmImpression(cr, filtre);
+            f.ShowDialog();
+
+
+
+            //// Connectez-vous à la base de données et exécutez votre requête SQL
+            //string connectionString = @"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456";
+            //SqlConnection connection = new SqlConnection(connectionString);
+            //connection.Open();
+
+            //// Executez votre requête SQL spécifique à idLivraison
+            //string req = "select cmd.idCommande,dateCommande,c.idClient,nomClient,prenomClient,adresseClient,referenceModele,qteAchat,prixAchat from commande cmd inner join detailCommande dc on dc.idCommande=cmd.idCommande inner join client c on c.idClient=cmd.idClient where cmd.idCommande= @idCommande";
+            //SqlCommand command = new SqlCommand(req, connection);
+            //command.Parameters.AddWithValue("@idCommande", dgv_commandeClient.CurrentRow.Cells[2].Value);
+            ////command.Parameters.AddWithValue("@idLivraison", idLivraison);
+
+            //SqlDataAdapter adapter = new SqlDataAdapter(command);
+            //DataSet dataSet = new DataSet();
+            //adapter.Fill(dataSet);
+
+            //// Créez une instance de votre rapport Crystal Reports
+            //ReportDocument reportDocument = new ReportDocument();
+            //reportDocument.Load("commandeReport.rpt"); // Remplacez par le chemin vers votre rapport
+
+            //// Ajoutez les données de votre DataSet au rapport
+            //reportDocument.SetDataSource(dataSet.Tables[0]);
+
+            //// Affichez le rapport dans une CrystalReportViewer ou une fenêtre personnalisée
+            //CrystalReportViewer crystalReportViewer = new CrystalReportViewer();
+            //crystalReportViewer.ReportSource = reportDocument;
+
+            //// Affichez la visionneuse dans une fenêtre ou un formulaire
+            //Form form = new Form();
+            //form.Controls.Add(crystalReportViewer);
+            //form.WindowState = FormWindowState.Maximized;
+            //form.ShowDialog();
+
+
+
+
+
+
+            //SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+            //cn.Open();
+            //string req = "select cmd.idCommande,dateCommande,c.idClient,nomClient,prenomClient,adresseClient,referenceModele,qteAchat,prixAchat from commande cmd inner join detailCommande dc on dc.idCommande=cmd.idCommande inner join client c on c.idClient=cmd.idClient where cmd.idCommande= @idCommande";
+
+            //SqlCommand com = new SqlCommand(req, cn);
+            //com.Parameters.AddWithValue("@idCommande", dgv_commandeClient.CurrentRow.Cells[2].Value);
+            ////com.Parameters.AddWithValue("@dateDebut", dtp_dateDebut.Value);
+            ////com.Parameters.AddWithValue("@dateFin", dtp_dateFinale.Value);
+            //SqlDataAdapter ad = new SqlDataAdapter(com);
+            //DataSet ds = new DataSet();
+            //ad.Fill(ds, "detailCommande");
+
+            //CrystalReport14 cr = new CrystalReport14();
+            ////cr.Refresh();
+            //cr.SetDatabaseLogon("sa", "123456");
+            //cr.SetDataSource(ds.Tables["detailCommande"]);
+            //frmImpression f = new frmImpression(cr);
+            //f.ShowDialog();
+
+
+            //SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+            //cn.Open();
+            //string req = "select cmd.idCommande,dateCommande,c.idClient,nomClient,prenomClient,adresseClient,referenceModele,qteAchat,prixAchat from commande cmd inner join detailCommande dc on dc.idCommande=cmd.idCommande inner join client c on c.idClient=cmd.idClient where cmd.idCommande= @idCommande";
+
+            //SqlCommand com = new SqlCommand(req, cn);
+            //com.Parameters.AddWithValue("@idCommande", dgv_commandeClient.CurrentRow.Cells[2].Value);
+            ////com.Parameters.AddWithValue("@dateDebut", dtp_dateDebut.Value);
+            ////com.Parameters.AddWithValue("@dateFin", dtp_dateFinale.Value);
+            //SqlDataAdapter ad = new SqlDataAdapter(com);
+            //DataSet ds = new DataSet();
+            //ad.Fill(ds, "commande");
+
+            //CrystalReport14 cr = new CrystalReport14();
+            ////cr.Refresh();
+            //cr.SetDatabaseLogon("sa", "123456");
+            //cr.SetDataSource(ds.Tables["commande"]);
+            //frmImpression f = new frmImpression(cr);
+            //f.ShowDialog();
+            //imprimer(cr);
+
+
         }
     }
 }

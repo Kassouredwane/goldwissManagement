@@ -37,13 +37,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txt_telephoneClient = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txt_adresseClient = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cb_villeClient = new System.Windows.Forms.ComboBox();
             this.btn_ajouterVille = new System.Windows.Forms.Button();
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
             this.btn_valider = new Guna.UI2.WinForms.Guna2Button();
+            this.txt_adresseClient = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -53,7 +53,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(49, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 16);
+            this.label2.Size = new System.Drawing.Size(74, 16);
             this.label2.TabIndex = 11;
             this.label2.Text = "ID Client :";
             // 
@@ -105,7 +105,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(388, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 16);
+            this.label1.Size = new System.Drawing.Size(91, 16);
             this.label1.TabIndex = 13;
             this.label1.Text = "Nom Client :";
             // 
@@ -136,7 +136,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(49, 141);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 16);
+            this.label3.Size = new System.Drawing.Size(112, 16);
             this.label3.TabIndex = 15;
             this.label3.Text = "Prenom Client :";
             // 
@@ -167,56 +167,25 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(388, 140);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 16);
+            this.label4.Size = new System.Drawing.Size(134, 16);
             this.label4.TabIndex = 17;
             this.label4.Text = "Telephone Client :";
-            // 
-            // txt_adresseClient
-            // 
-            this.txt_adresseClient.BorderRadius = 2;
-            this.txt_adresseClient.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_adresseClient.DefaultText = "";
-            this.txt_adresseClient.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_adresseClient.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_adresseClient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_adresseClient.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_adresseClient.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_adresseClient.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_adresseClient.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_adresseClient.Location = new System.Drawing.Point(169, 222);
-            this.txt_adresseClient.Name = "txt_adresseClient";
-            this.txt_adresseClient.PasswordChar = '\0';
-            this.txt_adresseClient.PlaceholderText = "";
-            this.txt_adresseClient.SelectedText = "";
-            this.txt_adresseClient.Size = new System.Drawing.Size(184, 23);
-            this.txt_adresseClient.TabIndex = 20;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(49, 225);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 16);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Adresse Client :";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(389, 223);
+            this.label6.Location = new System.Drawing.Point(389, 207);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 16);
+            this.label6.Size = new System.Drawing.Size(90, 16);
             this.label6.TabIndex = 21;
             this.label6.Text = "Ville Client :";
             // 
             // cb_villeClient
             // 
             this.cb_villeClient.FormattingEnabled = true;
-            this.cb_villeClient.Location = new System.Drawing.Point(527, 220);
+            this.cb_villeClient.Location = new System.Drawing.Point(527, 204);
             this.cb_villeClient.Name = "cb_villeClient";
             this.cb_villeClient.Size = new System.Drawing.Size(184, 21);
             this.cb_villeClient.TabIndex = 22;
@@ -224,7 +193,7 @@
             // btn_ajouterVille
             // 
             this.btn_ajouterVille.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ajouterVille.Location = new System.Drawing.Point(713, 220);
+            this.btn_ajouterVille.Location = new System.Drawing.Point(713, 204);
             this.btn_ajouterVille.Name = "btn_ajouterVille";
             this.btn_ajouterVille.Size = new System.Drawing.Size(29, 21);
             this.btn_ajouterVille.TabIndex = 25;
@@ -244,7 +213,7 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(232, 300);
+            this.btn_annuler.Location = new System.Drawing.Point(248, 263);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
@@ -264,7 +233,7 @@
             this.btn_valider.ForeColor = System.Drawing.Color.White;
             this.btn_valider.Image = ((System.Drawing.Image)(resources.GetObject("btn_valider.Image")));
             this.btn_valider.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_valider.Location = new System.Drawing.Point(391, 300);
+            this.btn_valider.Location = new System.Drawing.Point(407, 263);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_valider.Size = new System.Drawing.Size(142, 29);
@@ -272,18 +241,49 @@
             this.btn_valider.Text = "Valider";
             this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
+            // txt_adresseClient
+            // 
+            this.txt_adresseClient.BorderRadius = 2;
+            this.txt_adresseClient.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_adresseClient.DefaultText = "";
+            this.txt_adresseClient.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_adresseClient.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_adresseClient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_adresseClient.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_adresseClient.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_adresseClient.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_adresseClient.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_adresseClient.Location = new System.Drawing.Point(169, 204);
+            this.txt_adresseClient.Name = "txt_adresseClient";
+            this.txt_adresseClient.PasswordChar = '\0';
+            this.txt_adresseClient.PlaceholderText = "";
+            this.txt_adresseClient.SelectedText = "";
+            this.txt_adresseClient.Size = new System.Drawing.Size(184, 23);
+            this.txt_adresseClient.TabIndex = 27;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(49, 206);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(117, 16);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Adresse Client :";
+            // 
             // frmAjouterClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 377);
+            this.ClientSize = new System.Drawing.Size(756, 325);
+            this.Controls.Add(this.txt_adresseClient);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_ajouterVille);
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.btn_valider);
             this.Controls.Add(this.cb_villeClient);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txt_adresseClient);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_telephoneClient);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_prenomClient);
@@ -312,12 +312,12 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox txt_telephoneClient;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2TextBox txt_adresseClient;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cb_villeClient;
         private Guna.UI2.WinForms.Guna2Button btn_valider;
         private Guna.UI2.WinForms.Guna2Button btn_annuler;
         private System.Windows.Forms.Button btn_ajouterVille;
+        private Guna.UI2.WinForms.Guna2TextBox txt_adresseClient;
+        private System.Windows.Forms.Label label5;
     }
 }

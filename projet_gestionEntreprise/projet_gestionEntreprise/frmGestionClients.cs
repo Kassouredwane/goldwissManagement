@@ -56,35 +56,35 @@ namespace projet_gestionEntreprise
         {
 
         }
-        private void frmGestionClients_Activated(object sender, EventArgs e)
-        {
-            cb_villeClient.Items.Clear();
-            cb_villeClient.Items.Add("Tous les villes");
+        //private void frmGestionClients_Activated(object sender, EventArgs e)
+        //{
+        //    cb_villeClient.Items.Clear();
+        //    cb_villeClient.Items.Add("Tous les villes");
 
-            SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
-            cn1.Open();
-            string req = "select * from ville";
-            SqlCommand com = new SqlCommand(req, cn1);
-            SqlDataReader dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                string nomVille = dr["nomVille"].ToString();
-                cb_villeClient.Items.Add(nomVille);
-            }
-            dr.Close();
-            dr = null;
-            com = null;
+        //    SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+        //    cn1.Open();
+        //    string req = "select * from ville";
+        //    SqlCommand com = new SqlCommand(req, cn1);
+        //    SqlDataReader dr = com.ExecuteReader();
+        //    while (dr.Read())
+        //    {
+        //        string nomVille = dr["nomVille"].ToString();
+        //        cb_villeClient.Items.Add(nomVille);
+        //    }
+        //    dr.Close();
+        //    dr = null;
+        //    com = null;
 
-            cn1.Close();
-            cn1 = null;
-            colorOfCellsRestePayer();
-        }
+        //    cn1.Close();
+        //    cn1 = null;
+        //    colorOfCellsRestePayer();
+        //}
         private void frmGestionClients_Load(object sender, EventArgs e)
         {
             // fill combobx of ville client
             cb_villeClient.Items.Add("Tous les villes");
 
-            SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn1.Open();
             string req = "select * from ville";
             SqlCommand com = new SqlCommand(req, cn1);
@@ -101,7 +101,7 @@ namespace projet_gestionEntreprise
             cn1.Close();
             cn1 = null;
 
-            cb_classement.SelectedIndex = 0;
+            cb_classement.SelectedIndex = 1;
             cb_recherche.SelectedIndex = 0;
             cb_villeClient.SelectedIndex = 0;
 
@@ -113,9 +113,10 @@ namespace projet_gestionEntreprise
             {
                 if (cb_villeClient.Text == "Tous les villes")
                 {
-                    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                     cn.Open();
                     string req = "select idClient,nomClient,prenomClient,telephoneClient,adresseClient,restePayer,nomVille from client c inner join ville v on v.idVille=c.idVille " + filtre + " order by " + orderBy;
+                    //string req = "select client.idClient,nomClient,prenomClient,telephoneClient,adresseClient,v.nomVille, ISNULL((select sum(montant) from transactions where idClient=client.idClient group by idClient),0) - ISNULL((SELECT SUM(dl.qteLivre * dc.prixAchat) AS TotalPrixLivraisons FROM client c  INNER JOIN commande cmd ON c.idClient = cmd.idClient  JOIN livraison l ON cmd.idCommande = l.idCommande  INNER JOIN detailLivraison dl ON l.idLivraison = dl.idLivraison  INNER JOIN matla m ON dl.idMatla = m.idMatla  INNER JOIN detailCommande dc ON m.referenceModele = dc.referenceModele AND cmd.idCommande = dc.idCommande  WHERE c.idClient = client.idClient GROUP BY c.idClient),0) as restePayer from client inner join ville v on v.idVille=client.idVille " + filtre + " order by " + orderBy;
                     SqlCommand com = new SqlCommand(req, cn);
                     SqlDataReader dr = com.ExecuteReader();
                     dgv_clients.Rows.Clear();
@@ -132,9 +133,10 @@ namespace projet_gestionEntreprise
                 }
                 else
                 {
-                    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                     cn.Open();
-                    string req = "select idClient,nomClient,prenomClient,telephoneClient,adresseClient,restePayer,nomVille from client c inner join ville v on v.idVille=c.idVille where c.idVille = (select idVille from ville  where nomVille='" + cb_villeClient.Text+"')  " + filtre + " order by " + orderBy;
+                    string req = "select idClient,nomClient,prenomClient,telephoneClient,adresseClient,restePayer,nomVille from client c inner join ville v on v.idVille=c.idVille where c.idVille = (select idVille from ville  where nomVille='" + cb_villeClient.Text + "')  " + filtre + " order by " + orderBy;
+                    //string req = "select client.idClient,nomClient,prenomClient,telephoneClient,adresseClient,v.nomVille, ISNULL((select sum(montant) from transactions where idClient=client.idClient group by idClient),0) - ISNULL((SELECT SUM(dl.qteLivre * dc.prixAchat) AS TotalPrixLivraisons FROM client c  INNER JOIN commande cmd ON c.idClient = cmd.idClient  JOIN livraison l ON cmd.idCommande = l.idCommande  INNER JOIN detailLivraison dl ON l.idLivraison = dl.idLivraison  INNER JOIN matla m ON dl.idMatla = m.idMatla  INNER JOIN detailCommande dc ON m.referenceModele = dc.referenceModele AND cmd.idCommande = dc.idCommande  WHERE c.idClient = client.idClient GROUP BY c.idClient),0) as restePayer from client  inner join ville v on v.idVille=client.idVille  where client.idVille = (select idVille from ville vl where vl.nomVille='" + cb_villeClient.Text+"')  " + filtre + " order by " + orderBy;
                     SqlCommand com = new SqlCommand(req, cn);
                     SqlDataReader dr = com.ExecuteReader();
                     dgv_clients.Rows.Clear();
@@ -152,7 +154,6 @@ namespace projet_gestionEntreprise
             }
             catch (Exception error) { MessageBox.Show(error.Message.ToString()); }
             colorOfCellsRestePayer();
-
         }
         private void rechercheClient()
         {
@@ -206,16 +207,16 @@ namespace projet_gestionEntreprise
             switch (cb_classement.SelectedIndex)
             {
                 case 0:
-                    fillDgvClient(filtre,"idClient asc");
+                    fillDgvClient(filtre,"c.idClient asc");
                     break;
                 case 1:
-                    fillDgvClient(filtre, "idClient desc");
+                    fillDgvClient(filtre, "c.idClient desc");
                     break;
                 case 2:
-                    fillDgvClient(filtre, "nomClient asc");
+                    fillDgvClient(filtre, "c.nomClient asc");
                     break;
                 case 3:
-                    fillDgvClient(filtre, "nomClient desc");
+                    fillDgvClient(filtre, "c.nomClient desc");
                     break;
             }
         }
@@ -256,7 +257,7 @@ namespace projet_gestionEntreprise
             cb_villeClient.Items.Clear();
             cb_villeClient.Items.Add("Tous les villes");
 
-            SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn1.Open();
             string req = "select * from ville";
             SqlCommand com = new SqlCommand(req, cn1);
@@ -280,7 +281,7 @@ namespace projet_gestionEntreprise
         {
             if (MessageBox.Show("Etes-vous vraiment veux supprimer ce client ?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                 cn.Open();
                 string req = "delete from client where idClient=" + dgv_clients.CurrentRow.Cells[0].Value;
                 SqlCommand com = new SqlCommand(req, cn);
@@ -303,6 +304,13 @@ namespace projet_gestionEntreprise
         {
             int idClient = Convert.ToInt32(dgv_clients.CurrentRow.Cells[0].Value);
             frmAjouterTransactionAClient f = new frmAjouterTransactionAClient(idClient);
+            f.ShowDialog();
+        }
+
+        private void btn_transactionClient_Click(object sender, EventArgs e)
+        {
+            int idClient = Convert.ToInt32(dgv_clients.CurrentRow.Cells[0].Value);
+            frmTransactionsClient f = new frmTransactionsClient(idClient);
             f.ShowDialog();
         }
     }

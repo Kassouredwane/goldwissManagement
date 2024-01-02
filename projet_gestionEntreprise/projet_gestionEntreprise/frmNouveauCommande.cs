@@ -27,7 +27,7 @@ namespace projet_gestionEntreprise
 
         private void btn_valider_Click(object sender, EventArgs e)
         {
-            //SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+            //SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             //cn.Open();
             //string reqq = "insert into commande values(@dateCommande,@idClient)";
             //SqlCommand com = new SqlCommand(reqq, cn);
@@ -36,7 +36,7 @@ namespace projet_gestionEntreprise
             //com.ExecuteNonQuery();
             try
             {
-                SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                 cn1.Open();
                 string req = "insert into detailCommande(idCommande,referenceModele,qteAchat,prixAchat) values (@idCommande,@referenceModele,@qteAchat,@prixAchat)";
                 SqlCommand com1 = new SqlCommand(req, cn1);
@@ -61,24 +61,28 @@ namespace projet_gestionEntreprise
         }
         private void frmAjouterCommande_Load(object sender, EventArgs e)
         {
-            //cb_statutPayement.SelectedIndex = 1;
-            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
-            cn.Open();
-            SqlCommand com = new SqlCommand("select max(idCommande)+1 from commande", cn);
-            int nb = Convert.ToInt32(com.ExecuteScalar());
+            try
+            {
+                //cb_statutPayement.SelectedIndex = 1;
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+                cn.Open();
+                SqlCommand com = new SqlCommand("select max(idCommande)+1 from commande", cn);
+                int nb = Convert.ToInt32(com.ExecuteScalar());
 
-            txt_idCommande.Text = nb.ToString();
-            com = null;
-            cn.Close();
-            cn = null;
-            //MessageBox.Show(idclient.ToString());
+                txt_idCommande.Text = nb.ToString();
+                com = null;
+                cn.Close();
+                cn = null;
+                //MessageBox.Show(idclient.ToString());
+            }
+            catch(Exception error) { txt_idCommande.Text = "1"; }
         }
 
         private void btn_ajouterCommande_Click(object sender, EventArgs e)
         {
             try
             {
-                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                 cn.Open();
                 string reqq = "insert into commande(dateCommande,idClient) values(@dateCommande,@idClient)";
                 SqlCommand com = new SqlCommand(reqq, cn);
@@ -92,7 +96,18 @@ namespace projet_gestionEntreprise
 
                 txt_idCommande.Enabled = true;
                 dtp_dateCommande.Enabled= true; 
-                groupBox1.Enabled = true;   
+                groupBox1.Enabled = true;
+
+                //cb_statutPayement.SelectedIndex = 1;
+                SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+                cn1.Open();
+                SqlCommand com1 = new SqlCommand("select max(idCommande) from commande", cn1);
+                int nb = Convert.ToInt32(com1.ExecuteScalar());
+
+                txt_idCommande.Text = nb.ToString();
+                com1 = null;
+                cn1.Close();
+                cn1 = null;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

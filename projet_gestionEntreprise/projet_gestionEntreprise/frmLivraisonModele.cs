@@ -26,22 +26,22 @@ namespace projet_gestionEntreprise
         }
         private void refresh(string filtre)
         {
-            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
-            cn.Open();
-            string req = "select l.idLivraison,l.numeroBonLivraison,dateLivraison,c.idClient,nomClient+' '+prenomClient as nomComplet,idCommande,m.referenceModele,designation,qteLivre from livraison l inner join detailCommande dc on dc.idLivraison=l.idLivraison inner join modele m on m.referenceModele=dc.referenceModele inner join client c on c.idClient=l.idClient where m.referenceModele='" + refMd+"' " + filtre + " order by dateLivraison";
-            SqlCommand com = new SqlCommand(req, cn);
-            SqlDataReader dr = com.ExecuteReader();
-            dgv_livraisonClient.Rows.Clear();
-            while (dr.Read())
-            {
-                dgv_livraisonClient.Rows.Add(dr["idLivraison"], dr["numeroBonLivraison"], Convert.ToDateTime(dr["dateLivraison"].ToString()).ToShortDateString(), dr["idClient"], dr["nomComplet"], dr["idCommande"], dr["qteLivre"]);
-            }
-            dr.Close();
-            dr = null;
-            com = null;
+                SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=gestionEntreprise;User ID=sa;Password=123456");
+                cn.Open();
+                string req = "SELECT livraison.idLivraison,livraison.numeroBonLivraison,livraison.dateLivraison,client.idClient,client.nomClient+' '+client.prenomClient AS nomComplet,commande.idCommande,matla.idMatla,detailLivraison.qteLivre FROM livraison INNER JOIN detailLivraison ON livraison.idLivraison = detailLivraison.idLivraison INNER JOIN matla ON detailLivraison.idMatla = matla.idMatla INNER JOIN modele ON matla.referenceModele = modele.referenceModele INNER JOIN commande ON livraison.idCommande = commande.idCommande INNER JOIN client ON commande.idClient = client.idClient WHERE modele.referenceModele = '"+refMd+"' "+filtre+" order by dateLivraison desc";
+                SqlCommand com = new SqlCommand(req, cn);
+                SqlDataReader dr = com.ExecuteReader();
+                dgv_livraisonClient.Rows.Clear();
+                while (dr.Read())
+                {
+                    dgv_livraisonClient.Rows.Add(dr["idLivraison"], dr["numeroBonLivraison"], Convert.ToDateTime(dr["dateLivraison"].ToString()).ToShortDateString(), dr["idClient"], dr["nomComplet"], dr["idCommande"], dr["idMatla"], dr["qteLivre"]);
+                }
+                dr.Close();
+                dr = null;
+                com = null;
 
-            cn.Close();
-            cn = null;
+                cn.Close();
+                cn = null;
         }
         private void frmLivraisonModele_Load(object sender, EventArgs e)
         {
@@ -56,13 +56,16 @@ namespace projet_gestionEntreprise
                 switch (cb_recherche.SelectedIndex)
                 {
                     case 0:
-                        refresh(" and l.idLivraison=" + txt_rechercher.Text);
+                        refresh(" and livraison.idLivraison=" + txt_rechercher.Text);
                         break;
                     case 1:
-                        refresh(" and l.numeroBonLivraison=" + txt_rechercher.Text);
+                        refresh(" and livraison.numeroBonLivraison=" + txt_rechercher.Text);
                         break;
                     case 2:
                         refresh(" and (nomClient like '%" + txt_rechercher.Text + "%' or prenomClient like '%" + txt_rechercher.Text + "%')");
+                        break;
+                    case 3:
+                        refresh(" and matla.idMatla="+txt_rechercher.Text);
                         break;
                 }
             }
@@ -76,6 +79,11 @@ namespace projet_gestionEntreprise
         {
             refresh("");
             txt_rechercher.Text = "";
+        }
+
+        private void chk_resteEnStock_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
