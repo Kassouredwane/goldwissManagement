@@ -101,7 +101,7 @@ namespace projet_gestionEntreprise
             cn1.Close();
             cn1 = null;
 
-            cb_classement.SelectedIndex = 1;
+            cb_classement.SelectedIndex = 0;
             cb_recherche.SelectedIndex = 0;
             cb_villeClient.SelectedIndex = 0;
 
