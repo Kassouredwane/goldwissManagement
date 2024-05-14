@@ -39,6 +39,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txt_idCommande = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txt_designation = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txt_referenceModele
@@ -53,7 +55,7 @@
             this.txt_referenceModele.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_referenceModele.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_referenceModele.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_referenceModele.Location = new System.Drawing.Point(192, 195);
+            this.txt_referenceModele.Location = new System.Drawing.Point(192, 167);
             this.txt_referenceModele.Name = "txt_referenceModele";
             this.txt_referenceModele.PasswordChar = '\0';
             this.txt_referenceModele.PlaceholderText = "";
@@ -66,9 +68,9 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(12, 197);
+            this.label7.Location = new System.Drawing.Point(12, 169);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(143, 16);
+            this.label7.Size = new System.Drawing.Size(144, 16);
             this.label7.TabIndex = 65;
             this.label7.Text = "Reference Modele :";
             // 
@@ -84,7 +86,7 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(62, 339);
+            this.btn_annuler.Location = new System.Drawing.Point(65, 350);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
@@ -104,7 +106,7 @@
             this.btn_valider.ForeColor = System.Drawing.Color.White;
             this.btn_valider.Image = ((System.Drawing.Image)(resources.GetObject("btn_valider.Image")));
             this.btn_valider.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_valider.Location = new System.Drawing.Point(221, 339);
+            this.btn_valider.Location = new System.Drawing.Point(224, 350);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_valider.Size = new System.Drawing.Size(142, 29);
@@ -124,7 +126,7 @@
             this.txt_prixAchat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_prixAchat.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_prixAchat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_prixAchat.Location = new System.Drawing.Point(192, 269);
+            this.txt_prixAchat.Location = new System.Drawing.Point(192, 227);
             this.txt_prixAchat.Name = "txt_prixAchat";
             this.txt_prixAchat.PasswordChar = '\0';
             this.txt_prixAchat.PlaceholderText = "";
@@ -137,9 +139,9 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(71, 271);
+            this.label5.Location = new System.Drawing.Point(71, 229);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 16);
+            this.label5.Size = new System.Drawing.Size(85, 16);
             this.label5.TabIndex = 60;
             this.label5.Text = "Prix Achat :";
             // 
@@ -155,7 +157,7 @@
             this.txt_qteAchat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_qteAchat.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_qteAchat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_qteAchat.Location = new System.Drawing.Point(192, 121);
+            this.txt_qteAchat.Location = new System.Drawing.Point(192, 108);
             this.txt_qteAchat.Name = "txt_qteAchat";
             this.txt_qteAchat.PasswordChar = '\0';
             this.txt_qteAchat.PlaceholderText = "";
@@ -168,9 +170,9 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(40, 123);
+            this.label6.Location = new System.Drawing.Point(40, 110);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 16);
+            this.label6.Size = new System.Drawing.Size(116, 16);
             this.label6.TabIndex = 58;
             this.label6.Text = "Quantite Achat :";
             // 
@@ -202,15 +204,48 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(43, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 16);
+            this.label2.Size = new System.Drawing.Size(113, 16);
             this.label2.TabIndex = 55;
             this.label2.Text = "ID Commande :";
+            // 
+            // txt_designation
+            // 
+            this.txt_designation.BorderRadius = 2;
+            this.txt_designation.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_designation.DefaultText = "";
+            this.txt_designation.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_designation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_designation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_designation.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_designation.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_designation.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_designation.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_designation.Location = new System.Drawing.Point(192, 288);
+            this.txt_designation.Name = "txt_designation";
+            this.txt_designation.PasswordChar = '\0';
+            this.txt_designation.PlaceholderText = "";
+            this.txt_designation.SelectedText = "";
+            this.txt_designation.Size = new System.Drawing.Size(184, 23);
+            this.txt_designation.TabIndex = 68;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(55, 290);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 16);
+            this.label1.TabIndex = 67;
+            this.label1.Text = "Designation :";
             // 
             // frmAjouterModeleACommande
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 411);
+            this.ClientSize = new System.Drawing.Size(415, 408);
+            this.Controls.Add(this.txt_designation);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_referenceModele);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_annuler);
@@ -241,5 +276,7 @@
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2TextBox txt_idCommande;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2TextBox txt_designation;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -83,7 +83,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(362, 208);
+            this.label7.Location = new System.Drawing.Point(362, 204);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 16);
             this.label7.TabIndex = 62;
@@ -91,7 +91,7 @@
             // 
             // txt_designation
             // 
-            this.txt_designation.Location = new System.Drawing.Point(470, 205);
+            this.txt_designation.Location = new System.Drawing.Point(470, 201);
             this.txt_designation.Name = "txt_designation";
             this.txt_designation.Size = new System.Drawing.Size(215, 37);
             this.txt_designation.TabIndex = 61;
@@ -139,7 +139,7 @@
             this.txt_prix.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_prix.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_prix.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_prix.Location = new System.Drawing.Point(130, 205);
+            this.txt_prix.Location = new System.Drawing.Point(130, 201);
             this.txt_prix.Name = "txt_prix";
             this.txt_prix.PasswordChar = '\0';
             this.txt_prix.PlaceholderText = "";
@@ -152,7 +152,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(23, 208);
+            this.label5.Location = new System.Drawing.Point(23, 204);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 16);
             this.label5.TabIndex = 52;

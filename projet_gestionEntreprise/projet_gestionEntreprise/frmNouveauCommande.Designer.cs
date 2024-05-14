@@ -43,7 +43,11 @@
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
             this.btn_valider = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_designationDeatil = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_designation = new Guna.UI2.WinForms.Guna2TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +59,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(347, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 16);
+            this.label1.Size = new System.Drawing.Size(131, 16);
             this.label1.TabIndex = 35;
             this.label1.Text = "Date Commande :";
             // 
@@ -87,7 +91,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(5, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 16);
+            this.label2.Size = new System.Drawing.Size(113, 16);
             this.label2.TabIndex = 33;
             this.label2.Text = "ID Commande :";
             // 
@@ -103,7 +107,7 @@
             this.txt_prixAchat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_prixAchat.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_prixAchat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_prixAchat.Location = new System.Drawing.Point(319, 105);
+            this.txt_prixAchat.Location = new System.Drawing.Point(187, 108);
             this.txt_prixAchat.Name = "txt_prixAchat";
             this.txt_prixAchat.PasswordChar = '\0';
             this.txt_prixAchat.PlaceholderText = "";
@@ -116,9 +120,9 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(222, 107);
+            this.label5.Location = new System.Drawing.Point(90, 110);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 16);
+            this.label5.Size = new System.Drawing.Size(85, 16);
             this.label5.TabIndex = 43;
             this.label5.Text = "Prix Achat :";
             // 
@@ -149,7 +153,7 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(425, 43);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 16);
+            this.label6.Size = new System.Drawing.Size(116, 16);
             this.label6.TabIndex = 41;
             this.label6.Text = "Quantite Achat :";
             // 
@@ -167,7 +171,7 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(33, 45);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(143, 16);
+            this.label7.Size = new System.Drawing.Size(144, 16);
             this.label7.TabIndex = 50;
             this.label7.Text = "Reference Modele :";
             // 
@@ -222,7 +226,7 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(277, 336);
+            this.btn_annuler.Location = new System.Drawing.Point(277, 347);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
@@ -242,7 +246,7 @@
             this.btn_valider.ForeColor = System.Drawing.Color.White;
             this.btn_valider.Image = ((System.Drawing.Image)(resources.GetObject("btn_valider.Image")));
             this.btn_valider.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_valider.Location = new System.Drawing.Point(436, 336);
+            this.btn_valider.Location = new System.Drawing.Point(436, 347);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_valider.Size = new System.Drawing.Size(142, 29);
@@ -252,6 +256,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_designationDeatil);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txt_referenceModele);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txt_prixAchat);
@@ -260,15 +266,48 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Enabled = false;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(38, 141);
+            this.groupBox1.Location = new System.Drawing.Point(38, 162);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(789, 169);
             this.groupBox1.TabIndex = 55;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information de modele";
             // 
+            // txt_designationDeatil
+            // 
+            this.txt_designationDeatil.BorderRadius = 2;
+            this.txt_designationDeatil.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_designationDeatil.DefaultText = "";
+            this.txt_designationDeatil.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_designationDeatil.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_designationDeatil.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_designationDeatil.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_designationDeatil.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_designationDeatil.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_designationDeatil.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_designationDeatil.Location = new System.Drawing.Point(545, 110);
+            this.txt_designationDeatil.Name = "txt_designationDeatil";
+            this.txt_designationDeatil.PasswordChar = '\0';
+            this.txt_designationDeatil.PlaceholderText = "";
+            this.txt_designationDeatil.SelectedText = "";
+            this.txt_designationDeatil.Size = new System.Drawing.Size(184, 23);
+            this.txt_designationDeatil.TabIndex = 55;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(440, 110);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 16);
+            this.label4.TabIndex = 54;
+            this.label4.Text = "Designation :";
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txt_designation);
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.btn_ajouterCommande);
             this.groupBox2.Controls.Add(this.dtp_dateCommande);
             this.groupBox2.Controls.Add(this.label1);
@@ -277,10 +316,41 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(38, 21);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(786, 90);
+            this.groupBox2.Size = new System.Drawing.Size(786, 135);
             this.groupBox2.TabIndex = 56;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Information de Commande";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(199, 92);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 16);
+            this.label3.TabIndex = 55;
+            this.label3.Text = "Designation :";
+            // 
+            // txt_designation
+            // 
+            this.txt_designation.BorderRadius = 3;
+            this.txt_designation.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_designation.DefaultText = "";
+            this.txt_designation.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_designation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_designation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_designation.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_designation.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_designation.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_designation.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_designation.Location = new System.Drawing.Point(304, 87);
+            this.txt_designation.Name = "txt_designation";
+            this.txt_designation.PasswordChar = '\0';
+            this.txt_designation.PlaceholderText = "";
+            this.txt_designation.SelectedText = "";
+            this.txt_designation.Size = new System.Drawing.Size(200, 25);
+            this.txt_designation.TabIndex = 56;
             // 
             // frmNouveauCommande
             // 
@@ -319,5 +389,9 @@
         private Guna.UI2.WinForms.Guna2Button btn_ajouterCommande;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2TextBox txt_designationDeatil;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2TextBox txt_designation;
     }
 }

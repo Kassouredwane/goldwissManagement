@@ -71,10 +71,9 @@ namespace projet_gestionEntreprise
             if (dr.Read())
             {
                 txt_idMatla.Text = dr["idMatla"].ToString();
-                txt_nbPieces.Text = dr["nbPiece"].ToString();
                 txt_numeroBon.Text = dr["numeroBon"].ToString();
+                txt_nbPieces.Text = dr["nbPieceSorter"].ToString();
                 txt_prixPhasonie.Text = dr["prixPhasonnier"].ToString();
-                txt_qteSorter.Text = dr["nbPieceSorter"].ToString();
                 txt_qteEnStock.Text = dr["qteStock"].ToString();
                 txt_referenceModele.Text = dr["referenceModele"].ToString();
                 dtp_dateDetailler.Value = Convert.ToDateTime(dr["dateDetailler"].ToString());
@@ -88,14 +87,13 @@ namespace projet_gestionEntreprise
         {
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
-            string reqq = "update matla set referenceModele=@referenceModele,idDetailleur=@idDetailleur,idPhasonie=@idPhasonie,nbPiece=@nbPiece,dateDetailler=@dateDetailler,nbPieceSorter=@nbPieceSorter,prixPhasonnier=@prixPhasonnier,numeroBon=@numeroBon,qteStock=@qteStock where idMatla=" + id;
+            string reqq = "update matla set referenceModele=@referenceModele,idDetailleur=@idDetailleur,idPhasonie=@idPhasonie,dateDetailler=@dateDetailler,nbPieceSorter=@nbPieceSorter,prixPhasonnier=@prixPhasonnier,numeroBon=@numeroBon,qteStock=@qteStock where idMatla=" + id;
             SqlCommand com = new SqlCommand(reqq, cn);
             com.Parameters.Add(new SqlParameter("@referenceModele", txt_referenceModele.Text));
             com.Parameters.Add(new SqlParameter("@idDetailleur", cb_detailleur.SelectedValue));
             com.Parameters.Add(new SqlParameter("@idPhasonie", cb_phasonie.SelectedValue));
-            com.Parameters.Add(new SqlParameter("@nbPiece", txt_nbPieces.Text));
             com.Parameters.Add(new SqlParameter("@dateDetailler", dtp_dateDetailler.Value));
-            com.Parameters.Add(new SqlParameter("@nbPieceSorter", txt_qteSorter.Text));
+            com.Parameters.Add(new SqlParameter("@nbPieceSorter", txt_nbPieces.Text));
             com.Parameters.Add(new SqlParameter("@prixPhasonnier", txt_prixPhasonie.Text));
             com.Parameters.Add(new SqlParameter("@numeroBon", txt_numeroBon.Text));
             com.Parameters.Add(new SqlParameter("@qteStock", txt_qteEnStock.Text));

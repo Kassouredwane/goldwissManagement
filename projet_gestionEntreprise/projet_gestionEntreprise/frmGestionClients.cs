@@ -178,7 +178,7 @@ namespace projet_gestionEntreprise
             }
         }
         private void btn_ajouter_Click(object sender, EventArgs e)
-        {
+        {        
             frmAjouterClient f = new frmAjouterClient();
             f.ShowDialog();
         }
@@ -312,6 +312,11 @@ namespace projet_gestionEntreprise
             int idClient = Convert.ToInt32(dgv_clients.CurrentRow.Cells[0].Value);
             frmTransactionsClient f = new frmTransactionsClient(idClient);
             f.ShowDialog();
+        }
+
+        private void txt_rechercher_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

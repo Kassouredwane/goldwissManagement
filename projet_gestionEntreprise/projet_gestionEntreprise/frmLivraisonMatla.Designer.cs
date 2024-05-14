@@ -42,6 +42,7 @@ namespace projet_gestionEntreprise
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
+            this.txt_totale = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_livraison)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@ namespace projet_gestionEntreprise
             this.btn_imprimerLivraison.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_imprimerLivraison.ForeColor = System.Drawing.Color.White;
             this.btn_imprimerLivraison.Image = ((System.Drawing.Image)(resources.GetObject("btn_imprimerLivraison.Image")));
-            this.btn_imprimerLivraison.Location = new System.Drawing.Point(824, 455);
+            this.btn_imprimerLivraison.Location = new System.Drawing.Point(171, 455);
             this.btn_imprimerLivraison.Name = "btn_imprimerLivraison";
             this.btn_imprimerLivraison.Size = new System.Drawing.Size(149, 29);
             this.btn_imprimerLivraison.TabIndex = 71;
@@ -171,7 +172,7 @@ namespace projet_gestionEntreprise
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(678, 455);
+            this.btn_annuler.Location = new System.Drawing.Point(25, 455);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(140, 29);
@@ -179,11 +180,31 @@ namespace projet_gestionEntreprise
             this.btn_annuler.Text = "Fermer";
             this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
             // 
+            // txt_totale
+            // 
+            this.txt_totale.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_totale.DefaultText = "";
+            this.txt_totale.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_totale.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_totale.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_totale.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_totale.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_totale.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_totale.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_totale.Location = new System.Drawing.Point(857, 455);
+            this.txt_totale.Name = "txt_totale";
+            this.txt_totale.PasswordChar = '\0';
+            this.txt_totale.PlaceholderText = "";
+            this.txt_totale.SelectedText = "";
+            this.txt_totale.Size = new System.Drawing.Size(116, 29);
+            this.txt_totale.TabIndex = 74;
+            // 
             // frmLivraisonMatla
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 499);
+            this.Controls.Add(this.txt_totale);
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.dgv_livraison);
             this.Controls.Add(this.btn_imprimerLivraison);
@@ -206,5 +227,6 @@ namespace projet_gestionEntreprise
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private Guna.UI2.WinForms.Guna2TextBox txt_totale;
     }
 }

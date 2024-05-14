@@ -23,14 +23,16 @@ namespace projet_gestionEntreprise
         {
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
-            string req = "SELECT l.idLivraison,l.numeroBonLivraison,l.dateLivraison,c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,SUM(dl.qteLivre) AS totalQuantity,SUM(dc.prixAchat * dl.qteLivre) AS totalAmount FROM livraison l  INNER JOIN detailLivraison dl ON dl.idLivraison = l.idLivraison  INNER JOIN matla mt ON mt.idMatla = dl.idMatla  INNER JOIN modele m ON m.referenceModele = mt.referenceModele  INNER JOIN detailCommande dc ON dc.idCommande = l.idCommande AND dc.referenceModele = m.referenceModele  INNER JOIN commande cmd on cmd.idCommande=dc.idCommande INNER JOIN client c on c.idClient=cmd.idClient " + filtre+ " GROUP BY l.idLivraison, l.numeroBonLivraison, l.dateLivraison,c.idClient,nomClient,prenomClient,cmd.idCommande ORDER BY l.idLivraison desc";
-            //string req = "SELECT l.idLivraison,l.numeroBonLivraison,l.dateLivraison,c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,SUM(dl.qteLivre) AS totalQuantity,SUM(dc.prixAchat * dl.qteLivre) AS totalAmount FROM livraison l  INNER JOIN detailLivraison dl ON dl.idLivraison = l.idLivraison  INNER JOIN matla mt ON mt.idMatla = dl.idMatla  INNER JOIN modele m ON m.referenceModele = mt.referenceModele  INNER JOIN detailCommande dc ON dc.idCommande = l.idCommande AND dc.referenceModele = m.referenceModele  INNER JOIN commande cmd on cmd.idCommande=dc.idCommande INNER JOIN client c on c.idClient=cmd.idClient " + filtre+ " GROUP BY l.idLivraison, l.numeroBonLivraison, l.dateLivraison,c.idClient,nomClient,prenomClient,cmd.idCommande ORDER BY dateLivraison desc";
+            //string req = "SELECT l.idLivraison,l.numeroBonLivraison,l.dateLivraison,c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,SUM(dl.qteLivre) AS totalQuantity,SUM(dl.prixVente * dl.qteLivre) AS totalAmount FROM livraison l  INNER JOIN detailLivraison dl ON dl.idLivraison = l.idLivraison  INNER JOIN matla mt ON mt.idMatla = dl.idMatla  INNER JOIN modele m ON m.referenceModele = mt.referenceModele  INNER JOIN detailCommande dc ON dc.idCommande = l.idCommande AND dc.referenceModele = m.referenceModele  INNER JOIN commande cmd on cmd.idCommande=dc.idCommande INNER JOIN client c on c.idClient=cmd.idClient " + filtre+ " GROUP BY l.idLivraison, l.numeroBonLivraison, l.dateLivraison,c.idClient,nomClient,prenomClient,cmd.idCommande ORDER BY l.idLivraison desc";
+            /////string req = "SELECT l.idLivraison,l.numeroBonLivraison,l.dateLivraison,c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,SUM(dl.qteLivre) AS totalQuantity,SUM(dc.prixAchat * dl.qteLivre) AS totalAmount FROM livraison l  INNER JOIN detailLivraison dl ON dl.idLivraison = l.idLivraison  INNER JOIN matla mt ON mt.idMatla = dl.idMatla  INNER JOIN modele m ON m.referenceModele = mt.referenceModele  INNER JOIN detailCommande dc ON dc.idCommande = l.idCommande AND dc.referenceModele = m.referenceModele  INNER JOIN commande cmd on cmd.idCommande=dc.idCommande INNER JOIN client c on c.idClient=cmd.idClient " + filtre+ " GROUP BY l.idLivraison, l.numeroBonLivraison, l.dateLivraison,c.idClient,nomClient,prenomClient,cmd.idCommande ORDER BY dateLivraison desc";
+            //string req = "select l.idLivraison,numeroBonLivraison,dateLivraison,nomClient,l.designation,sum(dl.qteLivre) as totalQuantity,totalPaye,remise from livraison l inner join detailLivraison dl on dl.idLivraison=l.idLivraison inner join detailCommande dc on dc.idDetailCommande=dl.idDetailCommande inner join commande cmd on cmd.idCommande=dc.idCommande inner join client c on c.idClient=cmd.idClient " + filtre+ " group by l.idLivraison,numeroBonLivraison,dateLivraison,nomClient,l.designation,totalPaye,remise  ORDER BY l.idLivraison desc";
+            string req = "select l.idLivraison,numeroBonLivraison,dateLivraison,c.idClient,nomClient,l.designation,sum(dl.qteLivre) as totalQuantity,sum(dl.qteLivre*dl.prixVente) as totalPaye,remise from livraison l left join detailLivraison dl on dl.idLivraison=l.idLivraison inner join detailCommande dc on dc.idDetailCommande=dl.idDetailCommande inner join commande cmd on cmd.idCommande=dc.idCommande inner join client c on c.idClient=cmd.idClient " + filtre+ " group by l.idLivraison,numeroBonLivraison,dateLivraison,c.idClient,nomClient,l.designation,remise  ORDER BY l.idLivraison desc";
             SqlCommand com = new SqlCommand(req, cn);
             SqlDataReader dr = com.ExecuteReader();
             dgv_livraison.Rows.Clear();
             while (dr.Read())
             {
-                dgv_livraison.Rows.Add(dr["idLivraison"], dr["numeroBonLivraison"], Convert.ToDateTime(dr["dateLivraison"].ToString()).ToShortDateString(), dr["idClient"], dr["nomComplet"], dr["idCommande"], dr["totalQuantity"], dr["totalAmount"]);
+                dgv_livraison.Rows.Add(dr["idLivraison"], dr["numeroBonLivraison"], Convert.ToDateTime(dr["dateLivraison"].ToString()).ToShortDateString(), dr["nomClient"], dr["designation"], dr["totalQuantity"], dr["totalPaye"], dr["remise"], dr["idClient"]);
             }
             dr.Close();
             dr = null;
@@ -114,13 +116,14 @@ namespace projet_gestionEntreprise
         {
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
-            string req = "SELECT livraison.idCommande,matla.referenceModele,modele.designation AS designationModele,detailCommande.qteAchat AS quantiteCommande,detailCommande.prixAchat AS prixAchatModele,SUM(detailLivraison.qteLivre) AS quantiteLivre FROM livraison INNER JOIN detailCommande ON livraison.idCommande = detailCommande.idCommande INNER JOIN matla ON detailCommande.referenceModele = matla.referenceModele INNER JOIN modele ON matla.referenceModele = modele.referenceModele inner JOIN detailLivraison ON livraison.idLivraison = detailLivraison.idLivraison AND matla.idMatla = detailLivraison.idMatla where livraison.idLivraison = "+dgv_livraison.CurrentRow.Cells[0].Value+" GROUP BY livraison.idCommande,matla.referenceModele,modele.designation,detailCommande.qteAchat,detailCommande.prixAchat";
+            //string req = "SELECT livraison.idCommande,matla.referenceModele,modele.designation AS designationModele,detailCommande.qteAchat AS quantiteCommande,prixVente AS prixAchatModele,SUM(detailLivraison.qteLivre) AS quantiteLivre FROM livraison INNER JOIN detailCommande ON livraison.idCommande = detailCommande.idCommande INNER JOIN matla ON detailCommande.referenceModele = matla.referenceModele INNER JOIN modele ON matla.referenceModele = modele.referenceModele inner JOIN detailLivraison ON livraison.idLivraison = detailLivraison.idLivraison AND matla.idMatla = detailLivraison.idMatla where livraison.idLivraison = "+dgv_livraison.CurrentRow.Cells[0].Value+ " GROUP BY livraison.idCommande,matla.referenceModele,modele.designation,detailCommande.qteAchat,prixVente";
+            string req = "select m.referenceModele,m.designation,qteAchat,dl.qteLivre,prixVente,idDetailLivraison,sum(dl.qteLivre*dl.prixVente) as totalePrix from detailLivraison dl inner join detailCommande dc on dc.idDetailCommande=dl.idDetailCommande inner join modele m on m.referenceModele=dc.referenceModele where dl.idLivraison="+dgv_livraison.CurrentRow.Cells[0].Value+ " group by m.referenceModele,m.designation,qteAchat,dl.qteLivre,prixVente,idDetailLivraison";
             SqlCommand com = new SqlCommand(req, cn);
             SqlDataReader dr = com.ExecuteReader();
             dgv_detailLivraison.Rows.Clear();
             while (dr.Read())
             {
-                dgv_detailLivraison.Rows.Add(dr["referenceModele"], dr["designationModele"], dr["quantiteCommande"], dr["prixAchatModele"], dr["quantiteLivre"]);
+                dgv_detailLivraison.Rows.Add(dr["referenceModele"], dr["designation"], dr["qteAchat"], dr["qteLivre"], dr["prixVente"], dr["totalePrix"], dr["idDetailLivraison"]) ;
             }
             dr.Close();
             dr = null;
@@ -245,10 +248,40 @@ namespace projet_gestionEntreprise
             //DataSet ds = new DataSet();
             //ad.Fill(ds, "Livraison");
 
-            bonLivraison cr = new bonLivraison();
+            /////////////bonLivraison cr = new bonLivraison();
             //cr.SetDataSource(ds.Tables["Livraison"]);
 
-            imprimer(cr);
+            //////////////imprimer(cr);
+
+
+            bonLivraison cr = new bonLivraison();
+            //cr.Refresh();
+            cr.SetDatabaseLogon("sa", "123456");
+
+            string filtre = "{livraison.idLivraison}=" + dgv_livraison.CurrentRow.Cells[0].Value;
+            frmImpression f = new frmImpression(cr, filtre);
+            f.ShowDialog();
+
+        }
+
+        private void dgv_detailLivraison_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_detailLivraison.Columns[e.ColumnIndex].Name== "Column12")
+            {
+                MessageBox.Show("reference : "+dgv_detailLivraison.CurrentRow.Cells[0].Value);
+            }
+            if (dgv_detailLivraison.Columns[e.ColumnIndex].Name == "Column14")
+            {
+                int idDl = Convert.ToInt32(dgv_detailLivraison.CurrentRow.Cells[6].Value);
+                int idCl = Convert.ToInt32(dgv_livraison.CurrentRow.Cells[8].Value);
+                frmAjouterDetailRetour f = new frmAjouterDetailRetour(idDl,idCl);
+                f.ShowDialog();
+            }
+        }
+
+        private void dgv_livraison_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

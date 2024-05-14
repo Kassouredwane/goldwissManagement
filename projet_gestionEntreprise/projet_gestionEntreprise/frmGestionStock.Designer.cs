@@ -54,7 +54,8 @@
             this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
             this.btn_ajouter = new Guna.UI2.WinForms.Guna2Button();
             this.imageModele = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_situationsModeles = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_modeles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageModele)).BeginInit();
             this.SuspendLayout();
@@ -122,6 +123,7 @@
             this.txt_rechercher.SelectedText = "";
             this.txt_rechercher.Size = new System.Drawing.Size(232, 27);
             this.txt_rechercher.TabIndex = 18;
+            this.txt_rechercher.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_rechercher_KeyUp);
             // 
             // dgv_modeles
             // 
@@ -350,23 +352,46 @@
             this.imageModele.TabStop = false;
             this.imageModele.Click += new System.EventHandler(this.imageModele_Click);
             // 
-            // button1
+            // guna2Button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(38, 838);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 29);
-            this.button1.TabIndex = 72;
-            this.button1.Text = "Imprimer";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(38, 838);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(167, 29);
+            this.guna2Button1.TabIndex = 74;
+            this.guna2Button1.Text = "Imprimer commande";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // btn_situationsModeles
+            // 
+            this.btn_situationsModeles.BorderRadius = 2;
+            this.btn_situationsModeles.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_situationsModeles.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_situationsModeles.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_situationsModeles.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_situationsModeles.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_situationsModeles.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_situationsModeles.ForeColor = System.Drawing.Color.White;
+            this.btn_situationsModeles.Image = ((System.Drawing.Image)(resources.GetObject("btn_situationsModeles.Image")));
+            this.btn_situationsModeles.Location = new System.Drawing.Point(381, 838);
+            this.btn_situationsModeles.Name = "btn_situationsModeles";
+            this.btn_situationsModeles.Size = new System.Drawing.Size(121, 29);
+            this.btn_situationsModeles.TabIndex = 76;
+            this.btn_situationsModeles.Text = "Situations";
+            this.btn_situationsModeles.Click += new System.EventHandler(this.btn_situationsModeles_Click);
             // 
             // frmGestionStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1218, 899);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_situationsModeles);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.btn_listeMatla);
             this.Controls.Add(this.btn_afficherLivraison);
             this.Controls.Add(this.btn_afficherCommandes);
@@ -414,6 +439,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.Button button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btn_situationsModeles;
     }
 }

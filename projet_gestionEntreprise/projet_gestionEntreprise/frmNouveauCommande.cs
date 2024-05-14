@@ -38,12 +38,13 @@ namespace projet_gestionEntreprise
             {
                 SqlConnection cn1 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                 cn1.Open();
-                string req = "insert into detailCommande(idCommande,referenceModele,qteAchat,prixAchat) values (@idCommande,@referenceModele,@qteAchat,@prixAchat)";
+                string req = "insert into detailCommande(idCommande,referenceModele,qteAchat,prixAchat,designation) values (@idCommande,@referenceModele,@qteAchat,@prixAchat,@designation)";
                 SqlCommand com1 = new SqlCommand(req, cn1);
                 com1.Parameters.Add(new SqlParameter("@idCommande", txt_idCommande.Text));
                 com1.Parameters.Add(new SqlParameter("@referenceModele", txt_referenceModele.Text));
                 com1.Parameters.Add(new SqlParameter("@qteAchat", txt_qteAchat.Text));
                 com1.Parameters.Add(new SqlParameter("@prixAchat", txt_prixAchat.Text));
+                com1.Parameters.Add(new SqlParameter("@designation", txt_designationDeatil.Text));
                 com1.ExecuteNonQuery();
                 //com = null;
                 //cn.Close();
@@ -61,6 +62,9 @@ namespace projet_gestionEntreprise
         }
         private void frmAjouterCommande_Load(object sender, EventArgs e)
         {
+            txt_designation.Text = "Aucun Description";
+            txt_designation.Enabled = true;
+            txt_designationDeatil.Text = "Aucun Description";
             try
             {
                 //cb_statutPayement.SelectedIndex = 1;
@@ -84,10 +88,12 @@ namespace projet_gestionEntreprise
             {
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                 cn.Open();
-                string reqq = "insert into commande(dateCommande,idClient) values(@dateCommande,@idClient)";
+                string reqq = "insert into commande(idCommande,dateCommande,idClient,designation) values(@idCommande,@dateCommande,@idClient,@designation)";
                 SqlCommand com = new SqlCommand(reqq, cn);
+                com.Parameters.Add(new SqlParameter("@idCommande", txt_idCommande.Text));
                 com.Parameters.Add(new SqlParameter("@dateCommande", dtp_dateCommande.Value));
                 com.Parameters.Add(new SqlParameter("@idClient", idclient));
+                com.Parameters.Add(new SqlParameter("@designation", txt_designation.Text));
                 com.ExecuteNonQuery();
 
                 com = null;

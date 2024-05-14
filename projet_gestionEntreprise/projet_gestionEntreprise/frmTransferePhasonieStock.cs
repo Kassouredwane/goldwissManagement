@@ -24,13 +24,14 @@ namespace projet_gestionEntreprise
                 // fill grid view by transfere
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                 cn.Open();
-                string req = "select nomPhasonie+' '+prenomPhasonie as phasonie,mt.idMatla,mt.referenceModele,designation,nbPieceSorter,pss.qteStocker,dateStocker,pss.numeroBon,pss.idPhasonierStocker from phasonieStocker pss inner join matla mt on mt.idMatla=pss.idMatla inner join phasonie ps on ps.idPhasonie=mt.idPhasonie inner join modele m on m.referenceModele=mt.referenceModele" + filtre + " order by idPhasonierStocker desc";
+                //string req = "select nomPhasonie+' '+prenomPhasonie as phasonie,mt.idMatla,mt.referenceModele,designation,nbPieceSorter,pss.qteStocker,dateStocker,pss.numeroBon,pss.idPhasonierStocker from phasonieStocker pss inner join matla mt on mt.idMatla=pss.idMatla inner join phasonie ps on ps.idPhasonie=mt.idPhasonie inner join modele m on m.referenceModele=mt.referenceModele" + filtre + " order by idPhasonierStocker desc";
+                string req = "select nomPhasonie,mt.idMatla,mt.referenceModele,m.designation,mt.nbPieceSorter,pss.qteStocker,pss.qteConfirmer,dateStocker,pss.numeroBon,pss.idPhasonierStocker,confirmer from phasonieStocker pss inner join matla mt on mt.idMatla=pss.idMatla inner join phasonie ps on ps.idPhasonie=mt.idPhasonie inner join modele m on m.referenceModele=mt.referenceModele where archiver=0 "+filtre+ " order by idPhasonierStocker desc";
                 SqlCommand com = new SqlCommand(req, cn);
                 SqlDataReader dr = com.ExecuteReader();
                 dgv_stockage.Rows.Clear();
                 while (dr.Read())
                 {
-                    dgv_stockage.Rows.Add(dr["phasonie"], dr["idMatla"], dr["referenceModele"], dr["designation"], dr["nbPieceSorter"], dr["qteStocker"], Convert.ToDateTime(dr["dateStocker"].ToString()).ToShortDateString(), dr["numeroBon"], dr["idPhasonierStocker"]);
+                    dgv_stockage.Rows.Add(dr["nomPhasonie"], dr["idMatla"], dr["referenceModele"], dr["designation"], dr["nbPieceSorter"], dr["qteStocker"], dr["qteConfirmer"], Convert.ToDateTime(dr["dateStocker"].ToString()).ToShortDateString(), dr["numeroBon"], dr["idPhasonierStocker"], dr["confirmer"]);
                 }
                 dr.Close();
                 dr = null;
@@ -44,13 +45,14 @@ namespace projet_gestionEntreprise
                 // fill grid view by transfere
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                 cn.Open();
-                string req = "select nomPhasonie+' '+prenomPhasonie as phasonie,mt.idMatla,mt.referenceModele,designation,nbPieceSorter,pss.qteStocker,dateStocker,pss.numeroBon,pss.idPhasonierStocker from phasonieStocker pss inner join matla mt on mt.idMatla=pss.idMatla inner join phasonie ps on ps.idPhasonie=mt.idPhasonie inner join modele m on m.referenceModele=mt.referenceModele where mt.statutComplet=0 "+filtre+ " order by idPhasonierStocker desc";
+                //string req = "select nomPhasonie+' '+prenomPhasonie as phasonie,mt.idMatla,mt.referenceModele,designation,nbPieceSorter,pss.qteStocker,dateStocker,pss.numeroBon,pss.idPhasonierStocker from phasonieStocker pss inner join matla mt on mt.idMatla=pss.idMatla inner join phasonie ps on ps.idPhasonie=mt.idPhasonie inner join modele m on m.referenceModele=mt.referenceModele where mt.statutComplet=0 "+filtre+ " order by idPhasonierStocker desc";
+                string req = "select nomPhasonie,mt.idMatla,mt.referenceModele,m.designation,mt.nbPieceSorter,pss.qteStocker,pss.qteConfirmer,dateStocker,pss.numeroBon,pss.idPhasonierStocker,confirmer from phasonieStocker pss inner join matla mt on mt.idMatla=pss.idMatla inner join phasonie ps on ps.idPhasonie=mt.idPhasonie inner join modele m on m.referenceModele=mt.referenceModele where mt.statutComplet=0 and archiver=0 " + filtre + " order by idPhasonierStocker desc";
                 SqlCommand com = new SqlCommand(req, cn);
                 SqlDataReader dr = com.ExecuteReader();
                 dgv_stockage.Rows.Clear();
                 while (dr.Read())
                 {
-                    dgv_stockage.Rows.Add(dr["phasonie"], dr["idMatla"], dr["referenceModele"], dr["designation"], dr["nbPieceSorter"], dr["qteStocker"], Convert.ToDateTime(dr["dateStocker"].ToString()).ToShortDateString(), dr["numeroBon"], dr["idPhasonierStocker"]);
+                    dgv_stockage.Rows.Add(dr["nomPhasonie"], dr["idMatla"], dr["referenceModele"], dr["designation"], dr["nbPieceSorter"], dr["qteStocker"], dr["qteConfirmer"], Convert.ToDateTime(dr["dateStocker"].ToString()).ToShortDateString(), dr["numeroBon"], dr["idPhasonierStocker"], dr["confirmer"]);
                 }
                 dr.Close();
                 dr = null;
@@ -95,7 +97,7 @@ namespace projet_gestionEntreprise
             {
                 SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                 cn.Open();
-                string req = "delete from phasonieStocker where idPhasonierStocker=" + dgv_stockage.CurrentRow.Cells[8].Value;
+                string req = "delete from phasonieStocker where idPhasonierStocker=" + dgv_stockage.CurrentRow.Cells[9].Value;
                 SqlCommand com = new SqlCommand(req, cn);
                 com.ExecuteNonQuery();
                 com = null;
@@ -116,15 +118,15 @@ namespace projet_gestionEntreprise
                 {
                     case 0:
                         if (chk_enAttentePieces.Checked == true) refresh(" and mt.idMatla=" + txt_rechercher.Text);
-                        else if (chk_enAttentePieces.Checked == false) refresh(" where mt.idMatla=" + txt_rechercher.Text);
+                        else if (chk_enAttentePieces.Checked == false) refresh(" and mt.idMatla=" + txt_rechercher.Text);
                         break;
                     case 1:
                         if (chk_enAttentePieces.Checked == true) refresh(" and nomPhasonie like '%" + txt_rechercher.Text + "%' or prenomPhasonie like '%" + txt_rechercher.Text + "%'");
-                        else if (chk_enAttentePieces.Checked == false) refresh(" where nomPhasonie like '%" + txt_rechercher.Text + "%' or prenomPhasonie like '%" + txt_rechercher.Text + "%'");
+                        else if (chk_enAttentePieces.Checked == false) refresh(" and nomPhasonie like '%" + txt_rechercher.Text + "%' or prenomPhasonie like '%" + txt_rechercher.Text + "%'");
                         break;
                     case 2:
                         if (chk_enAttentePieces.Checked == true) refresh(" and pss.numeroBon=" + txt_rechercher.Text );
-                        else if (chk_enAttentePieces.Checked == false) refresh(" where pss.numeroBon=" + txt_rechercher.Text);
+                        else if (chk_enAttentePieces.Checked == false) refresh(" and pss.numeroBon=" + txt_rechercher.Text);
                         break;
                 }
             }
@@ -132,6 +134,15 @@ namespace projet_gestionEntreprise
             {
                 MessageBox.Show("doit etre rechercher par l'element séléctionner", "Inforamtion", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btn_confirmerEntree_Click(object sender, EventArgs e)
+        {
+            int idStocker = Convert.ToInt32(dgv_stockage.CurrentRow.Cells[9].Value);
+            int qteSt = Convert.ToInt32(dgv_stockage.CurrentRow.Cells[5].Value);
+            int idMt = Convert.ToInt32(dgv_stockage.CurrentRow.Cells[1].Value);
+            frmConfirmerEntree f = new frmConfirmerEntree(idStocker,qteSt,idMt);
+            f.ShowDialog();
         }
     }
 }

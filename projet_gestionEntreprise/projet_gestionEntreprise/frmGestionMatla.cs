@@ -22,9 +22,9 @@ namespace projet_gestionEntreprise
         {
             foreach (DataGridViewRow row in dgv_matla.Rows)
             {
-                if (row.Cells[12].Value == "")
+                if (row.Cells[10].Value == "")
                 {
-                    row.Cells[12].Value ="default";
+                    row.Cells[10].Value ="default";
                 }
             }
         }
@@ -32,14 +32,15 @@ namespace projet_gestionEntreprise
         {
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
-            //string req = "select m.*,nomDetailleur+' '+prenomDetailleur as nomDetailleur,nomPhasonie+' '+prenomPhasonie as nomPhaosnie,ISNULL(sum(pss.qteStocker),0) as entree,designationStatutMatla,nbPieceSorter-ISNULL(sum(pss.qteStocker),0) as enAttente from matla m  left join phasonieStocker pss on pss.idMatla=m.idMatla inner join detailleur d on d.idDetailleur=m.idDetailleur inner join phasonie p on p.idPhasonie=m.idPhasonie inner join statutMatla sm on sm.idStatutMatla=m.idStatutMatla where m.statutComplet='" + Convert.ToString(!guna2CheckBox2.Checked) + "' and statutTerminer='" + Convert.ToString(!guna2CheckBox1.Checked) + "' " + filtre+ " group by m.idMatla,m.referenceModele,m.idDetailleur,m.idPhasonie,nbPiece,dateDetailler,designationStatutMatla,nbPieceSorter,prixPhasonnier, statutComplet,m.numeroBon,statutTerminer,qteStock,m.idStatutMatla,entrees,nomDetailleur,prenomDetailleur,nomPhasonie,prenomPhasonie order by m.idMatla desc";
-            string req = "select m.*,nomDetailleur+' '+prenomDetailleur as nomDetailleur,nomPhasonie+' '+prenomPhasonie as nomPhaosnie,designationStatutMatla,nbPieceSorter-ISNULL(sum(pss.qteStocker),0) as enAttente from matla m  left join phasonieStocker pss on pss.idMatla=m.idMatla inner join detailleur d on d.idDetailleur=m.idDetailleur inner join phasonie p on p.idPhasonie=m.idPhasonie inner join statutMatla sm on sm.idStatutMatla=m.idStatutMatla where m.statutComplet='" + Convert.ToString(!guna2CheckBox2.Checked) + "' and statutTerminer='" + Convert.ToString(!guna2CheckBox1.Checked) + "' " + filtre+ " group by m.idMatla,m.referenceModele,m.idDetailleur,m.idPhasonie,nbPiece,dateDetailler,designationStatutMatla,nbPieceSorter,prixPhasonnier, statutComplet,m.numeroBon,statutTerminer,qteStock,m.idStatutMatla,entrees,nomDetailleur,prenomDetailleur,nomPhasonie,prenomPhasonie order by m.idMatla desc";
+            ////string req = "select m.*,nomDetailleur+' '+prenomDetailleur as nomDetailleur,nomPhasonie+' '+prenomPhasonie as nomPhaosnie,ISNULL(sum(pss.qteStocker),0) as entree,designationStatutMatla,nbPieceSorter-ISNULL(sum(pss.qteStocker),0) as enAttente from matla m  left join phasonieStocker pss on pss.idMatla=m.idMatla inner join detailleur d on d.idDetailleur=m.idDetailleur inner join phasonie p on p.idPhasonie=m.idPhasonie inner join statutMatla sm on sm.idStatutMatla=m.idStatutMatla where m.statutComplet='" + Convert.ToString(!guna2CheckBox2.Checked) + "' and statutTerminer='" + Convert.ToString(!guna2CheckBox1.Checked) + "' " + filtre+ " group by m.idMatla,m.referenceModele,m.idDetailleur,m.idPhasonie,nbPiece,dateDetailler,designationStatutMatla,nbPieceSorter,prixPhasonnier, statutComplet,m.numeroBon,statutTerminer,qteStock,m.idStatutMatla,entrees,nomDetailleur,prenomDetailleur,nomPhasonie,prenomPhasonie order by m.idMatla desc";
+            //string req = "select m.*,prenomDetailleur,nomPhasonie+' '+prenomPhasonie as nomPhasonie,designationStatutMatla,nbPieceSorter-entrees as Manque from matla m  left join phasonieStocker pss on pss.idMatla=m.idMatla inner join detailleur d on d.idDetailleur=m.idDetailleur inner join phasonie p on p.idPhasonie=m.idPhasonie inner join statutMatla sm on sm.idStatutMatla=m.idStatutMatla where m.statutComplet='" + Convert.ToString(!guna2CheckBox2.Checked) + "' and statutTerminer='" + Convert.ToString(!guna2CheckBox1.Checked) + "' " + filtre + " order by m.idMatla desc";
+            string req = "select mt.idMatla,mt.referenceModele,mt.nbPieceSorter,prenomDetailleur,dateDetailler,nomPhasonie+' '+prenomPhasonie as nomPhasonie,prixPhasonnier,numeroBon,designationStatutMatla,mt.nbPieceSorter,mt.entrees,mt.qteStock,mt.nbPieceSorter-mt.entrees as Manque from matla mt inner join detailleur dt on dt.idDetailleur=mt.idDetailleur inner join phasonie ps on ps.idPhasonie=mt.idPhasonie inner join statutMatla st on st.idStatutMatla=mt.idStatutMatla  where mt.statutComplet='" + Convert.ToString(!guna2CheckBox2.Checked) + "' " + filtre + " order by mt.idMatla desc";
             SqlCommand com = new SqlCommand(req, cn);
             SqlDataReader dr = com.ExecuteReader();
             dgv_matla.Rows.Clear();
             while (dr.Read())
             {
-                dgv_matla.Rows.Add(dr["idMatla"], dr["referenceModele"], dr["nbPiece"], dr["nomDetailleur"], Convert.ToDateTime(dr["dateDetailler"].ToString()).ToShortDateString(), dr["nomPhaosnie"], dr["prixPhasonnier"], dr["numeroBon"], dr["designationStatutMatla"], dr["nbPieceSorter"], dr["entrees"], dr["qteStock"], dr["enAttente"]);
+                dgv_matla.Rows.Add(dr["idMatla"], dr["referenceModele"], dr["prenomDetailleur"], Convert.ToDateTime(dr["dateDetailler"].ToString()).ToShortDateString(), dr["nomPhasonie"], dr["prixPhasonnier"], dr["numeroBon"], dr["designationStatutMatla"], dr["nbPieceSorter"], dr["entrees"], dr["qteStock"], dr["Manque"]);
             }
             // close all commandes and connection and datareader
             dr.Close();
@@ -63,19 +64,15 @@ namespace projet_gestionEntreprise
 
         private void guna2CheckBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (guna2CheckBox2.Checked)
-            {
-                guna2CheckBox1.Checked = true;
-            }
             refresh("");
             txt_rechercher.Text = "";
         }
 
-        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            refresh("");
-            txt_rechercher.Text = "";
-        }
+        //private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    //refresh("");
+        //    //txt_rechercher.Text = "";
+        //}
 
         private void btn_ajouter_Click(object sender, EventArgs e)
         {
@@ -249,16 +246,16 @@ namespace projet_gestionEntreprise
                 switch (cb_recherche.SelectedIndex)
                 {
                     case 0:
-                        refresh(" and m.idMatla=" + txt_rechercher.Text);
+                        refresh(" and mt.idMatla=" + txt_rechercher.Text);
                         break;
                     case 1:
-                        refresh(" and m.referenceModele='" + txt_rechercher.Text+"'");
+                        refresh(" and mt.referenceModele='" + txt_rechercher.Text+"'");
                         break;
                     case 2:
                         refresh(" and nomPhasonie like '%" + txt_rechercher.Text + "%' or prenomPhasonie like '%" + txt_rechercher.Text + "%'");
                         break;
                     case 3:
-                        refresh(" and m.numeroBon=" + txt_rechercher.Text);
+                        refresh(" and mt.numeroBon=" + txt_rechercher.Text);
                         break;
                 }
             }
@@ -298,10 +295,22 @@ namespace projet_gestionEntreprise
         private void btn_livraisonMatla_Click(object sender, EventArgs e)
         {
             int idMatla = Convert.ToInt32(dgv_matla.CurrentRow.Cells[0].Value);
-            int entre = Convert.ToInt32(dgv_matla.CurrentRow.Cells[10].Value);
-            int attente = Convert.ToInt32(dgv_matla.CurrentRow.Cells[12].Value);
+            int entre = Convert.ToInt32(dgv_matla.CurrentRow.Cells[9].Value);
+            int attente = Convert.ToInt32(dgv_matla.CurrentRow.Cells[11].Value);
             frmLivraisonMatla f = new frmLivraisonMatla(idMatla,entre,attente);
             f.ShowDialog();
+        }
+
+        private void btn_affichePhasonie_Click(object sender, EventArgs e)
+        {
+            afficherPhasonie f = new afficherPhasonie();
+            f.ShowDialog();
+        }
+
+        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            refresh("");
+            txt_rechercher.Text = "";
         }
     }
 }

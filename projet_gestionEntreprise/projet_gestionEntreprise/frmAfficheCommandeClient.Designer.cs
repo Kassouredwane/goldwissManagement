@@ -39,19 +39,27 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_detailCommandeClient = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.chk_enCourLivraison = new Guna.UI2.WinForms.Guna2CheckBox();
             this.dgv_commandeClient = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.cb_matla = new System.Windows.Forms.ComboBox();
+            this.cb_idMatla = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_designationDetail = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txt_prixVente = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txt_idLivraison = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_ajouterLivraison = new Guna.UI2.WinForms.Guna2Button();
@@ -106,10 +114,13 @@
             this.dgv_detailCommandeClient.ColumnHeadersHeight = 20;
             this.dgv_detailCommandeClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgv_detailCommandeClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column3,
             this.Column4,
+            this.Column15,
             this.Column5,
             this.Column6,
-            this.Column7});
+            this.Column7,
+            this.Column10});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -147,14 +158,25 @@
             this.dgv_detailCommandeClient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgv_detailCommandeClient.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_detailCommandeClient_CellValueChanged);
             // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "id Detail";
+            this.Column3.Name = "Column3";
+            this.Column3.Visible = false;
+            // 
             // Column4
             // 
-            this.Column4.HeaderText = "Reference modele";
+            this.Column4.HeaderText = "Ref modele";
             this.Column4.Name = "Column4";
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Designation";
+            this.Column15.Name = "Column15";
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "Quantite Achat";
+            this.Column5.HeaderText = "Quantite";
             this.Column5.Name = "Column5";
             // 
             // Column6
@@ -164,10 +186,17 @@
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Statut Livraison";
+            this.Column7.HeaderText = "Livré";
             this.Column7.Name = "Column7";
             this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Soldé";
+            this.Column10.Name = "Column10";
+            this.Column10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // chk_enCourLivraison
             // 
@@ -206,6 +235,7 @@
             this.dgv_commandeClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
+            this.Column14,
             this.Column8});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
@@ -216,10 +246,10 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_commandeClient.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_commandeClient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgv_commandeClient.Location = new System.Drawing.Point(14, 40);
+            this.dgv_commandeClient.Location = new System.Drawing.Point(12, 40);
             this.dgv_commandeClient.Name = "dgv_commandeClient";
             this.dgv_commandeClient.RowHeadersVisible = false;
-            this.dgv_commandeClient.Size = new System.Drawing.Size(452, 401);
+            this.dgv_commandeClient.Size = new System.Drawing.Size(454, 401);
             this.dgv_commandeClient.TabIndex = 43;
             this.dgv_commandeClient.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv_commandeClient.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -255,6 +285,11 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Date Commande";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Designation";
+            this.Column14.Name = "Column14";
+            // 
             // Column8
             // 
             this.Column8.HeaderText = "Statut Livraison";
@@ -284,8 +319,12 @@
             // 
             // guna2GroupBox1
             // 
-            this.guna2GroupBox1.Controls.Add(this.cb_matla);
+            this.guna2GroupBox1.Controls.Add(this.cb_idMatla);
+            this.guna2GroupBox1.Controls.Add(this.label7);
+            this.guna2GroupBox1.Controls.Add(this.txt_designationDetail);
             this.guna2GroupBox1.Controls.Add(this.label5);
+            this.guna2GroupBox1.Controls.Add(this.txt_prixVente);
+            this.guna2GroupBox1.Controls.Add(this.label6);
             this.guna2GroupBox1.Controls.Add(this.txt_idLivraison);
             this.guna2GroupBox1.Controls.Add(this.label2);
             this.guna2GroupBox1.Controls.Add(this.btn_ajouterLivraison);
@@ -302,17 +341,49 @@
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.White;
             this.guna2GroupBox1.Location = new System.Drawing.Point(15, 12);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(479, 356);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(479, 395);
             this.guna2GroupBox1.TabIndex = 58;
             this.guna2GroupBox1.Text = "Information livraison de modele";
             // 
-            // cb_matla
+            // cb_idMatla
             // 
-            this.cb_matla.FormattingEnabled = true;
-            this.cb_matla.Location = new System.Drawing.Point(210, 266);
-            this.cb_matla.Name = "cb_matla";
-            this.cb_matla.Size = new System.Drawing.Size(184, 23);
-            this.cb_matla.TabIndex = 81;
+            this.cb_idMatla.FormattingEnabled = true;
+            this.cb_idMatla.Location = new System.Drawing.Point(210, 327);
+            this.cb_idMatla.Name = "cb_idMatla";
+            this.cb_idMatla.Size = new System.Drawing.Size(183, 23);
+            this.cb_idMatla.TabIndex = 88;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(61, 330);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 16);
+            this.label7.TabIndex = 87;
+            this.label7.Text = "Id Matla :";
+            // 
+            // txt_designationDetail
+            // 
+            this.txt_designationDetail.BorderRadius = 2;
+            this.txt_designationDetail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_designationDetail.DefaultText = "";
+            this.txt_designationDetail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_designationDetail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_designationDetail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_designationDetail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_designationDetail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_designationDetail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_designationDetail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_designationDetail.Location = new System.Drawing.Point(210, 190);
+            this.txt_designationDetail.Name = "txt_designationDetail";
+            this.txt_designationDetail.PasswordChar = '\0';
+            this.txt_designationDetail.PlaceholderText = "";
+            this.txt_designationDetail.SelectedText = "";
+            this.txt_designationDetail.Size = new System.Drawing.Size(184, 23);
+            this.txt_designationDetail.TabIndex = 86;
             // 
             // label5
             // 
@@ -320,11 +391,43 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(61, 270);
+            this.label5.Location = new System.Drawing.Point(61, 193);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 16);
-            this.label5.TabIndex = 82;
-            this.label5.Text = "N° Matla :";
+            this.label5.Size = new System.Drawing.Size(99, 16);
+            this.label5.TabIndex = 85;
+            this.label5.Text = "Designation :";
+            // 
+            // txt_prixVente
+            // 
+            this.txt_prixVente.BorderRadius = 2;
+            this.txt_prixVente.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_prixVente.DefaultText = "";
+            this.txt_prixVente.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_prixVente.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_prixVente.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_prixVente.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_prixVente.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_prixVente.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_prixVente.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_prixVente.Location = new System.Drawing.Point(210, 283);
+            this.txt_prixVente.Name = "txt_prixVente";
+            this.txt_prixVente.PasswordChar = '\0';
+            this.txt_prixVente.PlaceholderText = "";
+            this.txt_prixVente.SelectedText = "";
+            this.txt_prixVente.Size = new System.Drawing.Size(184, 23);
+            this.txt_prixVente.TabIndex = 84;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(61, 286);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 16);
+            this.label6.TabIndex = 83;
+            this.label6.Text = "Prix Vente :";
             // 
             // txt_idLivraison
             // 
@@ -370,7 +473,7 @@
             this.btn_ajouterLivraison.ForeColor = System.Drawing.Color.White;
             this.btn_ajouterLivraison.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajouterLivraison.Image")));
             this.btn_ajouterLivraison.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_ajouterLivraison.Location = new System.Drawing.Point(399, 168);
+            this.btn_ajouterLivraison.Location = new System.Drawing.Point(400, 190);
             this.btn_ajouterLivraison.Name = "btn_ajouterLivraison";
             this.btn_ajouterLivraison.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_ajouterLivraison.Size = new System.Drawing.Size(41, 23);
@@ -389,7 +492,7 @@
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
             this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button2.Location = new System.Drawing.Point(158, 311);
+            this.guna2Button2.Location = new System.Drawing.Point(157, 363);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.guna2Button2.Size = new System.Drawing.Size(109, 26);
@@ -403,7 +506,7 @@
             this.dtp_dateLivraison.FillColor = System.Drawing.Color.LightSlateGray;
             this.dtp_dateLivraison.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtp_dateLivraison.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtp_dateLivraison.Location = new System.Drawing.Point(210, 167);
+            this.dtp_dateLivraison.Location = new System.Drawing.Point(210, 144);
             this.dtp_dateLivraison.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtp_dateLivraison.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtp_dateLivraison.Name = "dtp_dateLivraison";
@@ -417,7 +520,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(61, 171);
+            this.label4.Location = new System.Drawing.Point(61, 148);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 16);
             this.label4.TabIndex = 75;
@@ -435,7 +538,7 @@
             this.txt_qteLivraison.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_qteLivraison.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_qteLivraison.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_qteLivraison.Location = new System.Drawing.Point(210, 220);
+            this.txt_qteLivraison.Location = new System.Drawing.Point(210, 237);
             this.txt_qteLivraison.Name = "txt_qteLivraison";
             this.txt_qteLivraison.PasswordChar = '\0';
             this.txt_qteLivraison.PlaceholderText = "";
@@ -449,7 +552,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(61, 223);
+            this.label3.Location = new System.Drawing.Point(61, 240);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 16);
             this.label3.TabIndex = 73;
@@ -466,7 +569,7 @@
             this.btn_vaider.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btn_vaider.ForeColor = System.Drawing.Color.White;
             this.btn_vaider.Image = ((System.Drawing.Image)(resources.GetObject("btn_vaider.Image")));
-            this.btn_vaider.Location = new System.Drawing.Point(273, 311);
+            this.btn_vaider.Location = new System.Drawing.Point(272, 363);
             this.btn_vaider.Name = "btn_vaider";
             this.btn_vaider.Size = new System.Drawing.Size(121, 26);
             this.btn_vaider.TabIndex = 52;
@@ -485,7 +588,7 @@
             this.txt_numeroBonLivraison.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_numeroBonLivraison.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_numeroBonLivraison.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_numeroBonLivraison.Location = new System.Drawing.Point(210, 111);
+            this.txt_numeroBonLivraison.Location = new System.Drawing.Point(210, 100);
             this.txt_numeroBonLivraison.Name = "txt_numeroBonLivraison";
             this.txt_numeroBonLivraison.PasswordChar = '\0';
             this.txt_numeroBonLivraison.PlaceholderText = "";
@@ -499,7 +602,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(61, 113);
+            this.label1.Location = new System.Drawing.Point(61, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 16);
             this.label1.TabIndex = 71;
@@ -540,7 +643,7 @@
             this.dgv_livraison.Name = "dgv_livraison";
             this.dgv_livraison.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgv_livraison.RowHeadersVisible = false;
-            this.dgv_livraison.Size = new System.Drawing.Size(573, 320);
+            this.dgv_livraison.Size = new System.Drawing.Size(573, 363);
             this.dgv_livraison.TabIndex = 61;
             this.dgv_livraison.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv_livraison.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -770,7 +873,7 @@
             this.panel2.Controls.Add(this.guna2GroupBox1);
             this.panel2.Location = new System.Drawing.Point(634, 492);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(507, 384);
+            this.panel2.Size = new System.Drawing.Size(507, 410);
             this.panel2.TabIndex = 79;
             // 
             // btn_imprimerLivraison
@@ -784,7 +887,7 @@
             this.btn_imprimerLivraison.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_imprimerLivraison.ForeColor = System.Drawing.Color.White;
             this.btn_imprimerLivraison.Image = ((System.Drawing.Image)(resources.GetObject("btn_imprimerLivraison.Image")));
-            this.btn_imprimerLivraison.Location = new System.Drawing.Point(469, 831);
+            this.btn_imprimerLivraison.Location = new System.Drawing.Point(469, 873);
             this.btn_imprimerLivraison.Name = "btn_imprimerLivraison";
             this.btn_imprimerLivraison.Size = new System.Drawing.Size(159, 29);
             this.btn_imprimerLivraison.TabIndex = 80;
@@ -803,7 +906,7 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(1007, 882);
+            this.btn_annuler.Location = new System.Drawing.Point(1007, 906);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(121, 29);
@@ -815,7 +918,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1167, 914);
+            this.ClientSize = new System.Drawing.Size(1167, 942);
             this.Controls.Add(this.btn_imprimerLivraison);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -865,23 +968,31 @@
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2Button btn_nouveauLivraison;
         private Guna.UI2.WinForms.Guna2Button btn_ajouterLivraison;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column8;
         private Guna.UI2.WinForms.Guna2TextBox txt_idLivraison;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button btn_imprimerLivraison;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column7;
-        private System.Windows.Forms.ComboBox cb_matla;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private Guna.UI2.WinForms.Guna2TextBox txt_prixVente;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column8;
+        private Guna.UI2.WinForms.Guna2TextBox txt_designationDetail;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cb_idMatla;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column10;
     }
 }

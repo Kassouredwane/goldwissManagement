@@ -29,14 +29,26 @@ namespace projet_gestionEntreprise
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionMatla));
             this.dgv_matla = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.cb_recherche = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2CheckBox2 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.btn_livraisonMatla = new Guna.UI2.WinForms.Guna2Button();
+            this.frm_supprimerTous = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_supprimer = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_ajouter = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_refresh = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_rechercher = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_affichePhasonie = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,40 +59,27 @@ namespace projet_gestionEntreprise
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cb_recherche = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.guna2CheckBox2 = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.btn_livraisonMatla = new Guna.UI2.WinForms.Guna2Button();
-            this.frm_supprimerTous = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_supprimer = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_ajouter = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_refresh = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_rechercher = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_matla)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_matla
             // 
             this.dgv_matla.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dgv_matla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightSlateGray;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_matla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgv_matla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSlateGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_matla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_matla.ColumnHeadersHeight = 20;
             this.dgv_matla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgv_matla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column5,
             this.Column3,
             this.Column6,
             this.Column4,
@@ -91,14 +90,14 @@ namespace projet_gestionEntreprise
             this.Column10,
             this.Column12,
             this.Column11});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_matla.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_matla.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_matla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_matla.Location = new System.Drawing.Point(12, 56);
             this.dgv_matla.Name = "dgv_matla";
@@ -127,71 +126,6 @@ namespace projet_gestionEntreprise
             this.dgv_matla.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_matla.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgv_matla.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_matla_CellFormatting);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID Matla";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Ref Modele";
-            this.Column2.Name = "Column2";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Nombre piece";
-            this.Column5.Name = "Column5";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Detailleur";
-            this.Column3.Name = "Column3";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Date Detailler";
-            this.Column6.Name = "Column6";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Phasonie";
-            this.Column4.Name = "Column4";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Prix Phasonie";
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "N° Bon";
-            this.Column9.Name = "Column9";
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "Statut Matla";
-            this.Column13.Name = "Column13";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Sortie";
-            this.Column7.Name = "Column7";
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Entrée";
-            this.Column10.Name = "Column10";
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "En stock";
-            this.Column12.Name = "Column12";
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "En Attente";
-            this.Column11.Name = "Column11";
             // 
             // cb_recherche
             // 
@@ -237,25 +171,6 @@ namespace projet_gestionEntreprise
             this.txt_rechercher.Size = new System.Drawing.Size(231, 25);
             this.txt_rechercher.TabIndex = 50;
             // 
-            // guna2CheckBox1
-            // 
-            this.guna2CheckBox1.AutoSize = true;
-            this.guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CheckBox1.CheckedState.BorderRadius = 0;
-            this.guna2CheckBox1.CheckedState.BorderThickness = 0;
-            this.guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2CheckBox1.Location = new System.Drawing.Point(12, 832);
-            this.guna2CheckBox1.Name = "guna2CheckBox1";
-            this.guna2CheckBox1.Size = new System.Drawing.Size(117, 17);
-            this.guna2CheckBox1.TabIndex = 65;
-            this.guna2CheckBox1.Text = "Rester En stock";
-            this.guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CheckBox1.UncheckedState.BorderRadius = 0;
-            this.guna2CheckBox1.UncheckedState.BorderThickness = 0;
-            this.guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CheckBox1.CheckedChanged += new System.EventHandler(this.guna2CheckBox1_CheckedChanged);
-            // 
             // guna2CheckBox2
             // 
             this.guna2CheckBox2.AutoSize = true;
@@ -264,7 +179,7 @@ namespace projet_gestionEntreprise
             this.guna2CheckBox2.CheckedState.BorderThickness = 0;
             this.guna2CheckBox2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2CheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2CheckBox2.Location = new System.Drawing.Point(153, 832);
+            this.guna2CheckBox2.Location = new System.Drawing.Point(12, 832);
             this.guna2CheckBox2.Name = "guna2CheckBox2";
             this.guna2CheckBox2.Size = new System.Drawing.Size(126, 17);
             this.guna2CheckBox2.TabIndex = 66;
@@ -404,15 +319,113 @@ namespace projet_gestionEntreprise
             this.btn_rechercher.Text = "Rechercher";
             this.btn_rechercher.Click += new System.EventHandler(this.btn_rechercher_Click);
             // 
+            // btn_affichePhasonie
+            // 
+            this.btn_affichePhasonie.BorderRadius = 2;
+            this.btn_affichePhasonie.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_affichePhasonie.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_affichePhasonie.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_affichePhasonie.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_affichePhasonie.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_affichePhasonie.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_affichePhasonie.ForeColor = System.Drawing.Color.White;
+            this.btn_affichePhasonie.Image = ((System.Drawing.Image)(resources.GetObject("btn_affichePhasonie.Image")));
+            this.btn_affichePhasonie.Location = new System.Drawing.Point(403, 828);
+            this.btn_affichePhasonie.Name = "btn_affichePhasonie";
+            this.btn_affichePhasonie.Size = new System.Drawing.Size(149, 29);
+            this.btn_affichePhasonie.TabIndex = 72;
+            this.btn_affichePhasonie.Text = "Afficher Phasonie";
+            this.btn_affichePhasonie.Click += new System.EventHandler(this.btn_affichePhasonie_Click);
+            // 
+            // guna2CheckBox1
+            // 
+            this.guna2CheckBox1.AutoSize = true;
+            this.guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2CheckBox1.CheckedState.BorderRadius = 0;
+            this.guna2CheckBox1.CheckedState.BorderThickness = 0;
+            this.guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2CheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2CheckBox1.Location = new System.Drawing.Point(153, 832);
+            this.guna2CheckBox1.Name = "guna2CheckBox1";
+            this.guna2CheckBox1.Size = new System.Drawing.Size(110, 17);
+            this.guna2CheckBox1.TabIndex = 73;
+            this.guna2CheckBox1.Text = "Matla Terminer";
+            this.guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2CheckBox1.UncheckedState.BorderRadius = 0;
+            this.guna2CheckBox1.UncheckedState.BorderThickness = 0;
+            this.guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2CheckBox1.CheckedChanged += new System.EventHandler(this.guna2CheckBox1_CheckedChanged);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID Matla";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Ref Modele";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Detailleur";
+            this.Column3.Name = "Column3";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Date Detailler";
+            this.Column6.Name = "Column6";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Phasonie";
+            this.Column4.Name = "Column4";
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Prix Phasonie";
+            this.Column8.Name = "Column8";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "N° Bon";
+            this.Column9.Name = "Column9";
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Statut Matla";
+            this.Column13.Name = "Column13";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Sortie";
+            this.Column7.Name = "Column7";
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Entrée";
+            this.Column10.Name = "Column10";
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Qte Stock";
+            this.Column12.Name = "Column12";
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "En Attente";
+            this.Column11.Name = "Column11";
+            // 
             // frmGestionMatla
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1254, 879);
+            this.Controls.Add(this.guna2CheckBox1);
+            this.Controls.Add(this.btn_affichePhasonie);
             this.Controls.Add(this.btn_livraisonMatla);
             this.Controls.Add(this.frm_supprimerTous);
             this.Controls.Add(this.guna2CheckBox2);
-            this.Controls.Add(this.guna2CheckBox1);
             this.Controls.Add(this.btn_supprimer);
             this.Controls.Add(this.btn_modifier);
             this.Controls.Add(this.btn_ajouter);
@@ -443,12 +456,13 @@ namespace projet_gestionEntreprise
         private Guna.UI2.WinForms.Guna2Button btn_supprimer;
         private Guna.UI2.WinForms.Guna2Button btn_modifier;
         private Guna.UI2.WinForms.Guna2Button btn_ajouter;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
         private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox2;
         private Guna.UI2.WinForms.Guna2Button frm_supprimerTous;
+        private Guna.UI2.WinForms.Guna2Button btn_livraisonMatla;
+        private Guna.UI2.WinForms.Guna2Button btn_affichePhasonie;
+        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
@@ -459,6 +473,5 @@ namespace projet_gestionEntreprise
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private Guna.UI2.WinForms.Guna2Button btn_livraisonMatla;
     }
 }

@@ -24,7 +24,7 @@ namespace projet_gestionEntreprise
         {
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
-            string req = "select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,dateCommande,qteAchat,prixAchat,cmd.statutLivraison from client c inner join commande cmd on cmd.idClient=c.idClient inner join detailCommande dc on dc.idCommande=cmd.idCommande inner join modele m on m.referenceModele=dc.referenceModele where m.referenceModele='" + refMd + "' and cmd.statutLivraison=0 " + filtre;
+            string req = "select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,dateCommande,qteAchat,prixAchat,cmd.statutLivraison from client c inner join commande cmd on cmd.idClient=c.idClient inner join detailCommande dc on dc.idCommande=cmd.idCommande inner join modele m on m.referenceModele=dc.referenceModele where m.referenceModele='" + refMd + "' " + filtre;
             SqlCommand com = new SqlCommand(req, cn);
             SqlDataReader dr = com.ExecuteReader();
             dgv_clients.Rows.Clear();
@@ -179,6 +179,24 @@ namespace projet_gestionEntreprise
         {
             refresh("");
             txt_rechercher.Text = "";
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            string ch = Application.StartupPath + @"\imageModeles\";
+
+            clientCommanderModele cr = new clientCommanderModele();
+            cr.Refresh();
+            cr.SetDatabaseLogon("sa", "123456");
+
+            cr.SetParameterValue("chemain", ch);
+            //cr.SetParameterValue("entree", entree);
+            //cr.SetParameterValue("reste", reste);
+            //cr.SetParameterValue("resteMatla", resteMatla);
+            //   
+            string filtre = "{modele.referenceModele}='" + refMd + "' and {detailCommande.statutLivraison}=false";
+            frmImpression f = new frmImpression(cr, filtre);
+              f.ShowDialog();
         }
     }
 }

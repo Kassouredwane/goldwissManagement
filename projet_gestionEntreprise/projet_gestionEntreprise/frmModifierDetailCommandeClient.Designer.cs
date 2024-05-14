@@ -40,6 +40,8 @@
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
             this.btn_valider = new Guna.UI2.WinForms.Guna2Button();
             this.txt_nouveauReferenceModele = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txt_designation = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txt_referenceModele
@@ -54,7 +56,7 @@
             this.txt_referenceModele.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_referenceModele.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_referenceModele.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_referenceModele.Location = new System.Drawing.Point(12, 231);
+            this.txt_referenceModele.Location = new System.Drawing.Point(12, 270);
             this.txt_referenceModele.Name = "txt_referenceModele";
             this.txt_referenceModele.PasswordChar = '\0';
             this.txt_referenceModele.PlaceholderText = "";
@@ -180,7 +182,7 @@
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(76, 265);
+            this.btn_annuler.Location = new System.Drawing.Point(76, 299);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
@@ -200,7 +202,7 @@
             this.btn_valider.ForeColor = System.Drawing.Color.White;
             this.btn_valider.Image = ((System.Drawing.Image)(resources.GetObject("btn_valider.Image")));
             this.btn_valider.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_valider.Location = new System.Drawing.Point(235, 265);
+            this.btn_valider.Location = new System.Drawing.Point(235, 299);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_valider.Size = new System.Drawing.Size(142, 29);
@@ -228,11 +230,44 @@
             this.txt_nouveauReferenceModele.Size = new System.Drawing.Size(184, 23);
             this.txt_nouveauReferenceModele.TabIndex = 81;
             // 
+            // txt_designation
+            // 
+            this.txt_designation.BorderRadius = 2;
+            this.txt_designation.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_designation.DefaultText = "";
+            this.txt_designation.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_designation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_designation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_designation.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_designation.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_designation.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_designation.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_designation.Location = new System.Drawing.Point(209, 249);
+            this.txt_designation.Name = "txt_designation";
+            this.txt_designation.PasswordChar = '\0';
+            this.txt_designation.PlaceholderText = "";
+            this.txt_designation.SelectedText = "";
+            this.txt_designation.Size = new System.Drawing.Size(184, 23);
+            this.txt_designation.TabIndex = 83;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(74, 251);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 16);
+            this.label1.TabIndex = 82;
+            this.label1.Text = "Designation :";
+            // 
             // frmModifierDetailCommandeClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 335);
+            this.ClientSize = new System.Drawing.Size(435, 343);
+            this.Controls.Add(this.txt_designation);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_nouveauReferenceModele);
             this.Controls.Add(this.txt_referenceModele);
             this.Controls.Add(this.label7);
@@ -266,5 +301,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txt_idCommande;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txt_nouveauReferenceModele;
+        private Guna.UI2.WinForms.Guna2TextBox txt_designation;
+        private System.Windows.Forms.Label label1;
     }
 }

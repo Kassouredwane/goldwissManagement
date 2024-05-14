@@ -81,10 +81,24 @@ namespace projet_gestionEntreprise
                         command.Parameters.Add(new SqlParameter("@ProductImage", imageData));
 
                         command.ExecuteNonQuery();
-                        MessageBox.Show("le modele a été ajouter avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show("le modele a été ajouter avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
+            SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+            cn.Open();
+            //string reqq = "insert into situationModele values(1,@referenceModele,0,@qteStock)";
+            string reqq = "insert into situationModele values(1,@referenceModele,getdate())";
+            SqlCommand com = new SqlCommand(reqq, cn);
+            com.Parameters.Add(new SqlParameter("@referenceModele", txt_reference.Text));
+            //com.Parameters.Add(new SqlParameter("@qteStock", txt_qteStock.Text));
+            com.ExecuteNonQuery();
+            com = null;
+            cn.Close();
+            cn = null;
+            MessageBox.Show("le modele a été ajouter avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //this.Close();
+
             //empty all text box
             txt_reference.Text = "";
             txt_taille.Text = "";

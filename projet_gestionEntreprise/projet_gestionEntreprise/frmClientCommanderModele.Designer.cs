@@ -44,6 +44,7 @@
             this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
             this.btn_refresh = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -228,11 +229,27 @@
             this.btn_refresh.TabIndex = 61;
             this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click_1);
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(651, 410);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(107, 28);
+            this.guna2Button1.TabIndex = 62;
+            this.guna2Button1.Text = "imprimer";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // frmClientCommanderModele
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 462);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.btn_refresh);
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.btn_rechercher);
@@ -261,5 +278,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column7;
         private Guna.UI2.WinForms.Guna2Button btn_refresh;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

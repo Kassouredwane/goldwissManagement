@@ -51,6 +51,7 @@
             this.btn_gestionClients = new Guna.UI2.WinForms.Guna2Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btn_gestionRetour = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.dropDownContainer.SuspendLayout();
@@ -62,6 +63,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.panel1.Controls.Add(this.btn_gestionRetour);
             this.panel1.Controls.Add(this.btn_gestionMatla);
             this.panel1.Controls.Add(this.btn_gestionTransactions);
             this.panel1.Controls.Add(this.btn_gestionLivraison);
@@ -90,7 +92,7 @@
             this.btn_gestionMatla.ForeColor = System.Drawing.Color.White;
             this.btn_gestionMatla.Image = ((System.Drawing.Image)(resources.GetObject("btn_gestionMatla.Image")));
             this.btn_gestionMatla.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_gestionMatla.Location = new System.Drawing.Point(6, 502);
+            this.btn_gestionMatla.Location = new System.Drawing.Point(6, 557);
             this.btn_gestionMatla.Name = "btn_gestionMatla";
             this.btn_gestionMatla.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.btn_gestionMatla.Size = new System.Drawing.Size(240, 35);
@@ -113,7 +115,7 @@
             this.btn_gestionTransactions.ForeColor = System.Drawing.Color.White;
             this.btn_gestionTransactions.Image = ((System.Drawing.Image)(resources.GetObject("btn_gestionTransactions.Image")));
             this.btn_gestionTransactions.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_gestionTransactions.Location = new System.Drawing.Point(6, 451);
+            this.btn_gestionTransactions.Location = new System.Drawing.Point(6, 506);
             this.btn_gestionTransactions.Name = "btn_gestionTransactions";
             this.btn_gestionTransactions.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.btn_gestionTransactions.Size = new System.Drawing.Size(240, 35);
@@ -151,7 +153,7 @@
             this.panel2.Controls.Add(this.btn_deconnecter);
             this.panel2.Controls.Add(this.btn_parametres);
             this.panel2.Controls.Add(this.btn_statistiques);
-            this.panel2.Location = new System.Drawing.Point(2, 589);
+            this.panel2.Location = new System.Drawing.Point(2, 644);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 174);
             this.panel2.TabIndex = 11;
@@ -229,7 +231,7 @@
             this.dropDownContainer.Controls.Add(this.btn_transfereLavageToPhasonie);
             this.dropDownContainer.Controls.Add(this.btn_transferePhasonieToLavage);
             this.dropDownContainer.Controls.Add(this.panel3);
-            this.dropDownContainer.Location = new System.Drawing.Point(6, 550);
+            this.dropDownContainer.Location = new System.Drawing.Point(6, 605);
             this.dropDownContainer.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.dropDownContainer.MaximumSize = new System.Drawing.Size(240, 155);
             this.dropDownContainer.MinimumSize = new System.Drawing.Size(240, 35);
@@ -371,7 +373,7 @@
             this.btn_gestionStock.ForeColor = System.Drawing.Color.White;
             this.btn_gestionStock.Image = ((System.Drawing.Image)(resources.GetObject("btn_gestionStock.Image")));
             this.btn_gestionStock.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_gestionStock.Location = new System.Drawing.Point(6, 398);
+            this.btn_gestionStock.Location = new System.Drawing.Point(6, 453);
             this.btn_gestionStock.Name = "btn_gestionStock";
             this.btn_gestionStock.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.btn_gestionStock.Size = new System.Drawing.Size(240, 35);
@@ -441,6 +443,29 @@
             this.panel4.Size = new System.Drawing.Size(1249, 878);
             this.panel4.TabIndex = 1;
             // 
+            // btn_gestionRetour
+            // 
+            this.btn_gestionRetour.Animated = true;
+            this.btn_gestionRetour.BackColor = System.Drawing.Color.Transparent;
+            this.btn_gestionRetour.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_gestionRetour.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_gestionRetour.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_gestionRetour.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_gestionRetour.FillColor = System.Drawing.Color.Transparent;
+            this.btn_gestionRetour.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_gestionRetour.ForeColor = System.Drawing.Color.White;
+            this.btn_gestionRetour.Image = ((System.Drawing.Image)(resources.GetObject("btn_gestionRetour.Image")));
+            this.btn_gestionRetour.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_gestionRetour.Location = new System.Drawing.Point(6, 400);
+            this.btn_gestionRetour.Name = "btn_gestionRetour";
+            this.btn_gestionRetour.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btn_gestionRetour.Size = new System.Drawing.Size(240, 35);
+            this.btn_gestionRetour.TabIndex = 15;
+            this.btn_gestionRetour.Text = "Gestion Retour";
+            this.btn_gestionRetour.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_gestionRetour.UseTransparentBackground = true;
+            this.btn_gestionRetour.Click += new System.EventHandler(this.btn_gestionRetour_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,5 +510,6 @@
         private Guna.UI2.WinForms.Guna2Button btn_gestionTransactions;
         private Guna.UI2.WinForms.Guna2Button btn_gestionLivraison;
         private Guna.UI2.WinForms.Guna2Button btn_gestionMatla;
+        private Guna.UI2.WinForms.Guna2Button btn_gestionRetour;
     }
 }

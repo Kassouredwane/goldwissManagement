@@ -273,7 +273,7 @@
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
             this.btn_annuler.TabIndex = 39;
-            this.btn_annuler.Text = "Annuler";
+            this.btn_annuler.Text = "Fermer";
             this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
             // 
             // btn_valider
@@ -308,12 +308,12 @@
             this.txt_imageModele.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_imageModele.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_imageModele.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_imageModele.Location = new System.Drawing.Point(43, 462);
+            this.txt_imageModele.Location = new System.Drawing.Point(29, 427);
             this.txt_imageModele.Name = "txt_imageModele";
             this.txt_imageModele.PasswordChar = '\0';
             this.txt_imageModele.PlaceholderText = "";
             this.txt_imageModele.SelectedText = "";
-            this.txt_imageModele.Size = new System.Drawing.Size(177, 23);
+            this.txt_imageModele.Size = new System.Drawing.Size(75, 29);
             this.txt_imageModele.TabIndex = 45;
             this.txt_imageModele.Visible = false;
             // 

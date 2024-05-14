@@ -38,8 +38,6 @@ namespace projet_gestionEntreprise
             this.label9 = new System.Windows.Forms.Label();
             this.txt_prixPhasonie = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txt_qteSorter = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.btn_ajouterPhasonie = new System.Windows.Forms.Button();
             this.btn_annuler = new Guna.UI2.WinForms.Guna2Button();
             this.btn_valider = new Guna.UI2.WinForms.Guna2Button();
@@ -161,37 +159,6 @@ namespace projet_gestionEntreprise
             this.label7.TabIndex = 65;
             this.label7.Text = "Prix Phasonnie :";
             // 
-            // txt_qteSorter
-            // 
-            this.txt_qteSorter.BorderRadius = 2;
-            this.txt_qteSorter.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_qteSorter.DefaultText = "";
-            this.txt_qteSorter.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_qteSorter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_qteSorter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_qteSorter.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_qteSorter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_qteSorter.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_qteSorter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_qteSorter.Location = new System.Drawing.Point(159, 330);
-            this.txt_qteSorter.Name = "txt_qteSorter";
-            this.txt_qteSorter.PasswordChar = '\0';
-            this.txt_qteSorter.PlaceholderText = "";
-            this.txt_qteSorter.SelectedText = "";
-            this.txt_qteSorter.Size = new System.Drawing.Size(184, 23);
-            this.txt_qteSorter.TabIndex = 64;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(33, 332);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 16);
-            this.label8.TabIndex = 63;
-            this.label8.Text = "Sorter :";
-            // 
             // btn_ajouterPhasonie
             // 
             this.btn_ajouterPhasonie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -215,7 +182,7 @@ namespace projet_gestionEntreprise
             this.btn_annuler.ForeColor = System.Drawing.Color.White;
             this.btn_annuler.Image = ((System.Drawing.Image)(resources.GetObject("btn_annuler.Image")));
             this.btn_annuler.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_annuler.Location = new System.Drawing.Point(251, 392);
+            this.btn_annuler.Location = new System.Drawing.Point(432, 323);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
@@ -235,7 +202,7 @@ namespace projet_gestionEntreprise
             this.btn_valider.ForeColor = System.Drawing.Color.White;
             this.btn_valider.Image = ((System.Drawing.Image)(resources.GetObject("btn_valider.Image")));
             this.btn_valider.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_valider.Location = new System.Drawing.Point(410, 392);
+            this.btn_valider.Location = new System.Drawing.Point(591, 323);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_valider.Size = new System.Drawing.Size(142, 29);
@@ -382,7 +349,7 @@ namespace projet_gestionEntreprise
             this.txt_qteEnStock.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_qteEnStock.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_qteEnStock.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_qteEnStock.Location = new System.Drawing.Point(549, 330);
+            this.txt_qteEnStock.Location = new System.Drawing.Point(159, 329);
             this.txt_qteEnStock.Name = "txt_qteEnStock";
             this.txt_qteEnStock.PasswordChar = '\0';
             this.txt_qteEnStock.PlaceholderText = "";
@@ -395,7 +362,7 @@ namespace projet_gestionEntreprise
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(423, 332);
+            this.label10.Location = new System.Drawing.Point(33, 331);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(77, 16);
             this.label10.TabIndex = 73;
@@ -405,7 +372,7 @@ namespace projet_gestionEntreprise
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 440);
+            this.ClientSize = new System.Drawing.Size(805, 393);
             this.Controls.Add(this.txt_qteEnStock);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btn_ajouterDetailleur);
@@ -416,8 +383,6 @@ namespace projet_gestionEntreprise
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txt_prixPhasonie);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txt_qteSorter);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.btn_ajouterPhasonie);
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.btn_valider);
@@ -449,8 +414,6 @@ namespace projet_gestionEntreprise
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2TextBox txt_prixPhasonie;
         private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2TextBox txt_qteSorter;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_ajouterPhasonie;
         private Guna.UI2.WinForms.Guna2Button btn_annuler;
         private Guna.UI2.WinForms.Guna2Button btn_valider;

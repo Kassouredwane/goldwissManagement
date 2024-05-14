@@ -31,7 +31,7 @@ namespace projet_gestionEntreprise
         {
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
-            string req = "select l.idLivraison,dateLivraison,numeroBonLivraison,nomClient+' '+prenomClient as nomComplet,idMatla,qteLivre from livraison l inner join detailLivraison dl on dl.idLivraison=l.idLivraison inner join commande cmd on cmd.idCommande=l.idCommande inner join client c on c.idClient=cmd.idClient where idMatla="+idMt;
+            string req = "select l.idLivraison,dateLivraison,numeroBonLivraison,nomClient+' '+prenomClient as nomComplet, idMatla,dl.qteLivre from livraison l  inner join detailLivraison dl on dl.idLivraison=l.idLivraison inner join detailCommande dc on dc.idDetailCommande=dl.idDetailCommande inner join commande cmd on cmd.idCommande=dc.idCommande inner join client c on c.idClient=cmd.idClient where idMatla=" + idMt;
             SqlCommand com = new SqlCommand(req, cn);
             SqlDataReader dr = com.ExecuteReader();
             dgv_livraison.Rows.Clear();
@@ -98,14 +98,14 @@ namespace projet_gestionEntreprise
 
             string ch = Application.StartupPath + @"\imageModeles\";
 
-            MatlaLivraisonReport cr = new MatlaLivraisonReport();
+            livraisonMatla cr = new livraisonMatla();
             cr.Refresh();
             cr.SetDatabaseLogon("sa", "123456");
 
             cr.SetParameterValue("chemain", ch);
-            cr.SetParameterValue("entree", entree);
-            cr.SetParameterValue("reste", reste);
-            cr.SetParameterValue("resteMatla", resteMatla);
+            //cr.SetParameterValue("entree", entree);
+            //cr.SetParameterValue("reste", reste);
+            //cr.SetParameterValue("resteMatla", resteMatla);
             //   
             string filtre = "{matla.idMatla}=" + idMt;
             frmImpression f = new frmImpression(cr, filtre);

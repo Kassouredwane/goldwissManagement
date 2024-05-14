@@ -38,21 +38,24 @@ namespace projet_gestionEntreprise
             this.chk_enAttentePieces = new Guna.UI2.WinForms.Guna2CheckBox();
             this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgv_stockage = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cb_recherche = new System.Windows.Forms.ComboBox();
             this.btn_supprimer = new Guna.UI2.WinForms.Guna2Button();
             this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
             this.btn_ajouter = new Guna.UI2.WinForms.Guna2Button();
             this.btn_refresh = new Guna.UI2.WinForms.Guna2Button();
             this.btn_rechercher = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_confirmerEntree = new Guna.UI2.WinForms.Guna2Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_stockage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,9 +131,11 @@ namespace projet_gestionEntreprise
             this.Column8,
             this.Column4,
             this.Column5,
+            this.Column10,
             this.Column6,
             this.Column7,
-            this.Column9});
+            this.Column9,
+            this.Column11});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -176,61 +181,6 @@ namespace projet_gestionEntreprise
             this.dgv_stockage.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_stockage.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Phasonie";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Id Matla";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Reference Modele";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Designation";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Sorter";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Quantité Stocker";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Date Stocker";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Numero Bon";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "idPhasonieStocker";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Visible = false;
-            // 
             // cb_recherche
             // 
             this.cb_recherche.FormattingEnabled = true;
@@ -254,7 +204,7 @@ namespace projet_gestionEntreprise
             this.btn_supprimer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_supprimer.ForeColor = System.Drawing.Color.White;
             this.btn_supprimer.Image = ((System.Drawing.Image)(resources.GetObject("btn_supprimer.Image")));
-            this.btn_supprimer.Location = new System.Drawing.Point(812, 832);
+            this.btn_supprimer.Location = new System.Drawing.Point(818, 832);
             this.btn_supprimer.Name = "btn_supprimer";
             this.btn_supprimer.Size = new System.Drawing.Size(121, 29);
             this.btn_supprimer.TabIndex = 90;
@@ -336,11 +286,97 @@ namespace projet_gestionEntreprise
             this.btn_rechercher.Text = "Rechercher";
             this.btn_rechercher.Click += new System.EventHandler(this.btn_rechercher_Click);
             // 
+            // btn_confirmerEntree
+            // 
+            this.btn_confirmerEntree.BorderRadius = 2;
+            this.btn_confirmerEntree.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_confirmerEntree.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_confirmerEntree.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_confirmerEntree.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_confirmerEntree.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_confirmerEntree.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_confirmerEntree.ForeColor = System.Drawing.Color.White;
+            this.btn_confirmerEntree.Image = ((System.Drawing.Image)(resources.GetObject("btn_confirmerEntree.Image")));
+            this.btn_confirmerEntree.Location = new System.Drawing.Point(680, 832);
+            this.btn_confirmerEntree.Name = "btn_confirmerEntree";
+            this.btn_confirmerEntree.Size = new System.Drawing.Size(121, 29);
+            this.btn_confirmerEntree.TabIndex = 91;
+            this.btn_confirmerEntree.Text = "Confirmer";
+            this.btn_confirmerEntree.Click += new System.EventHandler(this.btn_confirmerEntree_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Phasonie";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Id Matla";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Reference Modele";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Designation";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Sorter";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Quantité Stocker";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Qte confirmer";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Date Stocker";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Numero Bon";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "idPhasonieStocker";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Confirmer";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
             // frmTransferePhasonieStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1331, 871);
+            this.Controls.Add(this.btn_confirmerEntree);
             this.Controls.Add(this.btn_supprimer);
             this.Controls.Add(this.btn_modifier);
             this.Controls.Add(this.btn_ajouter);
@@ -373,14 +409,17 @@ namespace projet_gestionEntreprise
         private Guna.UI2.WinForms.Guna2TextBox txt_rechercher;
         private Guna.UI2.WinForms.Guna2DataGridView dgv_stockage;
         private System.Windows.Forms.ComboBox cb_recherche;
+        private Guna.UI2.WinForms.Guna2Button btn_confirmerEntree;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column11;
     }
 }

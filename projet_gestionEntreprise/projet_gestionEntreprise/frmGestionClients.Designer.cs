@@ -31,8 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionClients));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionClients));
             this.label6 = new System.Windows.Forms.Label();
             this.cb_villeClient = new System.Windows.Forms.ComboBox();
             this.cb_classement = new System.Windows.Forms.ComboBox();
@@ -40,6 +40,13 @@
             this.cb_recherche = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgv_clients = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_transactionClient = new Guna.UI2.WinForms.Guna2Button();
             this.btn_ajouterTransaction = new Guna.UI2.WinForms.Guna2Button();
@@ -50,13 +57,6 @@
             this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
             this.btn_ajouter = new Guna.UI2.WinForms.Guna2Button();
             this.btn_rechercher = new Guna.UI2.WinForms.Guna2Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,7 +164,7 @@
             this.dgv_clients.Location = new System.Drawing.Point(30, 117);
             this.dgv_clients.Name = "dgv_clients";
             this.dgv_clients.RowHeadersVisible = false;
-            this.dgv_clients.Size = new System.Drawing.Size(1186, 702);
+            this.dgv_clients.Size = new System.Drawing.Size(1204, 702);
             this.dgv_clients.TabIndex = 15;
             this.dgv_clients.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv_clients.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -188,6 +188,44 @@
             this.dgv_clients.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_clients.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "id Client";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Nom Client";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Prenom Client";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Telephone Client";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Adresse Client";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Ville Client";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column7.HeaderText = "Reste A Payer";
+            this.Column7.Name = "Column7";
+            // 
             // txt_rechercher
             // 
             this.txt_rechercher.BorderRadius = 5;
@@ -207,6 +245,7 @@
             this.txt_rechercher.SelectedText = "";
             this.txt_rechercher.Size = new System.Drawing.Size(313, 29);
             this.txt_rechercher.TabIndex = 16;
+            this.txt_rechercher.TextChanged += new System.EventHandler(this.txt_rechercher_TextChanged);
             this.txt_rechercher.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_rechercher_KeyUp);
             // 
             // btn_transactionClient
@@ -364,44 +403,6 @@
             this.btn_rechercher.TabIndex = 17;
             this.btn_rechercher.Text = "Rechercher";
             this.btn_rechercher.Click += new System.EventHandler(this.btn_rechercher_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "id Client";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Nom Client";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Prenom Client";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Telephone Client";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Adresse Client";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Ville Client";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column7.HeaderText = "Reste A Payer";
-            this.Column7.Name = "Column7";
             // 
             // frmGestionClients
             // 

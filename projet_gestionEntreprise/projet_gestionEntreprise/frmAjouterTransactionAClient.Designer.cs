@@ -48,9 +48,13 @@
             this.cb_modePaiement.FormattingEnabled = true;
             this.cb_modePaiement.Items.AddRange(new object[] {
             "Espèce",
+            "Effet",
             "Chèque",
             "Virement bancaire",
-            "transfert"});
+            "transfert",
+            "Remise",
+            "Manque",
+            "Echantillon"});
             this.cb_modePaiement.Location = new System.Drawing.Point(197, 209);
             this.cb_modePaiement.Name = "cb_modePaiement";
             this.cb_modePaiement.Size = new System.Drawing.Size(184, 21);
@@ -90,7 +94,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(37, 273);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 16);
+            this.label1.Size = new System.Drawing.Size(95, 16);
             this.label1.TabIndex = 58;
             this.label1.Text = "Description :";
             // 
@@ -101,7 +105,7 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(37, 99);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(134, 16);
+            this.label4.Size = new System.Drawing.Size(135, 16);
             this.label4.TabIndex = 57;
             this.label4.Text = "Date Transaction :";
             // 
@@ -133,7 +137,7 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(37, 42);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 16);
+            this.label6.Size = new System.Drawing.Size(78, 16);
             this.label6.TabIndex = 55;
             this.label6.Text = "ID Client  :";
             // 
@@ -144,7 +148,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(37, 209);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 16);
+            this.label5.Size = new System.Drawing.Size(145, 16);
             this.label5.TabIndex = 54;
             this.label5.Text = "Mode de paiement :";
             // 
@@ -175,7 +179,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(37, 152);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 16);
+            this.label3.Size = new System.Drawing.Size(70, 16);
             this.label3.TabIndex = 52;
             this.label3.Text = "Montant :";
             // 

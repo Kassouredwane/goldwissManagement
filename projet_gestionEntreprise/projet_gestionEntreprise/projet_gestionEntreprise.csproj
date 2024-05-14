@@ -35,6 +35,9 @@
   <ItemGroup>
     <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -60,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="afficherPhasonie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="afficherPhasonie.Designer.cs">
+      <DependentUpon>afficherPhasonie.cs</DependentUpon>
+    </Compile>
     <Compile Include="bonCommande.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,37 +81,13 @@
       <DependentUpon>bonLivraison.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BonLivraisonClient.cs">
+    <Compile Include="clientCommanderModele.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BonLivraisonClient.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bonTest.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>bonTest.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="commande.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>commande.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="commandeReport.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>commandeReport.rpt</DependentUpon>
+      <DependentUpon>clientCommanderModele.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ConnectionManager.cs" />
-    <Compile Include="CrystalReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="CrystalReportsViewer.cs" />
     <Compile Include="etiquette.cs">
       <AutoGen>True</AutoGen>
@@ -110,10 +95,10 @@
       <DependentUpon>etiquette.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="etq.cs">
+    <Compile Include="fiche.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>etq.rpt</DependentUpon>
+      <DependentUpon>fiche.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Form1.cs">
@@ -158,6 +143,12 @@
     <Compile Include="frmAjouterDetailleur.Designer.cs">
       <DependentUpon>frmAjouterDetailleur.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAjouterDetailRetour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjouterDetailRetour.Designer.cs">
+      <DependentUpon>frmAjouterDetailRetour.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAjouterLavageATravertransferelvgToPs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +172,12 @@
     </Compile>
     <Compile Include="frmAjouterPhasonie.Designer.cs">
       <DependentUpon>frmAjouterPhasonie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAjouterRetour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjouterRetour.Designer.cs">
+      <DependentUpon>frmAjouterRetour.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAjouterTransaction.cs">
       <SubType>Form</SubType>
@@ -218,6 +215,18 @@
     <Compile Include="frmClientCommanderModele.Designer.cs">
       <DependentUpon>frmClientCommanderModele.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConfirmerEntree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfirmerEntree.Designer.cs">
+      <DependentUpon>frmConfirmerEntree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDetailRetour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDetailRetour.Designer.cs">
+      <DependentUpon>frmDetailRetour.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDisplayImageModele.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +238,12 @@
     </Compile>
     <Compile Include="frmGestionMatla.Designer.cs">
       <DependentUpon>frmGestionMatla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionRetour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionRetour.Designer.cs">
+      <DependentUpon>frmGestionRetour.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGestionTransactions.cs">
       <SubType>Form</SubType>
@@ -254,6 +269,12 @@
     <Compile Include="frmListeMatlaModele.Designer.cs">
       <DependentUpon>frmListeMatlaModele.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListeSituationModele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListeSituationModele.Designer.cs">
+      <DependentUpon>frmListeSituationModele.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLivraisonMatla.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +287,12 @@
     <Compile Include="frmLivraisonModele.Designer.cs">
       <DependentUpon>frmLivraisonModele.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMenuImprimerCommande.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuImprimerCommande.Designer.cs">
+      <DependentUpon>frmMenuImprimerCommande.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModifierDetailCommandeClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +304,18 @@
     </Compile>
     <Compile Include="frmModifierMatla.Designer.cs">
       <DependentUpon>frmModifierMatla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifierMatlaContientFromListeMatlaModele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifierMatlaContientFromListeMatlaModele.Designer.cs">
+      <DependentUpon>frmModifierMatlaContientFromListeMatlaModele.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifierSituationModele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifierSituationModele.Designer.cs">
+      <DependentUpon>frmModifierSituationModele.cs</DependentUpon>
     </Compile>
     <Compile Include="frmModifierTransaction.cs">
       <SubType>Form</SubType>
@@ -398,10 +437,28 @@
     <Compile Include="frmTransferePhasonieToLavage.Designer.cs">
       <DependentUpon>frmTransferePhasonieToLavage.cs</DependentUpon>
     </Compile>
-    <Compile Include="lstLivraisonModele.cs">
+    <Compile Include="listeClientCommandeNonLivre.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>lstLivraisonModele.rpt</DependentUpon>
+      <DependentUpon>listeClientCommandeNonLivre.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="listeModeleCommander.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>listeModeleCommander.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="livraisonMatla.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livraisonMatla.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="lstExistModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>lstExistModel.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MatlaLivraisonReport.cs">
@@ -412,10 +469,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="test.cs">
+    <Compile Include="resteModeleCommande.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>test.rpt</DependentUpon>
+      <DependentUpon>resteModeleCommande.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="situationEmploye.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>situationEmploye.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="situationModeleEmpty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>situationModeleEmpty.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="transactionClient.cs">
@@ -424,6 +493,9 @@
       <DependentUpon>transactionClient.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="afficherPhasonie.resx">
+      <DependentUpon>afficherPhasonie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="bonCommande.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>bonCommande.cs</LastGenOutput>
@@ -432,33 +504,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>bonLivraison.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="BonLivraisonClient.rpt">
+    <EmbeddedResource Include="clientCommanderModele.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>BonLivraisonClient.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bonTest.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>bonTest.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="commande.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>commande.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="commandeReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>commandeReport.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+      <LastGenOutput>clientCommanderModele.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="etiquette.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>etiquette.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="etq.rpt">
+    <EmbeddedResource Include="fiche.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>etq.cs</LastGenOutput>
+      <LastGenOutput>fiche.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -481,6 +537,9 @@
     <EmbeddedResource Include="frmAjouterDetailleur.resx">
       <DependentUpon>frmAjouterDetailleur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAjouterDetailRetour.resx">
+      <DependentUpon>frmAjouterDetailRetour.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAjouterLavageATravertransferelvgToPs.resx">
       <DependentUpon>frmAjouterLavageATravertransferelvgToPs.cs</DependentUpon>
     </EmbeddedResource>
@@ -492,6 +551,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAjouterPhasonie.resx">
       <DependentUpon>frmAjouterPhasonie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAjouterRetour.resx">
+      <DependentUpon>frmAjouterRetour.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAjouterTransaction.resx">
       <DependentUpon>frmAjouterTransaction.cs</DependentUpon>
@@ -511,11 +573,20 @@
     <EmbeddedResource Include="frmClientCommanderModele.resx">
       <DependentUpon>frmClientCommanderModele.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConfirmerEntree.resx">
+      <DependentUpon>frmConfirmerEntree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDetailRetour.resx">
+      <DependentUpon>frmDetailRetour.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDisplayImageModele.resx">
       <DependentUpon>frmDisplayImageModele.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionMatla.resx">
       <DependentUpon>frmGestionMatla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionRetour.resx">
+      <DependentUpon>frmGestionRetour.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionTransactions.resx">
       <DependentUpon>frmGestionTransactions.cs</DependentUpon>
@@ -529,17 +600,29 @@
     <EmbeddedResource Include="frmListeMatlaModele.resx">
       <DependentUpon>frmListeMatlaModele.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmListeSituationModele.resx">
+      <DependentUpon>frmListeSituationModele.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLivraisonMatla.resx">
       <DependentUpon>frmLivraisonMatla.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLivraisonModele.resx">
       <DependentUpon>frmLivraisonModele.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuImprimerCommande.resx">
+      <DependentUpon>frmMenuImprimerCommande.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModifierDetailCommandeClient.resx">
       <DependentUpon>frmModifierDetailCommandeClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModifierMatla.resx">
       <DependentUpon>frmModifierMatla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifierMatlaContientFromListeMatlaModele.resx">
+      <DependentUpon>frmModifierMatlaContientFromListeMatlaModele.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifierSituationModele.resx">
+      <DependentUpon>frmModifierSituationModele.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModifierTransaction.resx">
       <DependentUpon>frmModifierTransaction.cs</DependentUpon>
@@ -601,9 +684,21 @@
     <EmbeddedResource Include="frmTransferePhasonieToLavage.resx">
       <DependentUpon>frmTransferePhasonieToLavage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="lstLivraisonModele.rpt">
+    <EmbeddedResource Include="listeClientCommandeNonLivre.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>lstLivraisonModele.cs</LastGenOutput>
+      <LastGenOutput>listeClientCommandeNonLivre.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listeModeleCommander.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>listeModeleCommander.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="livraisonMatla.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>livraisonMatla.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lstExistModel.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>lstExistModel.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="MatlaLivraisonReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -619,9 +714,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="test.rpt">
+    <EmbeddedResource Include="resteModeleCommande.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>test.cs</LastGenOutput>
+      <LastGenOutput>resteModeleCommande.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="situationEmploye.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>situationEmploye.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="situationModeleEmpty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>situationModeleEmpty.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="transactionClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

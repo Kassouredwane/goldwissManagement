@@ -229,5 +229,6 @@ namespace projet_gestionEntreprise
                 ProductImage.Image = Image.FromFile(imagePath);
             }
         }
+
     }
 }

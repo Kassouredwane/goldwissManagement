@@ -95,7 +95,15 @@ namespace projet_gestionEntreprise
                 cn3.Close();
                 cn3 = null;
             }
-
+            // update entree of matla 
+            SqlConnection cn6 = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+            cn6.Open();
+            string reqq6 = "update matla set entrees=entrees-"+Convert.ToInt32(txt_oldQte.Text)+"+" + Convert.ToInt32(txt_qteStocker.Text) + " where idMatla=" + txt_idMatla.Text;
+            SqlCommand com6 = new SqlCommand(reqq6, cn6);
+            com6.ExecuteNonQuery();
+            com6 = null;
+            cn6.Close();
+            cn6 = null;
             MessageBox.Show("le stockage de matla a été modifier avec succée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }

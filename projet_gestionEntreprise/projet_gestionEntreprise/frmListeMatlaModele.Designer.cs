@@ -30,9 +30,9 @@ namespace projet_gestionEntreprise
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListeMatlaModele));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,17 +53,21 @@ namespace projet_gestionEntreprise
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_matla = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chk_enStock = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
+            this.cb_situation = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_matla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,7 +131,7 @@ namespace projet_gestionEntreprise
             this.btn_refresh.ForeColor = System.Drawing.Color.White;
             this.btn_refresh.Image = ((System.Drawing.Image)(resources.GetObject("btn_refresh.Image")));
             this.btn_refresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_refresh.Location = new System.Drawing.Point(1044, 39);
+            this.btn_refresh.Location = new System.Drawing.Point(1041, 26);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_refresh.Size = new System.Drawing.Size(41, 28);
@@ -145,7 +149,7 @@ namespace projet_gestionEntreprise
             this.btn_rechercher.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_rechercher.ForeColor = System.Drawing.Color.White;
             this.btn_rechercher.Image = ((System.Drawing.Image)(resources.GetObject("btn_rechercher.Image")));
-            this.btn_rechercher.Location = new System.Drawing.Point(981, 39);
+            this.btn_rechercher.Location = new System.Drawing.Point(978, 26);
             this.btn_rechercher.Name = "btn_rechercher";
             this.btn_rechercher.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_rechercher.Size = new System.Drawing.Size(57, 28);
@@ -164,7 +168,7 @@ namespace projet_gestionEntreprise
             this.txt_rechercher.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_rechercher.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_rechercher.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_rechercher.Location = new System.Drawing.Point(696, 39);
+            this.txt_rechercher.Location = new System.Drawing.Point(693, 26);
             this.txt_rechercher.Name = "txt_rechercher";
             this.txt_rechercher.PasswordChar = '\0';
             this.txt_rechercher.PlaceholderText = "Rechercher Sur un client ou numero Bon ...";
@@ -223,40 +227,40 @@ namespace projet_gestionEntreprise
             // dgv_matla
             // 
             this.dgv_matla.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dgv_matla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightSlateGray;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_matla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgv_matla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSlateGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_matla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_matla.ColumnHeadersHeight = 20;
             this.dgv_matla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgv_matla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
+            this.Column14,
+            this.Column9,
             this.Column13,
             this.dataGridViewTextBoxColumn16,
             this.Column10,
-            this.Column12,
             this.Column11});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_matla.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_matla.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_matla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgv_matla.Location = new System.Drawing.Point(35, 89);
+            this.dgv_matla.Location = new System.Drawing.Point(32, 76);
             this.dgv_matla.Name = "dgv_matla";
             this.dgv_matla.RowHeadersVisible = false;
-            this.dgv_matla.Size = new System.Drawing.Size(1050, 703);
+            this.dgv_matla.Size = new System.Drawing.Size(1050, 271);
             this.dgv_matla.TabIndex = 80;
             this.dgv_matla.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv_matla.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -280,46 +284,6 @@ namespace projet_gestionEntreprise
             this.dgv_matla.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_matla.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "ID Matla";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Ref Modele";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "Nombre piece";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "Statut Matla";
-            this.Column13.Name = "Column13";
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "Sortie";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Entrée";
-            this.Column10.Name = "Column10";
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "En stock";
-            this.Column12.Name = "Column12";
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "En Attente";
-            this.Column11.Name = "Column11";
-            // 
             // chk_enStock
             // 
             this.chk_enStock.AutoSize = true;
@@ -328,7 +292,7 @@ namespace projet_gestionEntreprise
             this.chk_enStock.CheckedState.BorderThickness = 0;
             this.chk_enStock.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.chk_enStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_enStock.Location = new System.Drawing.Point(35, 812);
+            this.chk_enStock.Location = new System.Drawing.Point(32, 357);
             this.chk_enStock.Name = "chk_enStock";
             this.chk_enStock.Size = new System.Drawing.Size(111, 17);
             this.chk_enStock.TabIndex = 81;
@@ -350,11 +314,12 @@ namespace projet_gestionEntreprise
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.Location = new System.Drawing.Point(903, 808);
+            this.guna2Button1.Location = new System.Drawing.Point(900, 353);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(182, 29);
             this.guna2Button1.TabIndex = 83;
             this.guna2Button1.Text = "Imprimer Livraisons";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2Button2
             // 
@@ -368,7 +333,7 @@ namespace projet_gestionEntreprise
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
             this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button2.Location = new System.Drawing.Point(776, 808);
+            this.guna2Button2.Location = new System.Drawing.Point(646, 353);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.guna2Button2.Size = new System.Drawing.Size(121, 29);
@@ -376,11 +341,104 @@ namespace projet_gestionEntreprise
             this.guna2Button2.Text = "Fermer";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(149, 353);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(200, 29);
+            this.button2.TabIndex = 84;
+            this.button2.Text = "Imprimer situation";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btn_modifier
+            // 
+            this.btn_modifier.BorderRadius = 2;
+            this.btn_modifier.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_modifier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_modifier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_modifier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_modifier.FillColor = System.Drawing.Color.LightSlateGray;
+            this.btn_modifier.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_modifier.ForeColor = System.Drawing.Color.White;
+            this.btn_modifier.Image = ((System.Drawing.Image)(resources.GetObject("btn_modifier.Image")));
+            this.btn_modifier.Location = new System.Drawing.Point(773, 353);
+            this.btn_modifier.Name = "btn_modifier";
+            this.btn_modifier.Size = new System.Drawing.Size(121, 29);
+            this.btn_modifier.TabIndex = 85;
+            this.btn_modifier.Text = "Modifier";
+            this.btn_modifier.Click += new System.EventHandler(this.btn_modifier_Click);
+            // 
+            // cb_situation
+            // 
+            this.cb_situation.FormattingEnabled = true;
+            this.cb_situation.Location = new System.Drawing.Point(171, 33);
+            this.cb_situation.Name = "cb_situation";
+            this.cb_situation.Size = new System.Drawing.Size(118, 21);
+            this.cb_situation.TabIndex = 86;
+            this.cb_situation.SelectedIndexChanged += new System.EventHandler(this.cb_situation_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(29, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(134, 16);
+            this.label2.TabIndex = 87;
+            this.label2.Text = "Numero Situation :";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "ID Matla";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Ref Modele";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Taille";
+            this.Column14.Name = "Column14";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Phasonie";
+            this.Column9.Name = "Column9";
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Statut Matla";
+            this.Column13.Name = "Column13";
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "Sortie";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Entrée";
+            this.Column10.Name = "Column10";
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "En Attente";
+            this.Column11.Name = "Column11";
+            // 
             // frmListeMatlaModele
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1122, 850);
+            this.ClientSize = new System.Drawing.Size(1112, 394);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cb_situation);
+            this.Controls.Add(this.btn_modifier);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.chk_enStock);
@@ -420,16 +478,20 @@ namespace projet_gestionEntreprise
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private Guna.UI2.WinForms.Guna2DataGridView dgv_matla;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private Guna.UI2.WinForms.Guna2CheckBox chk_enStock;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private System.Windows.Forms.Button button2;
+        private Guna.UI2.WinForms.Guna2Button btn_modifier;
+        private System.Windows.Forms.ComboBox cb_situation;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
     }
 }

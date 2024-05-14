@@ -127,14 +127,18 @@ namespace projet_gestionEntreprise
                 {
                     SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                     cn.Open();
-                    //string req = "SELECT m.referenceModele, taille, designation, marqueModele, prixModele, SUM(mt.qteStock) AS qteStock FROM modele m left JOIN matla mt ON mt.referenceModele = m.referenceModele " + filtre + " group by m.referenceModele,taille,designation,marqueModele,prixModele";
-                    string req = "SELECT m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,COALESCE(SUM(mt.qteStock), 0) AS QuantiteEnStock,COALESCE(( SELECT SUM(dl.qteLivre) FROM detailLivraison dl JOIN matla mt_dl ON mt_dl.idMatla = dl.idMatla WHERE mt_dl.referenceModele = m.referenceModele), 0) AS QuantiteLivree, COALESCE(SUM(mt.nbPieceSorter), 0) - COALESCE(( SELECT SUM(dl.qteLivre) FROM detailLivraison dl JOIN matla mt_dl ON mt_dl.idMatla = dl.idMatla  WHERE mt_dl.referenceModele = m.referenceModele ), 0) AS QuantiteRestante FROM modele m LEFT JOIN matla mt ON m.referenceModele = mt.referenceModele "+filtre+ " GROUP BY m.referenceModele, m.taille, m.designation, m.marqueModele, m.prixModele,dateEntree order by dateEntree desc;";
+                    //////////string req = "SELECT m.referenceModele, taille, designation, marqueModele, prixModele, SUM(mt.qteStock) AS qteStock FROM modele m left JOIN matla mt ON mt.referenceModele = m.referenceModele " + filtre + " group by m.referenceModele,taille,designation,marqueModele,prixModele";
+                    ////string req = "SELECT m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,COALESCE(SUM(mt.qteStock), 0) AS QuantiteEnStock,COALESCE(( SELECT SUM(dl.qteLivre) FROM detailLivraison dl JOIN matla mt_dl ON mt_dl.idMatla = dl.idMatla WHERE mt_dl.referenceModele = m.referenceModele), 0) AS QuantiteLivree, COALESCE(SUM(mt.nbPieceSorter), 0) - COALESCE(( SELECT SUM(dl.qteLivre) FROM detailLivraison dl JOIN matla mt_dl ON mt_dl.idMatla = dl.idMatla  WHERE mt_dl.referenceModele = m.referenceModele ), 0) AS QuantiteRestante FROM modele m LEFT JOIN matla mt ON m.referenceModele = mt.referenceModele "+filtre+ " GROUP BY m.referenceModele, m.taille, m.designation, m.marqueModele, m.prixModele,dateEntree order by dateEntree desc;";
+                    //string req = "select m.*,sum() from modele m "+filtre+" order by dateEntree desc;";
+                    //string req = "select m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,sum(sm.qteStock) as qteStock,sum(sm.disponible) as disponible from modele m inner join situationModele sm on sm.referenceModele=m.referenceModele "+filtre+ " group by m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,dateEntree order by dateEntree desc";
+                    //string req = "select m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,ISNULL(sum(mt.qteStock),0) as qteStock,ISNULL(sum(mt.qteStock-nbPieceSorter+entrees),0) as disponible from modele m inner join matla mt on mt.referenceModele=m.referenceModele "+filtre+ " group by m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,dateEntree order by dateEntree desc";
+                    string req = "select m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,ISNULL(sum(mt.qteStock),0) as qteStock,ISNULL(sum(disponible),0) as disponible from modele m LEFT join matla mt on mt.referenceModele=m.referenceModele " + filtre+ " group by m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,dateEntree order by dateEntree desc";
                     SqlCommand com = new SqlCommand(req, cn);
                     SqlDataReader dr = com.ExecuteReader();
                     dgv_modeles.Rows.Clear();
                     while (dr.Read())
                     {
-                        dgv_modeles.Rows.Add(dr["referenceModele"], dr["taille"], dr["designation"], dr["marqueModele"], dr["prixModele"], dr["QuantiteRestante"], dr["QuantiteEnStock"]);
+                        dgv_modeles.Rows.Add(dr["referenceModele"], dr["taille"], dr["designation"], dr["marqueModele"], dr["prixModele"], dr["qteStock"], dr["disponible"]);
                     }
                     dr.Close();
                     dr = null;
@@ -142,21 +146,23 @@ namespace projet_gestionEntreprise
 
                     cn.Close();
                     cn = null;
-
                 }
                 else
                 {
                     SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
                     cn.Open();
-                    //string req = "SELECT m.referenceModele, taille, designation, marqueModele, prixModele, SUM(mt.qteStock) AS qteStock FROM modele m left JOIN matla mt ON mt.referenceModele = m.referenceModele  where c.nomCategorie='" + cb_categorie.Text + "' " + filtre + " group by m.referenceModele,taille,designation,marqueModele,prixModele";
-                    //string req = "SELECT m.referenceModele, taille, designation, marqueModele, prixModele, SUM(mt.qteStock) AS qteStock FROM modele m left JOIN matla mt ON mt.referenceModele = m.referenceModele  where c.nomCategorie='" + cb_categorie.Text + "' " + filtre + " group by m.referenceModele,taille,designation,marqueModele,prixModele";
-                    string req = "SELECT m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,COALESCE(SUM(mt.qteStock), 0) AS QuantiteEnStock,COALESCE(( SELECT SUM(dl.qteLivre) FROM detailLivraison dl JOIN matla mt_dl ON mt_dl.idMatla = dl.idMatla WHERE mt_dl.referenceModele = m.referenceModele), 0) AS QuantiteLivree, COALESCE(SUM(mt.nbPieceSorter), 0) - COALESCE(( SELECT SUM(dl.qteLivre) FROM detailLivraison dl JOIN matla mt_dl ON mt_dl.idMatla = dl.idMatla  WHERE mt_dl.referenceModele = m.referenceModele ), 0) AS QuantiteRestante FROM modele m LEFT JOIN matla mt ON m.referenceModele = mt.referenceModele inner join categorie c on c.idCategorie=m.idCategorie where c.nomCategorie='" + cb_categorie.Text + "' " + filtre + " GROUP BY m.referenceModele, m.taille, m.designation, m.marqueModele, m.prixModele,dateEntree order by dateEntree desc;";
+                    ////////string req = "SELECT m.referenceModele, taille, designation, marqueModele, prixModele, SUM(mt.qteStock) AS qteStock FROM modele m left JOIN matla mt ON mt.referenceModele = m.referenceModele  where c.nomCategorie='" + cb_categorie.Text + "' " + filtre + " group by m.referenceModele,taille,designation,marqueModele,prixModele";
+                    ///////string req = "SELECT m.referenceModele, taille, designation, marqueModele, prixModele, SUM(mt.qteStock) AS qteStock FROM modele m left JOIN matla mt ON mt.referenceModele = m.referenceModele  where c.nomCategorie='" + cb_categorie.Text + "' " + filtre + " group by m.referenceModele,taille,designation,marqueModele,prixModele";
+                    ////string req = "SELECT m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,COALESCE(SUM(mt.qteStock), 0) AS QuantiteEnStock,COALESCE(( SELECT SUM(dl.qteLivre) FROM detailLivraison dl JOIN matla mt_dl ON mt_dl.idMatla = dl.idMatla WHERE mt_dl.referenceModele = m.referenceModele), 0) AS QuantiteLivree, COALESCE(SUM(mt.nbPieceSorter), 0) - COALESCE(( SELECT SUM(dl.qteLivre) FROM detailLivraison dl JOIN matla mt_dl ON mt_dl.idMatla = dl.idMatla  WHERE mt_dl.referenceModele = m.referenceModele ), 0) AS QuantiteRestante FROM modele m LEFT JOIN matla mt ON m.referenceModele = mt.referenceModele inner join categorie c on c.idCategorie=m.idCategorie where c.nomCategorie='" + cb_categorie.Text + "' " + filtre + " GROUP BY m.referenceModele, m.taille, m.designation, m.marqueModele, m.prixModele,dateEntree order by dateEntree desc;";
+                    //string req = "select * from modele m inner join categorie c on c.idCategorie=m.idCategorie where nomCategorie='"+cb_categorie.Text+"' "+filtre+" order by dateEntree desc;";
+                    //string req = "select m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,sum(sm.qteStock) as qteStock,sum(sm.disponible) as disponible from modele m inner join situationModele sm on sm.referenceModele=m.referenceModele inner join categorie c on c.idCategorie=m.idCategorie where nomCategorie='"+cb_categorie.Text+"'" + filtre + " group by m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,dateEntree order by dateEntree desc";
+                    string req = "select m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,ISNULL(sum(mt.qteStock),0) as qteStock,ISNULL(sum(mt.qteStock-nbPieceSorter+entrees),0) as disponible from modele m inner join matla mt on mt.referenceModele=m.referenceModele inner join categorie c on c.idCategorie=m.idCategorie where nomCategorie='"+cb_categorie.Text+"' " + filtre + " group by m.referenceModele,m.taille,m.designation,m.marqueModele,m.prixModele,dateEntree order by dateEntree desc";
                     SqlCommand com = new SqlCommand(req, cn);
                     SqlDataReader dr = com.ExecuteReader();
                     dgv_modeles.Rows.Clear();
                     while (dr.Read())
                     {
-                        dgv_modeles.Rows.Add(dr["referenceModele"], dr["taille"], dr["designation"], dr["marqueModele"], dr["prixModele"], dr["QuantiteRestante"], dr["QuantiteEnStock"]);
+                        dgv_modeles.Rows.Add(dr["referenceModele"], dr["taille"], dr["designation"], dr["marqueModele"], dr["prixModele"],Convert.ToInt32(dr["qteStock"]), dr["disponible"]);
                     }
                     dr.Close();
                     dr = null;
@@ -166,7 +172,7 @@ namespace projet_gestionEntreprise
                     cn = null;
                 }
                 colorOfCellsQteStock();
-                
+
             }
             catch (Exception error) { MessageBox.Show(error.Message.ToString()); }
         }
@@ -259,7 +265,8 @@ namespace projet_gestionEntreprise
             }
             else
             {
-                fillGridModele(" and m.referenceModele='" + txt_rechercher.Text + "' or m.designation like '%"+txt_rechercher.Text+"%'");
+                string categorie = cb_categorie.Text;
+                fillGridModele(" and c.nomCategorie='"+categorie+"' and (m.referenceModele='" + txt_rechercher.Text + "' or m.designation like '%"+txt_rechercher.Text+"%')");
             }
         }
 
@@ -423,12 +430,57 @@ namespace projet_gestionEntreprise
             //string filtre = "{modele.referenceModele}=" + dgv_modeles.CurrentRow.Cells[0].Value;
             //imprimer(new etiquette(),"",filtre);
 
-            etq cr = new etq();
+            //etq cr = new etq();
+            //cr.Refresh();
+            //cr.SetDatabaseLogon("sa", "123456");
+            ////   
+            //string filtre = "{modele.referenceModele}='" + dgv_modeles.CurrentRow.Cells[0].Value+"'";
+            //frmImpression f = new frmImpression(cr, filtre);
+            //f.ShowDialog();
+
+
+            lstExistModel cr = new lstExistModel();
             cr.Refresh();
             cr.SetDatabaseLogon("sa", "123456");
             //   
-            string filtre = "{modele.referenceModele}='" + dgv_modeles.CurrentRow.Cells[0].Value+"'";
+            string filtre = "{categorie.nomCategorie}='" + cb_categorie.Text+"'";
             frmImpression f = new frmImpression(cr, filtre);
+            f.ShowDialog();
+        }
+
+        private void txt_rechercher_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13) btn_rechercher.PerformClick();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+            string ch = Application.StartupPath + @"\imageModeles\";
+
+            listeModeleCommander cr = new listeModeleCommander();
+            cr.Refresh();
+            cr.SetDatabaseLogon("sa", "123456");
+
+            cr.SetParameterValue("chemain", ch);
+            //cr.SetParameterValue("entree", entree);
+            //cr.SetParameterValue("reste", reste);
+            //cr.SetParameterValue("resteMatla", resteMatla);
+            //   
+            string filtre = "{categorie.nomCategorie}='" + cb_categorie.Text + "' and {detailCommande.statutLivraison}=false";
+            frmImpression f = new frmImpression(cr, filtre);
+            f.ShowDialog();
+        }
+
+        private void btn_situationsModeles_Click(object sender, EventArgs e)
+        {
+            string refMod = dgv_modeles.CurrentRow.Cells[0].Value.ToString();
+            frmListeSituationModele f = new frmListeSituationModele(refMod);
             f.ShowDialog();
         }
     }
