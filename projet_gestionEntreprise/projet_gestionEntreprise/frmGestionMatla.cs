@@ -307,10 +307,9 @@ namespace projet_gestionEntreprise
             f.ShowDialog();
         }
 
-        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
+        private void chk_statutTerminer_CheckedChanged(object sender, EventArgs e)
         {
             refresh("");
-            txt_rechercher.Text = "";
         }
     }
 }

@@ -39,6 +39,7 @@ namespace projet_gestionEntreprise
                 txt_qteSorter.Text = dr["nbPieceSorter"].ToString();
                 txt_entree.Text = dr["entrees"].ToString();
                 txt_qteStock.Text = dr["qteStock"].ToString();
+                txt_disponible.Text = dr["disponible"].ToString();
             }
         }
 

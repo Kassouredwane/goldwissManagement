@@ -31,7 +31,7 @@ namespace projet_gestionEntreprise
             cr.SetDatabaseLogon("sa", "123456");
 
             //string filtre = "{commande.idCommande}=" + dgv_commandeClient.CurrentRow.Cells[2].Value;
-            string filtre = "{commande.idCommande}=" + idC + " and {detailCommande.statutLivraison}=false ";
+            string filtre = "{commande.idCommande}=" + idC + " and {detailCommande.statutLivraison}=false and {detailCommande.annuler}=false";
             frmImpression f = new frmImpression(cr, filtre);
             f.ShowDialog();
         }

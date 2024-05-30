@@ -231,15 +231,15 @@ namespace projet_gestionEntreprise
                     // Check if the cells are not null before accessing their Value property
                     if (dgv_commandeClient.CurrentRow.Cells[0] != null && dgv_detailCommandeClient.CurrentRow.Cells[0] != null)
                     {
-                        string idCommande = dgv_commandeClient.CurrentRow.Cells[0].Value.ToString();
-                        string referenceModele = dgv_detailCommandeClient.CurrentRow.Cells[0].Value.ToString();
+                        //string idCommande = dgv_commandeClient.CurrentRow.Cells[0].Value.ToString();
+                        //string referenceModele = dgv_detailCommandeClient.CurrentRow.Cells[0].Value.ToString();
 
-                        string req5 = "delete from detailCommande where idCommande = @idCommande and referenceModele = @referenceModele";
+                        string req5 = "delete from detailCommande where idDetailCommande = @idDetailCommande";
                         SqlCommand com5 = new SqlCommand(req5, cn5);
 
                         // Use parameterized queries to prevent SQL injection
-                        com5.Parameters.AddWithValue("@idCommande", idCommande);
-                        com5.Parameters.AddWithValue("@referenceModele", referenceModele);
+                        com5.Parameters.AddWithValue("@idDetailCommande", dgv_detailCommandeClient.CurrentRow.Cells[0].Value);
+                        //com5.Parameters.AddWithValue("@referenceModele", referenceModele);
 
                         com5.ExecuteNonQuery();
                         com5 = null;

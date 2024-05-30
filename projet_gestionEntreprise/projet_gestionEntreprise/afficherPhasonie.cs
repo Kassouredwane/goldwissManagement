@@ -66,8 +66,9 @@ namespace projet_gestionEntreprise
 
             //    
             //string filtre = "{matla.statutComplet}=false and {phasonie.idPhasonie}=" + Convert.ToInt32(lst_phasonie.SelectedValue) + " and {matla.entrees}=0";
-            //string filtre = "{matla.statutComplet}=false and {phasonie.idPhasonie}=" + Convert.ToInt32(lst_phasonie.SelectedValue);
-            string filtre = "{phasonie.idPhasonie}=" + Convert.ToInt32(lst_phasonie.SelectedValue);
+            string filtre = "{matla.statutComplet}=false and {phasonie.idPhasonie}=" + Convert.ToInt32(lst_phasonie.SelectedValue);
+            //string filtre = "{matla.idMatla}>=450 and {phasonie.idPhasonie}=" + Convert.ToInt32(lst_phasonie.SelectedValue);
+            //string filtre = "{phasonie.idPhasonie}=" + Convert.ToInt32(lst_phasonie.SelectedValue);
             frmImpression f = new frmImpression(cr, filtre);
             f.ShowDialog();
 

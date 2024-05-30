@@ -86,7 +86,7 @@ namespace projet_gestionEntreprise
 
         private void btn_modifier_Click(object sender, EventArgs e)
         {
-            int idTr = Convert.ToInt32(dgv_stockage.CurrentRow.Cells[8].Value);
+            int idTr = Convert.ToInt32(dgv_stockage.CurrentRow.Cells[9].Value);
             frmModifierTransferePhasonieToStock f = new frmModifierTransferePhasonieToStock(idTr);
             f.ShowDialog();
         }

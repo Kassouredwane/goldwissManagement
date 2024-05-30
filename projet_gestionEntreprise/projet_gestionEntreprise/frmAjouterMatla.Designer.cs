@@ -116,7 +116,6 @@ namespace projet_gestionEntreprise
             this.txt_idMatla.Name = "txt_idMatla";
             this.txt_idMatla.PasswordChar = '\0';
             this.txt_idMatla.PlaceholderText = "";
-            this.txt_idMatla.ReadOnly = true;
             this.txt_idMatla.SelectedText = "";
             this.txt_idMatla.Size = new System.Drawing.Size(184, 23);
             this.txt_idMatla.TabIndex = 27;

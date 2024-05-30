@@ -254,7 +254,7 @@ namespace projet_gestionEntreprise
             //////////////imprimer(cr);
 
 
-            bonLivraison cr = new bonLivraison();
+            bonDeLivraison cr = new bonDeLivraison();
             //cr.Refresh();
             cr.SetDatabaseLogon("sa", "123456");
 

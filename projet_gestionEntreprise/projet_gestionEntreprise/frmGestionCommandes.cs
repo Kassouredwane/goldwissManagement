@@ -76,13 +76,13 @@ namespace projet_gestionEntreprise
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
             //string req = "select dc.referenceModele,designation,qteAchat,prixAchat,statutLivraison from detailCommande dc inner join modele m on m.referenceModele=dc.referenceModele where idCommande=" + dgv_commandeClient.CurrentRow.Cells[2].Value;
-            string req = "select dc.referenceModele,m.designation,qteAchat,prixAchat,qteLivre,dc.designation as design,statutLivraison,soldeLivraison from detailCommande dc inner join modele m on m.referenceModele=dc.referenceModele where idCommande=" + dgv_commandeClient.CurrentRow.Cells[2].Value;
+            string req = "select dc.idDetailCommande,dc.referenceModele,m.designation,qteAchat,prixAchat,qteLivre,dc.designation as design,statutLivraison,soldeLivraison,annuler from detailCommande dc inner join modele m on m.referenceModele=dc.referenceModele where idCommande=" + dgv_commandeClient.CurrentRow.Cells[2].Value;
             SqlCommand com = new SqlCommand(req, cn);
             SqlDataReader dr = com.ExecuteReader();
             dgv_detailCommandeClient.Rows.Clear();
             while (dr.Read())
             {
-                dgv_detailCommandeClient.Rows.Add(dr["referenceModele"], dr["designation"], dr["qteAchat"], dr["prixAchat"], dr["qteLivre"], dr["design"], dr["statutLivraison"], dr["soldeLivraison"]);
+                dgv_detailCommandeClient.Rows.Add(dr["idDetailCommande"],dr["referenceModele"], dr["designation"], dr["qteAchat"], dr["prixAchat"], dr["qteLivre"], dr["design"], dr["statutLivraison"], dr["soldeLivraison"], dr["annuler"]);
             }
             dr.Close();
             dr = null;
@@ -350,6 +350,95 @@ namespace projet_gestionEntreprise
         private void chk_archive_CheckedChanged(object sender, EventArgs e)
         {
             refresh("");
+        }
+
+        private void updateStatutAnnulerModele()
+        {
+            bool anyUnchecked = false;
+
+            foreach (DataGridViewRow row in dgv_detailCommandeClient.Rows)
+            {
+                DataGridViewCheckBoxCell cell = row.Cells[9] as DataGridViewCheckBoxCell;
+
+                if (cell != null && Convert.ToBoolean(cell.Value) == false)
+                {
+                    anyUnchecked = true;
+                    break; // Exit the loop as soon as an unchecked checkbox is found
+                }
+            }
+            if (!anyUnchecked)
+            {
+                if (dgv_commandeClient.CurrentRow != null)
+                {
+                    int idCommande = Convert.ToInt32(dgv_commandeClient.CurrentRow.Cells[0].Value);
+
+                    using (SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456"))
+                    {
+                        cn.Open();
+                        using (SqlCommand com = new SqlCommand("UPDATE Commande SET annuler = 1 WHERE idCommande = @idCommande", cn))
+                        {
+                            com.Parameters.AddWithValue("@idCommande", idCommande);
+                            com.ExecuteNonQuery();
+                        }
+                    }
+                    dgv_commandeClient.CurrentRow.Cells[6].Value = true;
+                }
+            }
+            else
+            {
+                if (dgv_commandeClient.CurrentRow != null)
+                {
+                    int idCommande = Convert.ToInt32(dgv_commandeClient.CurrentRow.Cells[0].Value);
+
+                    using (SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456"))
+                    {
+                        cn.Open();
+                        using (SqlCommand com = new SqlCommand("UPDATE Commande SET annuler = 0 WHERE idCommande = @idCommande", cn))
+                        {
+                            com.Parameters.AddWithValue("@idCommande", idCommande);
+                            com.ExecuteNonQuery();
+                        }
+                    }
+                    dgv_commandeClient.CurrentRow.Cells[6].Value = false;
+                }
+            }
+
+        }
+
+        private void dgv_detailCommandeClient_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Check if the column corresponds to the checkbox column
+                DataGridViewColumn column = dgv_detailCommandeClient.Columns[e.ColumnIndex];
+                if (column is DataGridViewCheckBoxColumn)
+                {
+                    // Get the updated value from the DataGridView (true/false)
+                    bool updatedValue = (bool)dgv_detailCommandeClient.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+                    // Get the ID of the Commande from the DataGridView
+                    //string referenceModele = dgv_detailCommandeClient.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                    // Update the database
+                    SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
+                    cn.Open();
+                    //SqlCommand com = new SqlCommand("UPDATE detailCommande SET statutLivraison = @UpdatedValue WHERE idCommande = @idCommande and referenceModele=@referenceModele", cn);
+                    //com.Parameters.AddWithValue("@UpdatedValue", updatedValue);
+                    //com.Parameters.AddWithValue("@idCommande", dgv_commandeClient.CurrentRow.Cells[0].Value);
+                    //com.Parameters.AddWithValue("@referenceModele", referenceModele);
+                    SqlCommand com = new SqlCommand("UPDATE detailCommande SET annuler = @UpdatedValue WHERE idDetailCommande=@idDetailCommande", cn);
+                    com.Parameters.AddWithValue("@UpdatedValue", updatedValue);
+                    com.Parameters.AddWithValue("@idDetailCommande", dgv_detailCommandeClient.CurrentRow.Cells[0].Value);
+                    SqlDataReader dr = com.ExecuteReader();
+                    dr.Close();
+                    dr = null;
+                    com.ExecuteNonQuery();
+                    com = null;
+                    cn.Close();
+                    cn = null;
+                }
+            }
+            updateStatutAnnulerModele();
         }
     }
 }

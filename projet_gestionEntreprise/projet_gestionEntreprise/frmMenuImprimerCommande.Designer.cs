@@ -104,7 +104,7 @@ namespace projet_gestionEntreprise
             // 
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(30, 147);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(31, 147);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(133, 17);
             this.guna2HtmlLabel2.TabIndex = 4;
@@ -114,11 +114,11 @@ namespace projet_gestionEntreprise
             // 
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(196, 147);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(209, 147);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(155, 17);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(132, 17);
             this.guna2HtmlLabel3.TabIndex = 5;
-            this.guna2HtmlLabel3.Text = "Les Reste Des Modèles";
+            this.guna2HtmlLabel3.Text = "Non Soldé Livraison";
             // 
             // guna2Button5
             // 

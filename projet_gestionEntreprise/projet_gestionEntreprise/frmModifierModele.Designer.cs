@@ -298,7 +298,7 @@
             this.btn_annuler.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_annuler.Size = new System.Drawing.Size(142, 29);
             this.btn_annuler.TabIndex = 57;
-            this.btn_annuler.Text = "Annuler";
+            this.btn_annuler.Text = "Fermer";
             this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
             // 
             // btn_valider

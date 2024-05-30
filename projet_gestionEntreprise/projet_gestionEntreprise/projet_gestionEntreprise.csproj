@@ -75,6 +75,12 @@
       <DependentUpon>bonCommande.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="bonDeLivraison.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bonDeLivraison.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="bonLivraison.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -499,6 +505,10 @@
     <EmbeddedResource Include="bonCommande.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>bonCommande.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bonDeLivraison.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>bonDeLivraison.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="bonLivraison.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

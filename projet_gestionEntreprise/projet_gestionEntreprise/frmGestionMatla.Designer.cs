@@ -34,19 +34,6 @@ namespace projet_gestionEntreprise
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionMatla));
             this.dgv_matla = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.cb_recherche = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2CheckBox2 = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.btn_livraisonMatla = new Guna.UI2.WinForms.Guna2Button();
-            this.frm_supprimerTous = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_supprimer = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_ajouter = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_refresh = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_rechercher = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_affichePhasonie = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +46,19 @@ namespace projet_gestionEntreprise
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cb_recherche = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_rechercher = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2CheckBox2 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.btn_livraisonMatla = new Guna.UI2.WinForms.Guna2Button();
+            this.frm_supprimerTous = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_supprimer = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_modifier = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_ajouter = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_refresh = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_rechercher = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_affichePhasonie = new Guna.UI2.WinForms.Guna2Button();
+            this.chk_statutTerminer = new Guna.UI2.WinForms.Guna2CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_matla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,6 +126,66 @@ namespace projet_gestionEntreprise
             this.dgv_matla.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_matla.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgv_matla.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_matla_CellFormatting);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID Matla";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Ref Modele";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Detailleur";
+            this.Column3.Name = "Column3";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Date Detailler";
+            this.Column6.Name = "Column6";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Phasonie";
+            this.Column4.Name = "Column4";
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Prix Phasonie";
+            this.Column8.Name = "Column8";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "N° Bon";
+            this.Column9.Name = "Column9";
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Statut Matla";
+            this.Column13.Name = "Column13";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Sortie";
+            this.Column7.Name = "Column7";
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Entrée";
+            this.Column10.Name = "Column10";
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Qte Stock";
+            this.Column12.Name = "Column12";
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "En Attente";
+            this.Column11.Name = "Column11";
             // 
             // cb_recherche
             // 
@@ -337,91 +397,31 @@ namespace projet_gestionEntreprise
             this.btn_affichePhasonie.Text = "Afficher Phasonie";
             this.btn_affichePhasonie.Click += new System.EventHandler(this.btn_affichePhasonie_Click);
             // 
-            // guna2CheckBox1
+            // chk_statutTerminer
             // 
-            this.guna2CheckBox1.AutoSize = true;
-            this.guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CheckBox1.CheckedState.BorderRadius = 0;
-            this.guna2CheckBox1.CheckedState.BorderThickness = 0;
-            this.guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2CheckBox1.Location = new System.Drawing.Point(153, 832);
-            this.guna2CheckBox1.Name = "guna2CheckBox1";
-            this.guna2CheckBox1.Size = new System.Drawing.Size(110, 17);
-            this.guna2CheckBox1.TabIndex = 73;
-            this.guna2CheckBox1.Text = "Matla Terminer";
-            this.guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CheckBox1.UncheckedState.BorderRadius = 0;
-            this.guna2CheckBox1.UncheckedState.BorderThickness = 0;
-            this.guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CheckBox1.CheckedChanged += new System.EventHandler(this.guna2CheckBox1_CheckedChanged);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID Matla";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Ref Modele";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Detailleur";
-            this.Column3.Name = "Column3";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Date Detailler";
-            this.Column6.Name = "Column6";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Phasonie";
-            this.Column4.Name = "Column4";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Prix Phasonie";
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "N° Bon";
-            this.Column9.Name = "Column9";
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "Statut Matla";
-            this.Column13.Name = "Column13";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Sortie";
-            this.Column7.Name = "Column7";
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Entrée";
-            this.Column10.Name = "Column10";
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Qte Stock";
-            this.Column12.Name = "Column12";
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "En Attente";
-            this.Column11.Name = "Column11";
+            this.chk_statutTerminer.AutoSize = true;
+            this.chk_statutTerminer.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chk_statutTerminer.CheckedState.BorderRadius = 0;
+            this.chk_statutTerminer.CheckedState.BorderThickness = 0;
+            this.chk_statutTerminer.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chk_statutTerminer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_statutTerminer.Location = new System.Drawing.Point(153, 832);
+            this.chk_statutTerminer.Name = "chk_statutTerminer";
+            this.chk_statutTerminer.Size = new System.Drawing.Size(110, 17);
+            this.chk_statutTerminer.TabIndex = 73;
+            this.chk_statutTerminer.Text = "Matla Terminer";
+            this.chk_statutTerminer.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chk_statutTerminer.UncheckedState.BorderRadius = 0;
+            this.chk_statutTerminer.UncheckedState.BorderThickness = 0;
+            this.chk_statutTerminer.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chk_statutTerminer.CheckedChanged += new System.EventHandler(this.chk_statutTerminer_CheckedChanged);
             // 
             // frmGestionMatla
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1254, 879);
-            this.Controls.Add(this.guna2CheckBox1);
+            this.Controls.Add(this.chk_statutTerminer);
             this.Controls.Add(this.btn_affichePhasonie);
             this.Controls.Add(this.btn_livraisonMatla);
             this.Controls.Add(this.frm_supprimerTous);
@@ -460,7 +460,7 @@ namespace projet_gestionEntreprise
         private Guna.UI2.WinForms.Guna2Button frm_supprimerTous;
         private Guna.UI2.WinForms.Guna2Button btn_livraisonMatla;
         private Guna.UI2.WinForms.Guna2Button btn_affichePhasonie;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
+        private Guna.UI2.WinForms.Guna2CheckBox chk_statutTerminer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
