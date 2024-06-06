@@ -160,3 +160,4 @@ C:\Users\user\Desktop\redwane kassou\Projet\projet gestionEntrprise\projet_gesti
 C:\Users\user\Desktop\redwane kassou\Projet\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmGestionRetour.resources
 C:\Users\user\Desktop\redwane kassou\Projet\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmAjouterDetailRetour.resources
 C:\Users\user\Desktop\redwane kassou\Projet\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmAjouterRetour.resources
+C:\Users\user\Desktop\redwane kassou\Projet\projet gestionEntrprise\projet_gestionEntreprise\projet_gestionEntreprise\obj\Debug\projet_gestionEntreprise.frmModifierDetailLivraison.resources

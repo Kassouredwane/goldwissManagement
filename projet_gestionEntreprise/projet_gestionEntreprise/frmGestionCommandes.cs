@@ -438,7 +438,7 @@ namespace projet_gestionEntreprise
                     cn = null;
                 }
             }
-            updateStatutAnnulerModele();
+            //updateStatutAnnulerModele();
         }
     }
 }

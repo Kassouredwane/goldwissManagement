@@ -268,7 +268,9 @@ namespace projet_gestionEntreprise
         {
             if (dgv_detailLivraison.Columns[e.ColumnIndex].Name== "Column12")
             {
-                MessageBox.Show("reference : "+dgv_detailLivraison.CurrentRow.Cells[0].Value);
+                int idDl = Convert.ToInt32(dgv_detailLivraison.CurrentRow.Cells[6].Value);
+                frmModifierDetailLivraison f = new frmModifierDetailLivraison(idDl);
+                f.ShowDialog();
             }
             if (dgv_detailLivraison.Columns[e.ColumnIndex].Name == "Column14")
             {

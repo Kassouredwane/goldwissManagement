@@ -24,7 +24,7 @@ namespace projet_gestionEntreprise
         {
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
-            string req = "select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,dateCommande,qteAchat,prixAchat,cmd.statutLivraison from client c inner join commande cmd on cmd.idClient=c.idClient inner join detailCommande dc on dc.idCommande=cmd.idCommande inner join modele m on m.referenceModele=dc.referenceModele where m.referenceModele='" + refMd + "' and dc.statutLivraison=0 " + filtre;
+            string req = "select c.idClient,nomClient+' '+prenomClient as nomComplet,cmd.idCommande,dateCommande,qteAchat,prixAchat,cmd.statutLivraison from client c inner join commande cmd on cmd.idClient=c.idClient inner join detailCommande dc on dc.idCommande=cmd.idCommande inner join modele m on m.referenceModele=dc.referenceModele where m.referenceModele='" + refMd + "' and dc.statutLivraison=0  and dc.annuler=0 " + filtre;
             SqlCommand com = new SqlCommand(req, cn);
             SqlDataReader dr = com.ExecuteReader();
             dgv_clients.Rows.Clear();
@@ -194,7 +194,7 @@ namespace projet_gestionEntreprise
             //cr.SetParameterValue("reste", reste);
             //cr.SetParameterValue("resteMatla", resteMatla);
             //   
-            string filtre = "{modele.referenceModele}='" + refMd + "' and {detailCommande.statutLivraison}=false";
+            string filtre = "{modele.referenceModele}='" + refMd + "' and {detailCommande.statutLivraison}=false and {detailCommande.annuler}=false";
             frmImpression f = new frmImpression(cr, filtre);
               f.ShowDialog();
         }
