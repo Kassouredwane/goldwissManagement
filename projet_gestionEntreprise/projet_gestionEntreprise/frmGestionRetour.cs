@@ -21,7 +21,7 @@ namespace projet_gestionEntreprise
         {
             SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-F1RSPUR\SQLEXPRESS;Initial Catalog=goldwissDatabase;User ID=sa;Password=123456");
             cn.Open();
-            string req = "select r.idRetour,r.numeroBon,dateRetour,nomClient,r.designation,sum(qteRetour) as qteRetour,sum(dl.prixVente*dr.qteRetour) as totalePrix from retour r left join detailRetour dr on dr.idRetour=r.idRetour inner join detailLivraison dl on dl.idDetailLivraison=dr.idDetailLivraison inner join client c on c.idClient=r.idClient " + filtre+" group by r.idRetour,r.numeroBon,dateRetour,nomClient,r.designation";
+            string req = "select r.idRetour,r.numeroBon,dateRetour,nomClient,r.designation,sum(qteRetour) as qteRetour,sum(dl.prixVente*dr.qteRetour) as totalePrix from retour r left join detailRetour dr on dr.idRetour=r.idRetour inner join detailLivraison dl on dl.idDetailLivraison=dr.idDetailLivraison inner join client c on c.idClient=r.idClient " + filtre+" group by r.idRetour,r.numeroBon,dateRetour,nomClient,r.designation order by idRetour desc";
             SqlCommand com = new SqlCommand(req, cn);
             SqlDataReader dr = com.ExecuteReader();
             dgv_retour.Rows.Clear();
